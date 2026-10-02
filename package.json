@@ -1,0 +1,13 @@
+{
+  "name": "paycheck-calculator",
+  "version": "0.1.0",
+  "description": "US paycheck calculator engine and UI for afreetools.com/finance",
+  "type": "module",
+  "main": "src/engine/index.js",
+  "scripts": {
+    "test": "node --test test/",
+    "generate": "node tools/generate-state-data.mjs"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

@@ -1,0 +1,243 @@
+{
+  "note": "Golden fixtures. Expected values were computed independently (outside this engine's code path) from the tax-data JSON by a separate reference implementation, then reviewed by hand. Do not regenerate expectations by running the engine.",
+  "fixtures": [
+    {
+      "id": "fed-single-75000-ca-2026",
+      "description": "Single, $75k salary, biweekly, California, no deductions",
+      "tax_year": 2026,
+      "inputs": {
+        "pay_type": "salary",
+        "annual_salary": 75000,
+        "pay_frequency": "biweekly",
+        "filing_status": "single",
+        "state": "US-CA"
+      },
+      "expected": {
+        "gross_per_period": 2884.62,
+        "federal_income_tax": 295.0,
+        "social_security": 178.85,
+        "medicare": 41.83,
+        "additional_medicare": 0.0,
+        "state_income_tax": 155.53,
+        "net_per_period": 2213.41,
+        "effective_rate": 0.2327
+      },
+      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference over the same tax-data JSON" }
+    },
+    {
+      "id": "fed-single-75000-tx-2026",
+      "description": "Single, $75k salary, biweekly, Texas (no state income tax)",
+      "tax_year": 2026,
+      "inputs": {
+        "pay_type": "salary",
+        "annual_salary": 75000,
+        "pay_frequency": "biweekly",
+        "filing_status": "single",
+        "state": "US-TX"
+      },
+      "expected": {
+        "gross_per_period": 2884.62,
+        "federal_income_tax": 295.0,
+        "social_security": 178.85,
+        "medicare": 41.83,
+        "additional_medicare": 0.0,
+        "state_income_tax": 0.0,
+        "net_per_period": 2368.94,
+        "effective_rate": 0.1788
+      },
+      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+    },
+    {
+      "id": "fed-single-40000-ca-monthly-2026",
+      "description": "Single, $40k salary, monthly, California",
+      "tax_year": 2026,
+      "inputs": {
+        "pay_type": "salary",
+        "annual_salary": 40000,
+        "pay_frequency": "monthly",
+        "filing_status": "single",
+        "state": "US-CA"
+      },
+      "expected": {
+        "gross_per_period": 3333.33,
+        "federal_income_tax": 218.33,
+        "social_security": 206.67,
+        "medicare": 48.33,
+        "additional_medicare": 0.0,
+        "state_income_tax": 128.45,
+        "net_per_period": 2731.55,
+        "effective_rate": 0.1805
+      },
+      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+    },
+    {
+      "id": "fed-mfj-150000-ca-biweekly-2026",
+      "description": "Married filing jointly, $150k, biweekly, California",
+      "tax_year": 2026,
+      "inputs": {
+        "pay_type": "salary",
+        "annual_salary": 150000,
+        "pay_frequency": "biweekly",
+        "filing_status": "mfj",
+        "state": "US-CA"
+      },
+      "expected": {
+        "gross_per_period": 5769.23,
+        "federal_income_tax": 590.0,
+        "social_security": 357.69,
+        "medicare": 83.65,
+        "additional_medicare": 0.0,
+        "state_income_tax": 311.07,
+        "net_per_period": 4426.82,
+        "effective_rate": 0.2327
+      },
+      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+    },
+    {
+      "id": "fed-single-200000-tx-biweekly-2026",
+      "description": "Single, $200k, biweekly, Texas — Additional Medicare threshold boundary",
+      "tax_year": 2026,
+      "inputs": {
+        "pay_type": "salary",
+        "annual_salary": 200000,
+        "pay_frequency": "biweekly",
+        "filing_status": "single",
+        "state": "US-TX"
+      },
+      "expected": {
+        "gross_per_period": 7692.31,
+        "federal_income_tax": 1412.85,
+        "social_security": 439.96,
+        "medicare": 111.54,
+        "additional_medicare": 0.0,
+        "state_income_tax": 0.0,
+        "net_per_period": 5727.96,
+        "effective_rate": 0.2554
+      },
+      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+    },
+    {
+      "id": "fed-single-30000-ca-weekly-2026",
+      "description": "Single, $30k, weekly, California",
+      "tax_year": 2026,
+      "inputs": {
+        "pay_type": "salary",
+        "annual_salary": 30000,
+        "pay_frequency": "weekly",
+        "filing_status": "single",
+        "state": "US-CA"
+      },
+      "expected": {
+        "gross_per_period": 576.92,
+        "federal_income_tax": 27.31,
+        "social_security": 35.77,
+        "medicare": 8.37,
+        "additional_medicare": 0.0,
+        "state_income_tax": 15.89,
+        "net_per_period": 489.59,
+        "effective_rate": 0.1514
+      },
+      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+    },
+    {
+      "id": "fed-single-75000-ca-biweekly-2025",
+      "description": "Prior tax year: single, $75k, biweekly, California (2025 tables)",
+      "tax_year": 2025,
+      "inputs": {
+        "pay_type": "salary",
+        "annual_salary": 75000,
+        "pay_frequency": "biweekly",
+        "filing_status": "single",
+        "state": "US-CA"
+      },
+      "expected": {
+        "gross_per_period": 2884.62,
+        "federal_income_tax": 312.08,
+        "social_security": 178.85,
+        "medicare": 41.83,
+        "additional_medicare": 0.0,
+        "state_income_tax": 155.53,
+        "net_per_period": 2196.33,
+        "effective_rate": 0.2386
+      },
+      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+    },
+    {
+      "id": "deduction-401k-75000-ca-biweekly-2026",
+      "description": "Single, $75k, CA, traditional 401(k) $500/period (reduces income tax AND FICA)",
+      "tax_year": 2026,
+      "inputs": {
+        "pay_type": "salary",
+        "annual_salary": 75000,
+        "pay_frequency": "biweekly",
+        "filing_status": "single",
+        "state": "US-CA",
+        "deductions": [
+          {
+            "type": "traditional_401k",
+            "amount": 500,
+            "frequency": "per_period",
+            "reduces_income_tax": true,
+            "reduces_fica": true
+          }
+        ]
+      },
+      "expected": {
+        "gross_per_period": 2884.62,
+        "federal_income_tax": 202.31,
+        "social_security": 147.85,
+        "medicare": 34.58,
+        "additional_medicare": 0.0,
+        "state_income_tax": 119.78,
+        "pre_tax_deductions": 500.0,
+        "net_per_period": 1880.1,
+        "effective_rate": 0.1749
+      },
+      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+    },
+    {
+      "id": "hourly-25-45h-tx-biweekly-2026",
+      "description": "Hourly $25, 45 hrs/week, biweekly, Texas — 40 regular + 5 overtime @1.5x",
+      "tax_year": 2026,
+      "inputs": {
+        "pay_type": "hourly",
+        "hourly_rate": 25,
+        "hours_per_week": 40,
+        "overtime_hours": 5,
+        "overtime_multiplier": 1.5,
+        "pay_frequency": "biweekly",
+        "filing_status": "single",
+        "state": "US-TX"
+      },
+      "expected": {
+        "gross_per_period": 1187.5,
+        "additional_medicare": 0.0,
+        "state_income_tax": 0.0
+      },
+      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "gross = (40*25 + 5*25*1.5) = 1187.50; tax lines covered by other fixtures" }
+    },
+    {
+      "id": "edge-zero-salary-tx-2026",
+      "description": "Zero salary — must not throw or produce negative/NaN",
+      "tax_year": 2026,
+      "inputs": {
+        "pay_type": "salary",
+        "annual_salary": 0,
+        "pay_frequency": "biweekly",
+        "filing_status": "single",
+        "state": "US-TX"
+      },
+      "expected": {
+        "gross_per_period": 0.0,
+        "federal_income_tax": 0.0,
+        "social_security": 0.0,
+        "medicare": 0.0,
+        "additional_medicare": 0.0,
+        "state_income_tax": 0.0,
+        "net_per_period": 0.0,
+        "effective_rate": 0.0
+      },
+      "verified": { "by": "edge-case reasoning", "date": "2026-10-02", "method": "trivial identity" }
+    }
+  ]
+}

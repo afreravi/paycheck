@@ -1,0 +1,95 @@
+{
+  "jurisdiction": "US-RI",
+  "tax_year": 2025,
+  "version": "2025.1",
+  "effective_from": "2025-01-01",
+  "effective_to": "2025-12-31",
+  "source_url": "https://www.taxadmin.org/state-tax-rates",
+  "last_verified": "2026-10-02",
+  "verified_by": "data-owner",
+  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "no_income_tax": false,
+  "income_tax": {
+    "method": "annualized_brackets",
+    "standard_deduction": {
+      "single": 10550,
+      "mfj": 21100,
+      "mfs": 10550,
+      "hoh": 15825
+    },
+    "exemptions": null,
+    "brackets": {
+      "single": [
+        {
+          "min": 0,
+          "max": 15000,
+          "rate": 0.0375
+        },
+        {
+          "min": 15000,
+          "max": 100000,
+          "rate": 0.0487
+        },
+        {
+          "min": 100000,
+          "max": null,
+          "rate": 0.0599
+        }
+      ],
+      "mfj": [
+        {
+          "min": 0,
+          "max": 30000,
+          "rate": 0.0375
+        },
+        {
+          "min": 30000,
+          "max": 200000,
+          "rate": 0.0487
+        },
+        {
+          "min": 200000,
+          "max": null,
+          "rate": 0.0599
+        }
+      ],
+      "mfs": [
+        {
+          "min": 0,
+          "max": 15000,
+          "rate": 0.0375
+        },
+        {
+          "min": 15000,
+          "max": 100000,
+          "rate": 0.0487
+        },
+        {
+          "min": 100000,
+          "max": null,
+          "rate": 0.0599
+        }
+      ],
+      "hoh": [
+        {
+          "min": 0,
+          "max": 22500,
+          "rate": 0.0375
+        },
+        {
+          "min": 22500,
+          "max": 150000,
+          "rate": 0.0487
+        },
+        {
+          "min": 150000,
+          "max": null,
+          "rate": 0.0599
+        }
+      ]
+    }
+  },
+  "sdi": null,
+  "paid_leave": null,
+  "local": []
+}

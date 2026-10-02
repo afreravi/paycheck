@@ -1,0 +1,16 @@
+{
+  "jurisdiction": "US-AK",
+  "tax_year": 2025,
+  "version": "2025.1",
+  "effective_from": "2025-01-01",
+  "effective_to": "2025-12-31",
+  "source_url": "https://www.taxadmin.org/state-tax-rates",
+  "last_verified": "2026-10-02",
+  "verified_by": "data-owner",
+  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "no_income_tax": true,
+  "income_tax": null,
+  "sdi": null,
+  "paid_leave": null,
+  "local": []
+}

@@ -1,0 +1,95 @@
+{
+  "jurisdiction": "US-SC",
+  "tax_year": 2026,
+  "version": "2026.1",
+  "effective_from": "2026-01-01",
+  "effective_to": null,
+  "source_url": "https://www.taxadmin.org/state-tax-rates",
+  "last_verified": "2026-10-02",
+  "verified_by": "data-owner",
+  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "no_income_tax": false,
+  "income_tax": {
+    "method": "annualized_brackets",
+    "standard_deduction": {
+      "single": 14600,
+      "mfj": 29200,
+      "mfs": 14600,
+      "hoh": 21900
+    },
+    "exemptions": null,
+    "brackets": {
+      "single": [
+        {
+          "min": 0,
+          "max": 15000,
+          "rate": 0
+        },
+        {
+          "min": 15000,
+          "max": 100000,
+          "rate": 0.031
+        },
+        {
+          "min": 100000,
+          "max": null,
+          "rate": 0.062
+        }
+      ],
+      "mfj": [
+        {
+          "min": 0,
+          "max": 30000,
+          "rate": 0
+        },
+        {
+          "min": 30000,
+          "max": 200000,
+          "rate": 0.031
+        },
+        {
+          "min": 200000,
+          "max": null,
+          "rate": 0.062
+        }
+      ],
+      "mfs": [
+        {
+          "min": 0,
+          "max": 15000,
+          "rate": 0
+        },
+        {
+          "min": 15000,
+          "max": 100000,
+          "rate": 0.031
+        },
+        {
+          "min": 100000,
+          "max": null,
+          "rate": 0.062
+        }
+      ],
+      "hoh": [
+        {
+          "min": 0,
+          "max": 22500,
+          "rate": 0
+        },
+        {
+          "min": 22500,
+          "max": 150000,
+          "rate": 0.031
+        },
+        {
+          "min": 150000,
+          "max": null,
+          "rate": 0.062
+        }
+      ]
+    }
+  },
+  "sdi": null,
+  "paid_leave": null,
+  "local": []
+}
