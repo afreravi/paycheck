@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run golden fixtures and invariants
+        run: node --test test/calculator.test.js
+      - name: Verify build succeeds and is self-contained
+        run: |
+          node tools/build.mjs
+          test -s dist/paycheck-calculator.html
+          if grep -qE 'https?://(cdn|unpkg|jsdelivr|fonts\.googleapis)' dist/paycheck-calculator.html; then
+            echo "::error::Build must not reference external CDNs"; exit 1
+          fi
+      - name: Verify state data is current with the generator
+        run: |
+          node tools/generate-state-data.mjs
+          if ! git diff --quiet src/data/states; then
+            echo "::error::state data is stale — run node tools/generate-state-data.mjs and commit"; exit 1
+          fi
