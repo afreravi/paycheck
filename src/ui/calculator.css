@@ -75,6 +75,9 @@
 .pc-disclaimer { font-size: 0.8125rem; color: var(--pc-muted); background: var(--pc-surface); border-radius: 8px; padding: 10px 12px; }
 .pc-updated { font-size: 0.75rem; color: var(--pc-muted); }
 
+/* Intro prose lives outside .pc-app, so it must not inherit its scoped vars. */
+.pc-intro { margin: 0 0 16px; max-width: 68ch; line-height: 1.6; }
+
 @media (max-width: 420px) {
   .pc-net-value { font-size: 1.85rem; }
   .pc-app { padding: 12px; }

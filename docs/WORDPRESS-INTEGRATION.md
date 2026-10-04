@@ -68,7 +68,45 @@ Final path: `https://afreetools.com/wp-content/uploads/tools/paycheck-engine.js`
 
 Your URL is now `afreetools.com/finance/paycheck-calculator`.
 
-> **If the permalink still shows as a top-level URL after selecting the parent**, the parent page hasn't published yet, or the permalink needs re-saving. Save as draft, confirm the parent is published, then set the permalink again.
+### Verify the parent actually saved
+
+This is the step most likely to silently fail. After publishing, **open the page on the
+front end and look at the URL**. If it is `afreetools.com/paycheck-calculator` with no
+`/finance/` segment, the parent did not save.
+
+Check it directly:
+
+```
+https://afreetools.com/wp-json/wp/v2/pages?slug=paycheck-calculator&_fields=id,slug,link,parent
+```
+
+`"parent":0` means the parent did not save. Fix it by:
+
+1. **Pages → All Pages**, confirm **Finance** is published (not draft)
+2. Re-open the calculator Page, re-select **Parent: Finance**, click **Update**
+3. If the URL still won't nest, the theme has a custom permalink filter — tell me and
+   I'll adapt the bundle to a flat URL instead
+
+> Do not skip this. The internal links, the breadcrumb, and the canonical tag all
+> depend on the nested URL.
+
+---
+
+## Step 3b — Fill in the SEO fields
+
+The calculator's opening text is a form, not prose, so Rank Math's automatic meta
+description falls back to the first form labels and produces nonsense like
+_"Tax year 2026 2025 Pay type Salary (annual) Hourly..."_. Set the fields manually in
+the **Rank Math** panel on the Page:
+
+| Field | Value |
+|---|---|
+| Focus keyword | `paycheck calculator` |
+| SEO title | `Paycheck Calculator - Estimate Your Take-Home Pay` |
+| Meta description | `Free paycheck calculator. Estimate your take-home pay after federal income tax, FICA, and state income tax for all 50 states. No signup.` |
+
+The bundle now includes an intro paragraph above the form. That paragraph is what gives
+the page real opening text — keep it.
 
 ---
 
@@ -129,9 +167,23 @@ Do not put an ad inside the form or between the inputs — it depresses completi
 
 1. Edit the `/calculators` hub Page, add a link to `/finance/paycheck-calculator`
 2. Add the same link to the footer menu or the main nav
-3. In the calculator page, add a short intro paragraph **above** the form with your target terms ("paycheck calculator", "take-home pay", "after taxes")
+3. Add links from related existing tool pages (e.g. the HELOC and Customer Lifetime Value
+   calculators) back to the paycheck calculator
 
-Step 3 matters for SEO: the form is now server-rendered (crawlable), but Google still needs prose context to rank the page.
+The intro paragraph in the bundle already covers step 3 of the old checklist — that is
+what gives the page prose context for ranking.
+
+### Known gap on the live site
+
+As of this writing the calculator is reachable from `/finance/` and from the sitemap, but:
+
+- it is **not** linked from `/calculators`
+- it is **not** in the main nav menu
+- the homepage's own links to it currently 301-redirect (because the page is not yet
+  nested under `/finance/`)
+
+Links 1 and 2 are the highest-value items left. An orphaned page ranks poorly no matter
+how good the tool is.
 
 ---
 
