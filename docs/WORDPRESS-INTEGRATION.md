@@ -296,11 +296,11 @@ The `FAQPage` markup requires that every question and answer also appears as vis
 on the page — markup describing content that isn't there is a structured-data violation
 and can cost you rich results.
 
-That's why `dist/wp/1-paycheck-calculator-page.html` ends with a visible
-**Frequently asked questions** section. Both the section and the schema are generated from
-one list in `tools/build.mjs`, so they cannot drift apart. If you edit the questions, edit
-them there and rebuild rather than hand-editing either output — the PHP snippet's copy
-must match the page word for word.
+That's why `dist/wp/1-paycheck-calculator-page.html` contains a visible **FAQ** section,
+using the same `rank-math-faq` markup as the other calculators on the site. Both the
+section and the schema are generated from one list in `tools/build.mjs`, so they cannot
+drift apart. If you edit the questions, edit them there and rebuild rather than
+hand-editing either output — the PHP snippet's copy must match the page word for word.
 
 ### Verify the schema landed
 

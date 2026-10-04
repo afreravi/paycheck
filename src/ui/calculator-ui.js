@@ -31,126 +31,112 @@ const DEDUCTION_PRESETS = [
 ];
 
 export function template(states) {
+  const field = (col, inner) => `      <div class="${col} pc-field mb-3">
+        <div class="form-group mb-0">
+${inner}
+        </div>
+      </div>`;
+
+  const input = (id, name, label, opts = {}) => `          <label for="${id}">${label}</label>
+          <div class="input-group">
+            ${opts.prepend ? `<div class="input-group-prepend"><span class="input-group-text">${opts.prepend}</span></div>` : ""}
+            <input class="form-control" id="${id}" name="${name}" type="number"
+              min="${opts.min ?? 0}" step="${opts.step ?? "any"}" value="${opts.value}"
+              inputmode="decimal"${opts.describedby ? ` aria-describedby="${opts.describedby}"` : ""} />
+            ${opts.append ? `<div class="input-group-append"><span class="input-group-text">${opts.append}</span></div>` : ""}
+          </div>
+          ${opts.help ? `<small class="form-text text-muted"${opts.describedby ? ` id="${opts.describedby}"` : ""}>${opts.help}</small>` : ""}`;
+
+  const select = (id, name, label, options) => `          <label for="${id}">${label}</label>
+          <select class="custom-select" id="${id}" name="${name}">
+            ${options}
+          </select>`;
+
   return `
   <form class="pc" novalidate>
-    <div class="pc-row">
-      <label class="pc-field">
-        <span>Tax year</span>
-        <select name="tax_year">
-          <option value="2026" selected>2026</option>
-          <option value="2025">2025</option>
-        </select>
-      </label>
-      <label class="pc-field">
-        <span>Pay type</span>
-        <select name="pay_type">
-          <option value="salary" selected>Salary (annual)</option>
-          <option value="hourly">Hourly</option>
-        </select>
-      </label>
+    <div class="row">
+${field("col-12 col-md-4", select("pc-tax-year", "tax_year", "Tax year", `
+            <option value="2026" selected>2026</option>
+            <option value="2025">2025</option>`))}
+${field("col-12 col-md-4", select("pc-pay-type", "pay_type", "Pay type", `
+            <option value="salary" selected>Salary (annual)</option>
+            <option value="hourly">Hourly</option>`))}
+${field("col-12 col-md-4", select("pc-pay-frequency", "pay_frequency", "Pay frequency",
+  FREQUENCIES.map(([v, l]) => `<option value="${v}"${v === "biweekly" ? " selected" : ""}>${l}</option>`).join("\n            ")))}
     </div>
 
-    <div class="pc-row" data-when="salary">
-      <label class="pc-field">
-        <span>Annual salary</span>
-        <input name="annual_salary" type="number" min="0" step="100" value="75000" inputmode="decimal" />
-      </label>
+    <div class="row" data-when="salary">
+${field("col-12 col-md-6", input("pc-annual-salary", "annual_salary", "Annual salary", { value: "75000", step: "100", prepend: "$", describedby: "pc-salary-help", help: "Gross pay before any deductions." }))}
     </div>
 
-    <div class="pc-row" data-when="hourly" hidden>
-      <label class="pc-field">
-        <span>Hourly rate</span>
-        <input name="hourly_rate" type="number" min="0" step="0.01" value="25" inputmode="decimal" />
-      </label>
-      <label class="pc-field">
-        <span>Hours / week</span>
-        <input name="hours_per_week" type="number" min="0" step="1" value="40" inputmode="decimal" />
-      </label>
-      <label class="pc-field">
-        <span>Overtime hours / week</span>
-        <input name="overtime_hours" type="number" min="0" step="1" value="0" inputmode="decimal" />
-      </label>
+    <div class="row" data-when="hourly" hidden>
+${field("col-12 col-md-4", input("pc-hourly-rate", "hourly_rate", "Hourly rate", { value: "25", step: "0.01", prepend: "$" }))}
+${field("col-12 col-md-4", input("pc-hours-week", "hours_per_week", "Hours / week", { value: "40", step: "1", append: "hrs" }))}
+${field("col-12 col-md-4", input("pc-overtime-hours", "overtime_hours", "Overtime hours / week", { value: "0", step: "1", append: "hrs", help: "Paid at 1.5&times; your hourly rate." }))}
     </div>
 
-    <div class="pc-row">
-      <label class="pc-field">
-        <span>Pay frequency</span>
-        <select name="pay_frequency">
-          ${FREQUENCIES.map(([v, l]) => `<option value="${v}"${v === "biweekly" ? " selected" : ""}>${l}</option>`).join("")}
-        </select>
-      </label>
-      <label class="pc-field">
-        <span>Filing status</span>
-        <select name="filing_status">
-          ${FILING.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}
-        </select>
-      </label>
-      <label class="pc-field">
-        <span>State</span>
-        <select name="state">
-          ${states.map((s) => `<option value="${s.code}"${s.abbr === "CA" ? " selected" : ""}>${s.name}</option>`).join("")}
-        </select>
-      </label>
+    <div class="row">
+${field("col-12 col-md-6", select("pc-filing-status", "filing_status", "Filing status",
+  FILING.map(([v, l]) => `<option value="${v}">${l}</option>`).join("\n            ")))}
+${field("col-12 col-md-6", select("pc-state", "state", "State",
+  states.map((s) => `<option value="${s.code}"${s.abbr === "CA" ? " selected" : ""}>${s.name}</option>`).join("\n            ")))}
     </div>
 
-    <details class="pc-advanced">
-      <summary>Deductions &amp; W-4</summary>
-      <div class="pc-row">
-        ${DEDUCTION_PRESETS.map(
-          (d) => `
-          <label class="pc-field">
-            <span>${d.label} <small>(per period)</small></span>
-            <input name="ded_${d.id}" type="number" min="0" step="1" value="0" inputmode="decimal" />
-          </label>`
-        ).join("")}
+    <details class="pc-advanced mb-3">
+      <summary>Deductions &amp; W-4 (optional)</summary>
+      <div class="row mt-2">
+${DEDUCTION_PRESETS.map((d) =>
+  field("col-12 col-md-4", input(`pc-ded-${d.id}`, `ded_${d.id}`, `${d.label} <small class="text-muted">per period</small>`, { value: "0", step: "1", prepend: "$" }))
+).join("\n")}
       </div>
-      <div class="pc-row">
-        <label class="pc-field">
-          <span>W-4 Step 3 credits <small>(annual)</small></span>
-          <input name="w4_step3" type="number" min="0" step="1" value="0" inputmode="decimal" />
-        </label>
-        <label class="pc-field">
-          <span>W-4 extra withholding <small>(per period)</small></span>
-          <input name="w4_step4c" type="number" min="0" step="1" value="0" inputmode="decimal" />
-        </label>
+      <div class="row">
+${field("col-12 col-md-6", input("pc-w4-step3", "w4_step3", "W-4 Step 3 credits <small class=\"text-muted\">annual</small>", { value: "0", step: "1", prepend: "$" }))}
+${field("col-12 col-md-6", input("pc-w4-step4c", "w4_step4c", "W-4 extra withholding <small class=\"text-muted\">per period</small>", { value: "0", step: "1", prepend: "$" }))}
       </div>
     </details>
 
-    <button type="submit" class="pc-submit">Calculate take-home pay</button>
+    <button type="submit" class="btn btn-brand btn-lg btn-block">Calculate take-home pay</button>
   </form>
 
-  <section class="pc-result" hidden aria-live="polite">
-    <div class="pc-net">
-      <span class="pc-net-label">Net take-home pay <small>per period</small></span>
-      <strong class="pc-net-value" data-out="net_per_period">—</strong>
-      <span class="pc-net-annual" data-out="net_annual">—</span>
+  <section class="pc-result mt-4" hidden aria-live="polite">
+    <div class="pc-net stat-tile mb-4">
+      <span class="pc-net-label stat-label">Net take-home pay <small>per period</small></span>
+      <strong class="pc-net-value stat-value" data-out="net_per_period">&mdash;</strong>
+      <span class="pc-net-annual stat-note" data-out="net_annual">&mdash;</span>
     </div>
-    <table class="pc-breakdown">
-      <tbody>
-        <tr><th>Gross pay</th><td data-out="gross_per_period"></td></tr>
-        <tr><th>Federal income tax</th><td data-out="federal_income_tax"></td></tr>
-        <tr><th>Social Security</th><td data-out="social_security"></td></tr>
-        <tr><th>Medicare</th><td data-out="medicare"></td></tr>
-        <tr data-out-row="additional_medicare" hidden><th>Additional Medicare</th><td data-out="additional_medicare"></td></tr>
-        <tr><th>State income tax</th><td data-out="state_income_tax"></td></tr>
-        <tr><th>Pre-tax deductions</th><td data-out="pre_tax_deductions"></td></tr>
-        <tr><th>Post-tax deductions</th><td data-out="post_tax_deductions"></td></tr>
-        <tr class="pc-total"><th>Net pay</th><td data-out="net_per_period_total"></td></tr>
-      </tbody>
-    </table>
-    <p class="pc-rates">
-      Effective tax rate <strong data-out="effective_rate"></strong> ·
+
+    <h3 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Where your pay goes</h3>
+    <div class="table-responsive">
+      <table class="pc-breakdown table table-sm table-striped mb-0">
+        <tbody>
+          <tr><th>Gross pay</th><td class="text-right" data-out="gross_per_period"></td></tr>
+          <tr><th>Federal income tax</th><td class="text-right" data-out="federal_income_tax"></td></tr>
+          <tr><th>Social Security</th><td class="text-right" data-out="social_security"></td></tr>
+          <tr><th>Medicare</th><td class="text-right" data-out="medicare"></td></tr>
+          <tr data-out-row="additional_medicare" hidden><th>Additional Medicare</th><td class="text-right" data-out="additional_medicare"></td></tr>
+          <tr><th>State income tax</th><td class="text-right" data-out="state_income_tax"></td></tr>
+          <tr><th>Pre-tax deductions</th><td class="text-right" data-out="pre_tax_deductions"></td></tr>
+          <tr><th>Post-tax deductions</th><td class="text-right" data-out="post_tax_deductions"></td></tr>
+          <tr class="pc-total"><th>Net pay</th><td class="text-right" data-out="net_per_period_total"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pc-rates small text-muted mt-3 mb-0">
+      Effective tax rate <strong data-out="effective_rate"></strong> &middot;
       Marginal rate <strong data-out="marginal_rate"></strong>
     </p>
-    <details class="pc-math">
+
+    <details class="pc-math mt-3">
       <summary>Show the math</summary>
       <ol data-out="trace"></ol>
     </details>
-    <p class="pc-disclaimer">
-      This is an estimate for planning. It covers federal tax, FICA, and simplified state income tax.
+
+    <p class="pc-disclaimer small text-muted mt-3 mb-2">
+      This is an estimate for planning. It covers federal income tax, FICA, and simplified state income tax.
       It does not include local or paid-leave taxes. Your employer's payroll system may calculate a different amount.
     </p>
-    <p class="pc-updated" data-out="updated"></p>
+    <p class="pc-updated small text-muted mb-0" data-out="updated"></p>
   </section>`;
 }
 

@@ -45,9 +45,12 @@ test("FAQPage markup matches the visible FAQ word for word", { skip: !built }, (
   const php = read("4-enqueue-snippet.php");
   const schema = JSON.parse(read("3b-schema-faq.jsonld"));
 
-  const visible = [...page.matchAll(/<details>\s*<summary>([\s\S]*?)<\/summary>\s*<p>([\s\S]*?)<\/p>/g)].map(
-    (m) => ({ q: m[1].trim(), a: m[2].trim() })
-  );
+  // Matches the rank-math-faq block the page body uses.
+  const visible = [
+    ...page.matchAll(
+      /<h4 class="rank-math-question\s*">([\s\S]*?)<\/h4>\s*<div class="rank-math-answer\s*">\s*<p>([\s\S]*?)<\/p>/g
+    ),
+  ].map((m) => ({ q: m[1].trim(), a: m[2].trim() }));
   assert.ok(visible.length >= 2, "expected a visible FAQ section on the page");
 
   const markup = schema.mainEntity.map((e) => ({
@@ -61,6 +64,54 @@ test("FAQPage markup matches the visible FAQ word for word", { skip: !built }, (
     assert.ok(php.includes(q), `PHP snippet is missing question: ${q}`);
     assert.ok(php.includes(a), `PHP snippet is missing answer: ${q}`);
   }
+});
+
+test("page markup keeps every hook the engine binds to", { skip: !built }, () => {
+  // The engine queries these by name and attribute. Renaming one in the markup
+  // silently breaks the form, so guard them here rather than finding out in the
+  // browser.
+  const page = read("1-paycheck-calculator-page.html");
+
+  for (const name of [
+    "tax_year",
+    "pay_type",
+    "pay_frequency",
+    "filing_status",
+    "state",
+    "annual_salary",
+    "hourly_rate",
+    "hours_per_week",
+    "overtime_hours",
+    "ded_d401k",
+    "ded_hsa",
+    "ded_fsa",
+    "ded_health",
+    "ded_post",
+    "w4_step3",
+    "w4_step4c",
+  ]) {
+    assert.match(page, new RegExp(`name="${name}"`), `form field "${name}" is missing`);
+  }
+
+  assert.match(page, /<form class="pc"/, "form.pc is missing (mount binds to it)");
+  for (const when of ["salary", "hourly"]) {
+    assert.match(page, new RegExp(`data-when="${when}"`), `data-when="${when}" is missing`);
+  }
+  assert.match(page, /data-out-row="additional_medicare"/, "additional_medicare row is missing");
+
+  // Every result cell the engine writes into must exist. Cells are set both
+  // literally (set("key", ...)) and in a loop over an array of keys.
+  const engine = readFileSync(join(__dirname, "..", "dist", "paycheck-engine.js"), "utf8");
+  const keys = new Set([
+    ...[...engine.matchAll(/set\("([a-z_]+)"/g)].map((m) => m[1]),
+    ...[...engine.matchAll(/for \(const k of \[([\s\S]*?)\]\)/g)].flatMap((m) =>
+      [...m[1].matchAll(/"([a-z_]+)"/g)].map((q) => q[1])
+    ),
+  ]);
+  for (const key of keys) {
+    assert.match(page, new RegExp(`data-out="${key}"`), `result cell data-out="${key}" is missing`);
+  }
+  assert.ok(keys.size >= 8, `expected several result cells, found ${keys.size}`);
 });
 
 test("no stale schema artifact is left behind", { skip: !built }, () => {
