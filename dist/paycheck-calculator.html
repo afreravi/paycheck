@@ -83,8 +83,15 @@
 .pc-disclaimer { font-size: 0.8125rem; color: var(--pc-muted); background: var(--pc-surface); border-radius: 8px; padding: 10px 12px; }
 .pc-updated { font-size: 0.75rem; color: var(--pc-muted); }
 
-/* Intro prose lives outside .pc-app, so it must not inherit its scoped vars. */
+/* Intro prose and FAQ live outside .pc-app, so they must not inherit its
+   scoped custom properties. */
 .pc-intro { margin: 0 0 16px; max-width: 68ch; line-height: 1.6; }
+
+.pc-faq { margin: 24px 0 0; max-width: 68ch; }
+.pc-faq h2 { font-size: 1.25rem; margin: 0 0 12px; }
+.pc-faq details { border: 1px solid var(--pc-border, #e2e5ea); border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; }
+.pc-faq summary { cursor: pointer; font-weight: 600; }
+.pc-faq p { margin: 8px 0 4px; line-height: 1.6; }
 
 @media (max-width: 420px) {
   .pc-net-value { font-size: 1.85rem; }

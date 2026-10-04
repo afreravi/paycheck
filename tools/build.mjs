@@ -149,6 +149,38 @@ writeFileSync(join(DIST, "paycheck-calculator.html"), html);
 const { template } = await import("../src/ui/calculator-ui.js");
 const formHtml = template(stateIndex.states);
 
+const FAQS = [
+  {
+    q: "How accurate is this paycheck calculator?",
+    a: "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount.",
+  },
+  {
+    q: "Why is my actual paycheck different from this estimate?",
+    a: "It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses.",
+  },
+  {
+    q: "Does this calculator work for all 50 states?",
+    a: "Yes. It covers all 50 states and Washington, DC for tax years 2025 and 2026. Nine states have no state income tax on wages, so only federal tax and FICA apply there.",
+  },
+  {
+    q: "What is the difference between gross pay and net pay?",
+    a: "Gross pay is your total earnings before any deductions. Net pay, also called take-home pay, is what remains after income tax, FICA, and any benefit deductions are subtracted.",
+  },
+];
+
+// The FAQ is defined once and emitted to both the page body and the JSON-LD.
+// Google requires FAQPage markup to match content visible on the page, so
+// keeping one source prevents the two from drifting apart.
+const faqHtml = `<section class="pc-faq">
+  <h2>Frequently asked questions</h2>
+${FAQS.map(
+  (f) => `  <details>
+    <summary>${f.q}</summary>
+    <p>${f.a}</p>
+  </details>`
+).join("\n")}
+</section>`;
+
 writeFileSync(
   join(WPDIR, "1-paycheck-calculator-page.html"),
   `<!-- Paste into the Page body. Use the Code Editor, not the Visual editor.
@@ -182,6 +214,8 @@ ${formHtml}
   import { mountCalculator } from "/wp-content/uploads/tools/paycheck-engine.js";
   mountCalculator(document.getElementById("paycheck-calculator"));
 </script>
+
+${faqHtml}
 `
 );
 
@@ -232,24 +266,11 @@ writeFileSync(
         },
         {
           "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "How accurate is this paycheck calculator?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Why is my actual paycheck different from this estimate?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses.",
-              },
-            },
-          ],
+          mainEntity: FAQS.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
         },
       ],
     },

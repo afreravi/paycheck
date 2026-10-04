@@ -27,7 +27,29 @@ WordPress only issues that redirect when pretty permalinks are enabled. The cano
 | 3 | `dist/wp/2-finance-hub-page.html` | Parent Page body | Paste |
 | 4 | `dist/wp/3-schema.jsonld` | Rank Math schema field | Paste |
 | 5 | `dist/wp/4-enqueue-snippet.php` | Child theme / snippet plugin | Optional |
-| 6 | `dist/paycheck-calculator.html` | — | Ignore (standalone build, not for WP) |
+| 6 | `dist/paycheck-calculator.html` | — | **Not for WordPress** |
+
+### The two HTML files are not interchangeable
+
+You will see two files with similar names. They serve different purposes:
+
+**`dist/paycheck-calculator.html`** is a **complete standalone web page** — a full
+`<html>` document with the CSS inlined and the engine embedded. It is 129 KB and 570 lines.
+It exists so you can:
+
+- open it locally to check the calculator without touching WordPress
+- host the calculator somewhere that isn't WordPress (Netlify, S3, a plain subfolder)
+- give the tool to someone who just wants an HTML file
+
+It is **not** used in the WordPress install. Do not paste it into a Page — you would be
+pasting a whole document into a page body, including a duplicate `<head>`, and it would
+break the layout.
+
+**`dist/wp/1-paycheck-calculator-page.html`** is a **page-body fragment** — just the intro
+paragraph, the form `<div>`, and the module script. No `<html>`, no `<head>`, no inlined
+CSS. This is the one you paste into the Page.
+
+Rule of thumb: `wp/` folder = paste into WordPress. `dist/` root = standalone, ignore.
 
 ---
 
@@ -150,6 +172,37 @@ you can keep it — Option B is simply the more durable choice.
 
 This gives Google the `WebApplication`, `BreadcrumbList`, and `FAQPage` markup.
 
+### Do not paste JSON-LD into the page body
+
+The obvious-looking move is to add a `<script type="application/ld+json">` block to the
+Page content. Don't. WordPress runs page content through `wpautop` and `wptexturize`,
+which will rewrite the quotes and insert `<br>` tags inside your JSON. The result is
+invalid JSON-LD, and Google silently ignores it — you get no error, just no rich result.
+
+Rank Math's **Custom Schema** field stores the value in post meta and prints it correctly
+in `<head>`, untouched. Use that.
+
+If you'd rather not use Rank Math's field, the other safe option is to print it from
+`functions.php` on a `wp_head` hook. The body of a Page is the one place it must not go.
+
+### The FAQ must stay visible
+
+`3-schema.jsonld` includes an `FAQPage`. Google requires that every question and answer
+in that markup also appears as visible text on the page — markup describing content that
+isn't there is a structured-data violation and can cost you rich results.
+
+That's why `dist/wp/1-paycheck-calculator-page.html` now ends with a visible
+**Frequently asked questions** section. Both the section and the schema are generated from
+one list in `tools/build.mjs`, so they cannot drift apart. If you edit the questions, edit
+them there and rebuild rather than hand-editing either output.
+
+### Verify the schema landed
+
+After publishing, run the URL through Google's
+[Rich Results Test](https://search.google.com/test/rich-results). You should see
+**WebApplication** and **FAQPage** detected. If it reports nothing, the JSON was almost
+certainly mangled — re-check that it went into the Rank Math field and not the page body.
+
 ---
 
 ## Step 6 — Add ads
@@ -175,12 +228,19 @@ what gives the page prose context for ranking.
 
 ### Known gap on the live site
 
-As of this writing the calculator is reachable from `/finance/` and from the sitemap, but:
+As of this writing the calculator is reachable from `/finance/` and from the sitemap, but
+it is **not** linked from the `/calculators` Page (id 2752), and it is not in the main nav.
 
-- it is **not** linked from `/calculators`
-- it is **not** in the main nav menu
-- the homepage's own links to it currently 301-redirect (because the page is not yet
-  nested under `/finance/`)
+Add a link on the `/calculators` Page. Link with an **absolute path**, not the full URL:
+
+```html
+<a href="/finance/paycheck-calculator">Paycheck Calculator</a>
+```
+
+**Do not** link to `https://afreetools.com/calculators/finance/paycheck-calculator`. That
+URL does not exist — it would 404. `/calculators` is a Page, not a parent, so it does not
+prefix child pages. Only the **Finance** Page (id 34721) is a parent, which is why the real
+URL is `/finance/paycheck-calculator`.
 
 Links 1 and 2 are the highest-value items left. An orphaned page ranks poorly no matter
 how good the tool is.

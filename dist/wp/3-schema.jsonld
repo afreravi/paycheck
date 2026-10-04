@@ -56,6 +56,22 @@
             "@type": "Answer",
             "text": "It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this calculator work for all 50 states?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It covers all 50 states and Washington, DC for tax years 2025 and 2026. Nine states have no state income tax on wages, so only federal tax and FICA apply there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between gross pay and net pay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gross pay is your total earnings before any deductions. Net pay, also called take-home pay, is what remains after income tax, FICA, and any benefit deductions are subtracted."
+          }
         }
       ]
     }
