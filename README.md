@@ -131,9 +131,27 @@ Replacing state data with verified DOR figures is the top item before this calcu
 can claim better than rough-estimate accuracy. The schema is designed so this is a
 data-only change with no engine edits.
 
-## Embedding
+## Deployment
 
-`dist/paycheck-calculator.html` is a single self-contained file: tax data, engine, and UI
-inlined, no external requests. For afreetools.com, either host this file directly at
-`/finance/paycheck-calculator` or extract the `<style>` and `<script>` blocks into the
-site's template.
+Two targets.
+
+**Standalone** — `dist/paycheck-calculator.html` is one self-contained file (data, engine,
+UI inlined, no external requests). Host it anywhere.
+
+**WordPress** (afreetools.com) — see **[docs/WORDPRESS-INTEGRATION.md](docs/WORDPRESS-INTEGRATION.md)**
+for the full step-by-step. Summary:
+
+| Artifact | Destination |
+|---|---|
+| `dist/paycheck-engine.js` | `/wp-content/uploads/tools/` |
+| `dist/wp/1-paycheck-calculator-page.html` | Calculator Page body |
+| `dist/wp/2-finance-hub-page.html` | `/finance` parent Page body |
+| `dist/wp/3-schema.jsonld` | Rank Math schema field |
+| `dist/wp/4-enqueue-snippet.php` | Child theme / snippet plugin (optional) |
+
+The engine is an **external module**, not inlined, because WordPress's `wpautop` mangles
+inline `<script type="module">` blocks. External loading also lets the engine stay cached
+in visitors' browsers across UI edits.
+
+Pages use **hierarchical URLs** (`/finance/paycheck-calculator`) rather than categories,
+because WordPress categories apply only to Posts and these tools are Pages.

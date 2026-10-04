@@ -30,11 +30,8 @@ const DEDUCTION_PRESETS = [
   { id: "post", label: "Other post-tax deduction", reduces_income_tax: false, reduces_fica: false, type: "post_tax" },
 ];
 
-export function mount(root, deps) {
-  const { calculate, getStateList, getFederal, getState } = deps;
-  const states = getStateList();
-
-  root.innerHTML = `
+export function template(states) {
+  return `
   <form class="pc" novalidate>
     <div class="pc-row">
       <label class="pc-field">
@@ -155,6 +152,16 @@ export function mount(root, deps) {
     </p>
     <p class="pc-updated" data-out="updated"></p>
   </section>`;
+}
+
+export function mount(root, deps) {
+  const { calculate, getStateList, getFederal, getState } = deps;
+
+  // If the form is already server-rendered (WordPress), bind to it as-is.
+  // Otherwise inject it (standalone build).
+  if (!root.querySelector("form.pc")) {
+    root.innerHTML = template(getStateList());
+  }
 
   const form = root.querySelector("form");
   const result = root.querySelector(".pc-result");

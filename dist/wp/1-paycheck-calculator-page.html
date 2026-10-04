@@ -1,0 +1,143 @@
+<!-- Paste into the Page body. Use the Code Editor, not the Visual editor. -->
+<div id="paycheck-calculator" class="pc-app" aria-label="Paycheck calculator">
+
+  <form class="pc" novalidate>
+    <div class="pc-row">
+      <label class="pc-field">
+        <span>Tax year</span>
+        <select name="tax_year">
+          <option value="2026" selected>2026</option>
+          <option value="2025">2025</option>
+        </select>
+      </label>
+      <label class="pc-field">
+        <span>Pay type</span>
+        <select name="pay_type">
+          <option value="salary" selected>Salary (annual)</option>
+          <option value="hourly">Hourly</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="pc-row" data-when="salary">
+      <label class="pc-field">
+        <span>Annual salary</span>
+        <input name="annual_salary" type="number" min="0" step="100" value="75000" inputmode="decimal" />
+      </label>
+    </div>
+
+    <div class="pc-row" data-when="hourly" hidden>
+      <label class="pc-field">
+        <span>Hourly rate</span>
+        <input name="hourly_rate" type="number" min="0" step="0.01" value="25" inputmode="decimal" />
+      </label>
+      <label class="pc-field">
+        <span>Hours / week</span>
+        <input name="hours_per_week" type="number" min="0" step="1" value="40" inputmode="decimal" />
+      </label>
+      <label class="pc-field">
+        <span>Overtime hours / week</span>
+        <input name="overtime_hours" type="number" min="0" step="1" value="0" inputmode="decimal" />
+      </label>
+    </div>
+
+    <div class="pc-row">
+      <label class="pc-field">
+        <span>Pay frequency</span>
+        <select name="pay_frequency">
+          <option value="weekly">Weekly</option><option value="biweekly" selected>Bi-weekly</option><option value="semimonthly">Semi-monthly</option><option value="monthly">Monthly</option>
+        </select>
+      </label>
+      <label class="pc-field">
+        <span>Filing status</span>
+        <select name="filing_status">
+          <option value="single">Single</option><option value="mfj">Married filing jointly</option><option value="mfs">Married filing separately</option><option value="hoh">Head of household</option>
+        </select>
+      </label>
+      <label class="pc-field">
+        <span>State</span>
+        <select name="state">
+          <option value="US-AL">Alabama</option><option value="US-AK">Alaska</option><option value="US-AZ">Arizona</option><option value="US-AR">Arkansas</option><option value="US-CA" selected>California</option><option value="US-CO">Colorado</option><option value="US-CT">Connecticut</option><option value="US-DE">Delaware</option><option value="US-DC">District of Columbia</option><option value="US-FL">Florida</option><option value="US-GA">Georgia</option><option value="US-HI">Hawaii</option><option value="US-ID">Idaho</option><option value="US-IL">Illinois</option><option value="US-IN">Indiana</option><option value="US-IA">Iowa</option><option value="US-KS">Kansas</option><option value="US-KY">Kentucky</option><option value="US-LA">Louisiana</option><option value="US-ME">Maine</option><option value="US-MD">Maryland</option><option value="US-MA">Massachusetts</option><option value="US-MI">Michigan</option><option value="US-MN">Minnesota</option><option value="US-MS">Mississippi</option><option value="US-MO">Missouri</option><option value="US-MT">Montana</option><option value="US-NE">Nebraska</option><option value="US-NV">Nevada</option><option value="US-NH">New Hampshire</option><option value="US-NJ">New Jersey</option><option value="US-NM">New Mexico</option><option value="US-NY">New York</option><option value="US-NC">North Carolina</option><option value="US-ND">North Dakota</option><option value="US-OH">Ohio</option><option value="US-OK">Oklahoma</option><option value="US-OR">Oregon</option><option value="US-PA">Pennsylvania</option><option value="US-RI">Rhode Island</option><option value="US-SC">South Carolina</option><option value="US-SD">South Dakota</option><option value="US-TN">Tennessee</option><option value="US-TX">Texas</option><option value="US-UT">Utah</option><option value="US-VT">Vermont</option><option value="US-VA">Virginia</option><option value="US-WA">Washington</option><option value="US-WV">West Virginia</option><option value="US-WI">Wisconsin</option><option value="US-WY">Wyoming</option>
+        </select>
+      </label>
+    </div>
+
+    <details class="pc-advanced">
+      <summary>Deductions &amp; W-4</summary>
+      <div class="pc-row">
+        
+          <label class="pc-field">
+            <span>401(k) / 403(b) <small>(per period)</small></span>
+            <input name="ded_d401k" type="number" min="0" step="1" value="0" inputmode="decimal" />
+          </label>
+          <label class="pc-field">
+            <span>HSA <small>(per period)</small></span>
+            <input name="ded_hsa" type="number" min="0" step="1" value="0" inputmode="decimal" />
+          </label>
+          <label class="pc-field">
+            <span>FSA <small>(per period)</small></span>
+            <input name="ded_fsa" type="number" min="0" step="1" value="0" inputmode="decimal" />
+          </label>
+          <label class="pc-field">
+            <span>Health premium <small>(per period)</small></span>
+            <input name="ded_health" type="number" min="0" step="1" value="0" inputmode="decimal" />
+          </label>
+          <label class="pc-field">
+            <span>Other post-tax deduction <small>(per period)</small></span>
+            <input name="ded_post" type="number" min="0" step="1" value="0" inputmode="decimal" />
+          </label>
+      </div>
+      <div class="pc-row">
+        <label class="pc-field">
+          <span>W-4 Step 3 credits <small>(annual)</small></span>
+          <input name="w4_step3" type="number" min="0" step="1" value="0" inputmode="decimal" />
+        </label>
+        <label class="pc-field">
+          <span>W-4 extra withholding <small>(per period)</small></span>
+          <input name="w4_step4c" type="number" min="0" step="1" value="0" inputmode="decimal" />
+        </label>
+      </div>
+    </details>
+
+    <button type="submit" class="pc-submit">Calculate take-home pay</button>
+  </form>
+
+  <section class="pc-result" hidden aria-live="polite">
+    <div class="pc-net">
+      <span class="pc-net-label">Net take-home pay <small>per period</small></span>
+      <strong class="pc-net-value" data-out="net_per_period">—</strong>
+      <span class="pc-net-annual" data-out="net_annual">—</span>
+    </div>
+    <table class="pc-breakdown">
+      <tbody>
+        <tr><th>Gross pay</th><td data-out="gross_per_period"></td></tr>
+        <tr><th>Federal income tax</th><td data-out="federal_income_tax"></td></tr>
+        <tr><th>Social Security</th><td data-out="social_security"></td></tr>
+        <tr><th>Medicare</th><td data-out="medicare"></td></tr>
+        <tr data-out-row="additional_medicare" hidden><th>Additional Medicare</th><td data-out="additional_medicare"></td></tr>
+        <tr><th>State income tax</th><td data-out="state_income_tax"></td></tr>
+        <tr><th>Pre-tax deductions</th><td data-out="pre_tax_deductions"></td></tr>
+        <tr><th>Post-tax deductions</th><td data-out="post_tax_deductions"></td></tr>
+        <tr class="pc-total"><th>Net pay</th><td data-out="net_per_period_total"></td></tr>
+      </tbody>
+    </table>
+    <p class="pc-rates">
+      Effective tax rate <strong data-out="effective_rate"></strong> ·
+      Marginal rate <strong data-out="marginal_rate"></strong>
+    </p>
+    <details class="pc-math">
+      <summary>Show the math</summary>
+      <ol data-out="trace"></ol>
+    </details>
+    <p class="pc-disclaimer">
+      This is an estimate for planning. It covers federal tax, FICA, and simplified state income tax.
+      It does not include local or paid-leave taxes. Your employer's payroll system may calculate a different amount.
+    </p>
+    <p class="pc-updated" data-out="updated"></p>
+  </section>
+</div>
+
+<script type="module">
+  import { mountCalculator } from "/wp-content/uploads/tools/paycheck-engine.js";
+  mountCalculator(document.getElementById("paycheck-calculator"));
+</script>

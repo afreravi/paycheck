@@ -1,0 +1,63 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Paycheck Calculator",
+      "url": "https://afreetools.com/finance/paycheck-calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free US paycheck calculator. Estimate take-home pay after federal income tax, Social Security, Medicare, and state income tax."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://afreetools.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Finance",
+          "item": "https://afreetools.com/finance/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Paycheck Calculator",
+          "item": "https://afreetools.com/finance/paycheck-calculator"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How accurate is this paycheck calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my actual paycheck different from this estimate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses."
+          }
+        }
+      ]
+    }
+  ]
+}
