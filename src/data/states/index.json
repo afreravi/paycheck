@@ -1,0 +1,311 @@
+{
+  "generated": "2026-10-02",
+  "states": [
+    {
+      "code": "US-AL",
+      "abbr": "AL",
+      "name": "Alabama",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-AK",
+      "abbr": "AK",
+      "name": "Alaska",
+      "no_income_tax": true
+    },
+    {
+      "code": "US-AZ",
+      "abbr": "AZ",
+      "name": "Arizona",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-AR",
+      "abbr": "AR",
+      "name": "Arkansas",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-CA",
+      "abbr": "CA",
+      "name": "California",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-CO",
+      "abbr": "CO",
+      "name": "Colorado",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-CT",
+      "abbr": "CT",
+      "name": "Connecticut",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-DE",
+      "abbr": "DE",
+      "name": "Delaware",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-DC",
+      "abbr": "DC",
+      "name": "District of Columbia",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-FL",
+      "abbr": "FL",
+      "name": "Florida",
+      "no_income_tax": true
+    },
+    {
+      "code": "US-GA",
+      "abbr": "GA",
+      "name": "Georgia",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-HI",
+      "abbr": "HI",
+      "name": "Hawaii",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-ID",
+      "abbr": "ID",
+      "name": "Idaho",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-IL",
+      "abbr": "IL",
+      "name": "Illinois",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-IN",
+      "abbr": "IN",
+      "name": "Indiana",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-IA",
+      "abbr": "IA",
+      "name": "Iowa",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-KS",
+      "abbr": "KS",
+      "name": "Kansas",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-KY",
+      "abbr": "KY",
+      "name": "Kentucky",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-LA",
+      "abbr": "LA",
+      "name": "Louisiana",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-ME",
+      "abbr": "ME",
+      "name": "Maine",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-MD",
+      "abbr": "MD",
+      "name": "Maryland",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-MA",
+      "abbr": "MA",
+      "name": "Massachusetts",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-MI",
+      "abbr": "MI",
+      "name": "Michigan",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-MN",
+      "abbr": "MN",
+      "name": "Minnesota",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-MS",
+      "abbr": "MS",
+      "name": "Mississippi",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-MO",
+      "abbr": "MO",
+      "name": "Missouri",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-MT",
+      "abbr": "MT",
+      "name": "Montana",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-NE",
+      "abbr": "NE",
+      "name": "Nebraska",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-NV",
+      "abbr": "NV",
+      "name": "Nevada",
+      "no_income_tax": true
+    },
+    {
+      "code": "US-NH",
+      "abbr": "NH",
+      "name": "New Hampshire",
+      "no_income_tax": true
+    },
+    {
+      "code": "US-NJ",
+      "abbr": "NJ",
+      "name": "New Jersey",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-NM",
+      "abbr": "NM",
+      "name": "New Mexico",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-NY",
+      "abbr": "NY",
+      "name": "New York",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-NC",
+      "abbr": "NC",
+      "name": "North Carolina",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-ND",
+      "abbr": "ND",
+      "name": "North Dakota",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-OH",
+      "abbr": "OH",
+      "name": "Ohio",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-OK",
+      "abbr": "OK",
+      "name": "Oklahoma",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-OR",
+      "abbr": "OR",
+      "name": "Oregon",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-PA",
+      "abbr": "PA",
+      "name": "Pennsylvania",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-RI",
+      "abbr": "RI",
+      "name": "Rhode Island",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-SC",
+      "abbr": "SC",
+      "name": "South Carolina",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-SD",
+      "abbr": "SD",
+      "name": "South Dakota",
+      "no_income_tax": true
+    },
+    {
+      "code": "US-TN",
+      "abbr": "TN",
+      "name": "Tennessee",
+      "no_income_tax": true
+    },
+    {
+      "code": "US-TX",
+      "abbr": "TX",
+      "name": "Texas",
+      "no_income_tax": true
+    },
+    {
+      "code": "US-UT",
+      "abbr": "UT",
+      "name": "Utah",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-VT",
+      "abbr": "VT",
+      "name": "Vermont",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-VA",
+      "abbr": "VA",
+      "name": "Virginia",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-WA",
+      "abbr": "WA",
+      "name": "Washington",
+      "no_income_tax": true
+    },
+    {
+      "code": "US-WV",
+      "abbr": "WV",
+      "name": "West Virginia",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-WI",
+      "abbr": "WI",
+      "name": "Wisconsin",
+      "no_income_tax": false
+    },
+    {
+      "code": "US-WY",
+      "abbr": "WY",
+      "name": "Wyoming",
+      "no_income_tax": true
+    }
+  ]
+}

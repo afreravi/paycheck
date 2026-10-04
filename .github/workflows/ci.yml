@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run golden fixtures and invariants
+        run: node --test test/calculator.test.js
+      - name: Verify build succeeds and is self-contained
+        run: |
+          node tools/build.mjs
+          test -s dist/paycheck-calculator.html
+          test -s dist/paycheck-engine.js
+          test -s dist/wp/1-paycheck-calculator-page.html
+          if grep -qE 'https?://(cdn|unpkg|jsdelivr|fonts\.googleapis)' dist/paycheck-calculator.html; then
+            echo "::error::Build must not reference external CDNs"; exit 1
+          fi
+      - name: Verify the WordPress engine module loads and exports
+        run: |
+          node -e "
+          import('./dist/paycheck-engine.js').then(m => {
+            for (const fn of ['calculate','mountCalculator','template','getFederal','getState','getStateList']) {
+              if (typeof m[fn] !== 'function') { console.error('missing export: '+fn); process.exit(1); }
+            }
+            const r = m.calculate(
+              { pay_type:'salary', annual_salary:75000, pay_frequency:'biweekly', filing_status:'single', state:'US-CA' },
+              { federal: m.getFederal(2026), state: m.getState('US-CA',2026) }
+            );
+            if (r.net_per_period !== 2213.41) { console.error('golden mismatch: '+r.net_per_period); process.exit(1); }
+            const html = m.template(m.getStateList());
+            if (!html.includes('<form class=\"pc\"')) { console.error('template missing form'); process.exit(1); }
+            if ((html.match(/<option value=\"US-/g)||[]).length !== 51) { console.error('state list not 51'); process.exit(1); }
+            console.log('engine module OK, net', r.net_per_period);
+          }).catch(e => { console.error(e); process.exit(1); });
+          "
+      - name: Verify state data is current with the generator
+        run: |
+          node tools/generate-state-data.mjs
+          if ! git diff --quiet src/data/states; then
+            echo "::error::state data is stale — run node tools/generate-state-data.mjs and commit"; exit 1
+          fi

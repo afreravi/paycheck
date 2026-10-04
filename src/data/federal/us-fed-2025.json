@@ -1,0 +1,77 @@
+{
+  "jurisdiction": "US-FED",
+  "tax_year": 2025,
+  "version": "2025.1",
+  "effective_from": "2025-01-01",
+  "effective_to": "2025-12-31",
+  "source_url": "https://www.irs.gov/publications/p15t",
+  "last_verified": "2026-10-02",
+  "verified_by": "data-owner",
+  "note": "Tax-bracket thresholds per IRS Rev. Proc. 2024-40. Estimate tier: standard deduction applied by the engine.",
+
+  "fica": {
+    "social_security_rate": 0.062,
+    "social_security_wage_base": 176100,
+    "medicare_rate": 0.0145,
+    "additional_medicare_rate": 0.009,
+    "additional_medicare_thresholds": {
+      "single": 200000,
+      "mfj": 250000,
+      "mfs": 125000,
+      "hoh": 200000
+    }
+  },
+
+  "income_tax": {
+    "method": "pub15t_percentage",
+    "standard_deduction": {
+      "single": 15000,
+      "mfj": 30000,
+      "mfs": 15000,
+      "hoh": 22500
+    },
+    "brackets": {
+      "single": [
+        { "min": 0, "max": 11925, "rate": 0.10 },
+        { "min": 11925, "max": 48475, "rate": 0.12 },
+        { "min": 48475, "max": 103350, "rate": 0.22 },
+        { "min": 103350, "max": 197300, "rate": 0.24 },
+        { "min": 197300, "max": 250525, "rate": 0.32 },
+        { "min": 250525, "max": 626350, "rate": 0.35 },
+        { "min": 626350, "max": null, "rate": 0.37 }
+      ],
+      "mfj": [
+        { "min": 0, "max": 23850, "rate": 0.10 },
+        { "min": 23850, "max": 96950, "rate": 0.12 },
+        { "min": 96950, "max": 206700, "rate": 0.22 },
+        { "min": 206700, "max": 394600, "rate": 0.24 },
+        { "min": 394600, "max": 501050, "rate": 0.32 },
+        { "min": 501050, "max": 751600, "rate": 0.35 },
+        { "min": 751600, "max": null, "rate": 0.37 }
+      ],
+      "mfs": [
+        { "min": 0, "max": 11925, "rate": 0.10 },
+        { "min": 11925, "max": 48475, "rate": 0.12 },
+        { "min": 48475, "max": 103350, "rate": 0.22 },
+        { "min": 103350, "max": 197300, "rate": 0.24 },
+        { "min": 197300, "max": 250525, "rate": 0.32 },
+        { "min": 250525, "max": 375800, "rate": 0.35 },
+        { "min": 375800, "max": null, "rate": 0.37 }
+      ],
+      "hoh": [
+        { "min": 0, "max": 17000, "rate": 0.10 },
+        { "min": 17000, "max": 64850, "rate": 0.12 },
+        { "min": 64850, "max": 103350, "rate": 0.22 },
+        { "min": 103350, "max": 197300, "rate": 0.24 },
+        { "min": 197300, "max": 250500, "rate": 0.32 },
+        { "min": 250500, "max": 626350, "rate": 0.35 },
+        { "min": 626350, "max": null, "rate": 0.37 }
+      ]
+    },
+    "supplemental": {
+      "flat_rate": 0.22,
+      "high_earner_threshold": 1000000,
+      "high_earner_rate": 0.37
+    }
+  }
+}
