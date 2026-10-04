@@ -151,7 +151,29 @@ const formHtml = template(stateIndex.states);
 
 writeFileSync(
   join(WPDIR, "1-paycheck-calculator-page.html"),
-  `<!-- Paste into the Page body. Use the Code Editor, not the Visual editor. -->
+  `<!-- Paste into the Page body. Use the Code Editor, not the Visual editor.
+
+  Rank Math SEO fields to set on this Page (these drive the meta description
+  and social preview, which are otherwise auto-generated from the form labels):
+    Focus keyword : paycheck calculator
+    SEO title     : Paycheck Calculator - Estimate Your Take-Home Pay
+    Meta description:
+      Free paycheck calculator. Estimate your take-home pay after federal
+      income tax, FICA, and state income tax for all 50 states. No signup.
+
+  The paragraph below the heading is not decoration. Search engines and social
+  cards read the opening text, and without it the meta description falls back
+  to the first form labels ("Tax year 2026 2025 Pay type Salary..."). Keep it.
+-->
+<p class="pc-intro">
+  Estimate your take-home pay per paycheck after federal income tax, FICA
+  (Social Security and Medicare), and state income tax. Choose your pay
+  frequency and filing status, add any 401(k) or HSA contributions, and see
+  your net pay broken down per period. Covers all 50 states and Washington, DC
+  for tax years 2025 and 2026. Everything runs in your browser &mdash; nothing
+  you type is sent anywhere.
+</p>
+
 <div id="paycheck-calculator" class="pc-app" aria-label="Paycheck calculator">
 ${formHtml}
 </div>
