@@ -122,108 +122,173 @@ https://afreetools.com/wp-json/wp/v2/pages?slug=paycheck-calculator&_fields=id,s
 
 The calculator's opening text is a form, not prose, so Rank Math's automatic meta
 description falls back to the first form labels and produces nonsense like
-_"Tax year 2026 2025 Pay type Salary (annual) Hourly..."_. Set the fields manually in
-the **Rank Math** panel on the Page:
+_"Tax year 2026 2025 Pay type Salary (annual) Hourly..."_. Set the fields manually.
 
-| Field | Value |
-|---|---|
-| Focus keyword | `paycheck calculator` |
-| SEO title | `Paycheck Calculator - Estimate Your Take-Home Pay` |
-| Meta description | `Free US paycheck calculator. Estimate your take-home pay after federal income tax, FICA, and state income tax. Covers all 50 states and DC. No signup needed.` (157 characters) |
+### Where the fields actually are
 
-The bundle now includes an intro paragraph above the form. That paragraph is what gives
-the page real opening text — keep it.
+All three live in the **Rank Math sidebar panel** of the Page editor, in the
+**General** tab. They are not in the WordPress Document sidebar and not in Rank Math's
+global settings.
+
+1. Open the Page editor for the calculator Page
+2. Make sure you are in the **General** tab (first tab) of the Rank Math panel
+3. Click **Edit Snippet**
+
+`Edit Snippet` is the part people miss. It is a button inside the Rank Math panel that
+opens a small pop-up dialog. The SEO **title** and **description** boxes are *inside*
+that pop-up, not on the panel itself. If you only see a preview box and no text fields,
+you have not clicked Edit Snippet yet.
+
+**SEO title:** inside the Edit Snippet pop-up, edit the **Title** field.
+
+**Meta description:** inside the same pop-up, edit the **Description** field.
+
+**Focus keyword:** close the pop-up. It is its own field on the General tab, directly
+below the search preview, labeled **Focus Keyword**.
+
+### The values to enter
+
+| Field | Where | Value |
+|---|---|---|
+| Focus keyword | General tab, below the preview | `paycheck calculator` |
+| SEO title | Edit Snippet pop-up → Title | `Paycheck Calculator - Estimate Your Take-Home Pay` |
+| Meta description | Edit Snippet pop-up → Description | `Free US paycheck calculator. Estimate your take-home pay after federal income tax, FICA, and state income tax. Covers all 50 states and DC. No signup needed.` (157 characters) |
+
+Paste each value exactly. Then click **Update** on the Page to save.
+
+### The SEO title and the H1 are different things
+
+Do not confuse them. The **SEO title** is the clickable blue link in Google results. The
+**H1** is the visible heading on the page. The snippet already contains the H1
+(`<h1>Paycheck Calculator</h1>`), so you do not create it here. Setting the SEO title
+does not change the H1, and changing the H1 does not change the SEO title.
+
+### If the Rank Math panel is missing
+
+Check **Rank Math SEO → Dashboard** and confirm the page is not set to "No Index", and
+that you are editing a Page (not a Post). Also check **Screen Options** at the top of
+the editor — if Rank Math is unchecked there, the panel is hidden.
+
+### Verify
+
+After updating, open the live URL and view source. Search for `name="description"`. You
+should see your sentence, not the form labels. Both the SEO title and description are
+emitted into `<head>` by Rank Math, so viewing source is the ground truth.
 
 ---
 
 ## Step 4 — Load the engine
 
-Pick **one** of these. Option A is simpler; Option B is more robust.
+The engine is the JavaScript that makes the form calculate. Something has to load it on
+the calculator page. There are two ways, and you only need one.
 
-### Option A — inline script (simplest)
+You do not have to choose now. The engine is **idempotent** — it refuses to mount twice —
+so leaving both in place is harmless. Use the enqueue method (Option B) and ignore the
+inline script if you like; nothing breaks.
 
-Already included at the bottom of `dist/wp/1-paycheck-calculator-page.html`. If you pasted that file in Step 3, this is done.
+### Option A — inline script (already done if you pasted the snippet)
 
-**Risk:** WordPress's `wpautop` can inject `<p>` and `<br>` tags into an inline `<script>`, breaking it. This is the single most likely failure point.
+`dist/wp/1-paycheck-calculator-page.html` ends with a small `<script type="module">`
+block that imports the engine and mounts it. If you pasted that file in Step 3, this
+already works. **Nothing more to do.**
 
-**After publishing, verify:** load the page, open the browser console (F12), and check for errors. Then click "Calculate take-home pay" — you should see a dollar figure. If the form renders but clicking does nothing, `wpautop` mangled the script. Switch to Option B.
+**Risk:** WordPress's `wpautop` can inject `<p>` and `<br>` tags into an inline `<script>`,
+breaking it. This is the single most likely failure point.
 
-### Option B — enqueue (recommended, no inline JS at all)
+**Verify:** load the page, open the browser console (F12), and look for errors. Then click
+"Calculate take-home pay" — you should see a dollar figure. If the form renders but
+clicking does nothing, `wpautop` mangled the script. Use Option B instead, and delete the
+`<script>` block from the Page body.
 
-The engine **auto-mounts itself** when it finds a `#paycheck-calculator` element, so you
-don't need any inline script. This is the safest option: there is nothing for `wpautop`
-to mangle.
+### Option B — enqueue via the PHP snippet (more robust)
 
-1. Open `dist/wp/4-enqueue-snippet.php`
-2. Paste it into **one** of:
-   - a **child theme's** `functions.php` (survives GeneratePress updates)
-   - a small site-specific plugin in `/wp-content/plugins/`
-   - the **Code Snippets** plugin
-3. **Never** paste into the parent GeneratePress theme — an update erases it
-4. Then remove the `<script>` block from the Page body (keep the `<div>` and the form)
+The engine **auto-mounts itself** when it finds a `#paycheck-calculator` element, so no
+inline script is needed. There is nothing for `wpautop` to mangle.
 
-Both options are verified to produce identical results. If Option A works on your site,
-you can keep it — Option B is simply the more durable choice.
+The same PHP file, `dist/wp/4-enqueue-snippet.php`, does two jobs:
+
+| Block | What it does |
+|---|---|
+| 1. `wp_enqueue_scripts` | Loads the engine as a proper `<script type="module" src=...>` |
+| 2. `wp_head` | Prints the `WebApplication` and `FAQPage` schema |
+
+They are independent. You can use one, the other, or both.
+
+#### Where to paste it — Code Snippets plugin
+
+This is the easiest route and needs no file access.
+
+1. In the WordPress admin, go to **Snippets → Add New**
+2. Give it a name, e.g. `Paycheck calculator`
+3. Set **"Run snippet everywhere"**. Do **not** use "Only run once" or an admin-only mode
+4. In the code box, paste the contents of `dist/wp/4-enqueue-snippet.php`
+
+**Do not include the `<?php` opening tag.** The Code Snippets plugin adds it for you. If
+you paste `<?php` yourself, the snippet fails to save or throws an error. Copy from the
+first `/**` comment onward.
+
+5. Click **Save Changes and Activate**
+
+The snippet contains its own `is_page( 'paycheck-calculator' )` guards, so the engine and
+the schema load only on the calculator page. You do not need to configure any conditions
+in the plugin.
+
+**If your plugin is WPCode instead:** choose snippet type **PHP Snippet**, set the
+location to **Run Everywhere**, and paste the code without the `<?php` tag. The plugin
+adds it.
+
+#### Where to paste it — child theme `functions.php`
+
+Only if you prefer files over a plugin.
+
+1. Create a child theme of GeneratePress if you do not already have one
+2. Open `wp-content/themes/<child>/functions.php`
+3. Paste the snippet contents **inside** the file, after any existing code
+4. Do **not** add a `<?php` tag in the middle of the file — `functions.php` already has one
+   at the top. Adding a second one is a fatal error
+
+Never paste into the **parent** GeneratePress theme. A theme update deletes the file and
+your calculator stops working.
+
+#### Verify
+
+1. Open the calculator page and click "Calculate take-home pay" — you should get a figure
+2. View source (Ctrl+U) and search for `application/ld+json` — you should find **two**
+   blocks, one `WebApplication` and one `FAQPage`
+3. Open any other page and view source — you should find **neither**. If they appear
+   everywhere, the `is_page` guard is not matching, which usually means the Page slug is
+   not exactly `paycheck-calculator`
 
 ---
 
-## Step 5 — Add structured data
+## Step 4b — Add structured data (schema)
 
-**The calculator page is `https://afreetools.com/finance/paycheck-calculator`.** All of the
-below applies to that Page only.
+If you used **Option B** above, this is already done — block 2 of the PHP snippet prints
+the schema. Skip to Step 5.
 
-You are on **Rank Math free**, which matters here:
+If you are on Option A (inline script only) and do **not** want to add PHP, the fallback
+is Rank Math. Note the limitation first: **Rank Math free cannot add custom schema.** Its
+Custom Schema tab exists but prompts you to upgrade, and free allows only one schema type
+per page. So on free, the PHP snippet is the only way to get `WebApplication` and
+`FAQPage`. Rank Math already emits `BreadcrumbList` and `Article` by itself, which is why
+neither appears in our schema files.
 
-- Free **does** ship a Custom Schema tab, but it is **not operational** — clicking it
-  prompts you to upgrade. Custom JSON-LD is a **PRO** feature.
-- Free allows only **one schema type per page**. Adding a second type replaces the first
-  rather than stacking.
-- Free already emits `BreadcrumbList` (and `Article`) on this page by itself. Check your
-  live page: it currently has `Article` and `BreadcrumbList`. So you do **not** need to
-  add breadcrumbs — they are already correct.
+### If you have Rank Math PRO
 
-That leaves `WebApplication` and `FAQPage`, which free Rank Math cannot add. Use the PHP
-snippet, which does not require PRO.
-
-### Recommended: add it via the PHP snippet
-
-`dist/wp/4-enqueue-snippet.php` now contains two blocks. Block 1 loads the engine; block 2
-prints the schema on `wp_head`. They are independent — you can use either or both.
-
-1. Open `dist/wp/4-enqueue-snippet.php`
-2. Paste into **one** of:
-   - a **child theme's** `functions.php` (survives GeneratePress updates)
-   - a small site-specific plugin in `/wp-content/plugins/`
-   - the **Code Snippets** plugin
-3. **Never** paste into the parent GeneratePress theme — a theme update erases it
-
-The schema block is scoped with `is_page( 'paycheck-calculator' )`, so it prints only on
-the calculator page and leaves your other pages untouched.
-
-### Alternative: if you have Rank Math PRO
-
-Then you can skip the PHP and use the UI:
-
-1. Edit the calculator Page → **Rank Math SEO** panel
-2. **Schema** → Schema Type: **None / Custom**
+1. Edit the calculator Page → **Rank Math SEO** panel → **Schema** tab
+2. Set Schema Type to **None / Custom**
 3. Paste `dist/wp/3a-schema-webapplication.jsonld` — save
-4. Add a second custom schema and paste `dist/wp/3b-schema-faq.jsonld`
+4. Add a second custom schema, paste `dist/wp/3b-schema-faq.jsonld`
 
-They are split into two files because free Rank Math takes one type per page. PRO can take
-both; paste them in that order.
+The two files are separate because free takes one type per page; PRO accepts both.
 
 ### Do not paste JSON-LD into the page body
 
 The obvious-looking move is to add a `<script type="application/ld+json">` block to the
 Page content. Don't. WordPress runs page content through `wpautop` and `wptexturize`,
-which will rewrite the quotes and insert `<br>` tags inside your JSON. The result is
-invalid JSON-LD, and Google silently ignores it — you get no error, just no rich result.
-
-Rank Math's **Custom Schema** field stores the value in post meta and prints it correctly
-in `<head>`, untouched. Use that, or the PHP snippet.
-
-If you'd rather not use Rank Math's field, the other safe option is to print it from
-`functions.php` on a `wp_head` hook. The body of a Page is the one place it must not go.
+which rewrite the quotes and insert `<br>` tags inside your JSON. The result is invalid
+JSON-LD, and Google silently ignores it — no error, just no rich result. It must go
+through a `wp_head` hook (the PHP snippet) or Rank Math's schema field.
 
 ### The FAQ must stay visible
 
@@ -246,7 +311,7 @@ certainly mangled — re-check the placement.
 
 ---
 
-## Step 6 — Add ads
+## Step 5 — Add ads
 
 Display-first monetization, per the PRD. Maximum two units:
 
@@ -257,7 +322,7 @@ Do not put an ad inside the form or between the inputs — it depresses completi
 
 ---
 
-## Step 7 — Internal linking
+## Step 6 — Internal linking
 
 1. Edit the `/calculators` hub Page, add a link to `/finance/paycheck-calculator`
 2. Add the same link to the footer menu or the main nav
@@ -288,7 +353,7 @@ how good the tool is.
 
 ---
 
-## Step 8 — Verify
+## Step 7 — Verify
 
 Run through this checklist on the live URL:
 

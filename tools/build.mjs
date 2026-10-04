@@ -282,9 +282,11 @@ writeFileSync(
  * Two independent jobs in one file. Delete whichever block you don't need.
  *
  * Where to put this, pick ONE:
- *   a) A child theme's functions.php          (survives parent theme updates)
+ *   a) Code Snippets plugin -> Add New -> Run Everywhere
+ *      IMPORTANT: paste from the "/**" line below, NOT the "<?php" line.
+ *      The plugin adds the opening tag itself; a second one is an error.
  *   b) A small site-specific plugin in wp-content/plugins/
- *   c) Code Snippets plugin (Code Snippets -> Add New)
+ *   c) A child theme's functions.php  (paste inside the file, no second <?php)
  *
  * Do NOT paste into the parent GeneratePress theme — a theme update erases it.
  */
