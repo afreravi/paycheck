@@ -25,9 +25,13 @@ WordPress only issues that redirect when pretty permalinks are enabled. The cano
 | 1 | `dist/paycheck-engine.js` | `/wp-content/uploads/tools/paycheck-engine.js` | Upload |
 | 2 | `dist/wp/1-paycheck-calculator-page.html` | Page body | Paste |
 | 3 | `dist/wp/2-finance-hub-page.html` | Parent Page body | Paste |
-| 4 | `dist/wp/3-schema.jsonld` | Rank Math schema field | Paste |
-| 5 | `dist/wp/4-enqueue-snippet.php` | Child theme / snippet plugin | Optional |
-| 6 | `dist/paycheck-calculator.html` | — | **Not for WordPress** |
+| 4 | `dist/wp/3a-schema-webapplication.jsonld` | Rank Math schema field (PRO only) | Optional |
+| 5 | `dist/wp/3b-schema-faq.jsonld` | Rank Math schema field (PRO only) | Optional |
+| 6 | `dist/wp/4-enqueue-snippet.php` | Child theme / snippet plugin | **Recommended** |
+| 7 | `dist/paycheck-calculator.html` | — | **Not for WordPress** |
+
+> On **Rank Math free**, skip items 4 and 5 — the Custom Schema field is a PRO feature.
+> The PHP snippet in item 6 prints the same schema without PRO.
 
 ### The two HTML files are not interchangeable
 
@@ -125,7 +129,7 @@ the **Rank Math** panel on the Page:
 |---|---|
 | Focus keyword | `paycheck calculator` |
 | SEO title | `Paycheck Calculator - Estimate Your Take-Home Pay` |
-| Meta description | `Free paycheck calculator. Estimate your take-home pay after federal income tax, FICA, and state income tax for all 50 states. No signup.` |
+| Meta description | `Free US paycheck calculator. Estimate your take-home pay after federal income tax, FICA, and state income tax. Covers all 50 states and DC. No signup needed.` |
 
 The bundle now includes an intro paragraph above the form. That paragraph is what gives
 the page real opening text — keep it.
@@ -165,12 +169,48 @@ you can keep it — Option B is simply the more durable choice.
 
 ## Step 5 — Add structured data
 
-1. Edit the calculator Page
-2. Scroll to the **Rank Math SEO** panel
-3. Open **Schema** → set Schema Type to **None / Custom**
-4. Paste the contents of `dist/wp/3-schema.jsonld` into the custom schema field
+**The calculator page is `https://afreetools.com/finance/paycheck-calculator`.** All of the
+below applies to that Page only.
 
-This gives Google the `WebApplication`, `BreadcrumbList`, and `FAQPage` markup.
+You are on **Rank Math free**, which matters here:
+
+- Free **does** ship a Custom Schema tab, but it is **not operational** — clicking it
+  prompts you to upgrade. Custom JSON-LD is a **PRO** feature.
+- Free allows only **one schema type per page**. Adding a second type replaces the first
+  rather than stacking.
+- Free already emits `BreadcrumbList` (and `Article`) on this page by itself. Check your
+  live page: it currently has `Article` and `BreadcrumbList`. So you do **not** need to
+  add breadcrumbs — they are already correct.
+
+That leaves `WebApplication` and `FAQPage`, which free Rank Math cannot add. Use the PHP
+snippet, which does not require PRO.
+
+### Recommended: add it via the PHP snippet
+
+`dist/wp/4-enqueue-snippet.php` now contains two blocks. Block 1 loads the engine; block 2
+prints the schema on `wp_head`. They are independent — you can use either or both.
+
+1. Open `dist/wp/4-enqueue-snippet.php`
+2. Paste into **one** of:
+   - a **child theme's** `functions.php` (survives GeneratePress updates)
+   - a small site-specific plugin in `/wp-content/plugins/`
+   - the **Code Snippets** plugin
+3. **Never** paste into the parent GeneratePress theme — a theme update erases it
+
+The schema block is scoped with `is_page( 'paycheck-calculator' )`, so it prints only on
+the calculator page and leaves your other pages untouched.
+
+### Alternative: if you have Rank Math PRO
+
+Then you can skip the PHP and use the UI:
+
+1. Edit the calculator Page → **Rank Math SEO** panel
+2. **Schema** → Schema Type: **None / Custom**
+3. Paste `dist/wp/3a-schema-webapplication.jsonld` — save
+4. Add a second custom schema and paste `dist/wp/3b-schema-faq.jsonld`
+
+They are split into two files because free Rank Math takes one type per page. PRO can take
+both; paste them in that order.
 
 ### Do not paste JSON-LD into the page body
 
@@ -180,28 +220,29 @@ which will rewrite the quotes and insert `<br>` tags inside your JSON. The resul
 invalid JSON-LD, and Google silently ignores it — you get no error, just no rich result.
 
 Rank Math's **Custom Schema** field stores the value in post meta and prints it correctly
-in `<head>`, untouched. Use that.
+in `<head>`, untouched. Use that, or the PHP snippet.
 
 If you'd rather not use Rank Math's field, the other safe option is to print it from
 `functions.php` on a `wp_head` hook. The body of a Page is the one place it must not go.
 
 ### The FAQ must stay visible
 
-`3-schema.jsonld` includes an `FAQPage`. Google requires that every question and answer
-in that markup also appears as visible text on the page — markup describing content that
-isn't there is a structured-data violation and can cost you rich results.
+The `FAQPage` markup requires that every question and answer also appears as visible text
+on the page — markup describing content that isn't there is a structured-data violation
+and can cost you rich results.
 
-That's why `dist/wp/1-paycheck-calculator-page.html` now ends with a visible
+That's why `dist/wp/1-paycheck-calculator-page.html` ends with a visible
 **Frequently asked questions** section. Both the section and the schema are generated from
 one list in `tools/build.mjs`, so they cannot drift apart. If you edit the questions, edit
-them there and rebuild rather than hand-editing either output.
+them there and rebuild rather than hand-editing either output — the PHP snippet's copy
+must match the page word for word.
 
 ### Verify the schema landed
 
 After publishing, run the URL through Google's
 [Rich Results Test](https://search.google.com/test/rich-results). You should see
 **WebApplication** and **FAQPage** detected. If it reports nothing, the JSON was almost
-certainly mangled — re-check that it went into the Rank Math field and not the page body.
+certainly mangled — re-check the placement.
 
 ---
 

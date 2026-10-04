@@ -13,8 +13,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Run golden fixtures and invariants
-        run: node --test test/calculator.test.js
       - name: Verify build succeeds and is self-contained
         run: |
           node tools/build.mjs
@@ -23,6 +21,16 @@ jobs:
           test -s dist/wp/1-paycheck-calculator-page.html
           if grep -qE 'https?://(cdn|unpkg|jsdelivr|fonts\.googleapis)' dist/paycheck-calculator.html; then
             echo "::error::Build must not reference external CDNs"; exit 1
+          fi
+      - name: Run golden fixtures, invariants, and artifact checks
+        run: node --test test/*.test.js
+      - name: Lint the WordPress PHP snippet
+        run: |
+          # A syntax error here would white-screen the site, so always lint it.
+          if command -v php >/dev/null; then
+            php -l dist/wp/4-enqueue-snippet.php
+          else
+            echo "php not available on this runner; skipping lint"
           fi
       - name: Verify the WordPress engine module loads and exports
         run: |
