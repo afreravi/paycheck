@@ -129,7 +129,7 @@ the **Rank Math** panel on the Page:
 |---|---|
 | Focus keyword | `paycheck calculator` |
 | SEO title | `Paycheck Calculator - Estimate Your Take-Home Pay` |
-| Meta description | `Free US paycheck calculator. Estimate your take-home pay after federal income tax, FICA, and state income tax. Covers all 50 states and DC. No signup needed.` |
+| Meta description | `Free US paycheck calculator. Estimate your take-home pay after federal income tax, FICA, and state income tax. Covers all 50 states and DC. No signup needed.` (157 characters) |
 
 The bundle now includes an intro paragraph above the form. That paragraph is what gives
 the page real opening text — keep it.
