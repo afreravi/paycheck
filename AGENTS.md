@@ -56,6 +56,24 @@ asserts all three agree. Edit the list, never the outputs.
 **State tax data is generated.** Run `tools/generate-state-data.mjs` after changing
 rates. CI fails if `src/data/states` is stale.
 
+**The WP page carries its own `<style>` block.** The theme loads Bootstrap 4.6.2,
+which supplies the grid and utilities, but nothing styles `.pc-app` — a page that
+only pastes the form markup renders as raw browser defaults. `tools/build.mjs`
+inlines `src/ui/calculator.css` (the purple brand palette, shared with the other
+calculators) into the page body. Keep markup Bootstrap-native so the theme does the
+heavy lifting; the CSS file should only hold brand components.
+
+**The standalone build has no Bootstrap.** `tools/build.mjs` prepends a small shim
+covering just the classes the markup uses. If you add a Bootstrap class to
+`calculator-ui.js`, add it to the shim too or the standalone page loses the style.
+
+**`calculator-ui.js` is the single source of markup.** It is inlined into both the
+standalone page and the engine, and called at build time to server-render the WP
+fragment. The engine binds by `name`, `data-when`, and `data-out`; `mount()` finds
+the form with `root.querySelector("form.pc")`. Renaming any of those breaks the
+calculator silently. `deploy-artifacts.test.js` now asserts every hook exists in the
+built page, so a rename fails the build rather than the browser.
+
 ## Conventions
 
 - Accuracy target is consumer estimate, not payroll-system exactness. Say so in UI
