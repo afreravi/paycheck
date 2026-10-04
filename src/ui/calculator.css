@@ -1,81 +1,147 @@
-.pc-app {
-  --pc-bg: #ffffff;
-  --pc-fg: #1a1a1a;
-  --pc-muted: #5b6470;
-  --pc-border: #d9dee5;
-  --pc-accent: #0b6b3a;
-  --pc-accent-fg: #ffffff;
-  --pc-surface: #f6f8fa;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 16px;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color: var(--pc-fg);
-  line-height: 1.5;
-  box-sizing: border-box;
+/* Paycheck calculator styling.
+ *
+ * Matches the palette and component vocabulary used by the other afreetools
+ * calculators (see /rule-of-72-calculator): Bootstrap 4 grid + utilities, plus
+ * a small set of brand components. WordPress supplies Bootstrap 4.6.2 from the
+ * theme, so this file only carries what Bootstrap does not.
+ *
+ * The standalone build has no Bootstrap, so tools/build.mjs prepends a minimal
+ * shim for the grid and utility classes used here. Keep that shim in sync if
+ * the markup starts using new Bootstrap classes.
+ */
+
+:root {
+  --brand: #60089c;
+  --brand-deep: #3f0568;
+  --brand-bright: #8b2fd0;
+  --brand-wash: #f7f1fd;
+  --brand-edge: #e3d4f4;
+  --ink: #221f28;
+  --muted: #6a6673;
+  --rule: #e8e2f0;
+  --good: #1c7d4d;
+  --bad: #b32639;
 }
-.pc-app *, .pc-app *::before, .pc-app *::after { box-sizing: inherit; }
 
-.pc-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
-.pc-field { flex: 1 1 180px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.pc-field > span { font-size: 0.875rem; font-weight: 600; }
-.pc-field small { font-weight: 400; color: var(--pc-muted); }
-
-.pc-field input,
-.pc-field select {
-  width: 100%;
-  padding: 10px 12px;
-  font-size: 16px; /* prevents iOS zoom */
-  border: 1px solid var(--pc-border);
-  border-radius: 8px;
-  background: var(--pc-bg);
-  color: var(--pc-fg);
+/* ---------- labels ---------- */
+.section-kicker {
+  color: var(--brand-deep);
+  letter-spacing: .08em;
+  font-size: .76rem;
+  border-left: 3px solid var(--brand);
+  padding-left: .55rem;
 }
-.pc-field input:focus,
-.pc-field select:focus { outline: 2px solid var(--pc-accent); outline-offset: 1px; }
 
-.pc-advanced { margin: 8px 0 16px; border: 1px solid var(--pc-border); border-radius: 8px; padding: 8px 12px; }
-.pc-advanced summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
-.pc-advanced .pc-row:first-of-type { margin-top: 12px; }
+label { font-weight: 600; font-size: .95rem; color: var(--ink); }
+.form-text { color: var(--muted); font-size: .82rem; }
 
-.pc-submit {
-  width: 100%;
-  padding: 14px 16px;
-  font-size: 1rem;
+/* ---------- form ---------- */
+.form-control, .custom-select {
+  border-color: var(--rule);
+  border-radius: .25rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  background-color: #fff;
+}
+.form-control:focus, .custom-select:focus {
+  border-color: var(--brand-bright);
+  box-shadow: 0 0 0 .2rem rgba(96, 8, 156, .14);
+}
+.input-group-text {
+  background: var(--brand-wash);
+  border-color: var(--rule);
+  color: var(--brand-deep);
   font-weight: 700;
-  color: var(--pc-accent-fg);
-  background: var(--pc-accent);
-  border: 0;
-  border-radius: 8px;
-  cursor: pointer;
 }
-.pc-submit:hover { filter: brightness(1.08); }
 
-.pc-result { margin-top: 24px; }
-.pc-net { background: var(--pc-surface); border: 1px solid var(--pc-border); border-radius: 12px; padding: 16px; text-align: center; }
-.pc-net-label { display: block; font-size: 0.9rem; color: var(--pc-muted); }
-.pc-net-value { display: block; font-size: 2.25rem; font-weight: 800; letter-spacing: -0.02em; }
-.pc-net-annual { display: block; font-size: 0.9rem; color: var(--pc-muted); }
+/* ---------- buttons ---------- */
+.btn-brand {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  padding: .6rem 1.35rem;
+}
+.btn-brand:hover, .btn-brand:focus {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #fff;
+}
 
-.pc-breakdown { width: 100%; border-collapse: collapse; margin-top: 16px; }
-.pc-breakdown th, .pc-breakdown td { padding: 8px 4px; text-align: left; border-bottom: 1px solid var(--pc-border); }
-.pc-breakdown td { text-align: right; font-variant-numeric: tabular-nums; }
-.pc-breakdown th { font-weight: 500; color: var(--pc-muted); }
-.pc-total th, .pc-total td { font-weight: 800; color: var(--pc-fg); border-bottom: 0; }
+/* ---------- stat tiles ---------- */
+.stat-tile {
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--brand);
+  border-radius: .3rem;
+  background: linear-gradient(90deg, var(--brand-wash) 0%, #ffffff 65%);
+}
+.stat-label {
+  display: block;
+  font-size: .74rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  font-weight: 700;
+  margin-bottom: .25rem;
+}
+.stat-value {
+  display: block;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--brand);
+  line-height: 1.15;
+}
+.stat-note { display: block; color: var(--muted); font-size: .84rem; margin-top: .15rem; }
 
-.pc-rates { margin: 12px 0; font-size: 0.9rem; color: var(--pc-muted); }
+/* ---------- tables ---------- */
+.table thead th {
+  border-top: 0;
+  border-bottom: 2px solid var(--brand-edge);
+  color: var(--brand-deep);
+  font-size: .8rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.table td, .table th { border-color: var(--rule); }
+.table-striped tbody tr:nth-of-type(odd) { background: var(--brand-wash); }
+.pc-breakdown td { font-variant-numeric: tabular-nums; }
+.pc-breakdown .pc-total th, .pc-breakdown .pc-total td {
+  font-weight: 800;
+  color: var(--ink);
+  border-bottom: 0;
+}
 
-.pc-math { border: 1px solid var(--pc-border); border-radius: 8px; padding: 8px 12px; margin: 12px 0; }
-.pc-math summary { cursor: pointer; font-weight: 600; }
-.pc-math ol { margin: 12px 0 4px; padding-left: 20px; }
-.pc-math li { margin-bottom: 8px; font-size: 0.875rem; }
-.pc-math code { background: var(--pc-surface); padding: 1px 4px; border-radius: 4px; word-break: break-word; }
+/* ---------- calculator specifics ---------- */
+.pc-app { margin-bottom: 1rem; }
+
+.pc-advanced { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-advanced summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+
+.pc-math { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-math summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-math ol { margin: .75rem 0 .25rem; padding-left: 1.25rem; }
+.pc-math li { margin-bottom: .5rem; font-size: .875rem; }
+.pc-math code { background: var(--brand-wash); padding: 1px 4px; border-radius: 4px; word-break: break-word; }
 .pc-trace-label { font-weight: 600; }
 
-.pc-disclaimer { font-size: 0.8125rem; color: var(--pc-muted); background: var(--pc-surface); border-radius: 8px; padding: 10px 12px; }
-.pc-updated { font-size: 0.75rem; color: var(--pc-muted); }
+.pc-rates strong { color: var(--ink); }
 
-@media (max-width: 420px) {
-  .pc-net-value { font-size: 1.85rem; }
-  .pc-app { padding: 12px; }
+.pc-disclaimer {
+  border-left: 3px solid var(--brand-edge);
+  padding-left: .75rem;
 }
+
+/* ---------- prose + FAQ (outside .pc-app) ---------- */
+.pc-intro { max-width: 70ch; }
+.pc-faq { max-width: 70ch; }
+.pc-faq details {
+  border: 1px solid var(--rule);
+  border-radius: .3rem;
+  padding: .6rem .85rem;
+  margin-bottom: .5rem;
+  background: #fff;
+}
+.pc-faq summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-faq p { margin: .6rem 0 .25rem; }

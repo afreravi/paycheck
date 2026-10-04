@@ -5,13 +5,14 @@
  *  dist/paycheck-engine.js          External ES module for WordPress (cacheable)
  *  dist/paycheck-calculator.html    Standalone self-contained page
  *  dist/wp/*.html                   Copy-paste snippets for the WP editor
- *  dist/wp/schema.jsonld            Structured data for the calculator page
+ *  dist/wp/3a-schema-webapplication.jsonld  Structured data, one type per file
+ *  dist/wp/3b-schema-faq.jsonld             (Rank Math free allows only one)
  *
  * The engine is emitted as an external file rather than inlined into a
  * WordPress page because wpautop mangles inline <script type="module"> blocks.
  * See docs/WORDPRESS-INTEGRATION.md.
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -20,6 +21,12 @@ const ROOT = join(__dirname, "..");
 const DIST = join(ROOT, "dist");
 const WPDIR = join(DIST, "wp");
 mkdirSync(WPDIR, { recursive: true });
+
+// Remove artifacts from earlier builds so a renamed file cannot linger and be
+// deployed by mistake. Only files this build owns are listed.
+for (const stale of ["3-schema.jsonld"]) {
+  rmSync(join(WPDIR, stale), { force: true });
+}
 
 const read = (p) => readFileSync(join(ROOT, p), "utf8");
 
@@ -119,23 +126,74 @@ ${EXPORTS}
 writeFileSync(join(DIST, "paycheck-engine.js"), engineBundle);
 
 // ---- 2. standalone page ----
+// The standalone file has no Bootstrap, so this shim covers only the classes the
+// calculator markup actually uses. WordPress gets the real Bootstrap 4.6.2 from
+// the theme and ignores this entirely.
+const BOOTSTRAP_SHIM = `
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color: #221f28; }
+.row { display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; }
+.row > [class*="col-"] { position: relative; width: 100%; padding-right: 15px; padding-left: 15px; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+@media (min-width: 768px) {
+  .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+}
+.form-group { margin-bottom: 1rem; }
+label { display: inline-block; margin-bottom: .5rem; }
+.form-control { display: block; width: 100%; height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; }
+.custom-select { display: block; width: 100%; height: calc(1.5em + .75rem + 2px); padding: .375rem 1.75rem .375rem .75rem; }
+.input-group { position: relative; display: flex; flex-wrap: wrap; align-items: stretch; width: 100%; }
+.input-group > .form-control { position: relative; flex: 1 1 auto; width: 1%; min-width: 0; margin-bottom: 0; }
+.input-group-prepend, .input-group-append { display: flex; }
+.input-group-prepend { margin-right: -1px; }
+.input-group-append { margin-left: -1px; }
+.input-group-text { display: flex; align-items: center; padding: .375rem .75rem; margin-bottom: 0; white-space: nowrap; }
+.input-group > .input-group-prepend > .input-group-text { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.input-group > .input-group-append > .input-group-text { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.btn { display: inline-block; font-weight: 400; text-align: center; vertical-align: middle; user-select: none; border: 1px solid transparent; }
+.btn-block { display: block; width: 100%; }
+.btn-lg { padding: .5rem 1rem; font-size: 1.25rem; line-height: 1.5; border-radius: .3rem; }
+.table { width: 100%; margin-bottom: 1rem; border-collapse: collapse; }
+.table td, .table th { padding: .75rem; vertical-align: top; border-top: 1px solid #e8e2f0; }
+.table-sm td, .table-sm th { padding: .3rem; }
+.table-responsive { display: block; width: 100%; overflow-x: auto; }
+.text-right { text-align: right !important; }
+.text-muted { color: #6a6673 !important; }
+.small { font-size: 80%; }
+.font-weight-bold { font-weight: 700 !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.h6 { font-size: 1rem; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-2 { margin-bottom: .5rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.mt-2 { margin-top: .5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+`;
+
 const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Paycheck Calculator — Take-Home Pay After Taxes</title>
-<meta name="description" content="Free US paycheck calculator. Estimate your take-home pay after federal tax, FICA, and state income tax. No signup required." />
+<meta name="description" content="Free US paycheck calculator. Estimate your take-home pay after federal income tax, FICA, and state income tax. Covers all 50 states and DC. No signup needed." />
 <style>
+${BOOTSTRAP_SHIM}
 ${css}
 </style>
 </head>
 <body>
+<div class="container" style="max-width: 960px; margin: 0 auto; padding: 24px 15px;">
 <main id="paycheck-calculator" class="pc-app" aria-label="Paycheck calculator"></main>
+</div>
 <script type="module">
 ${DATA_BLOCK}
 ${engineSrc}
 ${uiSrc}
+${MOUNT_HELPER}
 mountCalculator(document.getElementById("paycheck-calculator"));
 </script>
 </body>
@@ -149,12 +207,122 @@ writeFileSync(join(DIST, "paycheck-calculator.html"), html);
 const { template } = await import("../src/ui/calculator-ui.js");
 const formHtml = template(stateIndex.states);
 
+const FAQS = [
+  {
+    q: "How accurate is this paycheck calculator?",
+    a: "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount.",
+  },
+  {
+    q: "Why is my actual paycheck different from this estimate?",
+    a: "It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses.",
+  },
+  {
+    q: "Does this calculator work for all 50 states?",
+    a: "Yes. It covers all 50 states and Washington, DC for tax years 2025 and 2026. Nine states have no state income tax on wages, so only federal tax and FICA apply there.",
+  },
+  {
+    q: "What is the difference between gross pay and net pay?",
+    a: "Gross pay is your total earnings before any deductions. Net pay, also called take-home pay, is what remains after income tax, FICA, and any benefit deductions are subtracted.",
+  },
+];
+
+// The FAQ is defined once and emitted to both the page body and the JSON-LD.
+// Google requires FAQPage markup to match content visible on the page, so
+// keeping one source prevents the two from drifting apart.
+//
+// Markup follows the same conventions as the other afreetools calculators
+// (see /rule-of-72-calculator): a "rank-math-faq" block with rank-math-question
+// / rank-math-answer classes, so the site's existing FAQ styling applies.
+const faqHtml = `<h2 class="wp-block-heading" id="faq">FAQ</h2>
+
+<div id="rank-math-faq" class="rank-math-block">
+<div class="rank-math-list ">
+${FAQS.map(
+  (f, i) => `<div id="faq-question-${i + 1}" class="rank-math-list-item">
+<h4 class="rank-math-question ">${f.q}</h4>
+<div class="rank-math-answer ">
+
+<p>${f.a}</p>
+
+</div>
+</div>`
+).join("\n")}
+</div>
+</div>`;
+
 writeFileSync(
   join(WPDIR, "1-paycheck-calculator-page.html"),
-  `<!-- Paste into the Page body. Use the Code Editor, not the Visual editor. -->
+  `<!-- Paste into the Page body. Use the Code Editor, not the Visual editor.
+
+  Rank Math SEO fields to set on this Page (these drive the meta description
+  and social preview, which are otherwise auto-generated from the form labels):
+    Focus keyword : paycheck calculator
+    SEO title     : Paycheck Calculator - Estimate Your Take-Home Pay
+    Meta description (157 characters):
+      Free US paycheck calculator. Estimate your take-home pay after federal
+      income tax, FICA, and state income tax. Covers all 50 states and DC. No
+      signup needed.
+
+  The paragraph below the heading is not decoration. Search engines and social
+  cards read the opening text, and without it the meta description falls back
+  to the first form labels ("Tax year 2026 2025 Pay type Salary..."). Keep it.
+
+  The <style> block carries the brand palette and the pieces Bootstrap 4 does
+  not provide. The theme already loads Bootstrap 4.6.2, so this is the only
+  styling the page needs.
+-->
+<style>
+${css}
+</style>
+
+<p class="pc-intro">Estimate your take-home pay per paycheck after federal income tax, FICA (Social Security and Medicare), and state income tax. Choose your pay frequency and filing status, add any 401(k) or HSA contributions, and see your net pay broken down per period. Covers all 50 states and Washington, DC for tax years 2025 and 2026. Everything runs in your browser &mdash; nothing you type is sent anywhere.</p>
+
+<div class="card shadow-sm border-0 mb-5" id="toolCard">
+<div class="card-body p-4">
+
+<h2 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Your pay details</h2>
+
 <div id="paycheck-calculator" class="pc-app" aria-label="Paycheck calculator">
 ${formHtml}
 </div>
+
+</div>
+</div>
+
+<h2 class="wp-block-heading" id="what-this-calculator-does">What this paycheck calculator does</h2>
+
+<p>This tool turns a gross salary or hourly wage into the amount that actually lands in your bank account. It applies the current federal income tax brackets, the standard deduction for your filing status, Social Security and Medicare (FICA), and a simplified state income tax, then divides the result by your pay frequency.</p>
+
+<p>It handles both salary and hourly pay, including overtime at time and a half. You can also enter pre-tax deductions such as a 401(k), HSA, or health premium, which lower your taxable income before the tax is worked out.</p>
+
+<h2 class="wp-block-heading" id="how-take-home-pay-is-calculated">How your take-home pay is calculated</h2>
+
+<p>The calculation runs in four steps:</p>
+
+<ul class="wp-block-list">
+<li><strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.</li>
+<li><strong>Pre-tax deductions.</strong> 401(k), HSA, FSA, and health premiums are subtracted first, so they reduce both income tax and FICA.</li>
+<li><strong>Federal tax and FICA.</strong> The standard deduction is applied, the remaining income is run through the marginal brackets, and Social Security (6.2% up to the annual wage base) and Medicare (1.45%) are withheld. Earnings above the additional Medicare threshold are taxed a further 0.9%.</li>
+<li><strong>State tax.</strong> A simplified state income tax is applied for your selected state. Nine states do not tax wage income at all: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming.</li>
+</ul>
+
+<p>Pay frequency matters more than people expect. A biweekly schedule pays 26 times a year, a semi-monthly schedule 24 times, so the same salary produces different per-paycheck amounts. Choose the frequency that matches your pay stub.</p>
+
+<h2 class="wp-block-heading" id="what-is-not-included">What is not included</h2>
+
+<p>This is an estimate for planning, not a payroll system. It does not include local or city income tax, state disability or paid-family-leave programs, or the specific withholding method your employer uses. It also leaves out any deductions you have not entered. Your actual paycheck can differ by a small amount for these reasons.</p>
+
+${faqHtml}
+
+<h2 class="wp-block-heading" id="related-tools">Related tools</h2>
+
+<ul class="wp-block-list">
+<li><a href="/finance/">Money &amp; Pay Calculators</a> &mdash; the rest of the finance hub.</li>
+<li><a href="/customer-lifetime-value-calculator">Customer Lifetime Value Calculator</a></li>
+<li><a href="/heloc-calculator">HELOC Calculator</a></li>
+<li><a href="/era-calculator">ERA Calculator</a></li>
+<li><a href="/wacc-calculator">WACC Calculator</a></li>
+</ul>
 
 <script type="module">
   import { mountCalculator } from "/wp-content/uploads/tools/paycheck-engine.js";
@@ -178,82 +346,62 @@ writeFileSync(
 `
 );
 
-writeFileSync(
-  join(WPDIR, "3-schema.jsonld"),
-  JSON.stringify(
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebApplication",
-          name: "Paycheck Calculator",
-          url: "https://afreetools.com/finance/paycheck-calculator",
-          applicationCategory: "FinanceApplication",
-          operatingSystem: "All",
-          browserRequirements: "Requires JavaScript",
-          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-          description:
-            "Free US paycheck calculator. Estimate take-home pay after federal income tax, Social Security, Medicare, and state income tax.",
-        },
-        {
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://afreetools.com/" },
-            { "@type": "ListItem", position: 2, name: "Finance", item: "https://afreetools.com/finance/" },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: "Paycheck Calculator",
-              item: "https://afreetools.com/finance/paycheck-calculator",
-            },
-          ],
-        },
-        {
-          "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "How accurate is this paycheck calculator?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Why is my actual paycheck different from this estimate?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses.",
-              },
-            },
-          ],
-        },
-      ],
-    },
-    null,
-    2
-  ) + "\n"
-);
+const schemaGraph = [
+  {
+    "@type": "WebApplication",
+    name: "Paycheck Calculator",
+    url: "https://afreetools.com/finance/paycheck-calculator",
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "All",
+    browserRequirements: "Requires JavaScript",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    description:
+      "Free US paycheck calculator. Estimate take-home pay after federal income tax, Social Security, Medicare, and state income tax.",
+  },
+  {
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+];
+
+// Rank Math free allows only one schema type per page, so these are written as
+// two separate files. It also already emits BreadcrumbList itself, so we do not
+// duplicate it here.
+const jsonld = (node) =>
+  JSON.stringify({ "@context": "https://schema.org", ...node }, null, 2) + "\n";
+
+writeFileSync(join(WPDIR, "3a-schema-webapplication.jsonld"), jsonld(schemaGraph[0]));
+writeFileSync(join(WPDIR, "3b-schema-faq.jsonld"), jsonld(schemaGraph[1]));
 
 writeFileSync(
   join(WPDIR, "4-enqueue-snippet.php"),
   `<?php
 /**
- * Optional: load the engine without pasting any <script> into the page body.
+ * Paycheck calculator: load the engine and add structured data.
  *
- * Inline <script type="module"> is the riskiest part of a WordPress install,
- * because the editor can reformat it and break the JS. The engine auto-mounts
- * itself, so enqueueing it alone is enough. Nothing inline, nothing to mangle.
+ * Two independent jobs in one file. Delete whichever block you don't need.
  *
  * Where to put this, pick ONE:
- *   a) A child theme's functions.php          (survives parent theme updates)
+ *   a) Code Snippets plugin -> Add New -> Run Everywhere
+ *      IMPORTANT: paste from the "/**" line below, NOT the "<?php" line.
+ *      The plugin adds the opening tag itself; a second one is an error.
  *   b) A small site-specific plugin in wp-content/plugins/
- *   c) Code Snippets plugin (Code Snippets -> Add New)
+ *   c) A child theme's functions.php  (paste inside the file, no second <?php)
  *
  * Do NOT paste into the parent GeneratePress theme — a theme update erases it.
  */
 
+/**
+ * 1. Load the engine without pasting any <script> into the page body.
+ *
+ * Inline <script type="module"> is the riskiest part of a WordPress install,
+ * because the editor can reformat it and break the JS. The engine auto-mounts
+ * itself, so enqueueing it alone is enough. Nothing inline, nothing to mangle.
+ */
 add_action( 'wp_enqueue_scripts', function () {
     // Loads on the calculator page only, so other pages stay unaffected.
     if ( ! is_page( 'paycheck-calculator' ) ) {
@@ -268,6 +416,87 @@ add_action( 'wp_enqueue_scripts', function () {
         '1.0.0'   // bump this after re-uploading to bust browser cache
     );
 } );
+
+/**
+ * 2. Add WebApplication and FAQPage structured data.
+ *
+ * Use this instead of Rank Math's Custom Schema field, which is a PRO feature.
+ * Rank Math free emits BreadcrumbList and Article on its own, so we only add
+ * the two types it cannot.
+ *
+ * The FAQ questions below must stay word-for-word identical to the visible FAQ
+ * at the bottom of the page. Google requires the markup to match on-page text,
+ * and will ignore the FAQ rich result if it does not.
+ */
+add_action( 'wp_head', function () {
+    if ( ! is_page( 'paycheck-calculator' ) ) {
+        return;
+    }
+
+    $url = 'https://afreetools.com/finance/paycheck-calculator';
+
+    $webapp = array(
+        '@context'             => 'https://schema.org',
+        '@type'                => 'WebApplication',
+        'name'                 => 'Paycheck Calculator',
+        'url'                  => $url,
+        'applicationCategory'  => 'FinanceApplication',
+        'operatingSystem'      => 'All',
+        'browserRequirements'  => 'Requires JavaScript',
+        'offers'               => array(
+            '@type'         => 'Offer',
+            'price'         => '0',
+            'priceCurrency' => 'USD',
+        ),
+        'description'          => 'Free US paycheck calculator. Estimate take-home pay after federal income tax, Social Security, Medicare, and state income tax.',
+    );
+
+    $faq = array(
+        '@context'   => 'https://schema.org',
+        '@type'      => 'FAQPage',
+        'mainEntity' => array(
+            array(
+                '@type'          => 'Question',
+                'name'           => 'How accurate is this paycheck calculator?',
+                'acceptedAnswer' => array(
+                    '@type' => 'Answer',
+                    'text'  => "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount.",
+                ),
+            ),
+            array(
+                '@type'          => 'Question',
+                'name'           => 'Why is my actual paycheck different from this estimate?',
+                'acceptedAnswer' => array(
+                    '@type' => 'Answer',
+                    'text'  => 'It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses.',
+                ),
+            ),
+            array(
+                '@type'          => 'Question',
+                'name'           => 'Does this calculator work for all 50 states?',
+                'acceptedAnswer' => array(
+                    '@type' => 'Answer',
+                    'text'  => 'Yes. It covers all 50 states and Washington, DC for tax years 2025 and 2026. Nine states have no state income tax on wages, so only federal tax and FICA apply there.',
+                ),
+            ),
+            array(
+                '@type'          => 'Question',
+                'name'           => 'What is the difference between gross pay and net pay?',
+                'acceptedAnswer' => array(
+                    '@type' => 'Answer',
+                    'text'  => 'Gross pay is your total earnings before any deductions. Net pay, also called take-home pay, is what remains after income tax, FICA, and any benefit deductions are subtracted.',
+                ),
+            ),
+        ),
+    );
+
+    printf(
+        '<script type="application/ld+json">%s</script>' . "\\n" .
+        '<script type="application/ld+json">%s</script>' . "\\n",
+        wp_json_encode( $webapp, JSON_UNESCAPED_SLASHES ),
+        wp_json_encode( $faq, JSON_UNESCAPED_SLASHES )
+    );
+} );
 `
 );
 
@@ -277,5 +506,6 @@ console.log(`  dist/paycheck-engine.js          ${kb(engineBundle)}  (external m
 console.log(`  dist/paycheck-calculator.html    ${kb(html)}  (standalone)`);
 console.log(`  dist/wp/1-paycheck-calculator-page.html`);
 console.log(`  dist/wp/2-finance-hub-page.html`);
-console.log(`  dist/wp/3-schema.jsonld`);
+console.log(`  dist/wp/3a-schema-webapplication.jsonld`);
+console.log(`  dist/wp/3b-schema-faq.jsonld`);
 console.log(`  dist/wp/4-enqueue-snippet.php`);

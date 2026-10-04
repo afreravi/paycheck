@@ -5,7 +5,7 @@
   "type": "module",
   "main": "src/engine/index.js",
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test test/*.test.js",
     "generate": "node tools/generate-state-data.mjs"
   },
   "license": "UNLICENSED",
