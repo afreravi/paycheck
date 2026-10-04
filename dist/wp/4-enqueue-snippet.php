@@ -108,9 +108,8 @@ add_action( 'wp_head', function () {
     );
 
     printf(
-        "<script type="application/ld+json">%s</script>
-<script type="application/ld+json">%s</script>
-",
+        '<script type="application/ld+json">%s</script>' . "\n" .
+        '<script type="application/ld+json">%s</script>' . "\n",
         wp_json_encode( $webapp, JSON_UNESCAPED_SLASHES ),
         wp_json_encode( $faq, JSON_UNESCAPED_SLASHES )
     );
