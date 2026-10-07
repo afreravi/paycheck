@@ -107,6 +107,59 @@ const FILING_LABEL = {
 };
 const filingLabel = (f) => FILING_LABEL[f] ?? f;
 
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+/** "2026-10-02" -> "October 02, 2026" (matches the national page's date style). */
+const formatDate = (iso) => {
+  const [y, m, d] = iso.split("-");
+  return `${MONTHS[Number(m) - 1]} ${d}, ${y}`;
+};
+
+// Maps the tax-data `verified_by` field to the byline shown on the page.
+const REVIEWED_BY_LABEL = {
+  "data-owner": "aFreeTools Editorial Team",
+};
+const DEFAULT_REVIEWED_BY = "aFreeTools Editorial Team";
+
+// One wording for every state page, matching the national calculator's disclaimer.
+const DISCLAIMER =
+  "This paycheck calculator is for informational and planning purposes only. It provides " +
+  "an estimate of take-home pay based on the information you enter and standard " +
+  "federal/state tax assumptions, but actual pay can vary due to local taxes, benefits, " +
+  "deductions, withholding elections, payroll rules, and employer-specific factors. " +
+  "Results are not a guarantee of wages, tax liability, or net pay and should not be " +
+  "considered tax, legal, accounting, or financial advice. Please verify final amounts " +
+  "with your employer&rsquo;s payroll system or a qualified tax professional.";
+
+/**
+ * Review/date/disclaimer footer every state page carries. The dates come from the
+ * state's tax-data file (`last_verified`, `verified_by`), so they cannot drift from
+ * the sources cited above.
+ */
+function renderReviewFooter(data) {
+  const reviewedBy = REVIEWED_BY_LABEL[data.verified_by] ?? DEFAULT_REVIEWED_BY;
+  const lastUpdated = formatDate(data.last_verified);
+  return `<div class="gb-container gb-container-b53f53f1">
+
+<p><strong>Reviewed by:</strong> ${reviewedBy}</p>
+
+<p><strong>Last updated:</strong> ${lastUpdated}</p>
+
+<p class="mb-0"><strong>Freshness:</strong> The page&rsquo;s content and sources were last reviewed ${lastUpdated}. Check related guidance and pay stub for situations that will require an exact withholding amount.</p>
+
+</div>
+
+<hr class="wp-block-separator has-text-color has-global-color-17-color has-alpha-channel-opacity has-global-color-17-background-color has-background is-style-default p-0"/>
+
+<section class="wp-block-group has-global-color-17-background-color has-background"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<p class="mb-0"><strong>Disclaimer:</strong> ${DISCLAIMER}</p>
+</div></section>`;
+}
+
+
 /**
  * Renders one state page's paste-ready fragment and its schema nodes.
  * `ctx` supplies the shared css, the form template, and the engine functions.
@@ -246,6 +299,8 @@ ${cfg.sources.map((s) => `<li><a href="${s.url}">${s.label}</a></li>`).join("\n"
 <li><a href="/finance/paycheck-calculator">Paycheck Calculator</a> &mdash; the national calculator, pre-set to any state.</li>
 <li><a href="/finance/">Money &amp; Pay Calculators</a> &mdash; the rest of the finance hub.</li>
 </ul>
+
+${renderReviewFooter(data)}
 `;
 
   const webapp = {
