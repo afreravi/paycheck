@@ -4,34 +4,90 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How accurate is this paycheck calculator?",
+      "name": "What is the weekly equivalent of an annual salary?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount."
+        "text": "Enter your gross annual income, tax year, payment frequency, filing status, and state; then, see the estimated net and itemized deductions. This provides an estimate only, and your employers’ payroll calculation may be different because you might have a different W-4, different benefits, and different taxes that your employer would calculate."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is my actual paycheck different from this estimate?",
+      "name": "There are 52 weeks in a year.",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses."
+        "text": "Typically pay is weekly, which equals 52 payments per year; biweekly, which equals 26 payments per year; semi-monthly which equals 24 payments per year; and monthly which equals 12 payments per year. Biweekly (twice a week) paydays are every two weeks; semi-monthly (twice a month) paydays are each payday split into two amounts."
       }
     },
     {
       "@type": "Question",
-      "name": "Does this calculator work for all 50 states?",
+      "name": "What is the difference between every other week pay and half-monthly pay?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. It covers all 50 states and Washington, DC for tax years 2025 and 2026. Nine states have no state income tax on wages, so only federal tax and FICA apply there."
+        "text": "Biweekly pay is payment that is made every other week, which results in 26 payments per year. Semi-monthly pays are paid on a twice monthly basis (24 checks per year). Select the schedule that appears on your pay stub—it’s not changing the amount of money that you are paid, it’s just changing how it is paid out throughout the year."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the difference between gross pay and net pay?",
+      "name": "What happens to an hourly paycheck estimate when you work overtime?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Gross pay is your total earnings before any deductions. Net pay, also called take-home pay, is what remains after income tax, FICA, and any benefit deductions are subtracted."
+        "text": "Choose Hourly and enter the hourly rate and regular hours per week and overtime hours. The calculator assumes that overtime is 1.5 times the number of hours entered. Overtime rules and overtime hours are subject to actual working hours and law – check with employer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are 401(k), HSA and health deductions impacting take-home pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They lower the amount of cash that you receive by the amount deducted but do not have the same tax treatment. The remittance of federal, state and SS/Medicare wages will depend on the remittance and plan. Input the total per pay-period and check it against your payroll and benefits information from your employer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the calculator take into account local taxes and paid leaves deductions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Local/ city income tax, state disability insurance and paid-family-leave deductions are not included in the estimate. These can impact your paycheck, subject to your work and residing place."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is paycheck withholding the same tax as what I will be paying?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Paycheck withholding is a portion of your earnings (during the year) deducted from your paycheck to pay your tax obligation. Final tax is calculated at the time of filing based on your total income, deductions, credits and other factors. Use the IRS Withholding Estimator to determine a personal estimate of federal withholding or talk to a tax professional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why might my actual paycheck be different than the estimate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "W-4 elections or information from the payroll system not entered here may be used by your employer. The amount can also be affected by local taxes, state disability or paid-leave programs, benefits costs, timing of the pay period, rounding, and other factors. Compare the itemized estimate with your pay stub and the official state guidance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tax year is this going to be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select the year of the paycheck earned – 2025 or 2026. The tax thresholds and withholding guidance may change from year to year, and cannot be substituted for withholding for another year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is meant by W-4 credits/extra withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open “Deductions & W-4.” Type in the annual amount in Step 3 credits and the extra amount you wish to be taken with each paycheck in Step 4(c). Do not use these fields as substitutes for a W-4 form filed with your employer, but rather use your completed W-4 and existing IRS guidance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this calculator cover all states?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It provides state options for every 50 state and Washington, DC for tax years 2025 and 2026. State income tax is simplified and the estimate does not include all local taxes and state payroll deduction. For rules specific to your situation, follow the link to your state tax agency."
       }
     }
   ]

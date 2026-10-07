@@ -44,14 +44,18 @@ document with `<head>` and inlined CSS. Pasting it into a Page injects a duplica
 
 **The SEO plugin is Rank Math free.** Its Custom Schema tab exists but is not
 operational (PRO only), and free allows one schema type per page. Rank Math already
-emits `BreadcrumbList` and `Article`. `WebApplication` and `FAQPage` must come from
-the PHP snippet. Do not tell users to paste JSON-LD into the Page body — `wpautop`
-and `wptexturize` corrupt it silently.
+emits `BreadcrumbList`, `Article`, and `FAQPage` for the on-page FAQ block. Only
+`WebApplication` must come from the PHP snippet. Do not tell users to paste JSON-LD
+into the Page body — `wpautop` and `wptexturize` corrupt it silently.
 
 **FAQPage markup must match visible text.** Google ignores FAQ rich results when
-the markup does not correspond to on-page content. `tools/build.mjs` defines the
-FAQ once and emits both copies; the PHP snippet holds a third. `deploy-artifacts.test.js`
-asserts all three agree. Edit the list, never the outputs.
+the markup does not correspond to on-page content. The live page's FAQ is a Rank Math
+FAQ block, and Rank Math emits the matching `FAQPage`, so the PHP snippet deliberately
+adds only `WebApplication` and no `FAQPage` of its own. `tools/build.mjs` holds the
+canonical FAQ list for the page fragment and `3b-schema-faq.jsonld`;
+`deploy-artifacts.test.js` asserts those two agree. The live FAQ is currently 11
+questions and the list mirrors it — re-pasting the page fragment overwrites the live
+FAQ, so update the list first if the live FAQ changes.
 
 **State tax data is generated.** Run `tools/generate-state-data.mjs` after changing
 rates. CI fails if `src/data/states` is stale.

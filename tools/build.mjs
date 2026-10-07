@@ -207,22 +207,52 @@ writeFileSync(join(DIST, "paycheck-calculator.html"), html);
 const { template } = await import("../src/ui/calculator-ui.js");
 const formHtml = template(stateIndex.states);
 
+// Canonical FAQ list. This is the single source of truth for the page body and
+// both schema files. It mirrors the FAQ block currently live on the page.
 const FAQS = [
   {
-    q: "How accurate is this paycheck calculator?",
-    a: "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount.",
+    q: "What is the weekly equivalent of an annual salary?",
+    a: "Enter your gross annual income, tax year, payment frequency, filing status, and state; then, see the estimated net and itemized deductions. This provides an estimate only, and your employers\u2019 payroll calculation may be different because you might have a different W-4, different benefits, and different taxes that your employer would calculate.",
   },
   {
-    q: "Why is my actual paycheck different from this estimate?",
-    a: "It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses.",
+    q: "There are 52 weeks in a year.",
+    a: "Typically pay is weekly, which equals 52 payments per year; biweekly, which equals 26 payments per year; semi-monthly which equals 24 payments per year; and monthly which equals 12 payments per year. Biweekly (twice a week) paydays are every two weeks; semi-monthly (twice a month) paydays are each payday split into two amounts.",
   },
   {
-    q: "Does this calculator work for all 50 states?",
-    a: "Yes. It covers all 50 states and Washington, DC for tax years 2025 and 2026. Nine states have no state income tax on wages, so only federal tax and FICA apply there.",
+    q: "What is the difference between every other week pay and half-monthly pay?",
+    a: "Biweekly pay is payment that is made every other week, which results in 26 payments per year. Semi-monthly pays are paid on a twice monthly basis (24 checks per year). Select the schedule that appears on your pay stub\u2014it\u2019s not changing the amount of money that you are paid, it\u2019s just changing how it is paid out throughout the year.",
   },
   {
-    q: "What is the difference between gross pay and net pay?",
-    a: "Gross pay is your total earnings before any deductions. Net pay, also called take-home pay, is what remains after income tax, FICA, and any benefit deductions are subtracted.",
+    q: "What happens to an hourly paycheck estimate when you work overtime?",
+    a: "Choose Hourly and enter the hourly rate and regular hours per week and overtime hours. The calculator assumes that overtime is 1.5 times the number of hours entered. Overtime rules and overtime hours are subject to actual working hours and law \u2013 check with employer.",
+  },
+  {
+    q: "Are 401(k), HSA and health deductions impacting take-home pay?",
+    a: "They lower the amount of cash that you receive by the amount deducted but do not have the same tax treatment. The remittance of federal, state and SS/Medicare wages will depend on the remittance and plan. Input the total per pay-period and check it against your payroll and benefits information from your employer.",
+  },
+  {
+    q: "Does the calculator take into account local taxes and paid leaves deductions?",
+    a: "No. Local/ city income tax, state disability insurance and paid-family-leave deductions are not included in the estimate. These can impact your paycheck, subject to your work and residing place.",
+  },
+  {
+    q: "Is paycheck withholding the same tax as what I will be paying?",
+    a: "No. Paycheck withholding is a portion of your earnings (during the year) deducted from your paycheck to pay your tax obligation. Final tax is calculated at the time of filing based on your total income, deductions, credits and other factors. Use the IRS Withholding Estimator to determine a personal estimate of federal withholding or talk to a tax professional.",
+  },
+  {
+    q: "Why might my actual paycheck be different than the estimate?",
+    a: "W-4 elections or information from the payroll system not entered here may be used by your employer. The amount can also be affected by local taxes, state disability or paid-leave programs, benefits costs, timing of the pay period, rounding, and other factors. Compare the itemized estimate with your pay stub and the official state guidance.",
+  },
+  {
+    q: "What tax year is this going to be?",
+    a: "Select the year of the paycheck earned \u2013 2025 or 2026. The tax thresholds and withholding guidance may change from year to year, and cannot be substituted for withholding for another year.",
+  },
+  {
+    q: "What is meant by W-4 credits/extra withholding?",
+    a: "Open \u201cDeductions & W-4.\u201d Type in the annual amount in Step 3 credits and the extra amount you wish to be taken with each paycheck in Step 4(c). Do not use these fields as substitutes for a W-4 form filed with your employer, but rather use your completed W-4 and existing IRS guidance.",
+  },
+  {
+    q: "Does this calculator cover all states?",
+    a: "It provides state options for every 50 state and Washington, DC for tax years 2025 and 2026. State income tax is simplified and the estimate does not include all local taxes and state payroll deduction. For rules specific to your situation, follow the link to your state tax agency.",
   },
 ];
 
@@ -418,15 +448,11 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 
 /**
- * 2. Add WebApplication and FAQPage structured data.
+ * 2. Add WebApplication structured data.
  *
  * Use this instead of Rank Math's Custom Schema field, which is a PRO feature.
- * Rank Math free emits BreadcrumbList and Article on its own, so we only add
- * the two types it cannot.
- *
- * The FAQ questions below must stay word-for-word identical to the visible FAQ
- * at the bottom of the page. Google requires the markup to match on-page text,
- * and will ignore the FAQ rich result if it does not.
+ * Rank Math free already emits BreadcrumbList, Article, and the FAQPage for the
+ * visible FAQ block, so we only add the one type it cannot: WebApplication.
  */
 add_action( 'wp_head', function () {
     if ( ! is_page( 'paycheck-calculator' ) ) {
@@ -451,50 +477,9 @@ add_action( 'wp_head', function () {
         'description'          => 'Free US paycheck calculator. Estimate take-home pay after federal income tax, Social Security, Medicare, and state income tax.',
     );
 
-    $faq = array(
-        '@context'   => 'https://schema.org',
-        '@type'      => 'FAQPage',
-        'mainEntity' => array(
-            array(
-                '@type'          => 'Question',
-                'name'           => 'How accurate is this paycheck calculator?',
-                'acceptedAnswer' => array(
-                    '@type' => 'Answer',
-                    'text'  => "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount.",
-                ),
-            ),
-            array(
-                '@type'          => 'Question',
-                'name'           => 'Why is my actual paycheck different from this estimate?',
-                'acceptedAnswer' => array(
-                    '@type' => 'Answer',
-                    'text'  => 'It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses.',
-                ),
-            ),
-            array(
-                '@type'          => 'Question',
-                'name'           => 'Does this calculator work for all 50 states?',
-                'acceptedAnswer' => array(
-                    '@type' => 'Answer',
-                    'text'  => 'Yes. It covers all 50 states and Washington, DC for tax years 2025 and 2026. Nine states have no state income tax on wages, so only federal tax and FICA apply there.',
-                ),
-            ),
-            array(
-                '@type'          => 'Question',
-                'name'           => 'What is the difference between gross pay and net pay?',
-                'acceptedAnswer' => array(
-                    '@type' => 'Answer',
-                    'text'  => 'Gross pay is your total earnings before any deductions. Net pay, also called take-home pay, is what remains after income tax, FICA, and any benefit deductions are subtracted.',
-                ),
-            ),
-        ),
-    );
-
     printf(
-        '<script type="application/ld+json">%s</script>' . "\\n" .
         '<script type="application/ld+json">%s</script>' . "\\n",
-        wp_json_encode( $webapp, JSON_UNESCAPED_SLASHES ),
-        wp_json_encode( $faq, JSON_UNESCAPED_SLASHES )
+        wp_json_encode( $webapp, JSON_UNESCAPED_SLASHES )
     );
 } );
 `
