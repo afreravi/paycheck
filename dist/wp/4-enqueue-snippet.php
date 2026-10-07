@@ -37,15 +37,11 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 
 /**
- * 2. Add WebApplication and FAQPage structured data.
+ * 2. Add WebApplication structured data.
  *
  * Use this instead of Rank Math's Custom Schema field, which is a PRO feature.
- * Rank Math free emits BreadcrumbList and Article on its own, so we only add
- * the two types it cannot.
- *
- * The FAQ questions below must stay word-for-word identical to the visible FAQ
- * at the bottom of the page. Google requires the markup to match on-page text,
- * and will ignore the FAQ rich result if it does not.
+ * Rank Math free already emits BreadcrumbList, Article, and the FAQPage for the
+ * visible FAQ block, so we only add the one type it cannot: WebApplication.
  */
 add_action( 'wp_head', function () {
     if ( ! is_page( 'paycheck-calculator' ) ) {
@@ -70,49 +66,8 @@ add_action( 'wp_head', function () {
         'description'          => 'Free US paycheck calculator. Estimate take-home pay after federal income tax, Social Security, Medicare, and state income tax.',
     );
 
-    $faq = array(
-        '@context'   => 'https://schema.org',
-        '@type'      => 'FAQPage',
-        'mainEntity' => array(
-            array(
-                '@type'          => 'Question',
-                'name'           => 'How accurate is this paycheck calculator?',
-                'acceptedAnswer' => array(
-                    '@type' => 'Answer',
-                    'text'  => "It produces an estimate for planning. It covers federal income tax, Social Security, Medicare, and state income tax, but not local or paid-leave taxes. Your employer's payroll system may withhold a different amount.",
-                ),
-            ),
-            array(
-                '@type'          => 'Question',
-                'name'           => 'Why is my actual paycheck different from this estimate?',
-                'acceptedAnswer' => array(
-                    '@type' => 'Answer',
-                    'text'  => 'It depends on local or municipal income taxes, state disability or paid-leave programs, benefit deductions, and the withholding method your employer uses.',
-                ),
-            ),
-            array(
-                '@type'          => 'Question',
-                'name'           => 'Does this calculator work for all 50 states?',
-                'acceptedAnswer' => array(
-                    '@type' => 'Answer',
-                    'text'  => 'Yes. It covers all 50 states and Washington, DC for tax years 2025 and 2026. Nine states have no state income tax on wages, so only federal tax and FICA apply there.',
-                ),
-            ),
-            array(
-                '@type'          => 'Question',
-                'name'           => 'What is the difference between gross pay and net pay?',
-                'acceptedAnswer' => array(
-                    '@type' => 'Answer',
-                    'text'  => 'Gross pay is your total earnings before any deductions. Net pay, also called take-home pay, is what remains after income tax, FICA, and any benefit deductions are subtracted.',
-                ),
-            ),
-        ),
-    );
-
     printf(
-        '<script type="application/ld+json">%s</script>' . "\n" .
         '<script type="application/ld+json">%s</script>' . "\n",
-        wp_json_encode( $webapp, JSON_UNESCAPED_SLASHES ),
-        wp_json_encode( $faq, JSON_UNESCAPED_SLASHES )
+        wp_json_encode( $webapp, JSON_UNESCAPED_SLASHES )
     );
 } );

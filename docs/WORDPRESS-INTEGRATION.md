@@ -31,7 +31,10 @@ WordPress only issues that redirect when pretty permalinks are enabled. The cano
 | 7 | `dist/paycheck-calculator.html` | — | **Not for WordPress** |
 
 > On **Rank Math free**, skip items 4 and 5 — the Custom Schema field is a PRO feature.
-> The PHP snippet in item 6 prints the same schema without PRO.
+> The PHP snippet in item 6 prints the `WebApplication` schema without PRO.
+>
+> Item 5 (`3b-schema-faq.jsonld`) is only needed if you are **not** using a Rank Math FAQ
+> block. The live page uses one, and Rank Math emits the matching `FAQPage` itself.
 
 ### The two HTML files are not interchangeable
 
@@ -210,9 +213,14 @@ The same PHP file, `dist/wp/4-enqueue-snippet.php`, does two jobs:
 | Block | What it does |
 |---|---|
 | 1. `wp_enqueue_scripts` | Loads the engine as a proper `<script type="module" src=...>` |
-| 2. `wp_head` | Prints the `WebApplication` and `FAQPage` schema |
+| 2. `wp_head` | Prints the `WebApplication` schema |
 
 They are independent. You can use one, the other, or both.
+
+> **Why only `WebApplication`?** Rank Math already emits `Article`, `BreadcrumbList`,
+> and the `FAQPage` for the visible FAQ block on the page. Adding our own `FAQPage`
+> would duplicate it and could conflict. So the snippet adds only the type Rank Math
+> cannot: `WebApplication`.
 
 #### Where to paste it — Code Snippets plugin
 
@@ -253,11 +261,12 @@ your calculator stops working.
 #### Verify
 
 1. Open the calculator page and click "Calculate take-home pay" — you should get a figure
-2. View source (Ctrl+U) and search for `application/ld+json` — you should find **two**
-   blocks, one `WebApplication` and one `FAQPage`
-3. Open any other page and view source — you should find **neither**. If they appear
-   everywhere, the `is_page` guard is not matching, which usually means the Page slug is
-   not exactly `paycheck-calculator`
+2. View source (Ctrl+U) and search for `application/ld+json` — you should find the
+   Rank Math graph (with `FAQPage`, `BreadcrumbList`, `Article`) plus one extra block:
+   our `WebApplication`
+3. Open any other page and view source — you should find **no** `WebApplication`. If it
+   appears everywhere, the `is_page` guard is not matching, which usually means the Page
+   slug is not exactly `paycheck-calculator`
 
 ---
 
@@ -269,9 +278,9 @@ the schema. Skip to Step 5.
 If you are on Option A (inline script only) and do **not** want to add PHP, the fallback
 is Rank Math. Note the limitation first: **Rank Math free cannot add custom schema.** Its
 Custom Schema tab exists but prompts you to upgrade, and free allows only one schema type
-per page. So on free, the PHP snippet is the only way to get `WebApplication` and
-`FAQPage`. Rank Math already emits `BreadcrumbList` and `Article` by itself, which is why
-neither appears in our schema files.
+per page. So on free, the PHP snippet is the only way to get `WebApplication`. Rank Math
+already emits `BreadcrumbList`, `Article`, and `FAQPage` by itself, which is why only
+`WebApplication` appears in our snippet.
 
 ### If you have Rank Math PRO
 
@@ -296,11 +305,12 @@ The `FAQPage` markup requires that every question and answer also appears as vis
 on the page — markup describing content that isn't there is a structured-data violation
 and can cost you rich results.
 
-That's why `dist/wp/1-paycheck-calculator-page.html` contains a visible **FAQ** section,
-using the same `rank-math-faq` markup as the other calculators on the site. Both the
-section and the schema are generated from one list in `tools/build.mjs`, so they cannot
-drift apart. If you edit the questions, edit them there and rebuild rather than
-hand-editing either output — the PHP snippet's copy must match the page word for word.
+The live page uses a Rank Math FAQ block, which emits its own matching `FAQPage` — that is
+why the PHP snippet does not add a `FAQPage` of its own. If you ever replace the FAQ,
+keep the visible questions and answers identical to what Rank Math marks up. Note that
+re-pasting `dist/wp/1-paycheck-calculator-page.html` will overwrite the live FAQ with the
+copy defined in `tools/build.mjs`, so keep that list in sync with the live page (it
+currently mirrors it) before re-pasting.
 
 ### Verify the schema landed
 

@@ -42,7 +42,6 @@ test("FAQPage markup matches the visible FAQ word for word", { skip: !built }, (
   // Google ignores FAQ rich results when the markup does not correspond to
   // text on the page, so the two copies must not drift.
   const page = read("1-paycheck-calculator-page.html");
-  const php = read("4-enqueue-snippet.php");
   const schema = JSON.parse(read("3b-schema-faq.jsonld"));
 
   // Matches the rank-math-faq block the page body uses.
@@ -58,12 +57,6 @@ test("FAQPage markup matches the visible FAQ word for word", { skip: !built }, (
     a: e.acceptedAnswer.text,
   }));
   assert.deepEqual(markup, visible, "schema FAQ does not match the on-page FAQ");
-
-  // The PHP snippet embeds its own copy; it must agree as well.
-  for (const { q, a } of visible) {
-    assert.ok(php.includes(q), `PHP snippet is missing question: ${q}`);
-    assert.ok(php.includes(a), `PHP snippet is missing answer: ${q}`);
-  }
 });
 
 test("page markup keeps every hook the engine binds to", { skip: !built }, () => {
@@ -147,12 +140,11 @@ test("PHP snippet is syntactically valid and emits the schema", { skip: !built |
   const report = JSON.parse(run.stdout);
 
   assert.equal(report.invalid, 0, "emitted invalid JSON-LD");
-  assert.equal(report.jsonldCount, 2, "expected WebApplication + FAQPage");
+  assert.equal(report.jsonldCount, 1, "expected a single WebApplication block");
   assert.deepEqual(
     report.blocks.map((b) => b.type).sort(),
-    ["FAQPage", "WebApplication"]
+    ["WebApplication"]
   );
-  assert.equal(report.blocks.find((b) => b.type === "FAQPage").questions.length, 4);
 });
 
 test("PHP snippet prints nothing on an unrelated page", { skip: !built || !hasPhp }, () => {
