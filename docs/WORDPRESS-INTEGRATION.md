@@ -66,28 +66,35 @@ Rule of thumb: `wp/` folder = paste into WordPress. `dist/` root = standalone, i
 State pages are generated into `dist/wp/state/`, one set per state. See
 `docs/STATE-PAGES-PLAN.md` for the architecture and the rules for adding a state.
 
-For the Texas page (`/finance/paycheck-calculator/texas`):
+For the state pages (Texas first, at `/finance/paycheck-calculator/texas`):
 
 | # | Build artifact (`dist/wp/state/`) | Destination | Action |
 |---|---|---|---|
-| 1 | `tx-texas-paycheck-calculator-page.html` | Texas Page body | Paste |
-| 2 | `tx-texas-paycheck-calculator-enqueue-snippet.php` | Snippet plugin | **Recommended** |
-| 3 | `tx-texas-paycheck-calculator-schema-webapplication.jsonld` | Rank Math schema (PRO only) | Optional |
-| 4 | `tx-texas-paycheck-calculator-schema-faq.jsonld` | Rank Math schema (PRO only) | Optional |
+| 1 | `<abbr>-<slug>-paycheck-calculator-page.html` | that state's Page body | Paste (one per state) |
+| 2 | `state-paycheck-enqueue-snippet.php` | Snippet plugin | **Once for all states** |
+| 3 | `<abbr>-<slug>-paycheck-calculator-schema-webapplication.jsonld` | Rank Math schema (PRO only) | Optional |
+| 4 | `<abbr>-<slug>-paycheck-calculator-schema-faq.jsonld` | Rank Math schema (PRO only) | Optional |
 
-Create the Page as a **child of the Paycheck Calculator Page** so its URL is
-`/finance/paycheck-calculator/texas`:
+Create each Page as a **child of the Paycheck Calculator Page** so its URL is
+`/finance/paycheck-calculator/<state>`:
 
-1. **Pages → Add New**, title **Texas Paycheck Calculator**
+1. **Pages → Add New**, title e.g. **Texas Paycheck Calculator**
 2. In **Page Attributes → Parent**, choose **Paycheck Calculator**; set **Slug** to `texas`
-3. Paste `tx-texas-paycheck-calculator-page.html` in the Code Editor
+3. Paste `<abbr>-<slug>-paycheck-calculator-page.html` in the Code Editor
 4. Set the Rank Math fields named in the comment at the top of that file
-5. Add `tx-texas-paycheck-calculator-enqueue-snippet.php` to the snippet plugin
-   (same plugin as the national snippet; both guard on their own Page)
+5. Add `state-paycheck-enqueue-snippet.php` to the snippet plugin — **once**, not per
+   state. It reads a built-in registry of state slugs and guards on each, so the same
+   snippet activates on every state Page you create.
 
 The engine upload (`dist/paycheck-engine.js`) is shared with the national page — no
 second upload. The snippet uses the same `paycheck-engine` handle, so WordPress
-prints it once even when both snippets are active.
+prints it once even when the national and state snippets are both active.
+
+> **Replacing an earlier per-state snippet.** If you already pasted the old
+> `tx-texas-paycheck-calculator-enqueue-snippet.php`, **deactivate it** when you
+> activate `state-paycheck-enqueue-snippet.php`. The engine is enqueued once by
+> either (same handle), but two active snippets would print the `WebApplication`
+> `ld+json` block twice. One combined snippet replaces all per-state snippets.
 
 
 ---

@@ -44,12 +44,20 @@ renderer. `tools/build.mjs` calls it and writes, per state, into `dist/wp/state/
 <abbr>-<slug>-paycheck-calculator-page.html                  paste into the Page body
 <abbr>-<slug>-paycheck-calculator-schema-webapplication.jsonld
 <abbr>-<slug>-paycheck-calculator-schema-faq.jsonld
-<abbr>-<slug>-paycheck-calculator-enqueue-snippet.php        engine + WebApplication, page-scoped
+
+state-paycheck-enqueue-snippet.php                           ONE snippet for every state page
 ```
 
 The **worked example is computed by the engine at build time**, using the same
 `calculate()` the browser runs. The numbers on the page therefore cannot disagree
 with the calculator. If the tax data changes, rebuild and the page updates.
+
+There is **one** PHP snippet for all state pages, not one per state. It holds a
+generated slug → {name, url, description} registry and guards on
+`is_page( array( … ) )`, so adding a state means editing `STATE_PAGES` and
+rebuilding — no new snippet, no plugin change. `build.mjs` deletes any leftover
+per-state `*-enqueue-snippet.php` so an old page-scoped snippet cannot be deployed
+by mistake.
 
 The config also declares `hasIncomeTax`, and the renderer **fails the build** if it
 disagrees with the state's tax data. Copy cannot silently claim the wrong thing.

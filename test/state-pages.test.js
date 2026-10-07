@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -169,14 +169,14 @@ test("state page form keeps every hook the engine binds to", { skip: !built }, (
   }
 });
 
-test("state PHP snippet is valid, page-scoped, and emits one WebApplication", { skip: !built || !hasPhp }, () => {
+test("state PHP snippet is valid, page-scoped, and emits one WebApplication per state", { skip: !built || !hasPhp }, () => {
   const harness = join(__dirname, "fixtures", "wp-snippet-harness.php");
+  const snippet = join(STATE, "state-paycheck-enqueue-snippet.php");
+
+  const lint = spawnSync(hasPhp, ["-l", snippet], { encoding: "utf8" });
+  assert.equal(lint.status, 0, `php -l failed:\n${lint.stdout}${lint.stderr}`);
+
   for (const cfg of STATE_PAGES) {
-    const snippet = join(STATE, `${baseName(cfg)}-enqueue-snippet.php`);
-
-    const lint = spawnSync(hasPhp, ["-l", snippet], { encoding: "utf8" });
-    assert.equal(lint.status, 0, `${cfg.slug}: php -l failed:\n${lint.stdout}${lint.stderr}`);
-
     const run = spawnSync(hasPhp, [harness, snippet, cfg.slug], { encoding: "utf8" });
     assert.equal(run.status, 0, `${cfg.slug}: harness failed:\n${run.stderr}`);
     const report = JSON.parse(run.stdout);
@@ -185,13 +185,23 @@ test("state PHP snippet is valid, page-scoped, and emits one WebApplication", { 
     assert.deepEqual(report.blocks.map((b) => b.type), ["WebApplication"], `${cfg.slug}: wrong schema type`);
     assert.equal(report.enqueued, 1, `${cfg.slug}: expected the engine to be enqueued once`);
 
-    // The guard must keep the snippet off both other state pages and the
-    // national page, or the schema would be emitted site-wide.
-    for (const other of ["paycheck-calculator", "california", "about"]) {
+    // The guard must keep the snippet off the national page and off Pages that
+    // are not registered state pages, or the schema would be emitted site-wide.
+    for (const other of ["paycheck-calculator", "about", "not-a-state-page"]) {
       const off = JSON.parse(spawnSync(hasPhp, [harness, snippet, other], { encoding: "utf8" }).stdout);
-      assert.equal(off.jsonldCount, 0, `${cfg.slug}: schema leaked onto "${other}"`);
-      assert.equal(off.enqueued, 0, `${cfg.slug}: engine leaked onto "${other}"`);
+      assert.equal(off.jsonldCount, 0, `${cfg.slug} snippet leaked schema onto "${other}"`);
+      assert.equal(off.enqueued, 0, `${cfg.slug} snippet leaked the engine onto "${other}"`);
     }
   }
+});
+
+test("one combined snippet replaces the per-state snippets", { skip: !built }, () => {
+  const dir = STATE;
+  const snippets = readdirSync(dir).filter((f) => f.endsWith("-enqueue-snippet.php"));
+  assert.deepEqual(
+    snippets,
+    ["state-paycheck-enqueue-snippet.php"],
+    "expected exactly one combined snippet and no per-state snippets"
+  );
 });
 

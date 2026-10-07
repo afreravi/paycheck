@@ -26,8 +26,9 @@ has PHP, so a broken snippet fails there.
 | `dist/paycheck-calculator.html` | **Standalone page. Never paste into WordPress.** |
 | `dist/wp/*.html` | Page-body fragments to paste into WordPress |
 | `dist/wp/3a-*.jsonld`, `3b-*.jsonld` | Schema, deliberately one type per file |
-| `dist/wp/4-enqueue-snippet.php` | Enqueues the engine + prints schema |
-| `dist/wp/state/` | Phase 2 state pages (Texas first): fragment, schema, snippet |
+| `dist/wp/4-enqueue-snippet.php` | National: enqueues the engine + prints schema |
+| `dist/wp/state/` | Phase 2 state pages (Texas first): fragment + schema per state, plus one combined snippet |
+| `dist/wp/state/state-paycheck-enqueue-snippet.php` | **One** snippet for every state page (generated slug registry) |
 | `tools/state-pages.mjs` | `STATE_PAGES` config + state-page renderer |
 | `docs/STATE-PAGES-PLAN.md` | Why state pages are real Pages, and how to add one |
 | `docs/WORDPRESS-INTEGRATION.md` | The deployment runbook |

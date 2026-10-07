@@ -15,7 +15,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { STATE_PAGES, renderStatePage, renderStateSnippet, money } from "./state-pages.mjs";
+import { STATE_PAGES, renderStatePage, renderCombinedStateSnippet, money } from "./state-pages.mjs";
 import { calculate } from "../src/engine/calculator.js";
 import { getFederal, getState, getStateList } from "../src/engine/data.js";
 
@@ -31,6 +31,13 @@ mkdirSync(STATEDIR, { recursive: true });
 // deployed by mistake. Only files this build owns are listed.
 for (const stale of ["3-schema.jsonld"]) {
   rmSync(join(WPDIR, stale), { force: true });
+}
+// The per-state snippets were replaced by one combined snippet; delete any left
+// over so the old page-scoped PHP is not deployed alongside the registry.
+for (const f of readdirSync(STATEDIR)) {
+  if (f.endsWith("-enqueue-snippet.php") && f !== "state-paycheck-enqueue-snippet.php") {
+    rmSync(join(STATEDIR, f), { force: true });
+  }
 }
 
 const read = (p) => readFileSync(join(ROOT, p), "utf8");
@@ -492,6 +499,7 @@ add_action( 'wp_head', function () {
 // with what the calculator returns.
 const BASE_URL = "https://afreetools.com";
 const stateArtifacts = [];
+const stateSnippetEntries = [];
 for (const cfg of STATE_PAGES) {
   const out = renderStatePage(cfg, {
     css,
@@ -506,9 +514,14 @@ for (const cfg of STATE_PAGES) {
   writeFileSync(join(STATEDIR, `${base}-page.html`), out.fragment);
   writeFileSync(join(STATEDIR, `${base}-schema-webapplication.jsonld`), jsonld(out.webapp));
   writeFileSync(join(STATEDIR, `${base}-schema-faq.jsonld`), jsonld(out.faqSchema));
-  writeFileSync(join(STATEDIR, `${base}-enqueue-snippet.php`), renderStateSnippet(cfg, out.webapp));
+  stateSnippetEntries.push({ slug: cfg.slug, ...out.webapp });
   stateArtifacts.push({ cfg, out, base });
 }
+
+// One snippet covers every state page, so adding a state does not mean adding a
+// new snippet. The per-state PHP is gone; the registry is generated from
+// STATE_PAGES above.
+writeFileSync(join(STATEDIR, "state-paycheck-enqueue-snippet.php"), renderCombinedStateSnippet(stateSnippetEntries));
 
 const kb = (b) => (Buffer.byteLength(b) / 1024).toFixed(1) + " KB";
 console.log("Built:");
@@ -522,3 +535,4 @@ console.log(`  dist/wp/4-enqueue-snippet.php`);
 for (const { cfg, out, base } of stateArtifacts) {
   console.log(`  dist/wp/state/${base}-page.html (${cfg.name}, net ${money(out.example.net_per_period)}/${cfg.example.pay_frequency})`);
 }
+console.log(`  dist/wp/state/state-paycheck-enqueue-snippet.php (all ${STATE_PAGES.length} state page(s))`);
