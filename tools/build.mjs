@@ -208,14 +208,15 @@ const { template } = await import("../src/ui/calculator-ui.js");
 const formHtml = template(stateIndex.states);
 
 // Canonical FAQ list. This is the single source of truth for the page body and
-// both schema files. It mirrors the FAQ block currently live on the page.
+// both schema files. It must stay word-for-word identical to the visible FAQ
+// block on the live page, or Google ignores the FAQ rich result.
 const FAQS = [
   {
-    q: "What is the weekly equivalent of an annual salary?",
+    q: "How do I calculate my take-home pay?",
     a: "Enter your gross annual income, tax year, payment frequency, filing status, and state; then, see the estimated net and itemized deductions. This provides an estimate only, and your employers\u2019 payroll calculation may be different because you might have a different W-4, different benefits, and different taxes that your employer would calculate.",
   },
   {
-    q: "There are 52 weeks in a year.",
+    q: "How many pay periods are there in a year?",
     a: "Typically pay is weekly, which equals 52 payments per year; biweekly, which equals 26 payments per year; semi-monthly which equals 24 payments per year; and monthly which equals 12 payments per year. Biweekly (twice a week) paydays are every two weeks; semi-monthly (twice a month) paydays are each payday split into two amounts.",
   },
   {
