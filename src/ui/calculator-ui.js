@@ -30,7 +30,8 @@ const DEDUCTION_PRESETS = [
   { id: "post", label: "Other post-tax deduction", reduces_income_tax: false, reduces_fica: false, type: "post_tax" },
 ];
 
-export function template(states) {
+export function template(states, options = {}) {
+  const selectedState = options.selectedState ?? "US-CA";
   const field = (col, inner) => `      <div class="${col} pc-field mb-3">
         <div class="form-group mb-0">
 ${inner}
@@ -79,8 +80,10 @@ ${field("col-12 col-md-4", input("pc-overtime-hours", "overtime_hours", "Overtim
 ${field("col-12 col-md-6", select("pc-filing-status", "filing_status", "Filing status",
   FILING.map(([v, l]) => `<option value="${v}">${l}</option>`).join("\n            ")))}
 ${field("col-12 col-md-6", select("pc-state", "state", "State",
-  states.map((s) => `<option value="${s.code}"${s.abbr === "CA" ? " selected" : ""}>${s.name}</option>`).join("\n            ")))}
+  states.map((s) => `<option value="${s.code}"${s.code === selectedState ? " selected" : ""}>${s.name}</option>`).join("\n            ")))}
     </div>
+
+    <p class="pc-intro-state pc-disclaimer small text-muted mt-2 mb-3" data-state-note hidden></p>
 
     <details class="pc-advanced mb-3">
       <summary>Deductions &amp; W-4 (optional)</summary>
@@ -151,6 +154,25 @@ export function mount(root, deps) {
 
   const form = root.querySelector("form");
   const result = root.querySelector(".pc-result");
+
+  // State pages pre-select a state and warn when the visitor switches away, so
+  // the on-page numbers stop matching the page they are reading.
+  const stateNote = root.querySelector("[data-state-note]");
+  if (stateNote) {
+    const initial = form.elements.state.value;
+    const updateNote = () => {
+      if (form.elements.state.value === initial) {
+        stateNote.hidden = true;
+      } else {
+        stateNote.hidden = false;
+        stateNote.textContent =
+          `You switched to ${form.elements.state.options[form.elements.state.selectedIndex].text}. ` +
+          `This calculator works for every state.`;
+      }
+    };
+    form.elements.state.addEventListener("change", updateNote);
+    updateNote();
+  }
 
   const togglePayType = () => {
     const pt = form.elements.pay_type.value;

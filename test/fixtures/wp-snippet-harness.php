@@ -14,8 +14,10 @@ $GLOBALS['head'] = '';
 $GLOBALS['enqueued'] = [];
 
 function add_action($hook, $fn) { $GLOBALS['actions'][$hook][] = $fn; }
-function is_page($s) { return $s === $GLOBALS['slug']; }
+function is_page($s) { return is_array($s) ? in_array($GLOBALS['slug'], $s, true) : $s === $GLOBALS['slug']; }
 function content_url($p) { return 'https://afreetools.com/wp-content' . $p; }
+function get_queried_object_id() { return 1; }
+function get_post_field($field, $id) { return 'post_name' === $field ? $GLOBALS['slug'] : ''; }
 function wp_enqueue_script_module(...$a) { $GLOBALS['enqueued'][] = $a; }
 function wp_json_encode($d, $f = 0) { return json_encode($d, $f); }
 

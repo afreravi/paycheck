@@ -26,7 +26,11 @@ has PHP, so a broken snippet fails there.
 | `dist/paycheck-calculator.html` | **Standalone page. Never paste into WordPress.** |
 | `dist/wp/*.html` | Page-body fragments to paste into WordPress |
 | `dist/wp/3a-*.jsonld`, `3b-*.jsonld` | Schema, deliberately one type per file |
-| `dist/wp/4-enqueue-snippet.php` | Enqueues the engine + prints schema |
+| `dist/wp/4-enqueue-snippet.php` | National: enqueues the engine + prints schema |
+| `dist/wp/state/` | Phase 2 state pages (Texas first): fragment + schema per state, plus one combined snippet |
+| `dist/wp/state/state-paycheck-enqueue-snippet.php` | **One** snippet for every state page (generated slug registry) |
+| `tools/state-pages.mjs` | `STATE_PAGES` config + state-page renderer |
+| `docs/STATE-PAGES-PLAN.md` | Why state pages are real Pages, and how to add one |
 | `docs/WORDPRESS-INTEGRATION.md` | The deployment runbook |
 
 ## Things that will bite you
@@ -59,6 +63,15 @@ FAQ, so update the list first if the live FAQ changes.
 
 **State tax data is generated.** Run `tools/generate-state-data.mjs` after changing
 rates. CI fails if `src/data/states` is stale.
+
+**State pages are real Pages, never a JS route.** One template cloned across many
+URLs is scaled content abuse and can devalue the whole `/finance/` section. Each state
+is a WordPress Page with its own copy, and `tools/state-pages.mjs` renders it at build
+time. The worked example is computed by the engine, so page copy cannot drift from the
+calculator. `state-pages.test.js` fails the build if two state pages exceed 60% bigram
+similarity (the doorway tripwire) or if a configured `hasIncomeTax` disagrees with the
+tax data. A JS-swapped single page (`?state=tx`) is also wrong: it yields one
+indexable URL. See `docs/STATE-PAGES-PLAN.md`.
 
 **The WP page carries its own `<style>` block.** The theme loads Bootstrap 4.6.2,
 which supplies the grid and utilities, but nothing styles `.pc-app` — a page that

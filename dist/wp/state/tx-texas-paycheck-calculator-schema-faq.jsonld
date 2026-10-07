@@ -1,0 +1,62 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Texas have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Texas does not tax wage income, so no state income tax is withheld from a Texas paycheck. Article 8, Section 24-a of the Texas Constitution prohibits the Legislature from imposing a tax on individuals' net income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my Texas paycheck still taxed if there is no state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because federal taxes still apply. Federal income tax, Social Security (6.2%), and Medicare (1.45%) are withheld from every Texas paycheck. The absence of a state income tax removes only the state line, not the federal ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Texas have a state disability or paid family leave payroll tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Texas does not operate a state disability insurance (SDI) program or a state paid family leave program, so there is no state payroll deduction for either."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Texas cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Texas cities and counties do not levy a local income tax on wages. Local taxes in Texas are sales, property, and hotel taxes, none of which are withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Texas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,938.08 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $0.00 Texas state income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What taxes does Texas have instead of an income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Texas raises revenue mainly from sales and use tax, property taxes, and a franchise (margin) tax on businesses. None of these are withheld from an employee's paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have to file a Texas state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Because Texas has no personal income tax, there is no Texas personal income tax return to file. Most Texas residents still file a federal return with the IRS."
+      }
+    }
+  ]
+}

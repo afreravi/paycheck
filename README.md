@@ -146,8 +146,10 @@ for the full step-by-step. Summary:
 | `dist/paycheck-engine.js` | `/wp-content/uploads/tools/` |
 | `dist/wp/1-paycheck-calculator-page.html` | Calculator Page body |
 | `dist/wp/2-finance-hub-page.html` | `/finance` parent Page body |
-| `dist/wp/3-schema.jsonld` | Rank Math schema field |
-| `dist/wp/4-enqueue-snippet.php` | Child theme / snippet plugin (optional) |
+| `dist/wp/3a-schema-webapplication.jsonld`, `3b-schema-faq.jsonld` | Rank Math schema field (one type per file) |
+| `dist/wp/4-enqueue-snippet.php` | Child theme / snippet plugin |
+| `dist/wp/state/*-page.html` | each state Page body (Phase 2) |
+| `dist/wp/state/state-paycheck-enqueue-snippet.php` | snippet plugin — one snippet, all state pages |
 
 The engine is an **external module**, not inlined, because WordPress's `wpautop` mangles
 inline `<script type="module">` blocks. External loading also lets the engine stay cached

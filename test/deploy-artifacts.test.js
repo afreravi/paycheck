@@ -122,6 +122,14 @@ test("page body is a fragment, not a full document", { skip: !built }, () => {
   assert.ok(page.includes('id="paycheck-calculator"'), "mount target is missing");
 });
 
+test("page body has no inline module; the engine is enqueued", { skip: !built }, () => {
+  const page = read("1-paycheck-calculator-page.html");
+  assert.ok(
+    !/<script/i.test(page),
+    "page body must not embed a <script>; the engine is loaded via wp_enqueue_script_module"
+  );
+});
+
 test("standalone build is a full document and is not the WP fragment", { skip: !built }, () => {
   const standalone = readFileSync(join(__dirname, "..", "dist", "paycheck-calculator.html"), "utf8");
   assert.match(standalone, /<!doctype html>/i);
