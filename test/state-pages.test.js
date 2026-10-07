@@ -56,6 +56,9 @@ test("each state is generated as its own crawlable WordPress Page", { skip: !bui
     // Fragments are pasted into a WordPress Page; a full document would be wrong.
     assert.ok(!/<html[\s>]/i.test(page), `${cfg.slug}: must be a fragment, found <html>`);
     assert.ok(!/<!doctype/i.test(page), `${cfg.slug}: must be a fragment, found a doctype`);
+    // The engine is loaded by the page-scoped snippet; an inline <script> would
+    // both duplicate the mount and risk wpautop mangling it.
+    assert.ok(!/<script/i.test(page), `${cfg.slug}: must not embed a <script> in the page body`);
   }
 });
 

@@ -246,11 +246,6 @@ ${cfg.sources.map((s) => `<li><a href="${s.url}">${s.label}</a></li>`).join("\n"
 <li><a href="/finance/paycheck-calculator">Paycheck Calculator</a> &mdash; the national calculator, pre-set to any state.</li>
 <li><a href="/finance/">Money &amp; Pay Calculators</a> &mdash; the rest of the finance hub.</li>
 </ul>
-
-<script type="module">
-  import { mountCalculator } from "/wp-content/uploads/tools/paycheck-engine.js";
-  mountCalculator(document.getElementById("paycheck-calculator"));
-</script>
 `;
 
   const webapp = {

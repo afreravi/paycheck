@@ -359,10 +359,6 @@ ${faqHtml}
 <li><a href="/wacc-calculator">WACC Calculator</a></li>
 </ul>
 
-<script type="module">
-  import { mountCalculator } from "/wp-content/uploads/tools/paycheck-engine.js";
-  mountCalculator(document.getElementById("paycheck-calculator"));
-</script>
 `
 );
 

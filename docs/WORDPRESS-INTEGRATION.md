@@ -53,8 +53,9 @@ pasting a whole document into a page body, including a duplicate `<head>`, and i
 break the layout.
 
 **`dist/wp/1-paycheck-calculator-page.html`** is a **page-body fragment** — just the intro
-paragraph, the form `<div>`, and the module script. No `<html>`, no `<head>`, no inlined
-CSS. This is the one you paste into the Page.
+paragraph and the form `<div>`. No `<html>`, no `<head>`, no inlined CSS, and no
+`<script>` (the engine is loaded by the PHP snippet). This is the one you paste into the
+Page.
 
 Rule of thumb: `wp/` folder = paste into WordPress. `dist/` root = standalone, ignore.
 
@@ -213,33 +214,15 @@ emitted into `<head>` by Rank Math, so viewing source is the ground truth.
 
 ## Step 4 — Load the engine
 
-The engine is the JavaScript that makes the form calculate. Something has to load it on
-the calculator page. There are two ways, and you only need one.
+The engine is the JavaScript that makes the form calculate. It is loaded by the PHP
+snippet, **not** by anything in the Page body.
 
-You do not have to choose now. The engine is **idempotent** — it refuses to mount twice —
-so leaving both in place is harmless. Use the enqueue method (Option B) and ignore the
-inline script if you like; nothing breaks.
+The page body (`dist/wp/1-paycheck-calculator-page.html`) is HTML only — it contains no
+`<script>` at all. The engine **auto-mounts itself** when it finds a
+`#paycheck-calculator` element, so no inline script is needed, and there is nothing for
+`wpautop` to mangle.
 
-### Option A — inline script (already done if you pasted the snippet)
-
-`dist/wp/1-paycheck-calculator-page.html` ends with a small `<script type="module">`
-block that imports the engine and mounts it. If you pasted that file in Step 3, this
-already works. **Nothing more to do.**
-
-**Risk:** WordPress's `wpautop` can inject `<p>` and `<br>` tags into an inline `<script>`,
-breaking it. This is the single most likely failure point.
-
-**Verify:** load the page, open the browser console (F12), and look for errors. Then click
-"Calculate take-home pay" — you should see a dollar figure. If the form renders but
-clicking does nothing, `wpautop` mangled the script. Use Option B instead, and delete the
-`<script>` block from the Page body.
-
-### Option B — enqueue via the PHP snippet (more robust)
-
-The engine **auto-mounts itself** when it finds a `#paycheck-calculator` element, so no
-inline script is needed. There is nothing for `wpautop` to mangle.
-
-The same PHP file, `dist/wp/4-enqueue-snippet.php`, does two jobs:
+The PHP file, `dist/wp/4-enqueue-snippet.php`, does two jobs:
 
 | Block | What it does |
 |---|---|
@@ -303,15 +286,14 @@ your calculator stops working.
 
 ## Step 4b — Add structured data (schema)
 
-If you used **Option B** above, this is already done — block 2 of the PHP snippet prints
-the schema. Skip to Step 5.
+Step 4 already does this — block 2 of the PHP snippet prints the `WebApplication`
+schema. Skip to Step 5.
 
-If you are on Option A (inline script only) and do **not** want to add PHP, the fallback
-is Rank Math. Note the limitation first: **Rank Math free cannot add custom schema.** Its
-Custom Schema tab exists but prompts you to upgrade, and free allows only one schema type
-per page. So on free, the PHP snippet is the only way to get `WebApplication`. Rank Math
-already emits `BreadcrumbList`, `Article`, and `FAQPage` by itself, which is why only
-`WebApplication` appears in our snippet.
+The fallback, if you do **not** want to add PHP, is Rank Math. Note the limitation first:
+**Rank Math free cannot add custom schema.** Its Custom Schema tab exists but prompts you
+to upgrade, and free allows only one schema type per page. So on free, the PHP snippet is
+the only way to get `WebApplication`. Rank Math already emits `BreadcrumbList`, `Article`,
+and `FAQPage` by itself, which is why only `WebApplication` appears in our snippet.
 
 ### If you have Rank Math PRO
 
@@ -417,13 +399,13 @@ The `$2,213.41` figure is a golden fixture — if you get that exact number, the
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| Form renders, Calculate does nothing | `wpautop` broke the inline module script | Switch to Option B (enqueue) |
+| Form renders, Calculate does nothing | Engine not enqueued, or snippet guard not matching | Confirm `4-enqueue-snippet.php` is active and the Page slug is exactly `paycheck-calculator` |
 | Form doesn't render at all | Script error before mount, or paste truncated | Check console; re-paste `1-paycheck-calculator-page.html` |
 | 404 on `paycheck-engine.js` | Wrong upload path | Confirm `/wp-content/uploads/tools/` |
 | Net figure is blank | Engine loaded but data missing | Re-run `node tools/build.mjs` and re-upload the engine |
 | Permalink not nested | Parent not published | Publish `/finance` first, re-save child permalink |
 | Styles clash with theme | CSS scope leak | All rules are `.pc-*` prefixed; report any specific clash |
-| Stale numbers after update | Browser cache | Bump the version in `wp_enqueue_script_module` (Option B) |
+| Stale numbers after update | Browser cache | Bump the version in `wp_enqueue_script_module` |
 
 ---
 
@@ -442,7 +424,7 @@ No WordPress page edits needed — the page only references the engine file.
 
 **UI changes:** re-run the build and re-paste `1-paycheck-calculator-page.html`, since the form markup lives in the page.
 
-**Cache busting:** if using Option B, bump the version string in the `wp_enqueue_script_module` call so browsers pick up the new file.
+**Cache busting:** bump the version string in the `wp_enqueue_script_module` call so browsers pick up the new engine file.
 
 ---
 
