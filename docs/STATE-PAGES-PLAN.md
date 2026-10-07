@@ -74,6 +74,10 @@ disagrees with the state's tax data. Copy cannot silently claim the wrong thing.
 6. The calculator, pre-set to the state, with a notice if the visitor switches away
 7. State-specific FAQ (the visible block and its `FAQPage` schema stay in sync)
 8. Cited state revenue-authority source + last-verified date
+9. A review footer — **Reviewed by / Last updated / Freshness / Disclaimer** — rendered
+   by `renderReviewFooter()` from the state's tax data (`last_verified`, `verified_by`),
+   so the dates match the sources above and cannot drift. Every state page carries it;
+   `state-pages.test.js` fails if one is missing.
 
 ---
 

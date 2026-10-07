@@ -24,6 +24,11 @@ const hasPhp = (() => {
 const baseName = (cfg) => `${cfg.abbr}-${cfg.slug}-paycheck-calculator`;
 const readState = (cfg, suffix) => readFileSync(join(STATE, `${baseName(cfg)}-${suffix}`), "utf8");
 
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
 const built = STATE_PAGES.every((cfg) => existsSync(join(STATE, `${baseName(cfg)}-page.html`)));
 
 const HOOKS = [
@@ -131,6 +136,10 @@ test("state pages are not near-duplicates of one another", { skip: !built }, () 
     html
       .replace(/<style[\s\S]*?<\/style>/gi, " ")
       .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      // The review footer (Reviewed by / Last updated / Freshness / Disclaimer) is
+      // identical on every state page by design, so it carries no doorway signal.
+      // Exclude it, or it would inflate similarity as states are added.
+      .replace(/<div class="gb-container gb-container-b53f53f1">[\s\S]*$/i, " ")
       .replace(/<[^>]+>/g, " ")
       .replace(/&[a-z]+;/gi, " ")
       .toLowerCase()
@@ -203,5 +212,34 @@ test("one combined snippet replaces the per-state snippets", { skip: !built }, (
     ["state-paycheck-enqueue-snippet.php"],
     "expected exactly one combined snippet and no per-state snippets"
   );
+});
+
+test("every state page carries the reviewed / updated / freshness / disclaimer footer", { skip: !built }, () => {
+  for (const cfg of STATE_PAGES) {
+    const page = readState(cfg, "page.html");
+    assert.match(page, /<strong>Reviewed by:<\/strong>/, `${cfg.slug}: missing "Reviewed by"`);
+    assert.match(page, /<strong>Last updated:<\/strong>/, `${cfg.slug}: missing "Last updated"`);
+    assert.match(page, /<strong>Freshness:<\/strong>/, `${cfg.slug}: missing "Freshness"`);
+    assert.match(page, /<strong>Disclaimer:<\/strong>/, `${cfg.slug}: missing "Disclaimer"`);
+
+    // The dates must come from the state's tax data, not a hand-typed literal.
+    const data = getState(cfg.code, cfg.example.tax_year);
+    const [y, m, d] = data.last_verified.split("-");
+    const formatted = `${MONTHS[Number(m) - 1]} ${d}, ${y}`;
+    assert.ok(
+      page.includes(`<strong>Last updated:</strong> ${formatted}`),
+      `${cfg.slug}: Last updated is not the data's last_verified (${formatted})`
+    );
+    assert.ok(
+      page.includes(`last reviewed ${formatted}`),
+      `${cfg.slug}: Freshness does not cite last_verified (${formatted})`
+    );
+
+    // The footer must sit above the disclaimer, both after the last content heading.
+    assert.ok(
+      page.indexOf("Reviewed by:") < page.indexOf("Disclaimer:"),
+      `${cfg.slug}: disclaimer should follow the review footer`
+    );
+  }
 });
 
