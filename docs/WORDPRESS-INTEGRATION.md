@@ -60,6 +60,37 @@ Rule of thumb: `wp/` folder = paste into WordPress. `dist/` root = standalone, i
 
 ---
 
+## Phase 2 state pages (Texas first)
+
+State pages are generated into `dist/wp/state/`, one set per state. See
+`docs/STATE-PAGES-PLAN.md` for the architecture and the rules for adding a state.
+
+For the Texas page (`/finance/paycheck-calculator/texas`):
+
+| # | Build artifact (`dist/wp/state/`) | Destination | Action |
+|---|---|---|---|
+| 1 | `tx-texas-paycheck-calculator-page.html` | Texas Page body | Paste |
+| 2 | `tx-texas-paycheck-calculator-enqueue-snippet.php` | Snippet plugin | **Recommended** |
+| 3 | `tx-texas-paycheck-calculator-schema-webapplication.jsonld` | Rank Math schema (PRO only) | Optional |
+| 4 | `tx-texas-paycheck-calculator-schema-faq.jsonld` | Rank Math schema (PRO only) | Optional |
+
+Create the Page as a **child of the Paycheck Calculator Page** so its URL is
+`/finance/paycheck-calculator/texas`:
+
+1. **Pages → Add New**, title **Texas Paycheck Calculator**
+2. In **Page Attributes → Parent**, choose **Paycheck Calculator**; set **Slug** to `texas`
+3. Paste `tx-texas-paycheck-calculator-page.html` in the Code Editor
+4. Set the Rank Math fields named in the comment at the top of that file
+5. Add `tx-texas-paycheck-calculator-enqueue-snippet.php` to the snippet plugin
+   (same plugin as the national snippet; both guard on their own Page)
+
+The engine upload (`dist/paycheck-engine.js`) is shared with the national page — no
+second upload. The snippet uses the same `paycheck-engine` handle, so WordPress
+prints it once even when both snippets are active.
+
+
+---
+
 ## Step 1 — Upload the engine
 
 1. In cPanel / FTP / File Manager, open `/wp-content/uploads/`

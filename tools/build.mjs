@@ -15,12 +15,17 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { STATE_PAGES, renderStatePage, renderStateSnippet, money } from "./state-pages.mjs";
+import { calculate } from "../src/engine/calculator.js";
+import { getFederal, getState, getStateList } from "../src/engine/data.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const DIST = join(ROOT, "dist");
 const WPDIR = join(DIST, "wp");
+const STATEDIR = join(WPDIR, "state");
 mkdirSync(WPDIR, { recursive: true });
+mkdirSync(STATEDIR, { recursive: true });
 
 // Remove artifacts from earlier builds so a renamed file cannot linger and be
 // deployed by mistake. Only files this build owns are listed.
@@ -206,7 +211,6 @@ writeFileSync(join(DIST, "paycheck-calculator.html"), html);
 // (crawlable), rather than injected by JS.
 const { template } = await import("../src/ui/calculator-ui.js");
 const formHtml = template(stateIndex.states);
-
 // Canonical FAQ list. This is the single source of truth for the page body and
 // both schema files. It must stay word-for-word identical to the visible FAQ
 // block on the live page, or Google ignores the FAQ rich result.
@@ -486,6 +490,30 @@ add_action( 'wp_head', function () {
 `
 );
 
+// ---- 4. Phase 2 state pages ----
+// Each state page is its own WordPress Page. The worked example is computed by
+// the engine here at build time, so the copy on the page can never disagree
+// with what the calculator returns.
+const BASE_URL = "https://afreetools.com";
+const stateArtifacts = [];
+for (const cfg of STATE_PAGES) {
+  const out = renderStatePage(cfg, {
+    css,
+    states: stateIndex.states,
+    template,
+    calculate,
+    getFederal,
+    getState,
+    baseUrl: BASE_URL,
+  });
+  const base = `${cfg.abbr}-${cfg.slug}-paycheck-calculator`;
+  writeFileSync(join(STATEDIR, `${base}-page.html`), out.fragment);
+  writeFileSync(join(STATEDIR, `${base}-schema-webapplication.jsonld`), jsonld(out.webapp));
+  writeFileSync(join(STATEDIR, `${base}-schema-faq.jsonld`), jsonld(out.faqSchema));
+  writeFileSync(join(STATEDIR, `${base}-enqueue-snippet.php`), renderStateSnippet(cfg, out.webapp));
+  stateArtifacts.push({ cfg, out, base });
+}
+
 const kb = (b) => (Buffer.byteLength(b) / 1024).toFixed(1) + " KB";
 console.log("Built:");
 console.log(`  dist/paycheck-engine.js          ${kb(engineBundle)}  (external module for WordPress)`);
@@ -495,3 +523,6 @@ console.log(`  dist/wp/2-finance-hub-page.html`);
 console.log(`  dist/wp/3a-schema-webapplication.jsonld`);
 console.log(`  dist/wp/3b-schema-faq.jsonld`);
 console.log(`  dist/wp/4-enqueue-snippet.php`);
+for (const { cfg, out, base } of stateArtifacts) {
+  console.log(`  dist/wp/state/${base}-page.html (${cfg.name}, net ${money(out.example.net_per_period)}/${cfg.example.pay_frequency})`);
+}
