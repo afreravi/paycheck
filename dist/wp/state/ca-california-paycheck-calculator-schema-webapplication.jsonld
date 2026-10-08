@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "California Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/california",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free California paycheck calculator. Estimate take-home pay after California income tax, SDI, federal income tax, Social Security, and Medicare for 2026."
+}

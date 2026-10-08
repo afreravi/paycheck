@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does California have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. California taxes wage income on nine graduated brackets under Revenue and Taxation Code section 17041, starting at 1% and topping out at 12.3%, with an extra 1% Mental Health Services Tax on taxable income above $1 million."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $75,000 salary in California?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,213.41 per paycheck from a $75,000 salary: $2,884.62 gross, $155.53 California income tax, $295.00 federal income tax, $178.85 Social Security, and $41.83 Medicare. California SDI of 1.3% (about $37.50) comes out on top of that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the California SDI tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "California withholds State Disability Insurance at 1.3% for 2026. Since January 1, 2024, there is no wage cap, so SDI applies to all of an employee's wages. SDI funds both Disability Insurance and Paid Family Leave."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do California cities or counties charge a local income tax on wages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. California cities and counties do not levy a local income tax on wages, so there is no city wage tax like those in New York City or Philadelphia. Local revenue in California comes from sales and property taxes instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the top California income tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "California's top marginal income tax rate is 12.3%, reached on taxable income above $742,953 for a single filer. Taxable income above $1 million also pays the 1% Mental Health Services Tax, making the effective top marginal rate 13.3%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does California have a standard deduction on its income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. California allows a standard deduction instead of itemized deductions. The 2026 data used here shows $5,540 for a single filer. There are no personal exemptions for most filers; a dependent exemption credit applies instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What form does a California employee file for state withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A California employee files Form DE 4 with their employer to set state income tax withholding. Since 2020 the form uses dollar amounts rather than withholding allowances, and it is separate from the federal Form W-4."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is paid family leave a separate deduction on a California paycheck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. California Paid Family Leave (PFL) is funded by the SDI tax, so there is no separate PFL deduction. The single 1.3% SDI line on the paycheck covers both Disability Insurance and Paid Family Leave."
+      }
+    }
+  ]
+}
