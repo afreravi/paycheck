@@ -89,6 +89,97 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-CA",
+    abbr: "ca",
+    slug: "california",
+    name: "California",
+    example: { salary: 75000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the state's revenue authority.
+    hasIncomeTax: true,
+    title: "California Paycheck Calculator - Take-Home Pay After CA Tax",
+    description:
+      "Free California paycheck calculator. Estimate take-home pay after California income tax, SDI, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "Estimate your take-home pay in California. California taxes wage income on a " +
+      "graduated scale and withholds State Disability Insurance on top of that income " +
+      "tax, so a California paycheck carries a state deduction that the no-tax states " +
+      "never see. Enter your salary and pay frequency to see your net pay per period.",
+    keyHeading: "Does California have a state income tax?",
+    keyParagraphs: [
+      "Yes. California taxes wage income through nine graduated brackets set in Revenue " +
+        "and Taxation Code section 17041. For a single filer the schedule starts at 1% on " +
+        "the first $11,079 of taxable income and climbs to a 12.3% top rate; taxable income " +
+        "above $1 million also pays the 1% Mental Health Services Tax, bringing the top " +
+        "combined marginal rate to 13.3%. There is no zero-tax option the way there is in " +
+        "Texas or Florida.",
+      "The calculator on this page applies a simplified three-band version of that " +
+        "schedule: 1%, 7.15%, and 13.3%. It uses the California standard deduction " +
+        "($5,540 for a single filer in the 2026 data) and adds no local income tax, because " +
+        "California cities and counties do not levy a tax on wages. Your employer withholds " +
+        "using the FTB's own schedules, so treat the figure here as a close estimate.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums come out first, so they shrink the income that California and federal tax are charged on.",
+      "<strong>California income tax.</strong> The state standard deduction is subtracted, then the remaining income runs through California's graduated rates, which reach 12.3% (13.3% with the mental health tax above $1 million).",
+      "<strong>Federal income tax.</strong> The federal standard deduction is applied, then the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% (up to the wage base) and Medicare at 1.45%, plus the 0.9% additional Medicare tax above the high-earner threshold.",
+      "<strong>California SDI.</strong> A separate state payroll tax of 1.3% in 2026, withheld from every dollar of wages with no cap. It funds Disability Insurance and Paid Family Leave and is not yet subtracted by this calculator.",
+    ],
+    compareParagraphs: [
+      "Because California levies one of the highest state income taxes in the country, the " +
+        "same salary nets noticeably less in California than in a state with no wage tax " +
+        "such as Texas, Florida, Washington, or Nevada. California's graduated rates are " +
+        "also steeper at the top than flat-tax states like Pennsylvania (3.07%) or " +
+        "Illinois (4.95%).",
+      "Unusually for a high-tax state, California adds no city or county income tax on top " +
+        "of its state rate, so San Francisco and Los Angeles employees do not face a local " +
+        "wage tax the way New York City or Philadelphia workers do. The state does, " +
+        "however, withhold SDI at 1.3% on all wages, a payroll tax that has no wage cap " +
+        "since 2024.",
+    ],
+    faqs: [
+      {
+        q: "Does California have a state income tax?",
+        a: "Yes. California taxes wage income on nine graduated brackets under Revenue and Taxation Code section 17041, starting at 1% and topping out at 12.3%, with an extra 1% Mental Health Services Tax on taxable income above $1 million.",
+      },
+      {
+        q: "How much is taken out of a $75,000 salary in California?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,213.41 per paycheck from a $75,000 salary: $2,884.62 gross, $155.53 California income tax, $295.00 federal income tax, $178.85 Social Security, and $41.83 Medicare. California SDI of 1.3% (about $37.50) comes out on top of that.",
+      },
+      {
+        q: "What is the California SDI tax rate for 2026?",
+        a: "California withholds State Disability Insurance at 1.3% for 2026. Since January 1, 2024, there is no wage cap, so SDI applies to all of an employee's wages. SDI funds both Disability Insurance and Paid Family Leave.",
+      },
+      {
+        q: "Do California cities or counties charge a local income tax on wages?",
+        a: "No. California cities and counties do not levy a local income tax on wages, so there is no city wage tax like those in New York City or Philadelphia. Local revenue in California comes from sales and property taxes instead.",
+      },
+      {
+        q: "What is the top California income tax rate?",
+        a: "California's top marginal income tax rate is 12.3%, reached on taxable income above $742,953 for a single filer. Taxable income above $1 million also pays the 1% Mental Health Services Tax, making the effective top marginal rate 13.3%.",
+      },
+      {
+        q: "Does California have a standard deduction on its income tax?",
+        a: "Yes. California allows a standard deduction instead of itemized deductions. The 2026 data used here shows $5,540 for a single filer. There are no personal exemptions for most filers; a dependent exemption credit applies instead.",
+      },
+      {
+        q: "What form does a California employee file for state withholding?",
+        a: "A California employee files Form DE 4 with their employer to set state income tax withholding. Since 2020 the form uses dollar amounts rather than withholding allowances, and it is separate from the federal Form W-4.",
+      },
+      {
+        q: "Is paid family leave a separate deduction on a California paycheck?",
+        a: "No. California Paid Family Leave (PFL) is funded by the SDI tax, so there is no separate PFL deduction. The single 1.3% SDI line on the paycheck covers both Disability Insurance and Paid Family Leave.",
+      },
+    ],
+    sources: [
+      { label: "California Franchise Tax Board — 2025 California Tax Rate Schedules", url: "https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf" },
+      { label: "California EDD — Contribution Rates, Withholding Schedules, and Meals and Lodging Values", url: "https://edd.ca.gov/en/payroll_taxes/rates_and_withholding/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

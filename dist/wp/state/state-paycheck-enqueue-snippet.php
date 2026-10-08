@@ -1,6 +1,6 @@
 <?php
 /**
- * Paycheck calculator state: load the engine and add structured data.
+ * Paycheck calculator states: load the engine and add structured data.
  *
  * Same two jobs as the national snippet, but guarded to the registered state
  * Pages. One snippet covers every state page; add a state by adding one entry to
@@ -23,6 +23,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/texas',
             'description' => 'Free Texas paycheck calculator. Texas has no state income tax, so estimate take-home pay after federal income tax, Social Security, and Medicare. 2026.',
         ),
+        'california' => array(
+            'name'        => 'California Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/california',
+            'description' => 'Free California paycheck calculator. Estimate take-home pay after California income tax, SDI, federal income tax, Social Security, and Medicare for 2026.',
+        ),
     );
 }
 
@@ -32,7 +37,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
