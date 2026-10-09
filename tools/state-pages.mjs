@@ -180,6 +180,103 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-NY",
+    abbr: "ny",
+    slug: "new-york",
+    name: "New York",
+    example: { salary: 85000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the state's revenue authority.
+    hasIncomeTax: true,
+    title: "New York Paycheck Calculator - Take-Home Pay After NY Tax",
+    description:
+      "Free New York paycheck calculator. Estimate take-home pay after New York State income tax, NYC or Yonkers local tax, Paid Family Leave, and federal taxes for 2026.",
+    intro:
+      "Estimate your take-home pay in New York. New York State taxes wage income on a " +
+      "graduated schedule, and New York City and Yonkers then add a local income tax on " +
+      "top of the state figure, so where you live changes a New York paycheck as much as " +
+      "what you earn. Enter your salary and pay frequency to see your net pay per period.",
+    keyHeading: "Does New York have a state income tax?",
+    keyParagraphs: [
+      "Yes. New York State taxes wage income on a graduated scale that climbs with " +
+        "earnings. For a single filer the marginal rate steps up through the schedule and " +
+        "reaches a 10.9% top rate, well above the flat rates charged by Pennsylvania " +
+        "(3.07%) or Illinois (4.95%). The 2026 data behind this calculator approximates " +
+        "that scale with three bands&mdash;4%, 7.45%, and 10.9%&mdash;and applies the " +
+        "$8,000 New York standard deduction for a single filer, so read the New York State " +
+        "line here as a close estimate rather than a payroll-system figure.",
+      "New York is also unusual in stacking a local income tax on the state one. A New " +
+        "York City resident pays the NYC resident income tax on a separate schedule, and a " +
+        "Yonkers resident pays a surcharge calculated from the state tax itself. The " +
+        "calculator on this page computes the New York State line only, so treat its net " +
+        "figure as the state-and-federal estimate before any city or Yonkers tax.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums come out first, so they reduce the income that New York State and federal tax are charged on.",
+      "<strong>New York State income tax.</strong> The $8,000 New York standard deduction is subtracted (single filer), then the remaining income runs through the state's graduated rates, which reach 10.9% at the top.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is applied, then the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% (up to the wage base) and Medicare at 1.45%, plus the 0.9% additional Medicare tax above the high-earner threshold.",
+      "<strong>New York City or Yonkers local tax.</strong> A NYC resident pays the NYC resident income tax on a schedule running from 3.078% to 3.876%; a Yonkers resident pays a 16.75% surcharge on the state tax. This calculator does not subtract either one, so your actual net is lower if you live in those places.",
+      "<strong>New York Paid Family Leave.</strong> An employee-funded payroll deduction of 0.432% of gross wages for 2026, capped at $411.91 for the year. It funds up to 12 weeks of leave at 67% of your average weekly wage and is not subtracted by this calculator.",
+    ],
+    compareParagraphs: [
+      "Local income tax is what sets New York apart from nearly every other state page " +
+        "here. A New York City resident pays the NYC resident income tax on a schedule " +
+        "that runs from 3.078% on the first dollars to 3.876% on income above $90,000 " +
+        "(single filer), in addition to the state tax. A Yonkers resident instead pays a " +
+        "16.75% surcharge on the New York State tax, and someone who works in Yonkers but " +
+        "lives elsewhere may owe the Yonkers nonresident earnings tax. None of Alaska, " +
+        "Florida, Texas, or Washington has anything comparable.",
+      "New York also withholds for paid leave, which the no-income-tax states do not. The " +
+        "2026 Paid Family Leave deduction is 0.432% of gross wages up to $411.91 a year, " +
+        "and New York's statutory short-term disability program adds an employee " +
+        "contribution capped at $0.60 per week. Against flat-tax Pennsylvania (3.07%) or " +
+        "Illinois (4.95%), New York's graduated state rate plus a city or Yonkers tax is " +
+        "the difference between a modest and a heavy state deduction at the same salary.",
+    ],
+    faqs: [
+      {
+        q: "Does New York have a state income tax?",
+        a: "Yes. New York State taxes wage income on a graduated schedule whose marginal rate rises with income and tops out at 10.9%. The 2026 data used here approximates the scale with 4%, 7.45%, and 10.9% bands and applies the $8,000 New York standard deduction for a single filer.",
+      },
+      {
+        q: "How much is taken out of an $85,000 salary in New York?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,438.79 per paycheck from an $85,000 salary: $3,269.23 gross, $200.73 New York State income tax, $379.62 federal income tax, $202.69 Social Security, and $47.40 Medicare. A New York City or Yonkers resident owes additional local tax on top of that, and the Paid Family Leave deduction comes out as well.",
+      },
+      {
+        q: "Does New York City charge its own income tax?",
+        a: "Yes. New York City residents pay the NYC resident income tax in addition to the state tax. For a single filer the 2025 schedule starts at 3.078% on the first $12,000 of taxable income and rises to 3.876% above $50,000. Part-year NYC residents and NYC nonresidents who work in the city can also owe tax on city wages.",
+      },
+      {
+        q: "What is the Yonkers income tax?",
+        a: "A Yonkers resident pays an income tax surcharge equal to 16.75% of the New York State tax after credits. A person who works in Yonkers but lives outside the city may instead owe the Yonkers nonresident earnings tax on wages earned there. Both are separate from the New York State income tax.",
+      },
+      {
+        q: "What is the New York Paid Family Leave deduction for 2026?",
+        a: "For 2026 the employee Paid Family Leave contribution is 0.432% of gross wages, capped at a maximum annual contribution of $411.91. New York Paid Family Leave is fully funded by employees and provides up to 12 weeks of job-protected leave at 67% of your average weekly wage, capped at $1,228.53 per week.",
+      },
+      {
+        q: "Does New York deduct disability insurance from a paycheck?",
+        a: "Yes. New York's statutory short-term disability benefits (DBL) program allows an employee contribution of up to $0.60 per week, separate from the Paid Family Leave deduction. It is a small, fixed weekly amount rather than a percentage of wages.",
+      },
+      {
+        q: "What is the top New York income tax rate?",
+        a: "The top New York State marginal income tax rate is 10.9%, reached on the highest taxable incomes for a single filer. Because the state uses graduated brackets, most of a typical New York salary is taxed at lower rates, not at 10.9%.",
+      },
+      {
+        q: "How much is the New York standard deduction?",
+        a: "For 2026 the New York standard deduction is $8,000 for a single filer. It is subtracted from wages before the graduated state rates are applied. New York also allows a dependent exemption credit but no personal exemption for most filers.",
+      },
+    ],
+    sources: [
+      { label: "New York State Department of Taxation and Finance — Income tax rates and tables", url: "https://www.tax.ny.gov/pit/file/tax-tables/" },
+      { label: "New York State Tax — Instructions for Form IT-201 (NYC and Yonkers tax schedules)", url: "https://www.tax.ny.gov/pdf/2025/inc/it201i_2025.pdf" },
+      { label: "New York Paid Family Leave — What's new for 2026", url: "https://paidfamilyleave.ny.gov/2026" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
