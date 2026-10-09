@@ -1,0 +1,636 @@
+<!-- Paste into the "New York" Page body. Use the Code Editor, not the Visual editor.
+     Parent Page: Paycheck Calculator  ->  this page's slug: new-york
+     Resulting URL: https://afreetools.com/finance/paycheck-calculator/new-york
+
+  Rank Math SEO fields to set on this Page:
+    Focus keyword : new york paycheck calculator
+    SEO title     : New York Paycheck Calculator - Take-Home Pay After NY Tax
+    Meta description (163 characters):
+      Free New York paycheck calculator. Estimate take-home pay after New York State income tax, NYC or Yonkers local tax, Paid Family Leave, and federal taxes for 2026.
+
+  Do not delete the opening paragraph. Search engines read it, and without it the
+  meta description falls back to the first form labels.
+-->
+<style>
+/* Paycheck calculator styling.
+ *
+ * Matches the palette and component vocabulary used by the other afreetools
+ * calculators (see /rule-of-72-calculator): Bootstrap 4 grid + utilities, plus
+ * a small set of brand components. WordPress supplies Bootstrap 4.6.2 from the
+ * theme, so this file only carries what Bootstrap does not.
+ *
+ * The standalone build has no Bootstrap, so tools/build.mjs prepends a minimal
+ * shim for the grid and utility classes used here. Keep that shim in sync if
+ * the markup starts using new Bootstrap classes.
+ */
+
+:root {
+  --brand: #60089c;
+  --brand-deep: #3f0568;
+  --brand-bright: #8b2fd0;
+  --brand-wash: #f7f1fd;
+  --brand-edge: #e3d4f4;
+  --ink: #221f28;
+  --muted: #6a6673;
+  --rule: #e8e2f0;
+  --good: #1c7d4d;
+  --bad: #b32639;
+}
+
+/* ---------- labels ---------- */
+.section-kicker {
+  color: var(--brand-deep);
+  letter-spacing: .08em;
+  font-size: .76rem;
+  border-left: 3px solid var(--brand);
+  padding-left: .55rem;
+}
+
+label { font-weight: 600; font-size: .95rem; color: var(--ink); }
+.form-text { color: var(--muted); font-size: .82rem; }
+
+/* ---------- form ---------- */
+.form-control, .custom-select {
+  border-color: var(--rule);
+  border-radius: .25rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  background-color: #fff;
+}
+.form-control:focus, .custom-select:focus {
+  border-color: var(--brand-bright);
+  box-shadow: 0 0 0 .2rem rgba(96, 8, 156, .14);
+}
+.input-group-text {
+  background: var(--brand-wash);
+  border-color: var(--rule);
+  color: var(--brand-deep);
+  font-weight: 700;
+}
+
+/* ---------- buttons ---------- */
+.btn-brand {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  padding: .6rem 1.35rem;
+}
+.btn-brand:hover, .btn-brand:focus {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #fff;
+}
+
+/* ---------- stat tiles ---------- */
+.stat-tile {
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--brand);
+  border-radius: .3rem;
+  background: linear-gradient(90deg, var(--brand-wash) 0%, #ffffff 65%);
+}
+.stat-label {
+  display: block;
+  font-size: .74rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  font-weight: 700;
+  margin-bottom: .25rem;
+}
+.stat-value {
+  display: block;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--brand);
+  line-height: 1.15;
+}
+.stat-note { display: block; color: var(--muted); font-size: .84rem; margin-top: .15rem; }
+
+/* ---------- tables ---------- */
+.table thead th {
+  border-top: 0;
+  border-bottom: 2px solid var(--brand-edge);
+  color: var(--brand-deep);
+  font-size: .8rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.table td, .table th { border-color: var(--rule); }
+.table-striped tbody tr:nth-of-type(odd) { background: var(--brand-wash); }
+.pc-breakdown td { font-variant-numeric: tabular-nums; }
+.pc-breakdown .pc-total th, .pc-breakdown .pc-total td {
+  font-weight: 800;
+  color: var(--ink);
+  border-bottom: 0;
+}
+
+/* ---------- calculator specifics ---------- */
+.pc-app { margin-bottom: 1rem; }
+
+.pc-advanced { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-advanced summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+
+.pc-math { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-math summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-math ol { margin: .75rem 0 .25rem; padding-left: 1.25rem; }
+.pc-math li { margin-bottom: .5rem; font-size: .875rem; }
+.pc-math code { background: var(--brand-wash); padding: 1px 4px; border-radius: 4px; word-break: break-word; }
+.pc-trace-label { font-weight: 600; }
+
+.pc-rates strong { color: var(--ink); }
+
+.pc-disclaimer {
+  border-left: 3px solid var(--brand-edge);
+  padding-left: .75rem;
+}
+
+/* ---------- prose + FAQ (outside .pc-app) ---------- */
+.pc-intro { max-width: 70ch; }
+.pc-faq { max-width: 70ch; }
+.pc-faq details {
+  border: 1px solid var(--rule);
+  border-radius: .3rem;
+  padding: .6rem .85rem;
+  margin-bottom: .5rem;
+  background: #fff;
+}
+.pc-faq summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-faq p { margin: .6rem 0 .25rem; }
+
+</style>
+
+<p class="pc-intro">Estimate your take-home pay in New York. New York State taxes wage income on a graduated schedule, and New York City and Yonkers then add a local income tax on top of the state figure, so where you live changes a New York paycheck as much as what you earn. Enter your salary and pay frequency to see your net pay per period.</p>
+
+<div class="card shadow-sm border-0 mb-5" id="toolCard">
+<div class="card-body p-4">
+
+<h2 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Your pay details</h2>
+
+<div id="paycheck-calculator" class="pc-app" aria-label="New York paycheck calculator">
+
+  <form class="pc" novalidate>
+    <div class="row">
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-tax-year">Tax year</label>
+          <select class="custom-select" id="pc-tax-year" name="tax_year">
+            
+            <option value="2026" selected>2026</option>
+            <option value="2025">2025</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-pay-type">Pay type</label>
+          <select class="custom-select" id="pc-pay-type" name="pay_type">
+            
+            <option value="salary" selected>Salary (annual)</option>
+            <option value="hourly">Hourly</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-pay-frequency">Pay frequency</label>
+          <select class="custom-select" id="pc-pay-frequency" name="pay_frequency">
+            <option value="weekly">Weekly</option>
+            <option value="biweekly" selected>Bi-weekly</option>
+            <option value="semimonthly">Semi-monthly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-when="salary">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-annual-salary">Annual salary</label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-annual-salary" name="annual_salary" type="number"
+              min="0" step="100" value="75000"
+              inputmode="decimal" aria-describedby="pc-salary-help" />
+            
+          </div>
+          <small class="form-text text-muted" id="pc-salary-help">Gross pay before any deductions.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-when="hourly" hidden>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-hourly-rate">Hourly rate</label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-hourly-rate" name="hourly_rate" type="number"
+              min="0" step="0.01" value="25"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-hours-week">Hours / week</label>
+          <div class="input-group">
+            
+            <input class="form-control" id="pc-hours-week" name="hours_per_week" type="number"
+              min="0" step="1" value="40"
+              inputmode="decimal" />
+            <div class="input-group-append"><span class="input-group-text">hrs</span></div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-overtime-hours">Overtime hours / week</label>
+          <div class="input-group">
+            
+            <input class="form-control" id="pc-overtime-hours" name="overtime_hours" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            <div class="input-group-append"><span class="input-group-text">hrs</span></div>
+          </div>
+          <small class="form-text text-muted">Paid at 1.5&times; your hourly rate.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-filing-status">Filing status</label>
+          <select class="custom-select" id="pc-filing-status" name="filing_status">
+            <option value="single">Single</option>
+            <option value="mfj">Married filing jointly</option>
+            <option value="mfs">Married filing separately</option>
+            <option value="hoh">Head of household</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-state">State</label>
+          <select class="custom-select" id="pc-state" name="state">
+            <option value="US-AL">Alabama</option>
+            <option value="US-AK">Alaska</option>
+            <option value="US-AZ">Arizona</option>
+            <option value="US-AR">Arkansas</option>
+            <option value="US-CA">California</option>
+            <option value="US-CO">Colorado</option>
+            <option value="US-CT">Connecticut</option>
+            <option value="US-DE">Delaware</option>
+            <option value="US-DC">District of Columbia</option>
+            <option value="US-FL">Florida</option>
+            <option value="US-GA">Georgia</option>
+            <option value="US-HI">Hawaii</option>
+            <option value="US-ID">Idaho</option>
+            <option value="US-IL">Illinois</option>
+            <option value="US-IN">Indiana</option>
+            <option value="US-IA">Iowa</option>
+            <option value="US-KS">Kansas</option>
+            <option value="US-KY">Kentucky</option>
+            <option value="US-LA">Louisiana</option>
+            <option value="US-ME">Maine</option>
+            <option value="US-MD">Maryland</option>
+            <option value="US-MA">Massachusetts</option>
+            <option value="US-MI">Michigan</option>
+            <option value="US-MN">Minnesota</option>
+            <option value="US-MS">Mississippi</option>
+            <option value="US-MO">Missouri</option>
+            <option value="US-MT">Montana</option>
+            <option value="US-NE">Nebraska</option>
+            <option value="US-NV">Nevada</option>
+            <option value="US-NH">New Hampshire</option>
+            <option value="US-NJ">New Jersey</option>
+            <option value="US-NM">New Mexico</option>
+            <option value="US-NY" selected>New York</option>
+            <option value="US-NC">North Carolina</option>
+            <option value="US-ND">North Dakota</option>
+            <option value="US-OH">Ohio</option>
+            <option value="US-OK">Oklahoma</option>
+            <option value="US-OR">Oregon</option>
+            <option value="US-PA">Pennsylvania</option>
+            <option value="US-RI">Rhode Island</option>
+            <option value="US-SC">South Carolina</option>
+            <option value="US-SD">South Dakota</option>
+            <option value="US-TN">Tennessee</option>
+            <option value="US-TX">Texas</option>
+            <option value="US-UT">Utah</option>
+            <option value="US-VT">Vermont</option>
+            <option value="US-VA">Virginia</option>
+            <option value="US-WA">Washington</option>
+            <option value="US-WV">West Virginia</option>
+            <option value="US-WI">Wisconsin</option>
+            <option value="US-WY">Wyoming</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <p class="pc-intro-state pc-disclaimer small text-muted mt-2 mb-3" data-state-note hidden></p>
+
+    <details class="pc-advanced mb-3">
+      <summary>Deductions &amp; W-4 (optional)</summary>
+      <div class="row mt-2">
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-d401k">401(k) / 403(b) <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-d401k" name="ded_d401k" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-hsa">HSA <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-hsa" name="ded_hsa" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-fsa">FSA <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-fsa" name="ded_fsa" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-health">Health premium <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-health" name="ded_health" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-post">Other post-tax deduction <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-post" name="ded_post" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-w4-step3">W-4 Step 3 credits <small class="text-muted">annual</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-w4-step3" name="w4_step3" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-w4-step4c">W-4 extra withholding <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-w4-step4c" name="w4_step4c" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      </div>
+    </details>
+
+    <button type="submit" class="btn btn-brand btn-lg btn-block">Calculate take-home pay</button>
+  </form>
+
+  <section class="pc-result mt-4" hidden aria-live="polite">
+    <div class="pc-net stat-tile mb-4">
+      <span class="pc-net-label stat-label">Net take-home pay <small>per period</small></span>
+      <strong class="pc-net-value stat-value" data-out="net_per_period">&mdash;</strong>
+      <span class="pc-net-annual stat-note" data-out="net_annual">&mdash;</span>
+    </div>
+
+    <h3 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Where your pay goes</h3>
+    <div class="table-responsive">
+      <table class="pc-breakdown table table-sm table-striped mb-0">
+        <tbody>
+          <tr><th>Gross pay</th><td class="text-right" data-out="gross_per_period"></td></tr>
+          <tr><th>Federal income tax</th><td class="text-right" data-out="federal_income_tax"></td></tr>
+          <tr><th>Social Security</th><td class="text-right" data-out="social_security"></td></tr>
+          <tr><th>Medicare</th><td class="text-right" data-out="medicare"></td></tr>
+          <tr data-out-row="additional_medicare" hidden><th>Additional Medicare</th><td class="text-right" data-out="additional_medicare"></td></tr>
+          <tr><th>State income tax</th><td class="text-right" data-out="state_income_tax"></td></tr>
+          <tr><th>Pre-tax deductions</th><td class="text-right" data-out="pre_tax_deductions"></td></tr>
+          <tr><th>Post-tax deductions</th><td class="text-right" data-out="post_tax_deductions"></td></tr>
+          <tr class="pc-total"><th>Net pay</th><td class="text-right" data-out="net_per_period_total"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pc-rates small text-muted mt-3 mb-0">
+      Effective tax rate <strong data-out="effective_rate"></strong> &middot;
+      Marginal rate <strong data-out="marginal_rate"></strong>
+    </p>
+
+    <details class="pc-math mt-3">
+      <summary>Show the math</summary>
+      <ol data-out="trace"></ol>
+    </details>
+
+    <p class="pc-disclaimer small text-muted mt-3 mb-2">
+      This is an estimate for planning. It covers federal income tax, FICA, and simplified state income tax.
+      It does not include local or paid-leave taxes. Your employer's payroll system may calculate a different amount.
+    </p>
+    <p class="pc-updated small text-muted mb-0" data-out="updated"></p>
+  </section>
+</div>
+
+</div>
+</div>
+
+<h2 class="wp-block-heading" id="state-income-tax">Does New York have a state income tax?</h2>
+
+<p>Yes. New York State taxes wage income on a graduated scale that climbs with earnings. For a single filer the marginal rate steps up through the schedule and reaches a 10.9% top rate, well above the flat rates charged by Pennsylvania (3.07%) or Illinois (4.95%). The 2026 data behind this calculator approximates that scale with three bands&mdash;4%, 7.45%, and 10.9%&mdash;and applies the $8,000 New York standard deduction for a single filer, so read the New York State line here as a close estimate rather than a payroll-system figure.</p>
+
+<p>New York is also unusual in stacking a local income tax on the state one. A New York City resident pays the NYC resident income tax on a separate schedule, and a Yonkers resident pays a surcharge calculated from the state tax itself. The calculator on this page computes the New York State line only, so treat its net figure as the state-and-federal estimate before any city or Yonkers tax.</p>
+
+<h2 class="wp-block-heading" id="how-take-home-pay-is-calculated">How New York take-home pay is calculated</h2>
+
+
+<ol class="wp-block-list">
+<li><strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.</li>
+<li><strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums come out first, so they reduce the income that New York State and federal tax are charged on.</li>
+<li><strong>New York State income tax.</strong> The $8,000 New York standard deduction is subtracted (single filer), then the remaining income runs through the state's graduated rates, which reach 10.9% at the top.</li>
+<li><strong>Federal income tax.</strong> The federal standard deduction is applied, then the federal marginal brackets.</li>
+<li><strong>FICA.</strong> Social Security at 6.2% (up to the wage base) and Medicare at 1.45%, plus the 0.9% additional Medicare tax above the high-earner threshold.</li>
+<li><strong>New York City or Yonkers local tax.</strong> A NYC resident pays the NYC resident income tax on a schedule running from 3.078% to 3.876%; a Yonkers resident pays a 16.75% surcharge on the state tax. This calculator does not subtract either one, so your actual net is lower if you live in those places.</li>
+<li><strong>New York Paid Family Leave.</strong> An employee-funded payroll deduction of 0.432% of gross wages for 2026, capped at $411.91 for the year. It funds up to 12 weeks of leave at 67% of your average weekly wage and is not subtracted by this calculator.</li>
+</ol>
+
+<p>The result is your net pay for the period you selected. Pay frequency matters: a biweekly schedule pays 26 times a year and a semi-monthly schedule 24, so the same salary produces different per-paycheck amounts.</p>
+
+<h2 class="wp-block-heading" id="worked-example">Worked example: $85,000 in New York</h2>
+
+<p>A single filer earning $85,000 a year, paid bi-weekly in 2026:</p>
+
+<table class="table table-sm table-striped">
+<thead><tr><th>Line</th><th class="text-right">Per paycheck</th></tr></thead>
+<tbody>
+<tr><th>Gross pay</th><td class="text-right">$3,269.23</td></tr>
+<tr><th>Federal income tax</th><td class="text-right">$379.62</td></tr>
+<tr><th>Social Security</th><td class="text-right">$202.69</td></tr>
+<tr><th>Medicare</th><td class="text-right">$47.40</td></tr>
+<tr><th>New York state income tax</th><td class="text-right">$200.73</td></tr>
+<tr class="pc-total"><th>Net take-home pay</th><td class="text-right">$2,438.79</td></tr>
+</tbody>
+</table>
+
+<p>That is $63,408.50 a year, an effective tax rate of about 25.4%. Change the inputs in the calculator above to see your own numbers.</p>
+
+<h2 class="wp-block-heading" id="how-it-compares">How New York compares</h2>
+
+<p>Local income tax is what sets New York apart from nearly every other state page here. A New York City resident pays the NYC resident income tax on a schedule that runs from 3.078% on the first dollars to 3.876% on income above $90,000 (single filer), in addition to the state tax. A Yonkers resident instead pays a 16.75% surcharge on the New York State tax, and someone who works in Yonkers but lives elsewhere may owe the Yonkers nonresident earnings tax. None of Alaska, Florida, Texas, or Washington has anything comparable.</p>
+
+<p>New York also withholds for paid leave, which the no-income-tax states do not. The 2026 Paid Family Leave deduction is 0.432% of gross wages up to $411.91 a year, and New York's statutory short-term disability program adds an employee contribution capped at $0.60 per week. Against flat-tax Pennsylvania (3.07%) or Illinois (4.95%), New York's graduated state rate plus a city or Yonkers tax is the difference between a modest and a heavy state deduction at the same salary.</p>
+
+<h2 class="wp-block-heading" id="faq">FAQ</h2>
+
+<div id="rank-math-faq" class="rank-math-block">
+<div class="rank-math-list ">
+<div id="faq-question-1" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does New York have a state income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>Yes. New York State taxes wage income on a graduated schedule whose marginal rate rises with income and tops out at 10.9%. The 2026 data used here approximates the scale with 4%, 7.45%, and 10.9% bands and applies the $8,000 New York standard deduction for a single filer.</p>
+
+</div>
+</div>
+<div id="faq-question-2" class="rank-math-list-item">
+<h4 class="rank-math-question ">How much is taken out of an $85,000 salary in New York?</h4>
+<div class="rank-math-answer ">
+
+<p>For 2026, a single filer paid biweekly takes home about $2,438.79 per paycheck from an $85,000 salary: $3,269.23 gross, $200.73 New York State income tax, $379.62 federal income tax, $202.69 Social Security, and $47.40 Medicare. A New York City or Yonkers resident owes additional local tax on top of that, and the Paid Family Leave deduction comes out as well.</p>
+
+</div>
+</div>
+<div id="faq-question-3" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does New York City charge its own income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>Yes. New York City residents pay the NYC resident income tax in addition to the state tax. For a single filer the 2025 schedule starts at 3.078% on the first $12,000 of taxable income and rises to 3.876% above $50,000. Part-year NYC residents and NYC nonresidents who work in the city can also owe tax on city wages.</p>
+
+</div>
+</div>
+<div id="faq-question-4" class="rank-math-list-item">
+<h4 class="rank-math-question ">What is the Yonkers income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>A Yonkers resident pays an income tax surcharge equal to 16.75% of the New York State tax after credits. A person who works in Yonkers but lives outside the city may instead owe the Yonkers nonresident earnings tax on wages earned there. Both are separate from the New York State income tax.</p>
+
+</div>
+</div>
+<div id="faq-question-5" class="rank-math-list-item">
+<h4 class="rank-math-question ">What is the New York Paid Family Leave deduction for 2026?</h4>
+<div class="rank-math-answer ">
+
+<p>For 2026 the employee Paid Family Leave contribution is 0.432% of gross wages, capped at a maximum annual contribution of $411.91. New York Paid Family Leave is fully funded by employees and provides up to 12 weeks of job-protected leave at 67% of your average weekly wage, capped at $1,228.53 per week.</p>
+
+</div>
+</div>
+<div id="faq-question-6" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does New York deduct disability insurance from a paycheck?</h4>
+<div class="rank-math-answer ">
+
+<p>Yes. New York's statutory short-term disability benefits (DBL) program allows an employee contribution of up to $0.60 per week, separate from the Paid Family Leave deduction. It is a small, fixed weekly amount rather than a percentage of wages.</p>
+
+</div>
+</div>
+<div id="faq-question-7" class="rank-math-list-item">
+<h4 class="rank-math-question ">What is the top New York income tax rate?</h4>
+<div class="rank-math-answer ">
+
+<p>The top New York State marginal income tax rate is 10.9%, reached on the highest taxable incomes for a single filer. Because the state uses graduated brackets, most of a typical New York salary is taxed at lower rates, not at 10.9%.</p>
+
+</div>
+</div>
+<div id="faq-question-8" class="rank-math-list-item">
+<h4 class="rank-math-question ">How much is the New York standard deduction?</h4>
+<div class="rank-math-answer ">
+
+<p>For 2026 the New York standard deduction is $8,000 for a single filer. It is subtracted from wages before the graduated state rates are applied. New York also allows a dependent exemption credit but no personal exemption for most filers.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<h2 class="wp-block-heading" id="sources">Sources and last updated</h2>
+
+<p>This page covers tax years 2025 and 2026. State tax status is checked against the sources below; federal brackets, the standard deduction, and FICA rates come from the IRS. Tax data last verified 2026-10-02.</p>
+
+<ul class="wp-block-list">
+<li><a href="https://www.tax.ny.gov/pit/file/tax-tables/">New York State Department of Taxation and Finance — Income tax rates and tables</a></li>
+<li><a href="https://www.tax.ny.gov/pdf/2025/inc/it201i_2025.pdf">New York State Tax — Instructions for Form IT-201 (NYC and Yonkers tax schedules)</a></li>
+<li><a href="https://paidfamilyleave.ny.gov/2026">New York Paid Family Leave — What's new for 2026</a></li>
+<li><a href="https://www.irs.gov/publications/p15">IRS Publication 15 (Circular E)</a></li>
+</ul>
+
+<h2 class="wp-block-heading" id="related-tools">Related tools</h2>
+
+<ul class="wp-block-list">
+<li><a href="/finance/paycheck-calculator">Paycheck Calculator</a> &mdash; the national calculator, pre-set to any state.</li>
+<li><a href="/finance/">Money &amp; Pay Calculators</a> &mdash; the rest of the finance hub.</li>
+</ul>
+
+<div class="gb-container gb-container-b53f53f1">
+
+<p><strong>Reviewed by:</strong> aFreeTools Editorial Team</p>
+
+<p><strong>Last updated:</strong> October 02, 2026</p>
+
+<p class="mb-0"><strong>Freshness:</strong> The page&rsquo;s content and sources were last reviewed October 02, 2026. Check related guidance and pay stub for situations that will require an exact withholding amount.</p>
+
+</div>
+
+<hr class="wp-block-separator has-text-color has-global-color-17-color has-alpha-channel-opacity has-global-color-17-background-color has-background is-style-default p-0"/>
+
+<section class="wp-block-group has-global-color-17-background-color has-background"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<p class="mb-0"><strong>Disclaimer:</strong> This paycheck calculator is for informational and planning purposes only. It provides an estimate of take-home pay based on the information you enter and standard federal/state tax assumptions, but actual pay can vary due to local taxes, benefits, deductions, withholding elections, payroll rules, and employer-specific factors. Results are not a guarantee of wages, tax liability, or net pay and should not be considered tax, legal, accounting, or financial advice. Please verify final amounts with your employer&rsquo;s payroll system or a qualified tax professional.</p>
+</div></section>

@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does New York have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. New York State taxes wage income on a graduated schedule whose marginal rate rises with income and tops out at 10.9%. The 2026 data used here approximates the scale with 4%, 7.45%, and 10.9% bands and applies the $8,000 New York standard deduction for a single filer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of an $85,000 salary in New York?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,438.79 per paycheck from an $85,000 salary: $3,269.23 gross, $200.73 New York State income tax, $379.62 federal income tax, $202.69 Social Security, and $47.40 Medicare. A New York City or Yonkers resident owes additional local tax on top of that, and the Paid Family Leave deduction comes out as well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does New York City charge its own income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. New York City residents pay the NYC resident income tax in addition to the state tax. For a single filer the 2025 schedule starts at 3.078% on the first $12,000 of taxable income and rises to 3.876% above $50,000. Part-year NYC residents and NYC nonresidents who work in the city can also owe tax on city wages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Yonkers income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Yonkers resident pays an income tax surcharge equal to 16.75% of the New York State tax after credits. A person who works in Yonkers but lives outside the city may instead owe the Yonkers nonresident earnings tax on wages earned there. Both are separate from the New York State income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the New York Paid Family Leave deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026 the employee Paid Family Leave contribution is 0.432% of gross wages, capped at a maximum annual contribution of $411.91. New York Paid Family Leave is fully funded by employees and provides up to 12 weeks of job-protected leave at 67% of your average weekly wage, capped at $1,228.53 per week."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does New York deduct disability insurance from a paycheck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. New York's statutory short-term disability benefits (DBL) program allows an employee contribution of up to $0.60 per week, separate from the Paid Family Leave deduction. It is a small, fixed weekly amount rather than a percentage of wages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the top New York income tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The top New York State marginal income tax rate is 10.9%, reached on the highest taxable incomes for a single filer. Because the state uses graduated brackets, most of a typical New York salary is taxed at lower rates, not at 10.9%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is the New York standard deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026 the New York standard deduction is $8,000 for a single filer. It is subtracted from wages before the graduated state rates are applied. New York also allows a dependent exemption credit but no personal exemption for most filers."
+      }
+    }
+  ]
+}
