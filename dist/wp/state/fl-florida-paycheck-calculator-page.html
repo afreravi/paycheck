@@ -1,0 +1,634 @@
+<!-- Paste into the "Florida" Page body. Use the Code Editor, not the Visual editor.
+     Parent Page: Paycheck Calculator  ->  this page's slug: florida
+     Resulting URL: https://afreetools.com/finance/paycheck-calculator/florida
+
+  Rank Math SEO fields to set on this Page:
+    Focus keyword : florida paycheck calculator
+    SEO title     : Florida Paycheck Calculator - Take-Home Pay After Taxes
+    Meta description (155 characters):
+      Free Florida paycheck calculator. Florida has no state income tax, so estimate take-home pay after federal income tax, Social Security, and Medicare. 2026.
+
+  Do not delete the opening paragraph. Search engines read it, and without it the
+  meta description falls back to the first form labels.
+-->
+<style>
+/* Paycheck calculator styling.
+ *
+ * Matches the palette and component vocabulary used by the other afreetools
+ * calculators (see /rule-of-72-calculator): Bootstrap 4 grid + utilities, plus
+ * a small set of brand components. WordPress supplies Bootstrap 4.6.2 from the
+ * theme, so this file only carries what Bootstrap does not.
+ *
+ * The standalone build has no Bootstrap, so tools/build.mjs prepends a minimal
+ * shim for the grid and utility classes used here. Keep that shim in sync if
+ * the markup starts using new Bootstrap classes.
+ */
+
+:root {
+  --brand: #60089c;
+  --brand-deep: #3f0568;
+  --brand-bright: #8b2fd0;
+  --brand-wash: #f7f1fd;
+  --brand-edge: #e3d4f4;
+  --ink: #221f28;
+  --muted: #6a6673;
+  --rule: #e8e2f0;
+  --good: #1c7d4d;
+  --bad: #b32639;
+}
+
+/* ---------- labels ---------- */
+.section-kicker {
+  color: var(--brand-deep);
+  letter-spacing: .08em;
+  font-size: .76rem;
+  border-left: 3px solid var(--brand);
+  padding-left: .55rem;
+}
+
+label { font-weight: 600; font-size: .95rem; color: var(--ink); }
+.form-text { color: var(--muted); font-size: .82rem; }
+
+/* ---------- form ---------- */
+.form-control, .custom-select {
+  border-color: var(--rule);
+  border-radius: .25rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  background-color: #fff;
+}
+.form-control:focus, .custom-select:focus {
+  border-color: var(--brand-bright);
+  box-shadow: 0 0 0 .2rem rgba(96, 8, 156, .14);
+}
+.input-group-text {
+  background: var(--brand-wash);
+  border-color: var(--rule);
+  color: var(--brand-deep);
+  font-weight: 700;
+}
+
+/* ---------- buttons ---------- */
+.btn-brand {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  padding: .6rem 1.35rem;
+}
+.btn-brand:hover, .btn-brand:focus {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #fff;
+}
+
+/* ---------- stat tiles ---------- */
+.stat-tile {
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--brand);
+  border-radius: .3rem;
+  background: linear-gradient(90deg, var(--brand-wash) 0%, #ffffff 65%);
+}
+.stat-label {
+  display: block;
+  font-size: .74rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  font-weight: 700;
+  margin-bottom: .25rem;
+}
+.stat-value {
+  display: block;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--brand);
+  line-height: 1.15;
+}
+.stat-note { display: block; color: var(--muted); font-size: .84rem; margin-top: .15rem; }
+
+/* ---------- tables ---------- */
+.table thead th {
+  border-top: 0;
+  border-bottom: 2px solid var(--brand-edge);
+  color: var(--brand-deep);
+  font-size: .8rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.table td, .table th { border-color: var(--rule); }
+.table-striped tbody tr:nth-of-type(odd) { background: var(--brand-wash); }
+.pc-breakdown td { font-variant-numeric: tabular-nums; }
+.pc-breakdown .pc-total th, .pc-breakdown .pc-total td {
+  font-weight: 800;
+  color: var(--ink);
+  border-bottom: 0;
+}
+
+/* ---------- calculator specifics ---------- */
+.pc-app { margin-bottom: 1rem; }
+
+.pc-advanced { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-advanced summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+
+.pc-math { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-math summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-math ol { margin: .75rem 0 .25rem; padding-left: 1.25rem; }
+.pc-math li { margin-bottom: .5rem; font-size: .875rem; }
+.pc-math code { background: var(--brand-wash); padding: 1px 4px; border-radius: 4px; word-break: break-word; }
+.pc-trace-label { font-weight: 600; }
+
+.pc-rates strong { color: var(--ink); }
+
+.pc-disclaimer {
+  border-left: 3px solid var(--brand-edge);
+  padding-left: .75rem;
+}
+
+/* ---------- prose + FAQ (outside .pc-app) ---------- */
+.pc-intro { max-width: 70ch; }
+.pc-faq { max-width: 70ch; }
+.pc-faq details {
+  border: 1px solid var(--rule);
+  border-radius: .3rem;
+  padding: .6rem .85rem;
+  margin-bottom: .5rem;
+  background: #fff;
+}
+.pc-faq summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-faq p { margin: .6rem 0 .25rem; }
+
+</style>
+
+<p class="pc-intro">Work out your take-home pay in Florida. The Sunshine State levies no income tax on wages, so a Florida paycheck is reduced only by the federal withholdings: federal income tax, Social Security, and Medicare. Put in your salary and pay frequency to see what lands in your account each period.</p>
+
+<div class="card shadow-sm border-0 mb-5" id="toolCard">
+<div class="card-body p-4">
+
+<h2 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Your pay details</h2>
+
+<div id="paycheck-calculator" class="pc-app" aria-label="Florida paycheck calculator">
+
+  <form class="pc" novalidate>
+    <div class="row">
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-tax-year">Tax year</label>
+          <select class="custom-select" id="pc-tax-year" name="tax_year">
+            
+            <option value="2026" selected>2026</option>
+            <option value="2025">2025</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-pay-type">Pay type</label>
+          <select class="custom-select" id="pc-pay-type" name="pay_type">
+            
+            <option value="salary" selected>Salary (annual)</option>
+            <option value="hourly">Hourly</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-pay-frequency">Pay frequency</label>
+          <select class="custom-select" id="pc-pay-frequency" name="pay_frequency">
+            <option value="weekly">Weekly</option>
+            <option value="biweekly" selected>Bi-weekly</option>
+            <option value="semimonthly">Semi-monthly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-when="salary">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-annual-salary">Annual salary</label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-annual-salary" name="annual_salary" type="number"
+              min="0" step="100" value="75000"
+              inputmode="decimal" aria-describedby="pc-salary-help" />
+            
+          </div>
+          <small class="form-text text-muted" id="pc-salary-help">Gross pay before any deductions.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-when="hourly" hidden>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-hourly-rate">Hourly rate</label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-hourly-rate" name="hourly_rate" type="number"
+              min="0" step="0.01" value="25"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-hours-week">Hours / week</label>
+          <div class="input-group">
+            
+            <input class="form-control" id="pc-hours-week" name="hours_per_week" type="number"
+              min="0" step="1" value="40"
+              inputmode="decimal" />
+            <div class="input-group-append"><span class="input-group-text">hrs</span></div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-overtime-hours">Overtime hours / week</label>
+          <div class="input-group">
+            
+            <input class="form-control" id="pc-overtime-hours" name="overtime_hours" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            <div class="input-group-append"><span class="input-group-text">hrs</span></div>
+          </div>
+          <small class="form-text text-muted">Paid at 1.5&times; your hourly rate.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-filing-status">Filing status</label>
+          <select class="custom-select" id="pc-filing-status" name="filing_status">
+            <option value="single">Single</option>
+            <option value="mfj">Married filing jointly</option>
+            <option value="mfs">Married filing separately</option>
+            <option value="hoh">Head of household</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-state">State</label>
+          <select class="custom-select" id="pc-state" name="state">
+            <option value="US-AL">Alabama</option>
+            <option value="US-AK">Alaska</option>
+            <option value="US-AZ">Arizona</option>
+            <option value="US-AR">Arkansas</option>
+            <option value="US-CA">California</option>
+            <option value="US-CO">Colorado</option>
+            <option value="US-CT">Connecticut</option>
+            <option value="US-DE">Delaware</option>
+            <option value="US-DC">District of Columbia</option>
+            <option value="US-FL" selected>Florida</option>
+            <option value="US-GA">Georgia</option>
+            <option value="US-HI">Hawaii</option>
+            <option value="US-ID">Idaho</option>
+            <option value="US-IL">Illinois</option>
+            <option value="US-IN">Indiana</option>
+            <option value="US-IA">Iowa</option>
+            <option value="US-KS">Kansas</option>
+            <option value="US-KY">Kentucky</option>
+            <option value="US-LA">Louisiana</option>
+            <option value="US-ME">Maine</option>
+            <option value="US-MD">Maryland</option>
+            <option value="US-MA">Massachusetts</option>
+            <option value="US-MI">Michigan</option>
+            <option value="US-MN">Minnesota</option>
+            <option value="US-MS">Mississippi</option>
+            <option value="US-MO">Missouri</option>
+            <option value="US-MT">Montana</option>
+            <option value="US-NE">Nebraska</option>
+            <option value="US-NV">Nevada</option>
+            <option value="US-NH">New Hampshire</option>
+            <option value="US-NJ">New Jersey</option>
+            <option value="US-NM">New Mexico</option>
+            <option value="US-NY">New York</option>
+            <option value="US-NC">North Carolina</option>
+            <option value="US-ND">North Dakota</option>
+            <option value="US-OH">Ohio</option>
+            <option value="US-OK">Oklahoma</option>
+            <option value="US-OR">Oregon</option>
+            <option value="US-PA">Pennsylvania</option>
+            <option value="US-RI">Rhode Island</option>
+            <option value="US-SC">South Carolina</option>
+            <option value="US-SD">South Dakota</option>
+            <option value="US-TN">Tennessee</option>
+            <option value="US-TX">Texas</option>
+            <option value="US-UT">Utah</option>
+            <option value="US-VT">Vermont</option>
+            <option value="US-VA">Virginia</option>
+            <option value="US-WA">Washington</option>
+            <option value="US-WV">West Virginia</option>
+            <option value="US-WI">Wisconsin</option>
+            <option value="US-WY">Wyoming</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <p class="pc-intro-state pc-disclaimer small text-muted mt-2 mb-3" data-state-note hidden></p>
+
+    <details class="pc-advanced mb-3">
+      <summary>Deductions &amp; W-4 (optional)</summary>
+      <div class="row mt-2">
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-d401k">401(k) / 403(b) <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-d401k" name="ded_d401k" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-hsa">HSA <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-hsa" name="ded_hsa" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-fsa">FSA <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-fsa" name="ded_fsa" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-health">Health premium <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-health" name="ded_health" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-post">Other post-tax deduction <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-post" name="ded_post" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-w4-step3">W-4 Step 3 credits <small class="text-muted">annual</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-w4-step3" name="w4_step3" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-w4-step4c">W-4 extra withholding <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-w4-step4c" name="w4_step4c" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      </div>
+    </details>
+
+    <button type="submit" class="btn btn-brand btn-lg btn-block">Calculate take-home pay</button>
+  </form>
+
+  <section class="pc-result mt-4" hidden aria-live="polite">
+    <div class="pc-net stat-tile mb-4">
+      <span class="pc-net-label stat-label">Net take-home pay <small>per period</small></span>
+      <strong class="pc-net-value stat-value" data-out="net_per_period">&mdash;</strong>
+      <span class="pc-net-annual stat-note" data-out="net_annual">&mdash;</span>
+    </div>
+
+    <h3 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Where your pay goes</h3>
+    <div class="table-responsive">
+      <table class="pc-breakdown table table-sm table-striped mb-0">
+        <tbody>
+          <tr><th>Gross pay</th><td class="text-right" data-out="gross_per_period"></td></tr>
+          <tr><th>Federal income tax</th><td class="text-right" data-out="federal_income_tax"></td></tr>
+          <tr><th>Social Security</th><td class="text-right" data-out="social_security"></td></tr>
+          <tr><th>Medicare</th><td class="text-right" data-out="medicare"></td></tr>
+          <tr data-out-row="additional_medicare" hidden><th>Additional Medicare</th><td class="text-right" data-out="additional_medicare"></td></tr>
+          <tr><th>State income tax</th><td class="text-right" data-out="state_income_tax"></td></tr>
+          <tr><th>Pre-tax deductions</th><td class="text-right" data-out="pre_tax_deductions"></td></tr>
+          <tr><th>Post-tax deductions</th><td class="text-right" data-out="post_tax_deductions"></td></tr>
+          <tr class="pc-total"><th>Net pay</th><td class="text-right" data-out="net_per_period_total"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pc-rates small text-muted mt-3 mb-0">
+      Effective tax rate <strong data-out="effective_rate"></strong> &middot;
+      Marginal rate <strong data-out="marginal_rate"></strong>
+    </p>
+
+    <details class="pc-math mt-3">
+      <summary>Show the math</summary>
+      <ol data-out="trace"></ol>
+    </details>
+
+    <p class="pc-disclaimer small text-muted mt-3 mb-2">
+      This is an estimate for planning. It covers federal income tax, FICA, and simplified state income tax.
+      It does not include local or paid-leave taxes. Your employer's payroll system may calculate a different amount.
+    </p>
+    <p class="pc-updated small text-muted mb-0" data-out="updated"></p>
+  </section>
+</div>
+
+</div>
+</div>
+
+<h2 class="wp-block-heading" id="state-income-tax">Does Florida have a state income tax?</h2>
+
+<p>No. Florida collects no income tax from wage earners. The state constitution is the reason: Article VII, Section 5(a) forbids the state from levying a tax on the income of natural persons, a prohibition that has stood since it was adopted in 1971. Among the states that skip a wage tax, Florida is one of the most populous.</p>
+
+<p>What does come out of a Florida paycheck is entirely federal: income tax under the IRS brackets, Social Security at 6.2%, and Medicare at 1.45%. There is no state line to add. The calculator above models precisely those three.</p>
+
+<h2 class="wp-block-heading" id="how-take-home-pay-is-calculated">How Florida take-home pay is calculated</h2>
+
+<p>Because Florida does not tax wage income, the calculation is shorter than in most states:</p>
+
+<ol class="wp-block-list">
+<li><strong>Start from gross wages.</strong> Turn your annual salary, or an hourly rate times hours, into the amount for one pay period.</li>
+<li><strong>Subtract pre-tax benefits.</strong> A 401(k), HSA, or health premium is taken out before tax, which lowers the wages that federal income tax is figured on.</li>
+<li><strong>Work out federal income tax.</strong> The standard deduction comes off first, then the rest is taxed through the federal marginal brackets.</li>
+<li><strong>Add FICA.</strong> Social Security at 6.2% up to the annual wage base and Medicare at 1.45%, with the extra 0.9% Medicare surtax above the high-earner threshold.</li>
+<li><strong>State income tax stays at zero.</strong> Florida takes nothing from the paycheck for income tax, so this line never moves.</li>
+</ol>
+
+<p>The result is your net pay for the period you selected. Pay frequency matters: a biweekly schedule pays 26 times a year and a semi-monthly schedule 24, so the same salary produces different per-paycheck amounts.</p>
+
+<h2 class="wp-block-heading" id="worked-example">Worked example: $55,000 in Florida</h2>
+
+<p>A single filer earning $55,000 a year, paid bi-weekly in 2026:</p>
+
+<table class="table table-sm table-striped">
+<thead><tr><th>Line</th><th class="text-right">Per paycheck</th></tr></thead>
+<tbody>
+<tr><th>Gross pay</th><td class="text-right">$2,115.38</td></tr>
+<tr><th>Federal income tax</th><td class="text-right">$170.00</td></tr>
+<tr><th>Social Security</th><td class="text-right">$131.15</td></tr>
+<tr><th>Medicare</th><td class="text-right">$30.67</td></tr>
+<tr><th>Florida state income tax</th><td class="text-right">$0.00</td></tr>
+<tr class="pc-total"><th>Net take-home pay</th><td class="text-right">$1,783.56</td></tr>
+</tbody>
+</table>
+
+<p>That is $46,372.50 a year, an effective tax rate of about 15.7%. Change the inputs in the calculator above to see your own numbers.</p>
+
+<h2 class="wp-block-heading" id="how-it-compares">How Florida compares</h2>
+
+<p>A Florida salary stretches further than the same salary in a state that taxes wages. Set beside California, New York, or New Jersey, a Florida paycheck keeps the state share those workers surrender. Florida shares this trait with Alaska, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming.</p>
+
+<p>Florida also withholds nothing for a state disability or paid family leave program. The state runs unemployment compensation (Reemployment Assistance), but that is an employer tax, not an employee deduction, so it never appears on a worker's stub.</p>
+
+<h2 class="wp-block-heading" id="faq">FAQ</h2>
+
+<div id="rank-math-faq" class="rank-math-block">
+<div class="rank-math-list ">
+<div id="faq-question-1" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does Florida have a state income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>No. Florida does not tax personal income, so no state income tax is withheld from a paycheck. Article VII, Section 5(a) of the Florida Constitution bars the state from taxing the income of natural persons.</p>
+
+</div>
+</div>
+<div id="faq-question-2" class="rank-math-list-item">
+<h4 class="rank-math-question ">If Florida has no income tax, why is my paycheck still taxed?</h4>
+<div class="rank-math-answer ">
+
+<p>Federal taxes still apply everywhere. A Florida paycheck has federal income tax, Social Security at 6.2%, and Medicare at 1.45% withheld. Dropping the state income tax removes only the state line.</p>
+
+</div>
+</div>
+<div id="faq-question-3" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does Florida take money out for disability or paid family leave?</h4>
+<div class="rank-math-answer ">
+
+<p>No. Florida has no state disability insurance program and no state paid family leave payroll tax, so neither is deducted from a Florida paycheck. There is no employee-funded state leave program to contribute to.</p>
+
+</div>
+</div>
+<div id="faq-question-4" class="rank-math-list-item">
+<h4 class="rank-math-question ">Do Florida counties or cities add a local income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>No. No Florida county or city levies an income tax on wages. Local revenue comes from property taxes and discretionary sales surtaxes, which are collected at the register or on property, not withheld from pay.</p>
+
+</div>
+</div>
+<div id="faq-question-5" class="rank-math-list-item">
+<h4 class="rank-math-question ">How much is taken out of a $55,000 salary in Florida?</h4>
+<div class="rank-math-answer ">
+
+<p>For 2026, a single filer paid biweekly takes home about $1,783.56 per paycheck from a $55,000 salary: $2,115.38 gross, $170.00 federal income tax, $131.15 Social Security, $30.67 Medicare, and $0.00 Florida state income tax.</p>
+
+</div>
+</div>
+<div id="faq-question-6" class="rank-math-list-item">
+<h4 class="rank-math-question ">How does Florida raise revenue without an income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>Florida leans on a 6% state sales tax plus county surtaxes, property taxes, a corporate income tax on businesses, and documentary stamp taxes. None of those is withheld from an employee's wages.</p>
+
+</div>
+</div>
+<div id="faq-question-7" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does a Florida resident file a state income tax return?</h4>
+<div class="rank-math-answer ">
+
+<p>No. Since Florida has no personal income tax, there is no state income tax return to file. Florida residents normally still file a federal return with the IRS each year.</p>
+
+</div>
+</div>
+<div id="faq-question-8" class="rank-math-list-item">
+<h4 class="rank-math-question ">Where can I check Florida's tax rates?</h4>
+<div class="rank-math-answer ">
+
+<p>The Florida Department of Revenue publishes the state's sales, corporate income, and other tax rates. Florida's individual income tax status is set by the state constitution rather than by an annual rate schedule.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<h2 class="wp-block-heading" id="sources">Sources and last updated</h2>
+
+<p>This page covers tax years 2025 and 2026. State tax status is checked against the sources below; federal brackets, the standard deduction, and FICA rates come from the IRS. Tax data last verified 2026-10-02.</p>
+
+<ul class="wp-block-list">
+<li><a href="https://floridarevenue.com/taxes/taxesfees/Pages/default.aspx">Florida Department of Revenue — Taxes and Fees</a></li>
+<li><a href="https://www.flsenate.gov/Laws/Constitution">Florida Constitution, Article VII (Section 5)</a></li>
+<li><a href="https://www.irs.gov/publications/p15">IRS Publication 15 (Circular E)</a></li>
+</ul>
+
+<h2 class="wp-block-heading" id="related-tools">Related tools</h2>
+
+<ul class="wp-block-list">
+<li><a href="/finance/paycheck-calculator">Paycheck Calculator</a> &mdash; the national calculator, pre-set to any state.</li>
+<li><a href="/finance/">Money &amp; Pay Calculators</a> &mdash; the rest of the finance hub.</li>
+</ul>
+
+<div class="gb-container gb-container-b53f53f1">
+
+<p><strong>Reviewed by:</strong> aFreeTools Editorial Team</p>
+
+<p><strong>Last updated:</strong> October 02, 2026</p>
+
+<p class="mb-0"><strong>Freshness:</strong> The page&rsquo;s content and sources were last reviewed October 02, 2026. Check related guidance and pay stub for situations that will require an exact withholding amount.</p>
+
+</div>
+
+<hr class="wp-block-separator has-text-color has-global-color-17-color has-alpha-channel-opacity has-global-color-17-background-color has-background is-style-default p-0"/>
+
+<section class="wp-block-group has-global-color-17-background-color has-background"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<p class="mb-0"><strong>Disclaimer:</strong> This paycheck calculator is for informational and planning purposes only. It provides an estimate of take-home pay based on the information you enter and standard federal/state tax assumptions, but actual pay can vary due to local taxes, benefits, deductions, withholding elections, payroll rules, and employer-specific factors. Results are not a guarantee of wages, tax liability, or net pay and should not be considered tax, legal, accounting, or financial advice. Please verify final amounts with your employer&rsquo;s payroll system or a qualified tax professional.</p>
+</div></section>

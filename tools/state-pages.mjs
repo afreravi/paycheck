@@ -277,6 +277,89 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-FL",
+    abbr: "fl",
+    slug: "florida",
+    name: "Florida",
+    example: { salary: 55000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the state's revenue authority.
+    hasIncomeTax: false,
+    title: "Florida Paycheck Calculator - Take-Home Pay After Taxes",
+    description:
+      "Free Florida paycheck calculator. Florida has no state income tax, so estimate take-home pay after federal income tax, Social Security, and Medicare. 2026.",
+    intro:
+      "Work out your take-home pay in Florida. The Sunshine State levies no income tax on " +
+      "wages, so a Florida paycheck is reduced only by the federal withholdings: federal " +
+      "income tax, Social Security, and Medicare. Put in your salary and pay frequency to " +
+      "see what lands in your account each period.",
+    keyHeading: "Does Florida have a state income tax?",
+    keyParagraphs: [
+      "No. Florida collects no income tax from wage earners. The state constitution is the " +
+        "reason: Article VII, Section 5(a) forbids the state from levying a tax on the income " +
+        "of natural persons, a prohibition that has stood since it was adopted in 1971. Among " +
+        "the states that skip a wage tax, Florida is one of the most populous.",
+      "What does come out of a Florida paycheck is entirely federal: income tax under the " +
+        "IRS brackets, Social Security at 6.2%, and Medicare at 1.45%. There is no state " +
+        "line to add. The calculator above models precisely those three.",
+    ],
+    calcSteps: [
+      "<strong>Start from gross wages.</strong> Turn your annual salary, or an hourly rate times hours, into the amount for one pay period.",
+      "<strong>Subtract pre-tax benefits.</strong> A 401(k), HSA, or health premium is taken out before tax, which lowers the wages that federal income tax is figured on.",
+      "<strong>Work out federal income tax.</strong> The standard deduction comes off first, then the rest is taxed through the federal marginal brackets.",
+      "<strong>Add FICA.</strong> Social Security at 6.2% up to the annual wage base and Medicare at 1.45%, with the extra 0.9% Medicare surtax above the high-earner threshold.",
+      "<strong>State income tax stays at zero.</strong> Florida takes nothing from the paycheck for income tax, so this line never moves.",
+    ],
+    compareParagraphs: [
+      "A Florida salary stretches further than the same salary in a state that taxes wages. " +
+        "Set beside California, New York, or New Jersey, a Florida paycheck keeps the state " +
+        "share those workers surrender. Florida shares this trait with Alaska, Nevada, New " +
+        "Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming.",
+      "Florida also withholds nothing for a state disability or paid family leave program. " +
+        "The state runs unemployment compensation (Reemployment Assistance), but that is an " +
+        "employer tax, not an employee deduction, so it never appears on a worker's stub.",
+    ],
+    faqs: [
+      {
+        q: "Does Florida have a state income tax?",
+        a: "No. Florida does not tax personal income, so no state income tax is withheld from a paycheck. Article VII, Section 5(a) of the Florida Constitution bars the state from taxing the income of natural persons.",
+      },
+      {
+        q: "If Florida has no income tax, why is my paycheck still taxed?",
+        a: "Federal taxes still apply everywhere. A Florida paycheck has federal income tax, Social Security at 6.2%, and Medicare at 1.45% withheld. Dropping the state income tax removes only the state line.",
+      },
+      {
+        q: "Does Florida take money out for disability or paid family leave?",
+        a: "No. Florida has no state disability insurance program and no state paid family leave payroll tax, so neither is deducted from a Florida paycheck. There is no employee-funded state leave program to contribute to.",
+      },
+      {
+        q: "Do Florida counties or cities add a local income tax?",
+        a: "No. No Florida county or city levies an income tax on wages. Local revenue comes from property taxes and discretionary sales surtaxes, which are collected at the register or on property, not withheld from pay.",
+      },
+      {
+        q: "How much is taken out of a $55,000 salary in Florida?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,783.56 per paycheck from a $55,000 salary: $2,115.38 gross, $170.00 federal income tax, $131.15 Social Security, $30.67 Medicare, and $0.00 Florida state income tax.",
+      },
+      {
+        q: "How does Florida raise revenue without an income tax?",
+        a: "Florida leans on a 6% state sales tax plus county surtaxes, property taxes, a corporate income tax on businesses, and documentary stamp taxes. None of those is withheld from an employee's wages.",
+      },
+      {
+        q: "Does a Florida resident file a state income tax return?",
+        a: "No. Since Florida has no personal income tax, there is no state income tax return to file. Florida residents normally still file a federal return with the IRS each year.",
+      },
+      {
+        q: "Where can I check Florida's tax rates?",
+        a: "The Florida Department of Revenue publishes the state's sales, corporate income, and other tax rates. Florida's individual income tax status is set by the state constitution rather than by an annual rate schedule.",
+      },
+    ],
+    sources: [
+      { label: "Florida Department of Revenue — Taxes and Fees", url: "https://floridarevenue.com/taxes/taxesfees/Pages/default.aspx" },
+      { label: "Florida Constitution, Article VII (Section 5)", url: "https://www.flsenate.gov/Laws/Constitution" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
