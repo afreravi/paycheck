@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Florida have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Florida does not tax personal income, so no state income tax is withheld from a paycheck. Article VII, Section 5(a) of the Florida Constitution bars the state from taxing the income of natural persons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If Florida has no income tax, why is my paycheck still taxed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Federal taxes still apply everywhere. A Florida paycheck has federal income tax, Social Security at 6.2%, and Medicare at 1.45% withheld. Dropping the state income tax removes only the state line."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Florida take money out for disability or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Florida has no state disability insurance program and no state paid family leave payroll tax, so neither is deducted from a Florida paycheck. There is no employee-funded state leave program to contribute to."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Florida counties or cities add a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No Florida county or city levies an income tax on wages. Local revenue comes from property taxes and discretionary sales surtaxes, which are collected at the register or on property, not withheld from pay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $55,000 salary in Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,783.56 per paycheck from a $55,000 salary: $2,115.38 gross, $170.00 federal income tax, $131.15 Social Security, $30.67 Medicare, and $0.00 Florida state income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Florida raise revenue without an income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Florida leans on a 6% state sales tax plus county surtaxes, property taxes, a corporate income tax on businesses, and documentary stamp taxes. None of those is withheld from an employee's wages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a Florida resident file a state income tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Since Florida has no personal income tax, there is no state income tax return to file. Florida residents normally still file a federal return with the IRS each year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I check Florida's tax rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Florida Department of Revenue publishes the state's sales, corporate income, and other tax rates. Florida's individual income tax status is set by the state constitution rather than by an annual rate schedule."
+      }
+    }
+  ]
+}

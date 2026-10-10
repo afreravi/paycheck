@@ -33,6 +33,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/new-york',
             'description' => 'Free New York paycheck calculator. Estimate take-home pay after New York State income tax, NYC or Yonkers local tax, Paid Family Leave, and federal taxes for 2026.',
         ),
+        'florida' => array(
+            'name'        => 'Florida Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/florida',
+            'description' => 'Free Florida paycheck calculator. Florida has no state income tax, so estimate take-home pay after federal income tax, Social Security, and Medicare. 2026.',
+        ),
     );
 }
 
@@ -42,7 +47,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
