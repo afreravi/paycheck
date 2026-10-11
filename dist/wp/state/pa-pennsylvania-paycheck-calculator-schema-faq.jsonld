@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Pennsylvania state income tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pennsylvania taxes wage income at a flat 3.07%. There are no marginal brackets, so the same rate applies to every dollar of taxable pay regardless of how much you earn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Pennsylvania have a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most Pennsylvania municipalities and school districts levy a local earned income tax, collected through county tax collection districts created by Act 32 of 2008. The rate is commonly up to 1% and depends on where you live and work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is the Philadelphia wage tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For tax year 2026, Philadelphia withholds 3.735% from resident wages and 3.425% from non-residents who work in the city. Rates stepped down under a five-year reduction schedule. Taxpayers who qualify for PA tax forgiveness pay a reduced 1.5% rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Pennsylvania have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Pennsylvania has no state disability insurance program and no paid family leave payroll tax, so neither is deducted from a paycheck. The state's unemployment compensation is an employer-paid tax, not an employee deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Pennsylvania?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,867.23 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $70.85 Pennsylvania state income tax. Local earned income tax is separate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Pennsylvania offer a standard deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Pennsylvania's personal income tax has no standard deduction. A personal exemption exists only for taxpayers who are 65 or older, widows and widowers, or blind, and a separate deduction can apply for dependent children under 18."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Pennsylvania's income tax called uniform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Article VIII, Section 1 of the Pennsylvania Constitution requires taxes on income to be uniform, which is the basis for the single flat 3.07% rate rather than graduated brackets. The rate itself is set by the Tax Reform Code of 1971."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I check Pennsylvania's tax rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Pennsylvania Department of Revenue publishes the personal income tax rate and guidance at revenue.pa.gov. For local earned income tax rates, the Department of Community and Economic Development maintains the register of Act 32 tax collection districts."
+      }
+    }
+  ]
+}

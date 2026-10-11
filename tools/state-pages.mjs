@@ -360,6 +360,99 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-PA",
+    abbr: "pa",
+    slug: "pennsylvania",
+    name: "Pennsylvania",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the state's revenue authority.
+    hasIncomeTax: true,
+    title: "Pennsylvania Paycheck Calculator - Take-Home Pay After Taxes",
+    description:
+      "Free Pennsylvania paycheck calculator. Estimate take-home pay after the 3.07% flat state income tax, local earned income tax, and federal withholdings. 2026.",
+    intro:
+      "Figure out what a Pennsylvania paycheck is worth after tax. The Commonwealth charges " +
+      "a single flat rate on wage income, and most workers also pay a local earned income " +
+      "tax that their county, city, or school district sets. Enter your salary and pay " +
+      "frequency to see the federal, state, and local pieces that come out of each period.",
+    keyHeading: "How does Pennsylvania tax a paycheck?",
+    keyParagraphs: [
+      "Pennsylvania taxes wages at one flat rate: 3.07%. There are no brackets and no " +
+        "high-income surcharge, so every dollar of taxable pay meets the same rate. The " +
+        "state grants no standard deduction, though a personal exemption is available to " +
+        "taxpayers 65 and older, widows and widowers, and the blind. The flat structure " +
+        "follows the uniformity clause in Article VIII, Section 1 of the Pennsylvania " +
+        "Constitution, and the rate is set by the Tax Reform Code of 1971.",
+      "On top of the state rate, Pennsylvania is one of the states with a local income " +
+        "tax. Act 32 of 2008 consolidated collection into county tax collection districts. " +
+        "The local earned income tax is typically up to 1% shared between the municipality " +
+        "and the school district, and the employer withholds it based on where you live and " +
+        "where you work. The two biggest exceptions charge more, which is why the calculator " +
+        "here models the state and federal lines and leaves your local rate to your own " +
+        "district's notice.",
+    ],
+    calcSteps: [
+      "<strong>Start from gross wages.</strong> Turn your annual salary, or an hourly rate times hours, into the amount for one pay period.",
+      "<strong>Subtract pre-tax benefits.</strong> A traditional 401(k), HSA, or health premium lowers the wages that federal income tax is figured on.",
+      "<strong>Work out federal income tax.</strong> The federal standard deduction comes off first, then the rest is taxed through the federal marginal brackets.",
+      "<strong>Add FICA.</strong> Social Security at 6.2% up to the annual wage base and Medicare at 1.45%, plus the extra 0.9% Medicare surtax above the high-earner threshold.",
+      "<strong>Charge the flat state rate.</strong> Pennsylvania takes 3.07% of taxable wages with no bracket table, so the state deduction scales evenly with pay.",
+      "<strong>Account for local earned income tax.</strong> Your municipality or school district withholds its own rate through the Act 32 tax collection district, most often up to 1%.",
+    ],
+    compareParagraphs: [
+      "Pennsylvania sits in the middle of the pack. Its 3.07% flat rate is lower than the " +
+        "top brackets in California or New Jersey, but Pennsylvania adds a local earned " +
+        "income tax that fills in the difference, and Philadelphia's wage tax is among the " +
+        "highest city income taxes in the country. A worker there can face a combined local " +
+        "rate near 3.74% on top of the state's 3.07%.",
+      "Unlike California or New Jersey, Pennsylvania runs no state disability insurance and " +
+        "no paid family leave payroll deduction. Nothing is withheld from a Pennsylvania " +
+        "paycheck for a state leave program. The state's unemployment compensation is funded " +
+        "by employer contributions, not employee withholding, so it never appears on a stub.",
+    ],
+    faqs: [
+      {
+        q: "What is the Pennsylvania state income tax rate?",
+        a: "Pennsylvania taxes wage income at a flat 3.07%. There are no marginal brackets, so the same rate applies to every dollar of taxable pay regardless of how much you earn.",
+      },
+      {
+        q: "Does Pennsylvania have a local income tax?",
+        a: "Yes. Most Pennsylvania municipalities and school districts levy a local earned income tax, collected through county tax collection districts created by Act 32 of 2008. The rate is commonly up to 1% and depends on where you live and work.",
+      },
+      {
+        q: "How much is the Philadelphia wage tax?",
+        a: "For tax year 2026, Philadelphia withholds 3.735% from resident wages and 3.425% from non-residents who work in the city. Rates stepped down under a five-year reduction schedule. Taxpayers who qualify for PA tax forgiveness pay a reduced 1.5% rate.",
+      },
+      {
+        q: "Does Pennsylvania have disability or paid family leave withholding?",
+        a: "No. Pennsylvania has no state disability insurance program and no paid family leave payroll tax, so neither is deducted from a paycheck. The state's unemployment compensation is an employer-paid tax, not an employee deduction.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Pennsylvania?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,867.23 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $70.85 Pennsylvania state income tax. Local earned income tax is separate.",
+      },
+      {
+        q: "Does Pennsylvania offer a standard deduction?",
+        a: "No. Pennsylvania's personal income tax has no standard deduction. A personal exemption exists only for taxpayers who are 65 or older, widows and widowers, or blind, and a separate deduction can apply for dependent children under 18.",
+      },
+      {
+        q: "Why is Pennsylvania's income tax called uniform?",
+        a: "Article VIII, Section 1 of the Pennsylvania Constitution requires taxes on income to be uniform, which is the basis for the single flat 3.07% rate rather than graduated brackets. The rate itself is set by the Tax Reform Code of 1971.",
+      },
+      {
+        q: "Where can I check Pennsylvania's tax rates?",
+        a: "The Pennsylvania Department of Revenue publishes the personal income tax rate and guidance at revenue.pa.gov. For local earned income tax rates, the Department of Community and Economic Development maintains the register of Act 32 tax collection districts.",
+      },
+    ],
+    sources: [
+      { label: "Pennsylvania Department of Revenue — Personal Income Tax", url: "https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/personal-income-tax.html" },
+      { label: "Pennsylvania Constitution, Article VIII, Section 1", url: "https://www.pacourts.us/Storage/media/pdfs/20210116/155332-file-5092.pdf" },
+      { label: "City of Philadelphia — Wage Tax for employers", url: "https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
