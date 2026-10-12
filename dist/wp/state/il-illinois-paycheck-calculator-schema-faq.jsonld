@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Illinois state income tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Illinois taxes wage income at a flat 4.95%. The rate is set by the Illinois Income Tax Act and applies to every dollar of Illinois net income, with no marginal brackets and no high-income surcharge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Illinois have a standard deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Illinois has no standard deduction. It grants a personal exemption allowance instead: $2,850 for the taxpayer, and the same amount for a spouse on a joint return or for each dependent. The allowance has been frozen at $2,850 since tax year 2010."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Illinois have a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Illinois has no local or municipal income tax on wages, and Chicago does not levy a city income tax on individuals. The 4.95% state rate is the only state or local income tax withheld from an Illinois paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $65,000 salary in Illinois?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,973.84 per paycheck from a $65,000 salary: $2,500.00 gross, $216.15 federal income tax, $155.00 Social Security, $36.25 Medicare, and $118.75 Illinois state income tax. That is $51,319.94 a year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Illinois have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Illinois has no state disability insurance program and no paid family leave payroll tax, so neither is deducted from a paycheck. The state's unemployment insurance is an employer-paid tax, not an employee deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Illinois income tax progressive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Illinois uses a single flat 4.95% rate. A proposed graduated income tax was rejected by voters in the November 2020 referendum, so the flat structure stands. Only the personal exemption allowance separates taxpayers of different means."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Illinois have reciprocal tax agreements with other states?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Illinois has reciprocal agreements with Iowa, Kentucky, Michigan, and Wisconsin. An Illinois resident who works in one of those states has that wage taxed by Illinois instead of the work state, so only Illinois income tax is withheld. Illinois has no such agreement with Indiana or Missouri."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I check Illinois' tax rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Illinois Department of Revenue publishes the income tax rate, the personal exemption amount, and Form IL-1040 instructions at tax.illinois.gov. The rate itself is set by the Illinois Income Tax Act, 35 ILCS 5/201."
+      }
+    }
+  ]
+}
