@@ -43,6 +43,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/pennsylvania',
             'description' => 'Free Pennsylvania paycheck calculator. Estimate take-home pay after the 3.07% flat state income tax, local earned income tax, and federal withholdings. 2026.',
         ),
+        'illinois' => array(
+            'name'        => 'Illinois Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/illinois',
+            'description' => 'Free Illinois paycheck calculator. Estimate take-home pay after the flat 4.95% Illinois income tax, the personal exemption, and federal withholdings. 2026.',
+        ),
     );
 }
 
@@ -52,7 +57,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'illinois' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
