@@ -453,6 +453,109 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-OH",
+    abbr: "oh",
+    slug: "ohio",
+    name: "Ohio",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the state's revenue authority.
+    hasIncomeTax: true,
+    title: "Ohio Paycheck Calculator - Take-Home Pay After Ohio Tax",
+    description:
+      "Free Ohio paycheck calculator. Estimate take-home pay after Ohio's flat 2.75% state tax, local municipal income tax, and federal withholdings for 2026.",
+    intro:
+      "Work out what an Ohio paycheck is worth after tax. Ohio taxes wages at a single " +
+      "flat rate for 2026, and most Ohio workers also pay a municipal income tax that " +
+      "their city sets and their employer withholds. Enter your salary and pay frequency " +
+      "to see the federal and state pieces that come out of each period.",
+    keyHeading: "How does Ohio tax a paycheck?",
+    keyParagraphs: [
+      "Ohio does tax wage income, and for 2026 it does so at one flat rate. House Bill 96 " +
+        "collapsed Ohio's graduated schedule into a single 2.75% rate on Ohio taxable income " +
+        "above $26,050, for tax years beginning in 2026 under Ohio Revised Code section " +
+        "5747.02(c). The $26,050 figure acts like a zero-rate bracket, and a personal " +
+        "exemption for the taxpayer, spouse, and each dependent comes off first under section " +
+        "5747.025. The state's former top bracket of 3.5% no longer applies.",
+      "The calculator on this page applies the simplified three-band schedule stored in this " +
+        "site's shared state dataset: 2.75% up to $15,000, 3.125% to $100,000, and 3.5% " +
+        "above that, with no threshold and no exemption. That model does not reproduce " +
+        "Ohio's $26,050 zero-tax bracket, so it can overstate the state line for lower and " +
+        "middle incomes. Treat the result as a conservative estimate and check Ohio's own " +
+        "withholding tables for an exact figure.",
+      "Ohio is also one of the few states where cities levy their own income tax on wages. " +
+        "Ohio Revised Code Chapter 718 authorizes municipal income taxes, and most Ohio " +
+        "cities charge between 1.5% and 2.5% — Columbus and Cleveland 2.5%, Cincinnati " +
+        "1.8%. The tax is withheld for the city where you work; if you live in a different " +
+        "city, your home city generally allows a credit for tax paid to the work city. The " +
+        "Regional Income Tax Agency (RITA) administers the tax for many municipalities. This " +
+        "calculator does not subtract a local amount, so remove your own city's rate for a " +
+        "full picture.",
+    ],
+    calcSteps: [
+      "<strong>Start from gross pay.</strong> Convert your salary, or an hourly rate times hours, into the amount for one pay period.",
+      "<strong>Subtract pre-tax benefits.</strong> A traditional 401(k), HSA, or health premium lowers the wages that federal and Ohio income tax are charged on.",
+      "<strong>Figure federal income tax.</strong> The federal standard deduction comes off first, then the remaining income runs through the federal marginal brackets.",
+      "<strong>Add FICA.</strong> Social Security at 6.2% up to the annual wage base and Medicare at 1.45%, plus the 0.9% additional Medicare tax above the high-earner threshold.",
+      "<strong>Apply Ohio income tax.</strong> Ohio's 2026 law is a flat 2.75% above a $26,050 threshold; this calculator instead uses the shared dataset's three-band approximation, which has no threshold.",
+      "<strong>Leave out the local tax.</strong> Ohio municipal income tax is withheld for the city where you work and is not included here, so a city resident's real take-home will be lower.",
+    ],
+    compareParagraphs: [
+      "Ohio's flat 2.75% rate for 2026 sits well below the top brackets in California " +
+        "(13.3%), New Jersey (10.75%), or New York (10.9%), and a little under " +
+        "Pennsylvania's 3.07% and Illinois's 4.95%. What separates Ohio is its local tax: " +
+        "unlike California, Florida, or Texas, most Ohio workers also pay a municipal " +
+        "income tax of 1.5% to 2.5% withheld at the workplace, so the state line alone " +
+        "understates the total.",
+      "Ohio runs no state disability insurance and no paid family leave payroll tax, so " +
+        "there is no state leave deduction the way there is in California, New Jersey, or " +
+        "Washington. Ohio unemployment compensation is funded by employer contributions, " +
+        "not employee withholding. The only state-level item on a typical Ohio stub is the " +
+        "income tax, plus the city tax if your employer withholds it.",
+    ],
+    faqs: [
+      {
+        q: "Does Ohio have a state income tax?",
+        a: "Yes. Ohio taxes wage income. For 2026 the individual income tax is a single flat rate of 2.75% on Ohio taxable income above $26,050, after personal exemptions, under Ohio Revised Code section 5747.02 as amended by House Bill 96.",
+      },
+      {
+        q: "What is the Ohio income tax rate for 2026?",
+        a: "2.75%. House Bill 96 collapsed Ohio's graduated schedule into one rate for tax year 2026 and later. A single filer pays nothing on the first $26,050 of Ohio taxable income and 2.75% on the amount above it.",
+      },
+      {
+        q: "Does Ohio have a local income tax?",
+        a: "Yes. Ohio is one of the few states where most cities levy their own income tax on wages, authorized by Ohio Revised Code Chapter 718. Rates commonly run from about 1.5% to 2.5%: Columbus and Cleveland charge 2.5% and Cincinnati 1.8%. The tax is withheld for the city where you work.",
+      },
+      {
+        q: "How does the Ohio city tax credit work if I live and work in different cities?",
+        a: "You pay the work city's tax through withholding and may claim a credit from your home city for tax paid elsewhere, generally capped at your home city's own rate. The Regional Income Tax Agency (RITA) administers the tax for many Ohio municipalities.",
+      },
+      {
+        q: "Does Ohio have state disability or paid family leave withholding?",
+        a: "No. Ohio has no state disability insurance (SDI) program and no state paid family leave payroll tax, so neither appears on a paycheck. Ohio unemployment compensation is an employer-paid tax, not an employee deduction.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Ohio?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,868.13 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $69.95 Ohio state income tax. Local municipal income tax is separate.",
+      },
+      {
+        q: "How does Ohio tax business income?",
+        a: "Ohio taxes business income at a flat 3% under section 5747.02(A)(4), separate from the 2.75% rate that applies to wages and other nonbusiness income. Business income reported on a federal return is excluded from the nonbusiness rate and is taxed on its own line.",
+      },
+      {
+        q: "Does Ohio have a standard deduction or a personal exemption?",
+        a: "Ohio does not use a standard deduction like the federal system. Instead, no tax is imposed on the first $26,050 of Ohio taxable income, which works like a zero-rate bracket, and a personal exemption for the taxpayer, spouse, and dependents under section 5747.025 reduces taxable income further.",
+      },
+    ],
+    sources: [
+      { label: "Ohio Revised Code §5747.02 — Income tax rates", url: "https://codes.ohio.gov/ohio-revised-code/section-5747.02" },
+      { label: "Ohio Revised Code §5747.025 — Personal exemptions", url: "https://codes.ohio.gov/ohio-revised-code/section-5747.025" },
+      { label: "Ohio Revised Code Chapter 718 — Municipal income taxes", url: "https://codes.ohio.gov/ohio-revised-code/chapter-718" },
+      { label: "Ohio Department of Taxation", url: "https://tax.ohio.gov/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

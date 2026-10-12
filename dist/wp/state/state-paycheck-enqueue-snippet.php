@@ -43,6 +43,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/pennsylvania',
             'description' => 'Free Pennsylvania paycheck calculator. Estimate take-home pay after the 3.07% flat state income tax, local earned income tax, and federal withholdings. 2026.',
         ),
+        'ohio' => array(
+            'name'        => 'Ohio Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/ohio',
+            'description' => 'Free Ohio paycheck calculator. Estimate take-home pay after Ohio\'s flat 2.75% state tax, local municipal income tax, and federal withholdings for 2026.',
+        ),
     );
 }
 
@@ -52,7 +57,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
