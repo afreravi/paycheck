@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Ohio have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ohio taxes wage income. For 2026 the individual income tax is a single flat rate of 2.75% on Ohio taxable income above $26,050, after personal exemptions, under Ohio Revised Code section 5747.02 as amended by House Bill 96."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Ohio income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2.75%. House Bill 96 collapsed Ohio's graduated schedule into one rate for tax year 2026 and later. A single filer pays nothing on the first $26,050 of Ohio taxable income and 2.75% on the amount above it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ohio have a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ohio is one of the few states where most cities levy their own income tax on wages, authorized by Ohio Revised Code Chapter 718. Rates commonly run from about 1.5% to 2.5%: Columbus and Cleveland charge 2.5% and Cincinnati 1.8%. The tax is withheld for the city where you work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Ohio city tax credit work if I live and work in different cities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You pay the work city's tax through withholding and may claim a credit from your home city for tax paid elsewhere, generally capped at your home city's own rate. The Regional Income Tax Agency (RITA) administers the tax for many Ohio municipalities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ohio have state disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Ohio has no state disability insurance (SDI) program and no state paid family leave payroll tax, so neither appears on a paycheck. Ohio unemployment compensation is an employer-paid tax, not an employee deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Ohio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,868.13 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $69.95 Ohio state income tax. Local municipal income tax is separate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Ohio tax business income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ohio taxes business income at a flat 3% under section 5747.02(A)(4), separate from the 2.75% rate that applies to wages and other nonbusiness income. Business income reported on a federal return is excluded from the nonbusiness rate and is taxed on its own line."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ohio have a standard deduction or a personal exemption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ohio does not use a standard deduction like the federal system. Instead, no tax is imposed on the first $26,050 of Ohio taxable income, which works like a zero-rate bracket, and a personal exemption for the taxpayer, spouse, and dependents under section 5747.025 reduces taxable income further."
+      }
+    }
+  ]
+}
