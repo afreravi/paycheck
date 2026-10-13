@@ -47,10 +47,16 @@ function state_paycheck_pages() {
             'name'        => 'Ohio Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/ohio',
             'description' => 'Free Ohio paycheck calculator. Estimate take-home pay after Ohio\'s flat 2.75% state tax, local municipal income tax, and federal withholdings for 2026.',
+        ),
         'illinois' => array(
             'name'        => 'Illinois Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/illinois',
             'description' => 'Free Illinois paycheck calculator. Estimate take-home pay after the flat 4.95% Illinois income tax, the personal exemption, and federal withholdings. 2026.',
+        ),
+        'georgia' => array(
+            'name'        => 'Georgia Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/georgia',
+            'description' => 'Free Georgia paycheck calculator. Estimate take-home pay after Georgia\'s flat 4.99% income tax, the 2026 standard deduction, and federal withholdings.',
         ),
     );
 }
@@ -61,7 +67,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
