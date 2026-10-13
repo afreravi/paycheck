@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Georgia Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/georgia",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Georgia paycheck calculator. Estimate take-home pay after Georgia's flat 4.99% income tax, the 2026 standard deduction, and federal withholdings."
+}

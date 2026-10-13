@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Georgia have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Georgia taxes wage income at a single flat rate of 4.99% for 2026 under O.C.G.A. § 48-7-20. Georgia moved from a graduated schedule to a flat tax in 2024, and the rate is scheduled to step down toward 3.99% in later years if revenue targets are met."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Georgia income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "4.99%. Governor Brian Kemp signed the reduction in May 2026 with retroactive effect to January 1, cutting the rate from 5.19%. Employers may withhold at 4.99% starting May 11, 2026, and should use the 2026 Employer's Tax Guide for the withholding tables."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Georgia have a standard deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. For 2026 Georgia raised its standard deduction to $15,000 for a single filer, head of household, or married person filing separately, and to $30,000 for a married couple filing jointly. Georgia also permits itemized deductions and a $4,000 exemption for each dependent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Georgia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,842.26 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $95.82 Georgia state income tax. That is $47,898.80 a year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Georgia have a local or county income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No Georgia county or city levies an income tax on wages. Local revenue comes from sales and use taxes and property taxes, which are collected at the register or on property, not withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Georgia have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Georgia has no state disability insurance program and no state paid family leave payroll tax, so neither is deducted from a paycheck. Georgia unemployment insurance is an employer-paid tax, not an employee deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Georgia tax retirement income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Georgia exempts Social Security benefits from state income tax and allows a retirement income exclusion for taxpayers 65 and older, which has been rising toward $65,000 per person. Those breaks apply to retirement income, not to the wages this calculator models."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Georgia have reciprocal tax agreements with other states?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Georgia has no reciprocal income tax agreements, so a Georgia resident who works in another state generally files in the work state and claims a credit in Georgia for tax paid there. Georgia income tax is withheld from Georgia wages regardless of where the employer is based."
+      }
+    }
+  ]
+}

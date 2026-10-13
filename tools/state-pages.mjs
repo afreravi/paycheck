@@ -553,6 +553,10 @@ export const STATE_PAGES = [
       { label: "Ohio Revised Code §5747.025 — Personal exemptions", url: "https://codes.ohio.gov/ohio-revised-code/section-5747.025" },
       { label: "Ohio Revised Code Chapter 718 — Municipal income taxes", url: "https://codes.ohio.gov/ohio-revised-code/chapter-718" },
       { label: "Ohio Department of Taxation", url: "https://tax.ohio.gov/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
+  {
     code: "US-IL",
     abbr: "il",
     slug: "illinois",
@@ -641,6 +645,103 @@ export const STATE_PAGES = [
       { label: "Illinois Department of Revenue — Individual Income Tax", url: "https://tax.illinois.gov/tax-resources/individuals.html" },
       { label: "Illinois Department of Revenue — Form IL-1040 Instructions", url: "https://tax.illinois.gov/forms/incometax/currentyear/individual/il-1040-instr.html" },
       { label: "Illinois Department of Revenue — Tax Rate Database", url: "https://tax.illinois.gov/research/taxrates.html" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
+  {
+    code: "US-GA",
+    abbr: "ga",
+    slug: "georgia",
+    name: "Georgia",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Georgia Department of Revenue.
+    hasIncomeTax: true,
+    title: "Georgia Paycheck Calculator - Take-Home Pay After GA Tax",
+    description:
+      "Free Georgia paycheck calculator. Estimate take-home pay after Georgia's flat 4.99% income tax, the 2026 standard deduction, and federal withholdings.",
+    intro:
+      "See what a Georgia paycheck keeps after tax. Georgia charges wage income a single " +
+      "flat rate, and for 2026 it pairs that rate with a larger standard deduction. Enter " +
+      "your salary and pay frequency to see the federal, state, and FICA amounts that leave " +
+      "each period.",
+    keyHeading: "How does Georgia tax a paycheck?",
+    keyParagraphs: [
+      "Georgia taxes wages at one flat rate. For tax year 2026 that rate is 4.99%, set in " +
+        "O.C.G.A. § 48-7-20 and signed in May 2026 with retroactive effect to January 1. It " +
+        "replaced the 5.19% rate that had applied since mid-2025. Georgia retired its old " +
+        "graduated schedule in 2024, and the 4.99% figure is written into the code as a " +
+        "permanent reduction rather than a one-time rebate, with further step-downs toward " +
+        "3.99% planned if revenue targets are met.",
+      "Before the rate applies, Georgia subtracts a standard deduction. For 2026 the " +
+        "Department of Revenue raised it to $15,000 for a single filer, a head of household, " +
+        "or a married person filing separately, and to $30,000 for a married couple filing " +
+        "jointly. A taxpayer who itemizes instead can use the federal-style itemized " +
+        "deductions, and Georgia grants a separate $4,000 exemption for each dependent.",
+      "Georgia levies no local or county income tax on wages, so the flat state rate is the " +
+        "entire state-and-local picture on a paycheck. The state operates no disability " +
+        "insurance fund and no paid family leave payroll tax, so nothing is withheld for a " +
+        "state leave benefit either.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Take your yearly salary, or an hourly rate multiplied by hours worked, and express it as one paycheck for your pay frequency.",
+      "<strong>Pre-tax deductions first.</strong> A traditional 401(k), an HSA, or a health premium reduces the wages that federal and Georgia income tax are charged on.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is removed, then the remaining income runs up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45%, and the extra 0.9% Medicare tax above the high-earner threshold.",
+      "<strong>Georgia flat tax.</strong> Georgia subtracts its standard deduction and then charges one rate &mdash; 4.99% for 2026 &mdash; with no bracket table.",
+      "<strong>Model caveat.</strong> This calculator still applies Georgia's 2025 figures ($12,000 standard deduction and a 5.19% rate), so its state line runs slightly high until the dataset is refreshed.",
+    ],
+    compareParagraphs: [
+      "Georgia's flat 4.99% sits in the middle of the Southern states that tax wages. It is " +
+        "above North Carolina's 3.99% and Florida's zero, and below the top brackets in " +
+        "California, New Jersey, or New York. Because Georgia has no local income tax, the " +
+        "flat rate is often the only state-level charge, unlike Ohio or Pennsylvania, where " +
+        "a municipal or school district rate is withheld on top.",
+      "Georgia runs no state disability insurance and no paid family leave payroll tax, so " +
+        "there is no state leave deduction the way there is in California, New Jersey, or " +
+        "Washington. Georgia unemployment insurance is funded by employer contributions, " +
+        "not employee withholding. Georgia also exempts Social Security benefits from state " +
+        "tax and offers a retirement income exclusion for filers 65 and older, a break that " +
+        "the wage-taxing states in the Northeast do not match.",
+    ],
+    faqs: [
+      {
+        q: "Does Georgia have a state income tax?",
+        a: "Yes. Georgia taxes wage income at a single flat rate of 4.99% for 2026 under O.C.G.A. § 48-7-20. Georgia moved from a graduated schedule to a flat tax in 2024, and the rate is scheduled to step down toward 3.99% in later years if revenue targets are met.",
+      },
+      {
+        q: "What is the Georgia income tax rate for 2026?",
+        a: "4.99%. Governor Brian Kemp signed the reduction in May 2026 with retroactive effect to January 1, cutting the rate from 5.19%. Employers may withhold at 4.99% starting May 11, 2026, and should use the 2026 Employer's Tax Guide for the withholding tables.",
+      },
+      {
+        q: "Does Georgia have a standard deduction?",
+        a: "Yes. For 2026 Georgia raised its standard deduction to $15,000 for a single filer, head of household, or married person filing separately, and to $30,000 for a married couple filing jointly. Georgia also permits itemized deductions and a $4,000 exemption for each dependent.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Georgia?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,842.26 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $95.82 Georgia state income tax. That is $47,898.80 a year.",
+      },
+      {
+        q: "Does Georgia have a local or county income tax?",
+        a: "No. No Georgia county or city levies an income tax on wages. Local revenue comes from sales and use taxes and property taxes, which are collected at the register or on property, not withheld from a paycheck.",
+      },
+      {
+        q: "Does Georgia have disability or paid family leave withholding?",
+        a: "No. Georgia has no state disability insurance program and no state paid family leave payroll tax, so neither is deducted from a paycheck. Georgia unemployment insurance is an employer-paid tax, not an employee deduction.",
+      },
+      {
+        q: "Does Georgia tax retirement income?",
+        a: "Georgia exempts Social Security benefits from state income tax and allows a retirement income exclusion for taxpayers 65 and older, which has been rising toward $65,000 per person. Those breaks apply to retirement income, not to the wages this calculator models.",
+      },
+      {
+        q: "Does Georgia have reciprocal tax agreements with other states?",
+        a: "No. Georgia has no reciprocal income tax agreements, so a Georgia resident who works in another state generally files in the work state and claims a credit in Georgia for tax paid there. Georgia income tax is withheld from Georgia wages regardless of where the employer is based.",
+      },
+    ],
+    sources: [
+      { label: "Georgia Department of Revenue — Important Tax Updates", url: "https://dor.georgia.gov/important-tax-updates" },
+      { label: "Georgia Department of Revenue — Withholding Tax for Employers", url: "https://dor.georgia.gov/taxes/withholding-tax-employers" },
+      { label: "O.C.G.A. § 48-7-20 — Income tax rate", url: "https://law.justia.com/codes/georgia/title-48/chapter-7/article-2/section-48-7-20/" },
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
