@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does North Carolina have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. North Carolina taxes wage income at a single flat rate under G.S. 105-153.7. For taxable years beginning after 2025 that rate is 3.99%, reduced from 4.25% in 2025. North Carolina replaced its old graduated schedule with a flat tax in 2014."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the North Carolina income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3.99% for taxable years beginning after 2025. The rate was 4.25% for 2025 and 4.50% for 2024. G.S. 105-153.7 also contains a revenue trigger that can cut the rate by another half point in later years, down to a floor of 2.49%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the North Carolina standard deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a single filer or a married person filing separately it is $12,750; for a head of household, $19,125; and for a married couple filing jointly, $25,500. These amounts are written into G.S. 105-153.5 and are not indexed for inflation, so they do not rise each year the way the federal standard deduction does."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in North Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,860.84 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $77.24 North Carolina state income tax. That is $48,381.88 a year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does North Carolina have a local or county income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No North Carolina county or city levies an income tax on wages. Local government revenue in the state comes from sales and use taxes and property taxes, neither of which is withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does North Carolina have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. North Carolina has no state disability insurance program and no state paid family leave payroll tax, so neither appears on a paycheck. North Carolina unemployment insurance is funded by employer contributions rather than employee withholding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the North Carolina income tax rate drop again?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Possibly. G.S. 105-153.7 includes a trigger that lowers the rate by half a percentage point when total General Fund revenue exceeds a set amount for a fiscal year, with the first threshold tied to fiscal year 2025-2026. The rate cannot fall below 2.49% under that mechanism."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does North Carolina tax Social Security or retirement income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "North Carolina exempts Social Security benefits from state taxable income, and the Bailey settlement excludes certain state and local government retirement benefits. Those rules apply to retirement income, not to the wage income this calculator estimates."
+      }
+    }
+  ]
+}

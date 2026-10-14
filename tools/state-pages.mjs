@@ -745,6 +745,106 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-NC",
+    abbr: "nc",
+    slug: "north-carolina",
+    name: "North Carolina",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the North Carolina Department of Revenue.
+    hasIncomeTax: true,
+    title: "North Carolina Paycheck Calculator - Take-Home Pay After NC Tax",
+    description:
+      "Free North Carolina paycheck calculator. Estimate take-home pay after North Carolina's 3.99% flat income tax for 2026, its standard deduction, and federal withholdings.",
+    intro:
+      "Estimate what a North Carolina paycheck keeps after tax. North Carolina charges " +
+      "wage income a single flat percentage with no bracket table, and it has trimmed that " +
+      "rate in most years since 2022. Enter your salary and pay frequency to see the " +
+      "federal, state, and FICA amounts taken from each period.",
+    keyHeading: "How does North Carolina tax a paycheck?",
+    keyParagraphs: [
+      "North Carolina taxes wages at one flat rate rather than a graduated schedule. " +
+        "G.S. 105-153.7 sets that rate at 3.99% for taxable years beginning after 2025, " +
+        "down from 4.25% in 2025 and 4.50% in 2024. The same section holds a trigger: when " +
+        "state General Fund revenue clears a set threshold, the rate drops another half " +
+        "point, with a floor of 2.49%.",
+      "The flat rate applies to North Carolina taxable income, which starts from federal " +
+        "adjusted gross income. G.S. 105-153.5 allows a standard deduction of $12,750 for " +
+        "a single filer or a married person filing separately, $19,125 for a head of " +
+        "household, and $25,500 for a married couple filing jointly. Those amounts are " +
+        "fixed in the statute instead of being indexed for inflation, so they have held " +
+        "steady for several years. North Carolina also grants a child deduction that " +
+        "shrinks as adjusted gross income rises.",
+      "North Carolina levies no county or municipal income tax on wages, and it operates " +
+        "no state disability insurance fund and no paid family leave payroll tax. The flat " +
+        "state rate is therefore the only state-level deduction on a North Carolina " +
+        "paycheck. Unemployment insurance in the state is an employer-paid tax, not an " +
+        "employee withholding.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your yearly salary, or an hourly rate multiplied by hours worked, expressed as one paycheck for the frequency you selected.",
+      "<strong>Pre-tax deductions first.</strong> A traditional 401(k), an HSA contribution, or a health premium lowers the wages that federal and North Carolina income tax are charged on.",
+      "<strong>Federal income tax.</strong> The federal standard deduction comes off first, then the remaining income moves up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45%, and the extra 0.9% Medicare tax once income passes the high-earner threshold.",
+      "<strong>North Carolina flat tax.</strong> North Carolina removes its own standard deduction and then applies one rate &mdash; 3.99% for 2026 &mdash; with no brackets to step through.",
+      "<strong>Model caveat.</strong> The calculator still holds North Carolina's 2025 figures (a 4.25% rate), so its state line runs roughly $4.73 high on a biweekly $60,000 paycheck until the dataset is refreshed.",
+    ],
+    compareParagraphs: [
+      "North Carolina's flat rate is among the lowest of the states that tax wages. At " +
+        "3.99% for 2026 it sits under Georgia's 4.99% and far below the top marginal rates " +
+        "in California, New Jersey, or New York, though it remains above the zero of " +
+        "Florida and Tennessee. Because no North Carolina county adds an income tax, the " +
+        "flat state rate is the whole state-and-local charge, unlike Ohio or Pennsylvania, " +
+        "where a municipal rate is withheld on top.",
+      "North Carolina has no state disability insurance and no paid family leave payroll " +
+        "tax, so a paycheck carries no state leave deduction the way one does in " +
+        "California, New Jersey, or Washington. The state also exempts Social Security " +
+        "benefits from taxable income and honors the Bailey settlement for certain " +
+        "government retirees, both of which touch retirement income rather than the wages " +
+        "modeled here.",
+    ],
+    faqs: [
+      {
+        q: "Does North Carolina have a state income tax?",
+        a: "Yes. North Carolina taxes wage income at a single flat rate under G.S. 105-153.7. For taxable years beginning after 2025 that rate is 3.99%, reduced from 4.25% in 2025. North Carolina replaced its old graduated schedule with a flat tax in 2014.",
+      },
+      {
+        q: "What is the North Carolina income tax rate for 2026?",
+        a: "3.99% for taxable years beginning after 2025. The rate was 4.25% for 2025 and 4.50% for 2024. G.S. 105-153.7 also contains a revenue trigger that can cut the rate by another half point in later years, down to a floor of 2.49%.",
+      },
+      {
+        q: "What is the North Carolina standard deduction?",
+        a: "For a single filer or a married person filing separately it is $12,750; for a head of household, $19,125; and for a married couple filing jointly, $25,500. These amounts are written into G.S. 105-153.5 and are not indexed for inflation, so they do not rise each year the way the federal standard deduction does.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in North Carolina?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,860.84 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $77.24 North Carolina state income tax. That is $48,381.88 a year.",
+      },
+      {
+        q: "Does North Carolina have a local or county income tax?",
+        a: "No. No North Carolina county or city levies an income tax on wages. Local government revenue in the state comes from sales and use taxes and property taxes, neither of which is withheld from a paycheck.",
+      },
+      {
+        q: "Does North Carolina have disability or paid family leave withholding?",
+        a: "No. North Carolina has no state disability insurance program and no state paid family leave payroll tax, so neither appears on a paycheck. North Carolina unemployment insurance is funded by employer contributions rather than employee withholding.",
+      },
+      {
+        q: "Will the North Carolina income tax rate drop again?",
+        a: "Possibly. G.S. 105-153.7 includes a trigger that lowers the rate by half a percentage point when total General Fund revenue exceeds a set amount for a fiscal year, with the first threshold tied to fiscal year 2025-2026. The rate cannot fall below 2.49% under that mechanism.",
+      },
+      {
+        q: "Does North Carolina tax Social Security or retirement income?",
+        a: "North Carolina exempts Social Security benefits from state taxable income, and the Bailey settlement excludes certain state and local government retirement benefits. Those rules apply to retirement income, not to the wage income this calculator estimates.",
+      },
+    ],
+    sources: [
+      { label: "North Carolina Department of Revenue — Tax Rate Schedules", url: "https://www.ncdor.gov/taxes-forms/individual-income-tax/tax-rate-schedules" },
+      { label: "N.C. Gen. Stat. § 105-153.7 — Individual income tax imposed", url: "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-153.7.html" },
+      { label: "N.C. Gen. Stat. § 105-153.5 — Standard deduction amounts", url: "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-153.5.html" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
