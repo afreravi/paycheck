@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "North Carolina Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/north-carolina",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free North Carolina paycheck calculator. Estimate take-home pay after North Carolina's 3.99% flat income tax for 2026, its standard deduction, and federal withholdings."
+}

@@ -58,6 +58,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/georgia',
             'description' => 'Free Georgia paycheck calculator. Estimate take-home pay after Georgia\'s flat 4.99% income tax, the 2026 standard deduction, and federal withholdings.',
         ),
+        'north-carolina' => array(
+            'name'        => 'North Carolina Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/north-carolina',
+            'description' => 'Free North Carolina paycheck calculator. Estimate take-home pay after North Carolina\'s 3.99% flat income tax for 2026, its standard deduction, and federal withholdings.',
+        ),
     );
 }
 
@@ -67,7 +72,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
