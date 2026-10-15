@@ -845,6 +845,112 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-NJ",
+    abbr: "nj",
+    slug: "new-jersey",
+    name: "New Jersey",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the New Jersey Division of Taxation.
+    hasIncomeTax: true,
+    title: "New Jersey Paycheck Calculator - Take-Home Pay After NJ Tax",
+    description:
+      "Free New Jersey paycheck calculator. Estimate take-home pay after the New Jersey graduated income tax, the TDI and FLI payroll deductions, and federal withholdings.",
+    intro:
+      "Work out what a New Jersey paycheck actually clears. New Jersey charges wage income " +
+      "a graduated rate, then adds two employee-funded payroll deductions that most states " +
+      "do not have at all: Temporary Disability Insurance and Family Leave Insurance. Put in " +
+      "your salary and pay frequency to see the state, federal, and FICA pieces that leave " +
+      "each period.",
+    keyHeading: "Does New Jersey have a state income tax?",
+    keyParagraphs: [
+      "Yes. New Jersey taxes wage income under the Gross Income Tax, a graduated schedule " +
+        "whose marginal rate climbs from 1.4% to a 10.75% top rate on taxable income of " +
+        "$1 million or more. Unlike New York, New Jersey levies no city or county income tax " +
+        "on wages at all, so Trenton and Newark employees pay the same state rate. That is " +
+        "the opposite of the New York side of the Hudson, where a New York City resident " +
+        "pays a municipal income tax on top of the state one.",
+      "The 2026 data behind this calculator approximates the schedule with three bands " +
+        "&mdash; 1.4%, 6.075%, and 10.75% &mdash; and subtracts a $1,000 New Jersey standard " +
+        "deduction for a single filer before applying them. That approximation overstates " +
+        "the tax for a middle-income filer, because the real schedule steps through 1.75%, " +
+        "3.5%, and 5.53% before it ever reaches 6.075%. Read the New Jersey line here as a " +
+        "conservative estimate, not as a payroll-system figure.",
+      "New Jersey also withholds two state payroll taxes that are not income tax: " +
+        "Temporary Disability Insurance at 0.19% and Family Leave Insurance at 0.23% of " +
+        "covered wages for 2026, each capped at the first $171,100 of wages. They are " +
+        "separate lines on a pay stub, and this calculator does not subtract them yet, so a " +
+        "real New Jersey net is slightly lower than the figure shown above.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums come out first, so they lower the wages that New Jersey and federal income tax are charged on.",
+      "<strong>New Jersey income tax.</strong> The $1,000 New Jersey standard deduction comes off a single filer's wages, then the remainder runs through the state's graduated rates, which reach 10.75% at the top.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is applied, then the remaining income runs through the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% (up to the annual wage base) and Medicare at 1.45%, plus the extra 0.9% Medicare tax above the high-earner threshold.",
+      "<strong>New Jersey TDI and FLI.</strong> Two separate employee deductions: Temporary Disability Insurance at 0.19% and Family Leave Insurance at 0.23% of covered wages, each capped at the first $171,100 for 2026. Neither is subtracted by this calculator.",
+    ],
+    compareParagraphs: [
+      "New Jersey's top rate of 10.75% is close to New York's 10.9% and far above the flat " +
+        "rates charged by Pennsylvania (3.07%) or Illinois (4.95%), but the two neighbours " +
+        "diverge below the top bracket. New York stacks a local income tax on its state tax, " +
+        "with a New York City resident income tax and a Yonkers surcharge; New Jersey has no " +
+        "municipal wage tax anywhere in the state. New Jersey does tax more of a middle " +
+        "income than New York does, because its first bracket is only $20,000 wide on the " +
+        "real schedule and it grants a smaller standard deduction.",
+      "New Jersey is one of a minority of states that withhold for both disability and paid " +
+        "family leave. In 2026 the employee shares are 0.19% for TDI and 0.23% for FLI, " +
+        "capped at the first $171,100 of wages, and the two together come to 0.42% of covered " +
+        "pay. New York funds paid leave the same way at 0.432%, while Pennsylvania, Illinois, " +
+        "Georgia, and North Carolina withhold nothing for a state leave benefit at all.",
+      "New Jersey's wage base for the disability and family leave taxes is the largest " +
+        "state-level figure that appears on a paycheck in the region, and it is not the " +
+        "Social Security wage base. A high earner pays the 0.42% on the first $171,100, a " +
+        "maximum of $325.09 for TDI and $393.53 for FLI.",
+    ],
+    faqs: [
+      {
+        q: "Does New Jersey have a state income tax?",
+        a: "Yes. New Jersey taxes wage income under the Gross Income Tax, a graduated schedule that runs from 1.4% to a top marginal rate of 10.75% on taxable income of $1 million or more. The 2026 data used here approximates that schedule with 1.4%, 6.075%, and 10.75% bands.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in New Jersey?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,827.19 per paycheck from a $60,000 salary: $2,307.69 gross, $110.88 New Jersey income tax, $193.08 federal income tax, $143.08 Social Security, and $33.46 Medicare. The TDI and FLI deductions come out on top of that.",
+      },
+      {
+        q: "What is the New Jersey income tax rate for 2026?",
+        a: "New Jersey uses graduated rates rather than one flat rate. For a single filer the real schedule starts at 1.4% on the first $20,000 of taxable income, steps up through 1.75%, 3.5%, and 5.53%, then 6.37% on income above $75,000, and reaches 8.97% above $500,000 and 10.75% above $1 million.",
+      },
+      {
+        q: "Does New Jersey have a local or city income tax on wages?",
+        a: "No. No New Jersey city or county levies an income tax on wages, so there is no municipal wage tax anywhere in the state. Newark does charge a payroll tax, but it is levied on employers with at least 50 employees, not withheld from a worker's paycheck.",
+      },
+      {
+        q: "What is the New Jersey TDI deduction for 2026?",
+        a: "Employees contribute 0.19% of covered wages to Temporary Disability Insurance in 2026, on the first $171,100 of wages, for a maximum annual contribution of $325.09. TDI pays cash benefits to workers who cannot work because of a non-work illness, injury, or pregnancy recovery.",
+      },
+      {
+        q: "What is the New Jersey FLI deduction for 2026?",
+        a: "Employees contribute 0.23% of covered wages to Family Leave Insurance in 2026, on the first $171,100 of wages, for a maximum annual contribution of $393.53. Employers contribute nothing to FLI. It funds paid leave to bond with a new child or care for a seriously ill family member.",
+      },
+      {
+        q: "Does New Jersey have a standard deduction on its income tax?",
+        a: "Yes. For 2026 the New Jersey standard deduction is $1,000 for a single filer or a married person filing separately, $1,500 for a head of household, and $2,000 for a married couple filing jointly. It is subtracted from wages before the graduated rates apply, and it is smaller than the federal standard deduction.",
+      },
+      {
+        q: "Do Pennsylvania residents working in New Jersey pay New Jersey income tax?",
+        a: "No. The PA/NJ Reciprocal Personal Income Tax Agreement exempts compensation earned by a Pennsylvania resident working in New Jersey from New Jersey income tax, and the reverse also holds. The exemption covers wages only; other income taxable in both states still has to be reported on a New Jersey nonresident return.",
+      },
+    ],
+    sources: [
+      { label: "New Jersey Division of Taxation — NJ Income Tax Rates", url: "https://www.nj.gov/treasury/taxation/taxtables.shtml" },
+      { label: "New Jersey Division of Taxation — Employer Payroll Tax (withholding)", url: "https://www.nj.gov/treasury/taxation/businesses/payroll/index.shtml" },
+      { label: "New Jersey Department of Labor — TDI and FLI employer information and 2026 contributions", url: "https://www.nj.gov/labor/myleavebenefits/employer/" },
+      { label: "New Jersey Division of Taxation — PA/NJ Reciprocal Income Tax Agreement", url: "https://www.nj.gov/treasury/taxation/njit25.shtml" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
