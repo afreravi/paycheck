@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does New Jersey have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. New Jersey taxes wage income under the Gross Income Tax, a graduated schedule that runs from 1.4% to a top marginal rate of 10.75% on taxable income of $1 million or more. The 2026 data used here approximates that schedule with 1.4%, 6.075%, and 10.75% bands."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in New Jersey?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,827.19 per paycheck from a $60,000 salary: $2,307.69 gross, $110.88 New Jersey income tax, $193.08 federal income tax, $143.08 Social Security, and $33.46 Medicare. The TDI and FLI deductions come out on top of that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the New Jersey income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New Jersey uses graduated rates rather than one flat rate. For a single filer the real schedule starts at 1.4% on the first $20,000 of taxable income, steps up through 1.75%, 3.5%, and 5.53%, then 6.37% on income above $75,000, and reaches 8.97% above $500,000 and 10.75% above $1 million."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does New Jersey have a local or city income tax on wages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No New Jersey city or county levies an income tax on wages, so there is no municipal wage tax anywhere in the state. Newark does charge a payroll tax, but it is levied on employers with at least 50 employees, not withheld from a worker's paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the New Jersey TDI deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Employees contribute 0.19% of covered wages to Temporary Disability Insurance in 2026, on the first $171,100 of wages, for a maximum annual contribution of $325.09. TDI pays cash benefits to workers who cannot work because of a non-work illness, injury, or pregnancy recovery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the New Jersey FLI deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Employees contribute 0.23% of covered wages to Family Leave Insurance in 2026, on the first $171,100 of wages, for a maximum annual contribution of $393.53. Employers contribute nothing to FLI. It funds paid leave to bond with a new child or care for a seriously ill family member."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does New Jersey have a standard deduction on its income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. For 2026 the New Jersey standard deduction is $1,000 for a single filer or a married person filing separately, $1,500 for a head of household, and $2,000 for a married couple filing jointly. It is subtracted from wages before the graduated rates apply, and it is smaller than the federal standard deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Pennsylvania residents working in New Jersey pay New Jersey income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The PA/NJ Reciprocal Personal Income Tax Agreement exempts compensation earned by a Pennsylvania resident working in New Jersey from New Jersey income tax, and the reverse also holds. The exemption covers wages only; other income taxable in both states still has to be reported on a New Jersey nonresident return."
+      }
+    }
+  ]
+}
