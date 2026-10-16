@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Michigan have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Michigan taxes wage income at a flat 4.25% for the 2026 tax year. There are no graduated brackets; the same rate applies to every dollar of taxable income after the personal exemption is subtracted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Michigan income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Michigan's flat individual income tax rate is 4.25% for the 2026 tax year, as set by the Department of Treasury after applying the revenue-trigger formula in the Income Tax Act."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,849.15 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $88.92 Michigan state income tax. A city income tax such as Detroit's is not included."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Michigan cities charge their own income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Twenty-four Michigan cities levy an income-related municipal tax under the City Income Tax Act. Detroit residents pay 2.4% and Detroit nonresidents 1.2%, while Grand Rapids charges residents 1.5% and nonresidents 0.75%. Other cities on the list include Lansing, Flint, Saginaw, Pontiac, Jackson, and Muskegon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Michigan personal exemption work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Michigan grants a personal exemption that is subtracted before the flat rate is applied. For 2026 the exemption is $5,900 per person, and it is claimed through Form MI-W4 with your employer. The simplified state data used by this calculator uses $5,600, so treat the state figure here as an estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Michigan have a state disability or paid family leave payroll tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Michigan does not operate a state disability insurance program or a state paid family leave program, so no state payroll tax for either is withheld from a Michigan paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What withholding form does a Michigan employee file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Michigan employee files Form MI-W4 with their employer to set state income tax withholding. It is separate from the federal Form W-4 and controls how the state personal exemption is applied to each paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did the Michigan income tax rate change a few years ago?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Michigan's Income Tax Act contains a formula that lowers the flat rate when general fund revenue exceeds a trigger threshold. That happened for tax year 2023, when the rate fell to about 4.05%. The trigger did not repeat, so the rate returned to 4.25% and remains there for 2026."
+      }
+    }
+  ]
+}
