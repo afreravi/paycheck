@@ -951,6 +951,99 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-MI",
+    abbr: "mi",
+    slug: "michigan",
+    name: "Michigan",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Michigan Department of Treasury.
+    hasIncomeTax: true,
+    title: "Michigan Paycheck Calculator - Take-Home Pay After MI Tax",
+    description:
+      "Free Michigan paycheck calculator. Estimate take-home pay after Michigan's 4.25% flat income tax, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "Estimate your take-home pay in Michigan. Michigan charges a single flat income tax " +
+      "on wages rather than a bracket schedule, and a handful of Michigan cities add their " +
+      "own city income tax on top. Enter your salary and pay frequency to see your net pay " +
+      "per period.",
+    keyHeading: "Does Michigan have a state income tax?",
+    keyParagraphs: [
+      "Yes. Michigan taxes wage income at one flat rate instead of graduated brackets. " +
+        "For the 2026 tax year the Department of Treasury set that rate at 4.25%, which " +
+        "applies to every dollar of taxable income once the personal exemption is " +
+        "subtracted. Michigan briefly fell to 4.05% in 2023 under a revenue-trigger formula " +
+        "in the Income Tax Act, but the trigger did not fire again and the rate returned to " +
+        "4.25%.",
+      "The calculator on this page applies the flat 4.25% rate after the Michigan standard " +
+        "deduction used in the 2026 data ($5,600 for a single filer). Michigan&rsquo;s actual " +
+        "personal exemption is $5,900 per person for 2026, so the state line here is a close " +
+        "estimate; your employer withholds using the state&rsquo;s own tables and Form MI-W4.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums come out first, so they lower the income that Michigan and federal tax are charged on.",
+      "<strong>Michigan income tax.</strong> A flat 4.25% for 2026 is charged on taxable wages after the state standard deduction, with no bracket tiers to climb.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is applied, then the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% (up to the wage base) and Medicare at 1.45%, plus the 0.9% additional Medicare tax above the high-earner threshold.",
+      "<strong>City income tax (not included).</strong> Residents of the 24 Michigan cities with a local income tax owe a separate city tax. This calculator does not subtract it.",
+    ],
+    compareParagraphs: [
+      "Michigan sits in the middle of the state-tax pack. Its 4.25% flat rate is higher than " +
+        "Ohio&rsquo;s graduated rates for lower earners and close to Illinois&rsquo; 4.95% flat " +
+        "rate, but far below California&rsquo;s graduated schedule and far above zero-tax states " +
+        "like Texas, Florida, and Washington. A flat rate also means a high earner and an " +
+        "average earner pay the same percentage on each taxable dollar.",
+      "What separates Michigan from most flat-tax states is the city layer. Detroit residents " +
+        "pay a 2.4% city income tax and Detroit nonresidents who work in the city pay 1.2%; " +
+        "Grand Rapids charges residents 1.5% and nonresidents 0.75%. Cities act under the City " +
+        "Income Tax Act (Act 284 of 1964), and the Department of Treasury lists 24 cities that " +
+        "levy an income-related tax. None of that city tax appears on the state line, so a " +
+        "Detroit paycheck nets less than the state-only estimate here.",
+    ],
+    faqs: [
+      {
+        q: "Does Michigan have a state income tax?",
+        a: "Yes. Michigan taxes wage income at a flat 4.25% for the 2026 tax year. There are no graduated brackets; the same rate applies to every dollar of taxable income after the personal exemption is subtracted.",
+      },
+      {
+        q: "What is the Michigan income tax rate for 2026?",
+        a: "Michigan's flat individual income tax rate is 4.25% for the 2026 tax year, as set by the Department of Treasury after applying the revenue-trigger formula in the Income Tax Act.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Michigan?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,849.15 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $88.92 Michigan state income tax. A city income tax such as Detroit's is not included.",
+      },
+      {
+        q: "Do Michigan cities charge their own income tax?",
+        a: "Yes. Twenty-four Michigan cities levy an income-related municipal tax under the City Income Tax Act. Detroit residents pay 2.4% and Detroit nonresidents 1.2%, while Grand Rapids charges residents 1.5% and nonresidents 0.75%. Other cities on the list include Lansing, Flint, Saginaw, Pontiac, Jackson, and Muskegon.",
+      },
+      {
+        q: "How does the Michigan personal exemption work?",
+        a: "Michigan grants a personal exemption that is subtracted before the flat rate is applied. For 2026 the exemption is $5,900 per person, and it is claimed through Form MI-W4 with your employer. The simplified state data used by this calculator uses $5,600, so treat the state figure here as an estimate.",
+      },
+      {
+        q: "Does Michigan have a state disability or paid family leave payroll tax?",
+        a: "No. Michigan does not operate a state disability insurance program or a state paid family leave program, so no state payroll tax for either is withheld from a Michigan paycheck.",
+      },
+      {
+        q: "What withholding form does a Michigan employee file?",
+        a: "A Michigan employee files Form MI-W4 with their employer to set state income tax withholding. It is separate from the federal Form W-4 and controls how the state personal exemption is applied to each paycheck.",
+      },
+      {
+        q: "Why did the Michigan income tax rate change a few years ago?",
+        a: "Michigan's Income Tax Act contains a formula that lowers the flat rate when general fund revenue exceeds a trigger threshold. That happened for tax year 2023, when the rate fell to about 4.05%. The trigger did not repeat, so the rate returned to 4.25% and remains there for 2026.",
+      },
+    ],
+    sources: [
+      { label: "Michigan Department of Treasury — 4.25% Income Tax Rate for Individuals and Fiduciaries in 2026 Tax Year", url: "https://www.michigan.gov/treasury/reference/taxpayer-notices/2026/04/15/425-income-tax-rate-for-individuals-and-fiduciaries-in-2026-tax-year" },
+      { label: "Michigan Department of Treasury — Which cities impose an income tax?", url: "https://www.michigan.gov/taxes/citytax/what-cities-impose-an-income-tax" },
+      { label: "Michigan Department of Treasury — Withholding Tax", url: "https://www.michigan.gov/taxes/business-taxes/withholding-tax" },
+      { label: "Michigan Legislature — City Income Tax Act, Act 284 of 1964 (MCL 141.501)", url: "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-Act-284-of-1964" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

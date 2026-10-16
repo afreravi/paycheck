@@ -68,6 +68,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/new-jersey',
             'description' => 'Free New Jersey paycheck calculator. Estimate take-home pay after the New Jersey graduated income tax, the TDI and FLI payroll deductions, and federal withholdings.',
         ),
+        'michigan' => array(
+            'name'        => 'Michigan Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/michigan',
+            'description' => 'Free Michigan paycheck calculator. Estimate take-home pay after Michigan\'s 4.25% flat income tax, federal income tax, Social Security, and Medicare for 2026.',
+        ),
     );
 }
 
@@ -77,7 +82,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
