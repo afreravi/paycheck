@@ -73,6 +73,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/michigan',
             'description' => 'Free Michigan paycheck calculator. Estimate take-home pay after Michigan\'s 4.25% flat income tax, federal income tax, Social Security, and Medicare for 2026.',
         ),
+        'virginia' => array(
+            'name'        => 'Virginia Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/virginia',
+            'description' => 'Free Virginia paycheck calculator. Estimate take-home pay after Virginia\'s 2% to 5.75% graduated income tax, federal income tax, Social Security, and Medicare for 2026.',
+        ),
     );
 }
 
@@ -82,7 +87,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );

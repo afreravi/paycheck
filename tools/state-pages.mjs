@@ -1044,6 +1044,109 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-VA",
+    abbr: "va",
+    slug: "virginia",
+    name: "Virginia",
+    example: { salary: 65000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against Virginia Tax (tax.virginia.gov).
+    hasIncomeTax: true,
+    title: "Virginia Paycheck Calculator - Take-Home Pay After VA Tax",
+    description:
+      "Free Virginia paycheck calculator. Estimate take-home pay after Virginia's 2% to 5.75% graduated income tax, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "Estimate your take-home pay in Virginia. Virginia taxes wages on four graduated " +
+      "brackets that top out at 5.75%, but it levies no city or county wage tax and runs " +
+      "no state disability or paid-leave payroll deduction, so the state line on a Virginia " +
+      "paycheck stays simpler than in Pennsylvania, Ohio, or New York. Enter your salary " +
+      "and pay frequency to see your net pay per period.",
+    keyHeading: "Does Virginia have a state income tax?",
+    keyParagraphs: [
+      "Yes. Section 58.1-320 of the Code of Virginia imposes a graduated individual income " +
+        "tax: 2% on the first $3,000 of Virginia taxable income, 3% on the next $2,000, 5% " +
+        "on income from $5,000 up to $17,000, and 5.75% on everything above $17,000. Because " +
+        "the top bracket begins at $17,000, nearly every full-time Virginia wage earner is " +
+        "already inside the 5.75% band, and those bracket thresholds have not moved since " +
+        "1990.",
+      "The calculator on this page applies a simplified three-band version of that schedule " +
+        "(2%, 3.875%, and 5.75%) after the Virginia standard deduction held in the 2026 data " +
+        "($8,500 for a single filer). Section 58.1-322.03 actually sets the single standard " +
+        "deduction at $8,750 for tax years 2025 and 2026, and Virginia also allows a $930 " +
+        "personal exemption per person that this simplified data does not subtract. Your " +
+        "employer withholds using the Virginia withholding tables and your Form VA-4, so " +
+        "treat the state figure here as a close estimate.",
+    ],
+    calcSteps: [
+      "<strong>Start with gross pay.</strong> Annual salary divided by the number of pay periods you selected, or hourly rate times hours worked for an hourly employee.",
+      "<strong>Subtract pre-tax benefits.</strong> 401(k), HSA, and health insurance premiums come off first, and they reduce the wages that both Virginia and the IRS tax.",
+      "<strong>Take the Virginia standard deduction.</strong> The state figure used here is $8,500 for a single filer, removed before any Virginia bracket is reached.",
+      "<strong>Run the Virginia brackets.</strong> 2% on the first $3,000 of what remains, 3.875% on the next stretch up to $100,000, then 5.75% on the rest, which is where most Virginia salaries sit.",
+      "<strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied separately to the same wages.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass the high-earner threshold.",
+      "<strong>Nothing else at the state level.</strong> Virginia has no local wage tax, no state disability insurance, and no paid-leave payroll premium, so the state withholding ends with the income tax line.",
+    ],
+    compareParagraphs: [
+      "Virginia's 5.75% top rate sits in the middle of the state pack: above North Carolina's " +
+        "flat 4.25% and Georgia's 5.19%, level with Maryland's top rate, and well below New " +
+        "Jersey and California. What Virginia does not do is stack a local layer on top. " +
+        "Pennsylvania's earned income tax, Ohio's municipal tax, and New York City's resident " +
+        "tax all take a second bite at wages that Virginia cities and counties cannot take, " +
+        "because Virginia localities raise their own revenue from property, sales, and " +
+        "business license taxes instead.",
+      "Virginia also sits inside a regional tax compact that most states do not have. Under " +
+        "the reciprocity agreements summarized by Virginia Tax, a Virginia resident who works " +
+        "in the District of Columbia, Kentucky, Maryland, Pennsylvania, or West Virginia " +
+        "generally pays income tax only to Virginia, and a resident of one of those places " +
+        "who works in Virginia generally pays only to their home state. No second state " +
+        "withholding is taken out, so a Northern Virginia commuter's paycheck looks like any " +
+        "other Virginia paycheck.",
+    ],
+    faqs: [
+      {
+        q: "Does Virginia have a state income tax?",
+        a: "Yes. Virginia taxes wage income on four graduated brackets under section 58.1-320 of the Code of Virginia: 2% on the first $3,000, 3% on the next $2,000, 5% from $5,000 to $17,000, and 5.75% on all income above $17,000.",
+      },
+      {
+        q: "What is the Virginia income tax rate for 2026?",
+        a: "Virginia's top marginal rate is 5.75%, reached at just $17,000 of Virginia taxable income. Because that threshold is so low, most Virginia employees pay 5.75% on nearly all of their taxable wages, and the rate schedule has been unchanged since 1990.",
+      },
+      {
+        q: "How much is taken out of a $65,000 salary in Virginia?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,019.21 per paycheck from a $65,000 salary: $2,500.00 gross, $216.15 federal income tax, $155.00 Social Security, $36.25 Medicare, and $73.39 Virginia state income tax.",
+      },
+      {
+        q: "Do Virginia cities or counties charge a local income tax on wages?",
+        a: "No. Virginia localities do not levy an income tax on wages, so there is no city wage tax of the kind Philadelphia, Detroit, or New York City residents pay. Virginia counties and cities fund themselves with property taxes, local sales taxes, and the business license (BPOL) tax.",
+      },
+      {
+        q: "Does Virginia have a state disability or paid family leave payroll tax?",
+        a: "No. Virginia operates no state disability insurance program and no paid family and medical leave insurance premium, so no state payroll deduction funds either one. Virginia does require paid sick leave for certain home health and similar workers under Title 40.1, Chapter 3, Article 2.1, but that leave is funded by the employer, not withheld from the employee's paycheck.",
+      },
+      {
+        q: "What is the Virginia standard deduction for 2026?",
+        a: "Section 58.1-322.03 sets the standard deduction at $8,750 for a single filer and $17,500 for a married couple filing jointly for tax years beginning in 2025 or 2026. Virginia also allows a $930 personal exemption per person. The simplified 2026 data behind this calculator uses an $8,500 standard deduction and no personal exemption, so the state line here runs slightly high.",
+      },
+      {
+        q: "What withholding form does a Virginia employee file?",
+        a: "A Virginia employee files Form VA-4, the Employee's Virginia Income Tax Withholding Exemption Certificate, with their employer. It is separate from the federal Form W-4 and tells the employer how many Virginia exemptions to apply against each paycheck.",
+      },
+      {
+        q: "Which states have income tax reciprocity with Virginia?",
+        a: "Virginia has reciprocity with the District of Columbia, Kentucky, Maryland, Pennsylvania, and West Virginia. If you live in Virginia and work in one of those places, you generally owe Virginia income tax only; the reverse holds if you live in one of them and work in Virginia. Reciprocity covers individual income tax on wages, not other taxes.",
+      },
+    ],
+    sources: [
+      { label: "Virginia Tax — Reciprocity", url: "https://www.tax.virginia.gov/reciprocity" },
+      { label: "Virginia Tax — Individual Income Tax Filing", url: "https://www.tax.virginia.gov/individual-income-tax-filing" },
+      { label: "Virginia Tax — Withholding Tax", url: "https://www.tax.virginia.gov/withholding-tax" },
+      { label: "Code of Virginia § 58.1-320 — Imposition of tax", url: "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-320/" },
+      { label: "Code of Virginia § 58.1-322.03 — Virginia taxable income; deductions", url: "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/" },
+      { label: "Code of Virginia Title 40.1, Chapter 3, Article 2.1 — Paid Sick Leave", url: "https://law.lis.virginia.gov/vacode/title40.1/chapter3/section40.1-33.6/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
