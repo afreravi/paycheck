@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Virginia have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Virginia taxes wage income on four graduated brackets under section 58.1-320 of the Code of Virginia: 2% on the first $3,000, 3% on the next $2,000, 5% from $5,000 to $17,000, and 5.75% on all income above $17,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Virginia income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Virginia's top marginal rate is 5.75%, reached at just $17,000 of Virginia taxable income. Because that threshold is so low, most Virginia employees pay 5.75% on nearly all of their taxable wages, and the rate schedule has been unchanged since 1990."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $65,000 salary in Virginia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,019.21 per paycheck from a $65,000 salary: $2,500.00 gross, $216.15 federal income tax, $155.00 Social Security, $36.25 Medicare, and $73.39 Virginia state income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Virginia cities or counties charge a local income tax on wages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Virginia localities do not levy an income tax on wages, so there is no city wage tax of the kind Philadelphia, Detroit, or New York City residents pay. Virginia counties and cities fund themselves with property taxes, local sales taxes, and the business license (BPOL) tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Virginia have a state disability or paid family leave payroll tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Virginia operates no state disability insurance program and no paid family and medical leave insurance premium, so no state payroll deduction funds either one. Virginia does require paid sick leave for certain home health and similar workers under Title 40.1, Chapter 3, Article 2.1, but that leave is funded by the employer, not withheld from the employee's paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Virginia standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Section 58.1-322.03 sets the standard deduction at $8,750 for a single filer and $17,500 for a married couple filing jointly for tax years beginning in 2025 or 2026. Virginia also allows a $930 personal exemption per person. The simplified 2026 data behind this calculator uses an $8,500 standard deduction and no personal exemption, so the state line here runs slightly high."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What withholding form does a Virginia employee file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Virginia employee files Form VA-4, the Employee's Virginia Income Tax Withholding Exemption Certificate, with their employer. It is separate from the federal Form W-4 and tells the employer how many Virginia exemptions to apply against each paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which states have income tax reciprocity with Virginia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Virginia has reciprocity with the District of Columbia, Kentucky, Maryland, Pennsylvania, and West Virginia. If you live in Virginia and work in one of those places, you generally owe Virginia income tax only; the reverse holds if you live in one of them and work in Virginia. Reciprocity covers individual income tax on wages, not other taxes."
+      }
+    }
+  ]
+}
