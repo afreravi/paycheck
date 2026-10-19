@@ -1147,6 +1147,108 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-WA",
+    abbr: "wa",
+    slug: "washington",
+    name: "Washington",
+    example: { salary: 90000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Department of Revenue.
+    hasIncomeTax: false,
+    title: "Washington Paycheck Calculator - Take-Home Pay After WA Taxes",
+    description:
+      "Free Washington paycheck calculator. Washington has no wage income tax, but Paid Leave and WA Cares come out of pay. Estimate 2026 take-home pay after federal tax.",
+    intro:
+      "Estimate your take-home pay in Washington. Washington does not tax wage income, so " +
+      "federal income tax, Social Security, and Medicare are the only income taxes " +
+      "withheld. Washington paychecks are not deduction-free, though: the state Paid " +
+      "Family and Medical Leave premium and the WA Cares Fund premium come out of wages " +
+      "as well. Enter your salary and pay frequency to see your net pay per period.",
+    keyHeading: "Does Washington have a state income tax?",
+    keyParagraphs: [
+      "No, not on wages. The Department of Revenue states plainly that Washington does " +
+        "not currently have an individual income tax, and no state income tax is withheld " +
+        "from a Washington paycheck. The state raises most of its money from sales and use " +
+        "tax, property tax, and the business and occupation tax instead.",
+      "Two recent laws are worth knowing about, because both are easy to confuse with a " +
+        "payroll income tax. The first is the capital gains excise tax in RCW 82.87, a 7% " +
+        "excise tax on long-term capital gains above a standard deduction. It is an excise " +
+        "tax on the sale of assets, not a tax on wages, and nothing is withheld from a " +
+        "paycheck for it. The second is Senate Bill 6346, signed in 2026, which creates a " +
+        "9.9% income tax on individuals and married couples filing jointly with annual " +
+        "adjusted gross income above $1 million. That tax does not take effect until " +
+        "January 1, 2028, and the first returns are due in April 2029, so it changes " +
+        "nothing on a 2026 paycheck and this calculator does not withhold it.",
+      "What a Washington paycheck does carry is a pair of state premium lines: Paid Family " +
+        "and Medical Leave at 1.13% of gross wages up to the 2026 Social Security cap of " +
+        "$184,500, and the WA Cares Fund at 0.58% of gross wages with no cap. Both are " +
+        "insurance premiums rather than income tax, which is why Washington can levy them " +
+        "without an income tax.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums come out first, so they lower the income that federal tax is charged on.",
+      "<strong>Federal income tax.</strong> The standard deduction is applied, then the remaining income runs through the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% (up to the annual wage base) and Medicare at 1.45%, plus the extra 0.9% Medicare tax above the high-earner threshold.",
+      "<strong>Washington income tax: $0.</strong> Washington does not tax wage income, so this line is always zero. The 9.9% tax created by SB 6346 starts in 2028 and applies only above $1 million of annual income.",
+      "<strong>Washington Paid Leave and WA Cares.</strong> Two state premium deductions that the calculator does not yet subtract: Paid Family and Medical Leave at 1.13% of wages up to $184,500 (the employee pays up to 71.43% of that, roughly 0.81% of wages) and WA Cares at 0.58% of wages with no cap.",
+    ],
+    compareParagraphs: [
+      "Washington is grouped with the nine states that do not tax wage income, alongside " +
+        "Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, and " +
+        "Wyoming. A Washington salary therefore keeps more than the same salary earned in " +
+        "Oregon, which taxes wages at rates that climb past 9%, or in California.",
+      "The difference from Texas, the largest of the no-tax states, is that Washington " +
+        "does run state payroll deductions. Paid Family and Medical Leave and WA Cares are " +
+        "withheld from Washington wages, while a Texas paycheck carries no state " +
+        "deduction at all. Washington also has no city or county income tax, so Seattle " +
+        "and Spokane employees pay no local wage tax.",
+    ],
+    faqs: [
+      {
+        q: "Does Washington have a state income tax?",
+        a: "Not on wages. The Washington Department of Revenue says the state does not currently have an individual income tax, so no state income tax is withheld from a paycheck. Senate Bill 6346 does create a 9.9% income tax on annual adjusted gross income above $1 million, but it takes effect January 1, 2028, with the first returns due in April 2029.",
+      },
+      {
+        q: "What is the Washington Paid Family and Medical Leave premium for 2026?",
+        a: "The 2026 premium is 1.13% of gross wages, not including tips, up to the 2026 Social Security cap of $184,500. The employee pays up to 71.43% of that premium, which is about 0.81% of wages, and the employer pays the remaining 28.57% if the business has 50 or more employees.",
+      },
+      {
+        q: "What is the WA Cares Fund deduction on a Washington paycheck?",
+        a: "WA Cares is a 0.58% premium on gross wages, withheld from employees since July 1, 2023. Unlike Paid Family and Medical Leave, it has no wage cap, so it applies to every dollar of wages. Employees pay the whole premium; employers pay no share of it, though they must collect it.",
+      },
+      {
+        q: "How much is taken out of a $90,000 salary in Washington?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,774.81 per paycheck from a $90,000 salary: $3,461.54 gross, $421.92 federal income tax, $214.62 Social Security, $50.19 Medicare, and $0.00 Washington income tax. Paid Leave of roughly $28 and WA Cares of $20.08 come out on top of that.",
+      },
+      {
+        q: "Do Washington cities or counties charge a local income tax?",
+        a: "No. Washington cities and counties do not levy a local income tax on wages, so there is no city wage tax like those in New York City, Philadelphia, or Ohio municipalities. Local revenue in Washington comes from sales and property taxes.",
+      },
+      {
+        q: "What is the Washington capital gains excise tax?",
+        a: "RCW 82.87 imposes a 7% excise tax on long-term capital gains above a standard deduction, which is adjusted for inflation each year. It is an excise tax on the sale of assets such as stock, not an income tax on wages, and nothing is withheld from a paycheck for it.",
+      },
+      {
+        q: "Do you have to file a Washington state tax return?",
+        a: "There is no Washington personal income tax return to file for wage income. If you owe the capital gains excise tax, you file a separate excise tax return with the Department of Revenue. The new SB 6346 income tax will require a return for affected filers beginning with tax year 2028.",
+      },
+      {
+        q: "Can you opt out of Washington Paid Leave or WA Cares?",
+        a: "Paid Family and Medical Leave is mandatory for almost all Washington employees; only narrow groups such as some federal workers and self-employed people who choose not to opt in are outside it. WA Cares allows certain exemptions, including some workers on non-immigrant visas and employees who already bought a qualifying long-term care policy before November 1, 2021, and those employees must apply to the state rather than simply telling an employer.",
+      },
+    ],
+    sources: [
+      { label: "Washington Department of Revenue — Income tax", url: "https://dor.wa.gov/taxes-rates/income-tax" },
+      { label: "Washington Department of Revenue — Taxes and rates", url: "https://dor.wa.gov/taxes-rates" },
+      { label: "Washington Paid Family and Medical Leave — Employer roles and responsibilities", url: "https://paidleave.wa.gov/employer-roles-responsibilities/" },
+      { label: "WA Cares Fund — Employers", url: "https://wacaresfund.wa.gov/employers/" },
+      { label: "RCW 82.87 — Capital gains tax", url: "https://app.leg.wa.gov/RCW/default.aspx?cite=82.87" },
+      { label: "RCW 50A.04.130 — Paid family and medical leave premium rates", url: "https://app.leg.wa.gov/RCW/default.aspx?cite=50A.04.130" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
