@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Washington have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on wages. The Washington Department of Revenue says the state does not currently have an individual income tax, so no state income tax is withheld from a paycheck. Senate Bill 6346 does create a 9.9% income tax on annual adjusted gross income above $1 million, but it takes effect January 1, 2028, with the first returns due in April 2029."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Washington Paid Family and Medical Leave premium for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 2026 premium is 1.13% of gross wages, not including tips, up to the 2026 Social Security cap of $184,500. The employee pays up to 71.43% of that premium, which is about 0.81% of wages, and the employer pays the remaining 28.57% if the business has 50 or more employees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the WA Cares Fund deduction on a Washington paycheck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WA Cares is a 0.58% premium on gross wages, withheld from employees since July 1, 2023. Unlike Paid Family and Medical Leave, it has no wage cap, so it applies to every dollar of wages. Employees pay the whole premium; employers pay no share of it, though they must collect it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $90,000 salary in Washington?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,774.81 per paycheck from a $90,000 salary: $3,461.54 gross, $421.92 federal income tax, $214.62 Social Security, $50.19 Medicare, and $0.00 Washington income tax. Paid Leave of roughly $28 and WA Cares of $20.08 come out on top of that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Washington cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Washington cities and counties do not levy a local income tax on wages, so there is no city wage tax like those in New York City, Philadelphia, or Ohio municipalities. Local revenue in Washington comes from sales and property taxes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Washington capital gains excise tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RCW 82.87 imposes a 7% excise tax on long-term capital gains above a standard deduction, which is adjusted for inflation each year. It is an excise tax on the sale of assets such as stock, not an income tax on wages, and nothing is withheld from a paycheck for it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have to file a Washington state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no Washington personal income tax return to file for wage income. If you owe the capital gains excise tax, you file a separate excise tax return with the Department of Revenue. The new SB 6346 income tax will require a return for affected filers beginning with tax year 2028."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you opt out of Washington Paid Leave or WA Cares?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paid Family and Medical Leave is mandatory for almost all Washington employees; only narrow groups such as some federal workers and self-employed people who choose not to opt in are outside it. WA Cares allows certain exemptions, including some workers on non-immigrant visas and employees who already bought a qualifying long-term care policy before November 1, 2021, and those employees must apply to the state rather than simply telling an employer."
+      }
+    }
+  ]
+}
