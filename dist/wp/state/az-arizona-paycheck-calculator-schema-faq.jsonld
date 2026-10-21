@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Arizona have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Arizona taxes wage income at a single flat rate of 2.5%. The Legislature replaced the old graduated schedule with that rate under S.B. 1828 in 2021, and the Arizona Department of Revenue confirms a 2.5% rate for all income levels and filing statuses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Arizona income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2.5% for every filing status. Because Arizona uses one flat rate, single filers, heads of household, and married couples filing jointly all pay the same percentage of taxable income after the Arizona standard deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Arizona have a standard deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. For tax year 2025 the Arizona standard deduction was $15,750 for a single filer or married person filing separately, $31,500 for a married couple filing jointly, and $23,600 for a head of household. The amounts are indexed to the Phoenix consumer price index and are adjusted for 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $70,000 salary in Arizona?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,180.38 per paycheck from a $70,000 salary: $2,692.31 gross, $252.69 federal income tax, $166.92 Social Security, $39.04 Medicare, and $53.27 Arizona state income tax. That is $56,690 a year, an effective tax rate of about 19.0%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Arizona public education surcharge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A.R.S. § 43-1013 adds a 3.5% surcharge on taxable income above $250,000 for a single filer or a married person filing separately, and above $500,000 for a joint return or head of household. It is collected with the regular income tax and funds the student support and safety fund. Most wage earners never reach the threshold."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Arizona cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No Arizona city or county levies an income tax on wages. Municipal revenue in Arizona comes from transaction privilege (sales) tax and property tax, neither of which is withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Arizona have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Arizona has no state disability insurance program and no state paid family leave payroll tax, so neither appears as a deduction on an Arizona paycheck. Arizona unemployment insurance is an employer-paid tax, not an employee withholding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did Arizona's flat tax reduce what employees pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Before the flat rate took effect, Arizona used a graduated schedule whose top rate was 4.50%, so most wage earners saw the state withholding percentage fall. Because the rate is now flat, an Arizona paycheck's state line is the same 2.5% regardless of filing status."
+      }
+    }
+  ]
+}
