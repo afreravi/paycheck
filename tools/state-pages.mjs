@@ -1250,6 +1250,112 @@ export const STATE_PAGES = [
     ],
   },
   {
+    code: "US-MA",
+    abbr: "ma",
+    slug: "massachusetts",
+    name: "Massachusetts",
+    example: { salary: 80000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Department of Revenue and MGL.
+    hasIncomeTax: true,
+    title: "Massachusetts Paycheck Calculator - Take-Home Pay After MA Tax",
+    description:
+      "Free Massachusetts paycheck calculator. Estimate 2026 take-home pay after the 5% Massachusetts flat tax, the 4% millionaire surtax, PFML, federal tax, and FICA.",
+    intro:
+      "Estimate your take-home pay in Massachusetts. The Commonwealth charges a flat " +
+      "5% on most wage income, adds a 4% surtax above $1 million, and withholds a Paid " +
+      "Family and Medical Leave premium on top of that. There is no city or county wage " +
+      "tax anywhere in Massachusetts, so a Boston paycheck and a Springfield paycheck face " +
+      "the same state withholding. Enter your salary and pay frequency to see your net pay " +
+      "per period.",
+    keyHeading: "Does Massachusetts have a state income tax?",
+    keyParagraphs: [
+      "Yes. Chapter 62, section 4 of the Massachusetts General Laws taxes Part B income, " +
+        "which is where wages and most other ordinary income land, at a flat 5%. Unlike a " +
+        "graduated state, Massachusetts applies that single rate to every dollar of taxable " +
+        "wages once the personal exemption and any deductions are subtracted, so the state " +
+        "withholding rate does not change as a salary climbs from $40,000 to $400,000.",
+      "The one place the rate does change is above $1 million. Chapter 62, section 4(d), " +
+        "added by a 2022 constitutional amendment, taxes the portion of a taxpayer's Part A, " +
+        "B, and C income above $1,000,000 at an additional 4%, which makes the marginal rate " +
+        "on that slice 9%. Only the income above the $1 million line is hit; the first " +
+        "million dollars of taxable income is still taxed at the ordinary 5% rate.",
+      "Massachusetts also withholds a Paid Family and Medical Leave premium. The 2026 total " +
+        "contribution rate is 0.88% of eligible wages up to the Social Security wage base, " +
+        "split so that the employee pays 0.46% and the employer pays 0.42% at employers with " +
+        "25 or more covered workers. Employers with fewer than 25 covered workers owe only " +
+        "the employee share, so their employees pay the full 0.88%.",
+      "The calculator on this page applies the simplified 2026 data held in this repo: a " +
+        "flat 5% rate on wages after a $4,400 standard deduction for a single filer. Chapter " +
+        "62, section 3(b) actually allows a personal exemption of up to $4,400 for a single " +
+        "filer and $8,800 for a married couple filing jointly, and renters may deduct half " +
+        "of their rent up to $4,000. Massachusetts also has a 4% millionaire surtax that the " +
+        "simplified data does not model, so a very high earner should treat the state line " +
+        "here as low.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Annual salary divided by the number of pay periods you selected, or hourly rate times hours worked for an hourly employee.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health insurance premiums come out first, and they lower the wages that both Massachusetts and the IRS tax.",
+      "<strong>Massachusetts standard deduction.</strong> The 2026 data used here subtracts $4,400 for a single filer before any state tax is charged. Massachusetts labels that allowance a personal exemption.",
+      "<strong>Massachusetts income tax.</strong> A flat 5% on what remains. The rate does not step up with income, except that taxable income above $1 million carries an extra 4%, which this simplified data does not model.",
+      "<strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied separately to the same wages.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the 2026 wage base of $184,500, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass $200,000 for a single filer.",
+      "<strong>Massachusetts Paid Family and Medical Leave.</strong> A 0.88% premium on eligible wages up to the Social Security wage base, of which the employee pays 0.46% at employers with 25 or more covered workers. The calculator does not yet subtract this line.",
+    ],
+    compareParagraphs: [
+      "A flat 5% puts Massachusetts below New York, New Jersey, and California on wage " +
+        "income, and above the flat-tax states it is most often compared with. Illinois is " +
+        "at 4.95%, Michigan at 4.25%, North Carolina at 4.25%, and Georgia at 5.19%, so a " +
+        "Massachusetts paycheck withholds about the same state tax as a Georgia paycheck and " +
+        "more than a Michigan or Illinois one. What Massachusetts adds that none of those " +
+        "states do is the 4% surtax on taxable income above $1 million.",
+      "Massachusetts differs from its neighbours on local tax. New York stacks a New York " +
+        "City or Yonkers resident tax on top of state withholding, and Pennsylvania and Ohio " +
+        "let municipalities levy their own wage tax; Massachusetts has no local income tax at " +
+        "all, so Boston, Worcester, and Cambridge employees pay the same state rate. " +
+        "Massachusetts does run a paid-leave premium, which New Hampshire and Florida do not, " +
+        "though it is far smaller than New Jersey's combined TDI and FLI deductions.",
+    ],
+    faqs: [
+      {
+        q: "What is the Massachusetts income tax rate for 2026?",
+        a: "Massachusetts taxes wages at a flat 5% under Chapter 62, section 4 of the General Laws. There are no graduated brackets for ordinary wage income. A 2022 constitutional amendment added a 4% surtax on the portion of taxable income above $1 million, which brings the marginal rate on that slice to 9%.",
+      },
+      {
+        q: "How much is taken out of an $80,000 salary in Massachusetts?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,312.23 per paycheck from an $80,000 salary: $3,076.92 gross, $337.31 federal income tax, $190.77 Social Security, $44.62 Medicare, and $192.00 Massachusetts state income tax. The PFML employee premium of roughly $14.15 per paycheck comes out on top of that.",
+      },
+      {
+        q: "Does Massachusetts have a local or city income tax?",
+        a: "No. No Massachusetts city or town levies an income tax on wages, so there is no Boston, Worcester, or Cambridge wage tax and no county income tax. Massachusetts municipalities raise local revenue from property tax and local option excise taxes, none of which are withheld from a paycheck.",
+      },
+      {
+        q: "What is the Massachusetts Paid Family and Medical Leave contribution rate for 2026?",
+        a: "The 2026 total PFML contribution rate is 0.88% of eligible wages, up to the Social Security wage base. At an employer with 25 or more covered individuals the employee pays 0.46% of wages and the employer pays 0.42%. At an employer with fewer than 25 covered individuals, the employer owes no share and the employee pays the full 0.88%.",
+      },
+      {
+        q: "What is the Massachusetts personal exemption for 2026?",
+        a: "Chapter 62, section 3(b) sets the personal exemption at up to $4,400 for a single filer and up to $8,800 for a married couple filing jointly. The exemption is inflation-adjusted and capped, and there are extra amounts for a taxpayer 65 or older, for a blind taxpayer, and for dependents. The simplified 2026 data behind this calculator uses the $4,400 single figure as its standard deduction.",
+      },
+      {
+        q: "Do you have to file a Massachusetts state tax return?",
+        a: "Yes, if you had Massachusetts income above the filing threshold or had Massachusetts tax withheld. Massachusetts residents file Form 1; part-year residents and nonresidents who worked in the Commonwealth file Form 1-NR/PY. The return is filed with the Massachusetts Department of Revenue, separate from the federal Form 1040.",
+      },
+      {
+        q: "What is the Massachusetts millionaire surtax?",
+        a: "A 2022 amendment to the Massachusetts Constitution added Chapter 62, section 4(d), which taxes the portion of a taxpayer's Part A, B, and C income above $1,000,000 at an additional 4%. The result is a 9% marginal rate on that slice of income. It applies only to the dollars above the $1 million threshold, and the $1 million threshold itself is adjusted annually for inflation.",
+      },
+      {
+        q: "Can a Massachusetts employee opt out of PFML?",
+        a: "Most Massachusetts W-2 employees cannot opt out; the PFML contribution is mandatory for covered individuals. The main exceptions are federal employees, employees of other states, and certain other categories outside the definition of a covered individual in Chapter 175M. Self-employed people and sole proprietors are not covered automatically and must opt in.",
+      },
+    ],
+    sources: [
+      { label: "Massachusetts Department of Revenue — Personal income tax", url: "https://www.mass.gov/orgs/massachusetts-department-of-revenue" },
+      { label: "MGL Chapter 62, Section 4 — Rates of tax", url: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62/Section4" },
+      { label: "MGL Chapter 62, Section 3 — Deductions and exemptions", url: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62/Section3" },
+      { label: "MGL Chapter 175M — Paid Family and Medical Leave", url: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175M" },
+      { label: "Massachusetts Paid Family and Medical Leave — Contribution rates", url: "https://www.mass.gov/info-details/paid-family-and-medical-leave-contribution-rates" },
     code: "US-AZ",
     abbr: "az",
     slug: "arizona",
