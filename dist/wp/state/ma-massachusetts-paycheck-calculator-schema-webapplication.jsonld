@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Massachusetts Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/massachusetts",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Massachusetts paycheck calculator. Estimate 2026 take-home pay after the 5% Massachusetts flat tax, the 4% millionaire surtax, PFML, federal tax, and FICA."
+}

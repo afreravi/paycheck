@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Massachusetts income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Massachusetts taxes wages at a flat 5% under Chapter 62, section 4 of the General Laws. There are no graduated brackets for ordinary wage income. A 2022 constitutional amendment added a 4% surtax on the portion of taxable income above $1 million, which brings the marginal rate on that slice to 9%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of an $80,000 salary in Massachusetts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,312.23 per paycheck from an $80,000 salary: $3,076.92 gross, $337.31 federal income tax, $190.77 Social Security, $44.62 Medicare, and $192.00 Massachusetts state income tax. The PFML employee premium of roughly $14.15 per paycheck comes out on top of that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Massachusetts have a local or city income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No Massachusetts city or town levies an income tax on wages, so there is no Boston, Worcester, or Cambridge wage tax and no county income tax. Massachusetts municipalities raise local revenue from property tax and local option excise taxes, none of which are withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Massachusetts Paid Family and Medical Leave contribution rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 2026 total PFML contribution rate is 0.88% of eligible wages, up to the Social Security wage base. At an employer with 25 or more covered individuals the employee pays 0.46% of wages and the employer pays 0.42%. At an employer with fewer than 25 covered individuals, the employer owes no share and the employee pays the full 0.88%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Massachusetts personal exemption for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chapter 62, section 3(b) sets the personal exemption at up to $4,400 for a single filer and up to $8,800 for a married couple filing jointly. The exemption is inflation-adjusted and capped, and there are extra amounts for a taxpayer 65 or older, for a blind taxpayer, and for dependents. The simplified 2026 data behind this calculator uses the $4,400 single figure as its standard deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have to file a Massachusetts state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you had Massachusetts income above the filing threshold or had Massachusetts tax withheld. Massachusetts residents file Form 1; part-year residents and nonresidents who worked in the Commonwealth file Form 1-NR/PY. The return is filed with the Massachusetts Department of Revenue, separate from the federal Form 1040."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Massachusetts millionaire surtax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 2022 amendment to the Massachusetts Constitution added Chapter 62, section 4(d), which taxes the portion of a taxpayer's Part A, B, and C income above $1,000,000 at an additional 4%. The result is a 9% marginal rate on that slice of income. It applies only to the dollars above the $1 million threshold, and the $1 million threshold itself is adjusted annually for inflation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a Massachusetts employee opt out of PFML?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Massachusetts W-2 employees cannot opt out; the PFML contribution is mandatory for covered individuals. The main exceptions are federal employees, employees of other states, and certain other categories outside the definition of a covered individual in Chapter 175M. Self-employed people and sole proprietors are not covered automatically and must opt in."
+      }
+    }
+  ]
+}

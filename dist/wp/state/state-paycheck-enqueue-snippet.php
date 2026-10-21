@@ -83,6 +83,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/washington',
             'description' => 'Free Washington paycheck calculator. Washington has no wage income tax, but Paid Leave and WA Cares come out of pay. Estimate 2026 take-home pay after federal tax.',
         ),
+        'massachusetts' => array(
+            'name'        => 'Massachusetts Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/massachusetts',
+            'description' => 'Free Massachusetts paycheck calculator. Estimate 2026 take-home pay after the 5% Massachusetts flat tax, the 4% millionaire surtax, PFML, federal tax, and FICA.',
+        ),
     );
 }
 
@@ -92,7 +97,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
