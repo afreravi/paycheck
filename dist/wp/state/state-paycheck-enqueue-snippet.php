@@ -87,6 +87,10 @@ function state_paycheck_pages() {
             'name'        => 'Massachusetts Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/massachusetts',
             'description' => 'Free Massachusetts paycheck calculator. Estimate 2026 take-home pay after the 5% Massachusetts flat tax, the 4% millionaire surtax, PFML, federal tax, and FICA.',
+        'arizona' => array(
+            'name'        => 'Arizona Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/arizona',
+            'description' => 'Free Arizona paycheck calculator. Estimate take-home pay after Arizona\'s flat 2.5% income tax, its standard deduction, and federal withholding. 2026.',
         ),
     );
 }

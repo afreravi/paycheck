@@ -1356,6 +1356,103 @@ export const STATE_PAGES = [
       { label: "MGL Chapter 62, Section 3 — Deductions and exemptions", url: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62/Section3" },
       { label: "MGL Chapter 175M — Paid Family and Medical Leave", url: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175M" },
       { label: "Massachusetts Paid Family and Medical Leave — Contribution rates", url: "https://www.mass.gov/info-details/paid-family-and-medical-leave-contribution-rates" },
+    code: "US-AZ",
+    abbr: "az",
+    slug: "arizona",
+    name: "Arizona",
+    example: { salary: 70000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Arizona Department of Revenue.
+    hasIncomeTax: true,
+    title: "Arizona Paycheck Calculator - Take-Home Pay After AZ Tax",
+    description:
+      "Free Arizona paycheck calculator. Estimate take-home pay after Arizona's flat 2.5% income tax, its standard deduction, and federal withholding. 2026.",
+    intro:
+      "Work out what an Arizona paycheck leaves you. Since 2023 Arizona has charged wage " +
+      "income one flat rate instead of a bracket table, so the state line is a straight " +
+      "percentage of taxable pay. Enter your salary and pay frequency to see federal, " +
+      "Arizona, and FICA withholding for each period.",
+    keyHeading: "How does Arizona tax a paycheck?",
+    keyParagraphs: [
+      "Arizona taxes wages at a single flat rate of 2.5%. The Legislature replaced the old " +
+        "graduated schedule with that rate under S.B. 1828 (2021), and the Department of " +
+        "Revenue confirms a 2.5% tax rate for all income levels and filing statuses. Because " +
+        "the rate is flat, a single filer and a married couple filing jointly owe the same " +
+        "percentage, and the only thing that changes the Arizona line is how much taxable " +
+        "income is left after deductions.",
+      "Arizona applies its own standard deduction before the 2.5% is charged. For tax year " +
+        "2025 the Department of Revenue set the single and married-filing-separately amount " +
+        "at $15,750, with $31,500 for a married couple filing jointly and $23,600 for a head " +
+        "of household; the amounts are indexed to the Phoenix consumer price index and are " +
+        "adjusted again for 2026. Arizona also allows an increased standard deduction for " +
+        "charitable contributions and a credit for contributions to school tuition " +
+        "organizations.",
+      "Above the flat rate, A.R.S. § 43-1013 adds a 3.5% public education surcharge on " +
+        "taxable income over $250,000 for a single filer or married person filing separately, " +
+        "and over $500,000 for a joint return or head of household. Arizona collects no local " +
+        "or county income tax on wages, and it runs no state disability insurance and no paid " +
+        "family leave payroll tax, so nothing is withheld for a state leave benefit.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Convert your annual salary, or an hourly rate times hours worked, into one paycheck at the frequency you chose.",
+      "<strong>Pre-tax deductions.</strong> A traditional 401(k), an HSA, or a health insurance premium comes out first and lowers the wages that federal and Arizona income tax are charged on.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is subtracted, then the remaining income climbs the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45%, plus the extra 0.9% Medicare tax above the high-earner threshold.",
+      "<strong>Arizona flat tax.</strong> Arizona removes its standard deduction and charges a single 2.5% rate on what remains &mdash; there is no bracket to step through.",
+      "<strong>Public education surcharge.</strong> Income above the $250,000 single threshold (or $500,000 joint) also carries the 3.5% A.R.S. § 43-1013 surcharge.",
+    ],
+    compareParagraphs: [
+      "Arizona's flat 2.5% is among the lowest state income tax rates in the country, and it " +
+        "sits well below the top marginal rates in California, New York, or New Jersey. It is " +
+        "also lower than the flat rates in Georgia, Illinois, or North Carolina, though those " +
+        "states pair their rate with a different standard deduction, so a like-for-like " +
+        "comparison depends on the taxable income left after each state's subtraction.",
+      "Unlike Pennsylvania, Ohio, or New York, Arizona levies no local income tax: no city " +
+        "or county rate is withheld on top of the state tax, so the 2.5% is the whole " +
+        "state-and-local picture. Arizona also has no state disability insurance and no paid " +
+        "family leave payroll tax, so there is no state leave deduction the way there is in " +
+        "California, New Jersey, or Washington. Arizona unemployment insurance is funded by " +
+        "employer contributions, not employee withholding.",
+    ],
+    faqs: [
+      {
+        q: "Does Arizona have a state income tax?",
+        a: "Yes. Arizona taxes wage income at a single flat rate of 2.5%. The Legislature replaced the old graduated schedule with that rate under S.B. 1828 in 2021, and the Arizona Department of Revenue confirms a 2.5% rate for all income levels and filing statuses.",
+      },
+      {
+        q: "What is the Arizona income tax rate for 2026?",
+        a: "2.5% for every filing status. Because Arizona uses one flat rate, single filers, heads of household, and married couples filing jointly all pay the same percentage of taxable income after the Arizona standard deduction.",
+      },
+      {
+        q: "Does Arizona have a standard deduction?",
+        a: "Yes. For tax year 2025 the Arizona standard deduction was $15,750 for a single filer or married person filing separately, $31,500 for a married couple filing jointly, and $23,600 for a head of household. The amounts are indexed to the Phoenix consumer price index and are adjusted for 2026.",
+      },
+      {
+        q: "How much is taken out of a $70,000 salary in Arizona?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,180.38 per paycheck from a $70,000 salary: $2,692.31 gross, $252.69 federal income tax, $166.92 Social Security, $39.04 Medicare, and $53.27 Arizona state income tax. That is $56,690 a year, an effective tax rate of about 19.0%.",
+      },
+      {
+        q: "What is the Arizona public education surcharge?",
+        a: "A.R.S. § 43-1013 adds a 3.5% surcharge on taxable income above $250,000 for a single filer or a married person filing separately, and above $500,000 for a joint return or head of household. It is collected with the regular income tax and funds the student support and safety fund. Most wage earners never reach the threshold.",
+      },
+      {
+        q: "Do Arizona cities or counties charge a local income tax?",
+        a: "No. No Arizona city or county levies an income tax on wages. Municipal revenue in Arizona comes from transaction privilege (sales) tax and property tax, neither of which is withheld from a paycheck.",
+      },
+      {
+        q: "Does Arizona have disability or paid family leave withholding?",
+        a: "No. Arizona has no state disability insurance program and no state paid family leave payroll tax, so neither appears as a deduction on an Arizona paycheck. Arizona unemployment insurance is an employer-paid tax, not an employee withholding.",
+      },
+      {
+        q: "Did Arizona's flat tax reduce what employees pay?",
+        a: "Yes. Before the flat rate took effect, Arizona used a graduated schedule whose top rate was 4.50%, so most wage earners saw the state withholding percentage fall. Because the rate is now flat, an Arizona paycheck's state line is the same 2.5% regardless of filing status.",
+      },
+    ],
+    sources: [
+      { label: "Arizona Department of Revenue — Individual income tax highlights", url: "https://azdor.gov/forms/individual-income-tax-highlights" },
+      { label: "Arizona Department of Revenue", url: "https://azdor.gov/" },
+      { label: "A.R.S. § 43-1011 — Taxes and tax rates", url: "https://www.azleg.gov/ars/43/01011.htm" },
+      { label: "A.R.S. § 43-1013 — Income tax surcharge for public education", url: "https://www.azleg.gov/ars/43/01013.htm" },
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
