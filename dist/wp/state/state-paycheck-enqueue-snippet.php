@@ -87,10 +87,16 @@ function state_paycheck_pages() {
             'name'        => 'Massachusetts Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/massachusetts',
             'description' => 'Free Massachusetts paycheck calculator. Estimate 2026 take-home pay after the 5% Massachusetts flat tax, the 4% millionaire surtax, PFML, federal tax, and FICA.',
+        ),
         'arizona' => array(
             'name'        => 'Arizona Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/arizona',
             'description' => 'Free Arizona paycheck calculator. Estimate take-home pay after Arizona\'s flat 2.5% income tax, its standard deduction, and federal withholding. 2026.',
+        ),
+        'tennessee' => array(
+            'name'        => 'Tennessee Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/tennessee',
+            'description' => 'Free Tennessee paycheck calculator. Tennessee has no tax on wages, so estimate take-home pay after federal income tax, Social Security, and Medicare. 2026.',
         ),
     );
 }
@@ -101,7 +107,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );

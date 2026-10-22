@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Tennessee have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Tennessee taxes neither wages nor any other form of personal income. Amendment 3, ratified in 2014, added Article II, Section 28 to the Tennessee Constitution, prohibiting a tax on earned income. The Hall income tax on interest and dividends, the state's last personal income tax, was phased out and expired after 2020."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is withheld from a Tennessee paycheck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three things: federal income tax, Social Security at 6.2% up to the annual wage base, and Medicare at 1.45%. If you elect pre-tax benefits such as a 401(k) or a health savings account, those come out first and reduce the federal income tax withheld. Nothing is withheld for Tennessee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $55,000 salary in Tennessee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,783.56 per paycheck from a $55,000 salary: $2,115.38 gross, $170.00 federal income tax, $131.15 Social Security, $30.67 Medicare, and $0 Tennessee state income tax. That is $46,372.50 a year, an effective tax rate of about 15.7%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Tennessee cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Tennessee has no municipal or county income tax on wages. Local revenue comes from local option sales tax, county property tax, and business taxes. This is one reason the state's combined sales tax rate is among the highest in the country."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have to file a Tennessee state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not for wages. With no personal income tax, Tennessee has no individual income tax return for wage earners to file. The Hall income tax return is gone as well. You still file a federal return with the IRS, and businesses file separately with the Tennessee Department of Revenue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Tennessee have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Tennessee has no state disability insurance program and no state paid family leave payroll tax, so neither shows up as a paycheck deduction. Tennessee unemployment insurance is an employer-paid tax and is not withheld from employee wages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did the Hall income tax affect paychecks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It never touched wages. The Hall income tax applied only to interest and dividend income above an exemption, was collected through an annual return rather than payroll withholding, and was repealed in stages from 2016 until it expired for tax years beginning January 1, 2021."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Tennessee tax bonuses or overtime differently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Because the state taxes no wage income, a bonus or overtime payment is treated the same as regular pay for state purposes. Only the federal withholding calculation changes, since supplemental wages such as bonuses can be withheld at a flat 22% rate instead of the bracket method."
+      }
+    }
+  ]
+}
