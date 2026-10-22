@@ -1356,6 +1356,10 @@ export const STATE_PAGES = [
       { label: "MGL Chapter 62, Section 3 — Deductions and exemptions", url: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62/Section3" },
       { label: "MGL Chapter 175M — Paid Family and Medical Leave", url: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175M" },
       { label: "Massachusetts Paid Family and Medical Leave — Contribution rates", url: "https://www.mass.gov/info-details/paid-family-and-medical-leave-contribution-rates" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
+  {
     code: "US-AZ",
     abbr: "az",
     slug: "arizona",
@@ -1453,6 +1457,106 @@ export const STATE_PAGES = [
       { label: "Arizona Department of Revenue", url: "https://azdor.gov/" },
       { label: "A.R.S. § 43-1011 — Taxes and tax rates", url: "https://www.azleg.gov/ars/43/01011.htm" },
       { label: "A.R.S. § 43-1013 — Income tax surcharge for public education", url: "https://www.azleg.gov/ars/43/01013.htm" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
+  {
+    code: "US-TN",
+    abbr: "tn",
+    slug: "tennessee",
+    name: "Tennessee",
+    example: { salary: 55000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Tennessee: no tax on wages, protected by a 2014 constitutional amendment.
+    hasIncomeTax: false,
+    title: "Tennessee Paycheck Calculator - Take-Home Pay After Taxes",
+    description:
+      "Free Tennessee paycheck calculator. Tennessee has no tax on wages, so estimate take-home pay after federal income tax, Social Security, and Medicare. 2026.",
+    intro:
+      "Work out what a Tennessee paycheck actually leaves in your account. Tennessee " +
+      "withholds nothing from wages for state income tax, so federal income tax, Social " +
+      "Security, and Medicare are the only deductions the calculator applies. Enter your " +
+      "pay rate and frequency to see net pay per period.",
+    keyHeading: "Does Tennessee tax your paycheck?",
+    keyParagraphs: [
+      "No. Tennessee collects no tax on wages or salaries, so the state income tax line on " +
+        "a Tennessee pay stub is either blank or absent entirely. Tennessee voters settled " +
+        "the question in 2014 by ratifying Amendment 3, which added Article II, Section 28 " +
+        "to the state constitution and made it unlawful for the General Assembly to levy a " +
+        "tax on any individual's earned income or on any payroll tax on employers.",
+      "The amendment drew a line between earned income, which is now constitutionally " +
+        "off limits, and investment income, which the state was still allowed to reach. That " +
+        "left the Hall income tax, a levy on interest and dividends, as Tennessee's only " +
+        "personal income tax. The General Assembly phased it down a point at a time and it " +
+        "expired for tax years beginning January 1, 2021, so Tennessee now taxes no personal " +
+        "income of any kind.",
+      "A Tennessee employee therefore sees only three deductions on a normal paycheck: " +
+        "federal income tax, Social Security at 6.2%, and Medicare at 1.45%. The calculator " +
+        "on this page computes exactly those, using 2026 federal brackets.",
+    ],
+    calcSteps: [
+      "Start with gross pay for the period. A $55,000 salary paid biweekly is $2,115.38 before deductions.",
+      "Subtract federal income tax, withheld using the IRS percentage method for your filing status and Form W-4.",
+      "Subtract Social Security at 6.2% of gross pay up to the annual wage base ($184,500 for 2026).",
+      "Subtract Medicare at 1.45% of all gross pay, plus the 0.9% Additional Medicare Tax above $200,000 of wages.",
+      "Subtract no state income tax. Tennessee has none, and no city or county in the state imposes one either.",
+      "The remainder is net take-home pay for that period.",
+    ],
+    compareParagraphs: [
+      "Against other states with no wage tax, Tennessee is unusual in that the ban is written " +
+        "into the constitution rather than resting on a statute the legislature could repeal. " +
+        "Texas and Florida rely on their constitutions too, but Tennessee is the only state " +
+        "that added its prohibition by a statewide referendum in the modern era, which is why " +
+        "its treatment of investment income changed at the same time.",
+      "What Tennessee gives up on income tax it recovers elsewhere. The state sales tax rate " +
+        "is 7%, the highest state-level rate in the country, and local option sales taxes push " +
+        "the average combined rate near 9.6%. Tennessee also has no state property tax on real " +
+        "estate, so local governments rely on county and municipal property levies and on the " +
+        "sales tax. For a wage earner, the practical result is a lower paycheck deduction and a " +
+        "higher cost at the register.",
+      "Tennessee is not a high-wage state, so the federal standard deduction and the 10% and " +
+        "12% brackets absorb most of a typical salary. A single filer earning $55,000 keeps " +
+        "roughly 84% of gross pay before any 401(k) or health insurance election, and those " +
+        "pre-tax elections reduce the federal bill further.",
+    ],
+    faqs: [
+      {
+        q: "Does Tennessee have a state income tax?",
+        a: "No. Tennessee taxes neither wages nor any other form of personal income. Amendment 3, ratified in 2014, added Article II, Section 28 to the Tennessee Constitution, prohibiting a tax on earned income. The Hall income tax on interest and dividends, the state's last personal income tax, was phased out and expired after 2020.",
+      },
+      {
+        q: "What is withheld from a Tennessee paycheck?",
+        a: "Three things: federal income tax, Social Security at 6.2% up to the annual wage base, and Medicare at 1.45%. If you elect pre-tax benefits such as a 401(k) or a health savings account, those come out first and reduce the federal income tax withheld. Nothing is withheld for Tennessee.",
+      },
+      {
+        q: "How much is taken out of a $55,000 salary in Tennessee?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,783.56 per paycheck from a $55,000 salary: $2,115.38 gross, $170.00 federal income tax, $131.15 Social Security, $30.67 Medicare, and $0 Tennessee state income tax. That is $46,372.50 a year, an effective tax rate of about 15.7%.",
+      },
+      {
+        q: "Do Tennessee cities or counties charge a local income tax?",
+        a: "No. Tennessee has no municipal or county income tax on wages. Local revenue comes from local option sales tax, county property tax, and business taxes. This is one reason the state's combined sales tax rate is among the highest in the country.",
+      },
+      {
+        q: "Do you have to file a Tennessee state tax return?",
+        a: "Not for wages. With no personal income tax, Tennessee has no individual income tax return for wage earners to file. The Hall income tax return is gone as well. You still file a federal return with the IRS, and businesses file separately with the Tennessee Department of Revenue.",
+      },
+      {
+        q: "Does Tennessee have disability or paid family leave withholding?",
+        a: "No. Tennessee has no state disability insurance program and no state paid family leave payroll tax, so neither shows up as a paycheck deduction. Tennessee unemployment insurance is an employer-paid tax and is not withheld from employee wages.",
+      },
+      {
+        q: "Did the Hall income tax affect paychecks?",
+        a: "It never touched wages. The Hall income tax applied only to interest and dividend income above an exemption, was collected through an annual return rather than payroll withholding, and was repealed in stages from 2016 until it expired for tax years beginning January 1, 2021.",
+      },
+      {
+        q: "Does Tennessee tax bonuses or overtime differently?",
+        a: "No. Because the state taxes no wage income, a bonus or overtime payment is treated the same as regular pay for state purposes. Only the federal withholding calculation changes, since supplemental wages such as bonuses can be withheld at a flat 22% rate instead of the bracket method.",
+      },
+    ],
+    sources: [
+      { label: "Tennessee Department of Revenue — Taxes", url: "https://www.tn.gov/revenue/taxes.html" },
+      { label: "Tennessee Constitution, Article II, Section 28 (Amendment 3, 2014)", url: "https://ballotpedia.org/Tennessee_Income_Tax_Prohibition,_Amendment_3_(2014)" },
+      { label: "Tennessee Department of Revenue — Hall income tax repeal", url: "https://www.tn.gov/revenue/taxes/tennessee-income-tax-hall-income-tax.html" },
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
