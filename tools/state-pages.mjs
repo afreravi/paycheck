@@ -1560,6 +1560,120 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-IN",
+    abbr: "in",
+    slug: "indiana",
+    name: "Indiana",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Indiana: flat state rate, but all 92 counties levy a Local Income Tax.
+    hasIncomeTax: true,
+    title: "Indiana Paycheck Calculator - Take-Home Pay After IN Tax",
+    description:
+      "Free Indiana paycheck calculator. Estimate take-home pay after Indiana's 2.95% flat income tax, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "Work out what an Indiana paycheck actually leaves in your account. Indiana charges " +
+      "one flat state rate on wages, and every one of the state&rsquo;s 92 counties adds a " +
+      "local income tax of its own on top, which is why two Indiana workers on the same " +
+      "salary can take home different amounts. Enter your pay rate and frequency to see net " +
+      "pay per period.",
+    keyHeading: "How Indiana taxes a paycheck",
+    keyParagraphs: [
+      "Indiana taxes wage income at a single flat rate rather than on a ladder of brackets. " +
+        "For the 2026 tax year the Department of Revenue states the individual adjusted gross " +
+        "income tax rate as 2.95% (Departmental Notice #1, effective October 1, 2026). The " +
+        "flat shape follows from Article 10, Section 1 of the Indiana Constitution, which " +
+        "requires taxes on the same class of property to be uniform; the General Assembly has " +
+        "been stepping the rate down in stages under Indiana Code 6-3-2-1.1, so a pay stub " +
+        "from a few years ago shows a higher rate than this one.",
+      "Indiana does not build its own income figure. It starts from the federal adjusted gross " +
+        "income on your return, which is why a pre-tax 401(k) or health savings account " +
+        "contribution cuts the Indiana bill as well as the federal one. From that starting " +
+        "point the state subtracts a $1,000 personal exemption, $1,500 for each dependent, and " +
+        "$3,000 for an adopted child, all of which you claim on Form WH-4 with your employer.",
+      "Read the state line on this page as a close estimate rather than a payroll-system " +
+        "figure. The 2026 data behind the calculator approximates Indiana&rsquo;s flat 2.95% " +
+        "with three bands&mdash;3%, 3.075%, and 3.15%&mdash;and applies the $1,000 personal " +
+        "exemption. Your employer withholds using the state&rsquo;s own percentage tables, so " +
+        "the exact cents can differ.",
+    ],
+    calcSteps: [
+      "Start with gross pay for the period. A $60,000 salary paid biweekly is $2,307.69 before any deduction.",
+      "Subtract pre-tax elections first. A 401(k), HSA, or health premium reduces federal adjusted gross income, and because Indiana begins there, it reduces the state bill too.",
+      "Subtract Indiana income tax at the flat state rate on wages after the $1,000 personal exemption. Indiana has no bracket tiers to climb and no separate state calculation to make.",
+      "Subtract federal income tax, withheld under the IRS percentage method for your filing status and Form W-4.",
+      "Subtract Social Security at 6.2% of gross pay up to the annual wage base ($184,500 for 2026) and Medicare at 1.45% of all gross pay, plus the 0.9% Additional Medicare Tax above $200,000 of wages.",
+      "Subtract nothing for county tax here. Every Indiana county levies a Local Income Tax, but this calculator does not know your county, so the figure it reports is the state-only estimate.",
+      "The remainder is net take-home pay for that period.",
+    ],
+    compareParagraphs: [
+      "In Indiana the county matters about as much as the state. All 92 counties levy a Local " +
+        "Income Tax under Indiana Code 6-3.6, at rates the Department of Revenue publishes in " +
+        "Departmental Notice #1. They run from 0.5% in Porter County to 3% in Randolph County. " +
+        "Marion County, which contains Indianapolis, charges 2.02%. Because every county levies " +
+        "something, no Indiana wage earner escapes the local layer, and for a worker in a " +
+        "high-rate county the local tax can rival the state tax.",
+      "Which county applies is decided on January 1 of the tax year, not on the day you are " +
+        "paid. If you live in an Indiana county on January 1, your county of residence sets the " +
+        "rate for the whole year. If you live out of state on January 1 but your principal " +
+        "place of business is an Indiana county, that county&rsquo;s rate applies instead. It " +
+        "is also why a payroll department asks a new hire for a county even when nothing has " +
+        "changed about their address.",
+      "Against its neighbors Indiana charges the lowest state rate but layers on the widest " +
+        "local tax. Michigan charges a flat 4.25% and adds a city income tax in only 24 cities. " +
+        "Illinois charges 4.95% with no local income tax at all. Ohio uses graduated state " +
+        "rates plus a municipal tax. Indiana&rsquo;s 2.95% sits below all of them, which is " +
+        "why the county rate, not the state rate, usually decides which of two paychecks is " +
+        "larger.",
+      "Indiana also runs no state disability insurance and no state paid family leave payroll " +
+        "tax, so no SDI or PFL line appears on an Indiana pay stub and neither is subtracted " +
+        "here. The state does have reciprocal agreements with Kentucky, Michigan, Ohio, " +
+        "Pennsylvania, and Wisconsin: a resident of one of those states who commutes into " +
+        "Indiana files Form IT-40RNR and is not subject to Indiana withholding on those wages.",
+    ],
+    faqs: [
+      {
+        q: "What is the Indiana income tax rate for 2026?",
+        a: "Indiana's individual adjusted gross income tax rate is a flat 2.95% for the 2026 tax year, as stated in Department of Revenue Departmental Notice #1 effective October 1, 2026. The same rate applies to every dollar of taxable income after exemptions, because Indiana has no graduated brackets.",
+      },
+      {
+        q: "Does Indiana have a flat income tax?",
+        a: "Yes. Indiana applies one flat rate to wage income rather than a bracket schedule. Article 10, Section 1 of the Indiana Constitution requires taxes on the same class of property to be uniform, and the General Assembly has been lowering the single rate in stages under Indiana Code 6-3-2-1.1.",
+      },
+      {
+        q: "Does Indiana have a local income tax?",
+        a: "Yes. All 92 Indiana counties levy a Local Income Tax under Indiana Code 6-3.6, at rates published in Departmental Notice #1. The rates range from 0.5% in Porter County to 3% in Randolph County, and Marion County, which includes Indianapolis, charges 2.02%. This calculator reports the state tax only, so an Indiana paycheck nets less than the figure shown here.",
+      },
+      {
+        q: "Which county's income tax rate applies to me?",
+        a: "The county where you lived on January 1 of the tax year. If you lived outside Indiana on January 1 but your principal place of work or business is in an Indiana county, that county's rate applies instead. Indiana fixes the county for the whole year on that January 1 date, so a mid-year move does not change your withholding rate until the following year.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Indiana?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,868.73 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $69.35 Indiana state income tax. That is $48,587.00 a year, an effective tax rate of about 19.0%. County income tax is not included.",
+      },
+      {
+        q: "What is the Indiana personal exemption?",
+        a: "Indiana subtracts $1,000 for each personal exemption, $1,500 for each dependent, and $3,000 for an adopted child before applying the flat rate. You claim these on Form WH-4 with your employer. The 2026 data behind this calculator uses the $1,000 personal exemption for a single filer.",
+      },
+      {
+        q: "Does Indiana have disability or paid family leave withholding?",
+        a: "No. Indiana operates no state disability insurance program and no state paid family leave payroll tax, so neither appears as a deduction on an Indiana paycheck. Indiana unemployment insurance is an employer-paid tax and is not withheld from employee wages.",
+      },
+      {
+        q: "Does Indiana withhold tax differently on a bonus or overtime?",
+        a: "For a bonus or other one-time payment, Indiana Department of Revenue guidance is to compute withholding without applying the exemption amount, so more of a bonus is withheld per dollar than of regular pay. Overtime in a normal pay period is treated as ordinary wages and withheld at the flat rate after exemptions, unlike the federal supplemental-wage rate of 22% that employers may use on bonuses.",
+      },
+    ],
+    sources: [
+      { label: "Indiana Department of Revenue — Departmental Notice #1: State and county withholding rates", url: "https://www.in.gov/dor/files/dn01.pdf" },
+      { label: "Indiana Department of Revenue — County Tax Rates (Local Income Tax)", url: "https://www.in.gov/dor/i-am-a/business-corp/county-tax-information" },
+      { label: "Indiana Department of Revenue — Individual Income Tax Overview", url: "https://www.in.gov/dor/i-am-a/individual/individual-income-tax-overview" },
+      { label: "Indiana Code 6-3.6 — Local Income Taxes", url: "https://iga.in.gov/laws/2023/ic/titles/6#6-3.6" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

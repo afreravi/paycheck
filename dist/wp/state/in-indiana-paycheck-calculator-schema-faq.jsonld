@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Indiana income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indiana's individual adjusted gross income tax rate is a flat 2.95% for the 2026 tax year, as stated in Department of Revenue Departmental Notice #1 effective October 1, 2026. The same rate applies to every dollar of taxable income after exemptions, because Indiana has no graduated brackets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Indiana have a flat income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Indiana applies one flat rate to wage income rather than a bracket schedule. Article 10, Section 1 of the Indiana Constitution requires taxes on the same class of property to be uniform, and the General Assembly has been lowering the single rate in stages under Indiana Code 6-3-2-1.1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Indiana have a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All 92 Indiana counties levy a Local Income Tax under Indiana Code 6-3.6, at rates published in Departmental Notice #1. The rates range from 0.5% in Porter County to 3% in Randolph County, and Marion County, which includes Indianapolis, charges 2.02%. This calculator reports the state tax only, so an Indiana paycheck nets less than the figure shown here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which county's income tax rate applies to me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The county where you lived on January 1 of the tax year. If you lived outside Indiana on January 1 but your principal place of work or business is in an Indiana county, that county's rate applies instead. Indiana fixes the county for the whole year on that January 1 date, so a mid-year move does not change your withholding rate until the following year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Indiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,868.73 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $69.35 Indiana state income tax. That is $48,587.00 a year, an effective tax rate of about 19.0%. County income tax is not included."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Indiana personal exemption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indiana subtracts $1,000 for each personal exemption, $1,500 for each dependent, and $3,000 for an adopted child before applying the flat rate. You claim these on Form WH-4 with your employer. The 2026 data behind this calculator uses the $1,000 personal exemption for a single filer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Indiana have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Indiana operates no state disability insurance program and no state paid family leave payroll tax, so neither appears as a deduction on an Indiana paycheck. Indiana unemployment insurance is an employer-paid tax and is not withheld from employee wages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Indiana withhold tax differently on a bonus or overtime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a bonus or other one-time payment, Indiana Department of Revenue guidance is to compute withholding without applying the exemption amount, so more of a bonus is withheld per dollar than of regular pay. Overtime in a normal pay period is treated as ordinary wages and withheld at the flat rate after exemptions, unlike the federal supplemental-wage rate of 22% that employers may use on bonuses."
+      }
+    }
+  ]
+}
