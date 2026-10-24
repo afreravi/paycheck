@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Maryland income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Maryland uses graduated state brackets rather than one rate. For a single filer they begin at 2% on the first $1,000 of Maryland taxable income and rise to 4.75%, 5%, 5.25%, 5.5%, and 5.75%, reaching 5.75% at $250,000. The Budget Reconciliation and Financing Act of 2025 added two higher brackets: 6.25% on $500,001 to $1,000,000 and 6.5% above $1,000,000. Joint filers use the same rates with doubled thresholds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Maryland have a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it is charged everywhere in the state. All 23 Maryland counties, plus Baltimore City, levy a county income tax on the same Maryland taxable income the state uses. Rates are set locally and run from 2.25%, the statutory floor under Tax-General Article § 10-106, to the 3.30% maximum authorized by the 2025 legislation. This calculator reports the state tax only, so an actual Maryland paycheck nets less than the figure shown here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $72,000 salary in Maryland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,194.86 per paycheck from a $72,000 salary: $2,769.23 gross, $269.62 federal income tax, $171.69 Social Security, $40.15 Medicare, and $92.91 Maryland state income tax. That is $57,066.25 a year, an effective tax rate of about 20.7%. County income tax is not included."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Maryland standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Maryland's standard deduction is $3,350 for a single filer, a married person filing separately, or a dependent, and $6,700 for married filing jointly, head of household, or a qualifying surviving spouse. The Budget Reconciliation and Financing Act of 2025 raised these amounts, repealed the income-based phase-in that previously limited the deduction for higher earners, and indexed future amounts to cost-of-living adjustments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Maryland have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet. Maryland operates no state disability insurance program, so no SDI line appears on a Maryland paycheck. Its paid family and medical leave program, FAMLI, is funded by a 0.9% contribution on wages up to the Social Security wage base, split evenly between employer and employee at 0.45% each, but employers begin collecting the employee share through payroll deductions only from January 1, 2027. No FAMLI deduction applies to 2026 wages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Maryland special nonresident tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a tax under Tax-General Article § 10-106.1 on someone who owes Maryland state income tax but is not subject to a county income tax. Its rate equals the lowest county income tax rate any Maryland county sets, which is 2.25%. It exists so that a nonresident working in Maryland pays at least the floor rate of local tax that every Maryland resident pays."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my Maryland take-home pay differ from someone else on the same salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost always because of the county income tax. Because each county, and Baltimore City, sets its own rate between 2.25% and 3.30%, and because some counties apply that rate in brackets, two Maryland workers with identical salaries and filing status can net different amounts. The county that applies is the one where you lived on January 1 of the tax year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Maryland itemized deductions limited for high earners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Beginning in tax year 2025, a taxpayer with federal adjusted gross income above $200,000, or above $100,000 for married filing separately, must reduce otherwise allowable itemized deductions by 7.5% of the income above that threshold. For a single filer at $250,000 the reduction is $3,750, so itemized deductions must exceed $7,100 for itemizing to beat the $3,350 standard deduction."
+      }
+    }
+  ]
+}

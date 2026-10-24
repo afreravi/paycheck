@@ -1674,6 +1674,139 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-MD",
+    abbr: "md",
+    slug: "maryland",
+    name: "Maryland",
+    example: { salary: 72000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Maryland: graduated state tax, plus a county income tax every county levies.
+    hasIncomeTax: true,
+    title: "Maryland Paycheck Calculator - Take-Home Pay After MD Tax",
+    description:
+      "Free Maryland paycheck calculator. Estimate take-home pay after Maryland's graduated state income tax, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "See what a Maryland paycheck actually leaves you. Maryland taxes wages on a graduated " +
+      "state schedule that now runs from 2% to 6.5%, and on top of it every county and " +
+      "Baltimore City adds a local income tax of its own, so two Maryland workers on the same " +
+      "salary can bank different amounts. Enter your pay rate and frequency for net pay per " +
+      "period.",
+    keyHeading: "How Maryland taxes a paycheck",
+    keyParagraphs: [
+      "Maryland does not use a flat rate. A single filer's wage income climbs a ladder of " +
+        "state brackets that begins at 2% on the first $1,000 of Maryland taxable income, " +
+        "reaches 4.75% at $3,000, and tops out at 5.75% at $250,000. The Budget Reconciliation " +
+        "and Financing Act of 2025 (Chapter 604 of the Acts of 2025) capped that 5.75% band and " +
+        "added two brackets above it &mdash; 6.25% on Maryland taxable income from $500,001 to " +
+        "$1,000,000 and 6.5% above $1,000,000 for single filers, with doubled thresholds for " +
+        "joint filers. Before that change, 5.75% was the highest rate Maryland charged. The " +
+        "same act imposes an extra 2% on net capital gains for filers with federal adjusted " +
+        "gross income above $350,000.",
+      "Maryland starts from federal adjusted gross income, then subtracts its own standard " +
+        "deduction before applying the brackets. For tax years beginning after December 31, " +
+        "2024 that deduction is $3,350 for a single filer and $6,700 for joint filers, and the " +
+        "old income-based phase-in of the deduction has been repealed and replaced with " +
+        "cost-of-living indexing. Itemizers face a separate limit: above $200,000 of federal " +
+        "adjusted gross income ($100,000 for married filing separately), Maryland reduces " +
+        "allowable itemized deductions by 7.5% of the excess, which can push a high earner " +
+        "back to the standard deduction.",
+      "The local layer is the part most paycheck estimates miss. Every one of Maryland's 23 " +
+        "counties, plus Baltimore City, levies a county income tax, applied to the same Maryland " +
+        "taxable income the state uses, at a rate each jurisdiction sets between the 2.25% " +
+        "statutory floor and the 3.30% ceiling. Because the rate is set locally, the same $72,000 " +
+        "salary is taxed differently in the lowest-rate jurisdiction than in Dorchester County, " +
+        "which charges the full 3.30%. The calculator on this page reports the state tax only, " +
+        "because it cannot know your county, so treat its figure as the top of your take-home " +
+        "range rather than the final number.",
+    ],
+    calcSteps: [
+      "Start with gross pay for the period. A $72,000 salary paid biweekly is $2,769.23 before any deduction.",
+      "Subtract pre-tax elections first. A 401(k), HSA, or health premium lowers federal adjusted gross income, and Maryland begins its own calculation there, so the same contribution reduces the state bill as well.",
+      "Subtract Maryland income tax. Maryland subtracts its standard deduction ($3,350 for a single filer) and then runs the remainder up the graduated state brackets, from 2% to 5.75% for most earners and up to 6.5% at the top.",
+      "Subtract federal income tax, withheld under the IRS percentage method for your filing status and Form W-4.",
+      "Subtract Social Security at 6.2% of gross pay up to the annual wage base ($184,500 for 2026) and Medicare at 1.45% of all gross pay, plus the 0.9% Additional Medicare Tax above $200,000 of wages.",
+      "Subtract nothing for the county income tax here. All 23 Maryland counties, plus Baltimore City, levy one, but this calculator does not know where you live, so the figure it reports excludes it.",
+      "The remainder is net take-home pay for that period.",
+    ],
+    compareParagraphs: [
+      "In Maryland the county you live in changes your paycheck as much as the state bracket " +
+        "does. County income tax rates run from 2.25%, the statutory floor set by Tax-General " +
+        "Article &sect; 10-106, up to the 3.30% ceiling the 2025 act authorized. On a $72,000 " +
+        "salary that spread is roughly $750 a year between the cheapest and most expensive " +
+        "jurisdiction. Since 2022 a county may also apply its rate on a bracket basis rather " +
+        "than as one flat percentage, which is why Anne Arundel County now charges a lower " +
+        "rate on the first slice of income and a higher one above it. The county is fixed by " +
+        "where you live on January 1, and it is that county's rate, not the state's, that " +
+        "usually explains why a neighbor with the same salary nets a different amount.",
+      "Maryland also taxes a group that most states do not. A nonresident who owes Maryland " +
+        "state income tax but is not subject to any county income tax pays the special " +
+        "nonresident tax under Tax-General Article &sect; 10-106.1, charged at the lowest " +
+        "county rate any Maryland county sets &mdash; 2.25%. In effect, the local layer " +
+        "reaches nonresidents at the floor rate so that working in Maryland cannot be cheaper " +
+        "than living there. Maryland also has reciprocal agreements with several neighboring " +
+        "states, and a resident of one of them who commutes into Maryland is generally not " +
+        "subject to Maryland withholding on those wages.",
+      "Maryland has a paid family leave payroll tax, but it has not started yet. The Family " +
+        "and Medical Leave Insurance program is funded by a 0.9% contribution on wages up to " +
+        "the Social Security wage base, split evenly between employer and employee at 0.45% " +
+        "each. Employers begin collecting the employee share through payroll deductions on " +
+        "wages paid from January 1, 2027, so no FAMLI line appears on a 2026 Maryland " +
+        "paycheck and none is subtracted here. Employers with fewer than 15 employees are " +
+        "exempt from the employer share while their staff still contribute. Maryland runs no " +
+        "state disability insurance program, so there is no SDI deduction either.",
+      "Against its neighbors, Maryland charges the highest marginal rate but is not the " +
+        "heaviest overall at ordinary salaries. Pennsylvania charges a flat 3.07% plus local " +
+        "EIT, Virginia charges up to 5.75% with no local income tax, Delaware charges up to " +
+        "6.6%, and West Virginia up to 5.12%. Maryland's 5.75% state rate sits at the top of " +
+        "that group, but its $3,350 standard deduction is generous and its lower brackets are " +
+        "mild, which is why a typical Maryland earner's effective state rate lands well below " +
+        "the marginal one. Add the county tax and Maryland usually edges ahead of Virginia for " +
+        "a similarly paid worker.",
+    ],
+    faqs: [
+      {
+        q: "What is the Maryland income tax rate for 2026?",
+        a: "Maryland uses graduated state brackets rather than one rate. For a single filer they begin at 2% on the first $1,000 of Maryland taxable income and rise to 4.75%, 5%, 5.25%, 5.5%, and 5.75%, reaching 5.75% at $250,000. The Budget Reconciliation and Financing Act of 2025 added two higher brackets: 6.25% on $500,001 to $1,000,000 and 6.5% above $1,000,000. Joint filers use the same rates with doubled thresholds.",
+      },
+      {
+        q: "Does Maryland have a local income tax?",
+        a: "Yes, and it is charged everywhere in the state. All 23 Maryland counties, plus Baltimore City, levy a county income tax on the same Maryland taxable income the state uses. Rates are set locally and run from 2.25%, the statutory floor under Tax-General Article § 10-106, to the 3.30% maximum authorized by the 2025 legislation. This calculator reports the state tax only, so an actual Maryland paycheck nets less than the figure shown here.",
+      },
+      {
+        q: "How much is taken out of a $72,000 salary in Maryland?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,194.86 per paycheck from a $72,000 salary: $2,769.23 gross, $269.62 federal income tax, $171.69 Social Security, $40.15 Medicare, and $92.91 Maryland state income tax. That is $57,066.25 a year, an effective tax rate of about 20.7%. County income tax is not included.",
+      },
+      {
+        q: "What is the Maryland standard deduction for 2026?",
+        a: "Maryland's standard deduction is $3,350 for a single filer, a married person filing separately, or a dependent, and $6,700 for married filing jointly, head of household, or a qualifying surviving spouse. The Budget Reconciliation and Financing Act of 2025 raised these amounts, repealed the income-based phase-in that previously limited the deduction for higher earners, and indexed future amounts to cost-of-living adjustments.",
+      },
+      {
+        q: "Does Maryland have disability or paid family leave withholding?",
+        a: "Not yet. Maryland operates no state disability insurance program, so no SDI line appears on a Maryland paycheck. Its paid family and medical leave program, FAMLI, is funded by a 0.9% contribution on wages up to the Social Security wage base, split evenly between employer and employee at 0.45% each, but employers begin collecting the employee share through payroll deductions only from January 1, 2027. No FAMLI deduction applies to 2026 wages.",
+      },
+      {
+        q: "What is the Maryland special nonresident tax?",
+        a: "It is a tax under Tax-General Article § 10-106.1 on someone who owes Maryland state income tax but is not subject to a county income tax. Its rate equals the lowest county income tax rate any Maryland county sets, which is 2.25%. It exists so that a nonresident working in Maryland pays at least the floor rate of local tax that every Maryland resident pays.",
+      },
+      {
+        q: "Why does my Maryland take-home pay differ from someone else on the same salary?",
+        a: "Almost always because of the county income tax. Because each county, and Baltimore City, sets its own rate between 2.25% and 3.30%, and because some counties apply that rate in brackets, two Maryland workers with identical salaries and filing status can net different amounts. The county that applies is the one where you lived on January 1 of the tax year.",
+      },
+      {
+        q: "Are Maryland itemized deductions limited for high earners?",
+        a: "Yes. Beginning in tax year 2025, a taxpayer with federal adjusted gross income above $200,000, or above $100,000 for married filing separately, must reduce otherwise allowable itemized deductions by 7.5% of the income above that threshold. For a single filer at $250,000 the reduction is $3,750, so itemized deductions must exceed $7,100 for itemizing to beat the $3,350 standard deduction.",
+      },
+    ],
+    sources: [
+      { label: "Comptroller of Maryland — Tax Alert: Changes to Standard and Itemized Deductions and to State and Local Income Tax Rates (2025 Legislative Session)", url: "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/legal-publications/alerts/tax-alert-changes-to-standard-and-itemized-deductions-and-to-state-and-local-income-tax-rates-from-the-2025-legislative-session.pdf" },
+      { label: "Comptroller of Maryland — Individual Tax Services", url: "https://www.marylandcomptroller.gov/individuals/tax-services.html" },
+      { label: "Maryland Tax-General Article § 10-106 — County income tax", url: "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-106" },
+      { label: "Maryland Tax-General Article § 10-106.1 — Special nonresident tax", url: "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-106.1" },
+      { label: "Maryland Department of Labor — FAMLI: Make contributions", url: "https://labor.maryland.gov/famli/employers/make-contributions/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
