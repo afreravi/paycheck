@@ -108,6 +108,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/maryland',
             'description' => 'Free Maryland paycheck calculator. Estimate take-home pay after Maryland\'s graduated state income tax, federal income tax, Social Security, and Medicare for 2026.',
         ),
+        'missouri' => array(
+            'name'        => 'Missouri Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/missouri',
+            'description' => 'Free Missouri paycheck calculator. Estimate take-home pay after Missouri\'s graduated income tax, the federal tax deduction, FICA, and local earnings tax.',
+        ),
     );
 }
 
@@ -117,7 +122,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
