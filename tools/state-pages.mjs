@@ -1807,6 +1807,140 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-MO",
+    abbr: "mo",
+    slug: "missouri",
+    name: "Missouri",
+    example: { salary: 65000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Missouri: graduated state tax to 4.7%, a deduction for federal income tax
+    // paid, full capital-gains exemption, and a 1% earnings tax in two cities.
+    hasIncomeTax: true,
+    title: "Missouri Paycheck Calculator - Take-Home Pay After MO Tax",
+    description:
+      "Free Missouri paycheck calculator. Estimate take-home pay after Missouri's graduated income tax, the federal tax deduction, FICA, and local earnings tax.",
+    intro:
+      "See what a Missouri paycheck actually leaves you. Missouri taxes wages on a graduated " +
+      "schedule that tops out at 4.7%, hands back a share of the federal income tax you paid, " +
+      "and exempts capital gains outright. Two cities, Kansas City and St. Louis, skim another " +
+      "1% off the top. Enter your pay rate and frequency for net pay per period.",
+    keyHeading: "How Missouri taxes a paycheck",
+    keyParagraphs: [
+      "Missouri uses a graduated state schedule, not a flat rate. Wage income is taxed at 2% " +
+        "on the first slice of Missouri taxable income and steps up through 2.5%, 3%, 3.5%, " +
+        "4%, and 4.5%, with the top 4.7% rate applying above $9,436 for 2026. Section 143.011 " +
+        "of the Missouri Revised Statutes sets those rates, and subsection 5 requires the " +
+        "bracket thresholds to be adjusted for inflation every year and published by the " +
+        "Department of Revenue each October. The top rate itself has been falling: the " +
+        "Legislature capped it at 4.95% starting in 2023 and wrote in automatic further cuts " +
+        "triggered by general revenue growth, which is how it reached the current 4.7%.",
+      "Two Missouri-specific subtractions do more work here than the brackets do. The first is " +
+        "the Missouri standard deduction, which is tied to the federal standard deduction " +
+        "rather than a fixed state figure, so it rises with federal inflation adjustments " +
+        "&mdash; $16,100 for a single filer and $32,200 for a married couple filing jointly in " +
+        "2026. The second is the deduction for federal income tax paid under section 143.171, " +
+        "which is unusual among the states: Missouri lets you subtract a percentage of the " +
+        "federal income tax liability you reported, on a sliding scale that pays the most at " +
+        "lower incomes. A taxpayer with Missouri gross income of $25,000 or less deducts 35% " +
+        "of federal tax paid, 25% between $25,001 and $50,000, 15% between $50,001 and " +
+        "$100,000, and 5% between $100,001 and $125,000, with the deduction phasing out " +
+        "entirely at $125,001 and up and capped at $5,000 on a single return or $10,000 on a " +
+        "combined one.",
+      "Missouri exempts capital gains from state income tax. Section 143.121.3(14)(a) lets an " +
+        "individual subtract 100% of any income reported as a capital gain for federal income " +
+        "tax purposes, for tax years beginning on or after January 1, 2025. That subtraction " +
+        "sits in the section that defines Missouri adjusted gross income, so it happens before " +
+        "the standard deduction and before the brackets, and a Missouri resident pays no state " +
+        "tax on a gain from selling stock, a mutual fund, or real property. Interest, " +
+        "dividends, and wages get no such break, and the exclusion does not apply to " +
+        "corporations until the top individual rate falls to 4.5% or below.",
+    ],
+    calcSteps: [
+      "Start with gross pay for the period. A $65,000 salary paid biweekly is $2,500.00 before any deduction.",
+      "Subtract pre-tax elections first. A 401(k), HSA, or health premium lowers federal adjusted gross income, and because Missouri begins its own calculation from that federal figure under section 143.121, the same contribution lowers the Missouri bill too.",
+      "Subtract Missouri income tax. Missouri takes off its standard deduction ($16,100 for a single filer in 2026), the personal exemption, and the section 143.171 deduction for federal income tax paid, then runs what remains up the graduated state schedule from 2% to 4.7%.",
+      "Subtract federal income tax, withheld under the IRS percentage method for your filing status and Form W-4.",
+      "Subtract Social Security at 6.2% of gross pay up to the annual wage base ($184,500 for 2026) and Medicare at 1.45% of all gross pay, plus the 0.9% Additional Medicare Tax above $200,000 of wages.",
+      "Subtract nothing for a city earnings tax here. Kansas City and St. Louis each levy 1% on wages, but only two Missouri cities are allowed to, and this calculator does not know which one you work in.",
+      "The remainder is net take-home pay for that period.",
+    ],
+    compareParagraphs: [
+      "Missouri is one of the few states where a city income tax is a real line on a paycheck. " +
+        "Sections 92.111 to 92.200 of the Revised Statutes bar any city from imposing an " +
+        "earnings tax after December 31, 2011, but grandfathered a constitutional charter city " +
+        "that already levied one, and only Kansas City and St. Louis qualify. Both charge 1% of " +
+        "salaries, wages, and commissions, and both charge it to residents on all their " +
+        "earnings and to nonresidents on what they earn inside the city. Voters must renew each " +
+        "city's tax every five years, and section 92.125 spells out how the rate would have to " +
+        "drop if a renewal failed. On a $65,000 salary the tax costs about $650 a year in " +
+        "either city, which is why two Missouri workers on identical salaries can net " +
+        "different amounts.",
+      "On capital gains, Missouri now looks unlike every state it borders. Illinois charges a " +
+        "flat 4.95% with no exclusion, Kansas tops out at 5.2%, Iowa is flat at 3.8%, and " +
+        "Arkansas and Oklahoma both tax gains at their top rates. Missouri's 100% subtraction " +
+        "under section 143.121.3(14)(a) means a Missouri investor who sells a long-held " +
+        "position owes nothing to Jefferson City on the gain, though the federal capital gains " +
+        "rate still applies and the state still taxes the dividends and interest the same " +
+        "account throws off.",
+      "On ordinary wages Missouri lands in the middle of its neighbors, and its standard " +
+        "deduction is what separates it. Missouri's 4.7% top rate sits below Kansas at 5.2% and " +
+        "Illinois at 4.95%, and above Iowa at 3.8%, Nebraska at 2.46%, Oklahoma at 2.5%, and " +
+        "Arkansas at 2.0%. But the $16,100 single standard deduction is far larger than the " +
+        "$3,605 Kansas allows or the $2,470 Arkansas allows, and the section 143.171 deduction " +
+        "for federal tax paid has no counterpart in any of them. At a typical salary those two " +
+        "subtractions pull a Missouri earner's effective state rate below the marginal rate " +
+        "and often below a similarly paid worker in Kansas.",
+      "Missouri runs no state disability insurance program and no paid family leave payroll " +
+        "tax, so no SDI or PFL line appears on a Missouri paycheck. That puts it apart from " +
+        "California, New Jersey, New York, Washington, and Massachusetts, all of which withhold " +
+        "for one or both. The only state-level withholding a Missouri employee sees is the " +
+        "income tax, and the only local one is the 1% earnings tax in Kansas City and " +
+        "St. Louis.",
+    ],
+    faqs: [
+      {
+        q: "What is the Missouri income tax rate for 2026?",
+        a: "Missouri taxes wage income on a graduated schedule rather than at one flat rate. For 2026 the rates run 2%, 2.5%, 3%, 3.5%, 4%, 4.5%, and 4.7%, with the top 4.7% rate applying to Missouri taxable income above $9,436. Section 143.011 of the Missouri Revised Statutes sets the rates and requires the bracket thresholds to be adjusted for inflation every year.",
+      },
+      {
+        q: "Does Missouri tax capital gains?",
+        a: "No. Under section 143.121.3(14)(a), an individual may subtract 100% of any income reported as a capital gain for federal income tax purposes, for tax years beginning on or after January 1, 2025. The subtraction applies to Missouri adjusted gross income, so a Missouri resident pays no state income tax on a gain from selling stocks, funds, or real property. Interest and dividends are still taxed.",
+      },
+      {
+        q: "What is the Missouri standard deduction for 2026?",
+        a: "Missouri's standard deduction is $16,100 for a single filer or a married person filing separately, $32,200 for a married couple filing jointly, and $21,900 for a head of household. Missouri ties its standard deduction to the federal standard deduction instead of setting a fixed state amount, so the figure rises whenever the federal amount does.",
+      },
+      {
+        q: "How much is taken out of a $65,000 salary in Missouri?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,035.45 per paycheck from a $65,000 salary: $2,500.00 gross, $216.15 federal income tax, $155.00 Social Security, $36.25 Medicare, and $57.15 Missouri state income tax. That is $52,921.60 a year, an effective tax rate of about 18.6%. A Kansas City or St. Louis earnings tax is not included.",
+      },
+      {
+        q: "Does Missouri have a local income tax?",
+        a: "Only in two cities. Kansas City and St. Louis each levy a 1% earnings tax on salaries, wages, and commissions, charged to residents on all their earnings and to nonresidents on what they earn in the city. Sections 92.111 to 92.200 of the Missouri Revised Statutes forbid any other city from imposing an earnings tax, so a Missouri worker outside those two cities pays no local income tax.",
+      },
+      {
+        q: "Can I deduct federal income tax on my Missouri return?",
+        a: "Yes. Section 143.171 lets an individual deduct a percentage of the federal income tax liability reported for the same year. The percentage is 35% at Missouri gross income of $25,000 or less, 25% from $25,001 to $50,000, 15% from $50,001 to $100,000, and 5% from $100,001 to $125,000, and it drops to zero at $125,001 and above. The deduction is capped at $5,000 on a single return and $10,000 on a combined return.",
+      },
+      {
+        q: "Does Missouri have disability or paid family leave withholding?",
+        a: "No. Missouri operates no state disability insurance program and no state paid family leave program, so neither an SDI nor a PFL deduction appears on a Missouri paycheck. The only state withholding is the graduated income tax, plus the 1% city earnings tax for workers in Kansas City and St. Louis.",
+      },
+      {
+        q: "Do Missouri's tax brackets change every year?",
+        a: "Yes. Section 143.011.5 requires the bracket thresholds to be adjusted annually for inflation, and the Department of Revenue publishes the new brackets each year beginning on or after October 1. The top rate can also fall: subsection 3 allows a 0.15 percentage point cut in any year that net general revenue exceeds the highest of the prior three years by at least $175 million, and subsection 4 allows up to three further cuts of 0.1 point each on a stricter revenue test.",
+      },
+    ],
+    sources: [
+      { label: "Missouri Revisor of Statutes — Section 143.011, Resident individuals: tax rates and rate reductions", url: "https://revisor.mo.gov/main/OneSection.aspx?section=143.011" },
+      { label: "Missouri Revisor of Statutes — Section 143.121, Missouri adjusted gross income (capital gains subtraction)", url: "https://revisor.mo.gov/main/OneSection.aspx?section=143.121" },
+      { label: "Missouri Revisor of Statutes — Section 143.171, Federal income tax deduction", url: "https://revisor.mo.gov/main/OneSection.aspx?section=143.171" },
+      { label: "Missouri Revisor of Statutes — Section 92.111, Limitation on imposition of earnings tax", url: "https://revisor.mo.gov/main/OneSection.aspx?section=92.111" },
+      { label: "Missouri Department of Revenue — Individual Income Tax", url: "https://dor.mo.gov/taxation/individual/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
