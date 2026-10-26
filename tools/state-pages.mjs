@@ -1941,6 +1941,125 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-WI",
+    abbr: "wi",
+    slug: "wisconsin",
+    name: "Wisconsin",
+    example: { salary: 70000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Wisconsin Department of Revenue.
+    hasIncomeTax: true,
+    title: "Wisconsin Paycheck Calculator - Take-Home Pay After WI Tax",
+    description:
+      "Free Wisconsin paycheck calculator. Estimate take-home pay after Wisconsin income tax, federal income tax, Social Security, and Medicare for 2026. No local wage tax.",
+    intro:
+      "Estimate your take-home pay in Wisconsin. Wisconsin taxes wage income on a four-step " +
+      "graduated scale, and it allows a standard deduction that is unusually generous at low " +
+      "incomes, so the state line on a Badger State paycheck is usually modest. Enter your " +
+      "salary and pay frequency to see your net pay per period.",
+    keyHeading: "Does Wisconsin have a state income tax?",
+    keyParagraphs: [
+      "Yes. Wisconsin taxes wage income under section 71.06 of the Wisconsin Statutes on a " +
+        "graduated schedule rather than at one flat rate. The published 2025 schedule for a " +
+        "single filer runs 3.50% on the first $14,680 of taxable income, 4.40% from there to " +
+        "$50,480, 5.30% from $50,480 to $323,290, and 7.65% above that. Married couples filing " +
+        "jointly use wider bands: 3.50% to $19,580, 4.40% to $67,300, 5.30% to $431,060, and " +
+        "7.65% beyond. There is no zero-rate option the way there is in neighboring Iowa or in " +
+        "the no-tax states.",
+      "The calculator on this page applies a simplified three-band version of that schedule: " +
+        "3.5%, 5.575%, and 7.65%, with the middle rate standing in for the two middle statutory " +
+        "steps. It subtracts a flat $12,760 single standard deduction from the 2026 data, which " +
+        "is close to the $13,560 maximum a single filer can claim but does not model the " +
+        "sliding scale described below. Wisconsin levies no local or municipal income tax, so " +
+        "nothing is added for a city or county. Your employer withholds from the Department of " +
+        "Revenue&rsquo;s own tables, so treat the figure here as a close estimate.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums come out first, so they shrink the income that Wisconsin and federal tax are charged on.",
+      "<strong>Wisconsin standard deduction.</strong> Wisconsin uses a sliding standard deduction that pays the full $13,560 for a single filer until Wisconsin income reaches about $19,500, then phases down and reaches zero at about $132,500. The simplified 2026 data here substitutes a flat $12,760, so a high earner should read the state line as an estimate.",
+      "<strong>Wisconsin income tax.</strong> What remains after the deduction runs through the graduated rates, which top out at 7.65% for a single filer above $323,290 of taxable income.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is applied, then the federal marginal brackets for your filing status and Form W-4.",
+      "<strong>FICA.</strong> Social Security at 6.2% of gross pay up to the annual wage base ($184,500 for 2026) and Medicare at 1.45% of all gross pay, plus the 0.9% Additional Medicare Tax above $200,000 of wages.",
+      "<strong>No local or disability deduction.</strong> Wisconsin has no city or county wage tax and no state disability or paid family leave payroll tax, so the state income tax is the only state-level line on the stub.",
+      "The remainder is net take-home pay for that period.",
+    ],
+    compareParagraphs: [
+      "Wisconsin&rsquo;s sliding standard deduction is the feature that sets it apart from its " +
+        "neighbors, and it is unusual enough to mislead. A single filer with $19,000 of " +
+        "Wisconsin income still receives the full $13,560 deduction, but above that the amount " +
+        "shrinks in roughly $60 steps for every $500 of additional income, so by $50,000 of " +
+        "income the deduction has fallen to about $9,876 and by $70,000 to about $7,536. " +
+        "Illinois offers a flat $2,775 personal exemption and no standard deduction at all, " +
+        "and Iowa exempts a fixed amount, so Wisconsin is the only state in the region where " +
+        "the deduction a filer actually receives depends this heavily on how much that filer " +
+        "earns. Minnesota, by contrast, uses a much larger flat standard deduction and simply " +
+        "limits its deductions for high earners.",
+      "The top rate tells a different regional story. Wisconsin&rsquo;s 7.65% marginal rate is " +
+        "the highest of its immediate peers, above Illinois at a flat 4.95%, Iowa at 3.8%, and " +
+        "Michigan at 4.25%. Wisconsin never joined the flat-tax trend of the last decade, and " +
+        "its bracket thresholds are indexed for inflation under section 71.06(2)(e), so the " +
+        "7.65% band begins at $323,290 for a single filer rather than biting at a much lower " +
+        "income. At a typical $70,000 salary the effective Wisconsin rate lands near 4.1%, " +
+        "well under the headline rate, because most of the income is still taxed in the 3.5% " +
+        "and 5.575% bands.",
+      "Wisconsin taxes capital gains as ordinary income. Unlike Missouri or Arkansas, it " +
+        "grants no percentage subtraction for long-term gains, so a gain from selling stock, " +
+        "a fund, or a rental property is added to Wisconsin taxable income and taxed at the " +
+        "same graduated rates that apply to wages. Only a narrow set of Wisconsin investments " +
+        "qualifies for deferral under section 71.05(6)(a)9, and the federal preferential " +
+        "capital gains rate still applies on top.",
+      "Wisconsin runs no state disability insurance program and no paid family leave payroll " +
+        "tax, so no SDI or PFL line appears on a Wisconsin paycheck. That puts it apart from " +
+        "California, New Jersey, New York, Washington, and Massachusetts, all of which " +
+        "withhold for one or both. Wisconsin is also one of the states that lets a resident " +
+        "who works in Illinois, Indiana, Kentucky, or Michigan claim reciprocity, so those " +
+        "wages are taxed by the work state only and no Wisconsin credit for those taxes is " +
+        "allowed.",
+    ],
+    faqs: [
+      {
+        q: "What is the Wisconsin income tax rate for 2026?",
+        a: "Wisconsin taxes wage income on a graduated schedule rather than at one flat rate. For a single filer the published rates run 3.50%, 4.40%, 5.30%, and 7.65%, with the top 7.65% rate applying to taxable income above $323,290. Section 71.06 of the Wisconsin Statutes sets the rates and requires the bracket thresholds to be adjusted for inflation each year.",
+      },
+      {
+        q: "Does Wisconsin have a local income tax?",
+        a: "No. Wisconsin levies no city, county, or municipal income tax on wages. The only local taxes Wisconsin authorizes are sales and use taxes, including the 0.5% county sales tax that 70 counties impose and the additional city of Milwaukee sales tax, and none of those are withheld from a paycheck.",
+      },
+      {
+        q: "What is the Wisconsin standard deduction for 2026?",
+        a: "Wisconsin uses a sliding standard deduction rather than a fixed amount. The maximum is $13,560 for a single filer, $25,110 for a married couple filing jointly, $11,930 for a married person filing separately, and $17,520 for a head of household. A single filer keeps the full $13,560 up to about $19,500 of Wisconsin income, after which the deduction phases down and reaches zero at about $132,500, so the amount a filer actually receives depends on income.",
+      },
+      {
+        q: "How much is taken out of a $70,000 salary in Wisconsin?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,122.89 per paycheck from a $70,000 salary: $2,692.31 gross, $252.69 federal income tax, $166.92 Social Security, $39.04 Medicare, and $110.76 Wisconsin state income tax. That is $55,195.12 a year, an effective tax rate of about 21.2%.",
+      },
+      {
+        q: "Does Wisconsin have disability or paid family leave withholding?",
+        a: "No. Wisconsin operates no state disability insurance program and no state paid family leave program, so neither an SDI nor a PFL deduction appears on a Wisconsin paycheck. The only state withholding is the graduated income tax, and there is no city or county wage tax on top of it.",
+      },
+      {
+        q: "Does Wisconsin tax capital gains?",
+        a: "Yes. Wisconsin has no preferential capital gains rate, so a long-term gain is added to Wisconsin taxable income and taxed at the same graduated rates that apply to wages, up to 7.65%. That contrasts with Missouri and Arkansas, which allow a percentage subtraction, and with the federal treatment, which still applies a lower rate to long-term gains.",
+      },
+      {
+        q: "Does Wisconsin have tax reciprocity with other states?",
+        a: "Wisconsin has reciprocal agreements with Illinois, Indiana, Kentucky, and Michigan. A Wisconsin resident who works in one of those states pays income tax only to the work state and files no Wisconsin return on those wages, and Wisconsin allows no credit for tax paid to those four states. For every other state, a Wisconsin resident claims a credit for taxes paid to the other state on the same income.",
+      },
+      {
+        q: "Are Social Security benefits taxed by Wisconsin?",
+        a: "Wisconsin provides a subtraction for Social Security benefits received, claimed on Schedule SB. The subtraction phases out as income rises, and a filer whose income exceeds the phase-out range pays Wisconsin tax on part of the benefit. Wisconsin does not tax Railroad Retirement benefits or most federal retirement payments the way some states do.",
+      },
+    ],
+    sources: [
+      { label: "Wisconsin Department of Revenue — Individual income tax rates", url: "https://www.revenue.wi.gov/Pages/FAQS/pcs-taxrates.aspx" },
+      { label: "Wisconsin Department of Revenue — Individuals", url: "https://www.revenue.wi.gov/Pages/Individuals/home.aspx" },
+      { label: "Wisconsin Statutes — Section 71.06, Individual income tax rates", url: "https://docs.legis.wisconsin.gov/statutes/statutes/71/vi/06" },
+      { label: "Wisconsin DOR — 2025 Form 1 instructions (standard deduction table)", url: "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

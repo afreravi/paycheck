@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Wisconsin income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wisconsin taxes wage income on a graduated schedule rather than at one flat rate. For a single filer the published rates run 3.50%, 4.40%, 5.30%, and 7.65%, with the top 7.65% rate applying to taxable income above $323,290. Section 71.06 of the Wisconsin Statutes sets the rates and requires the bracket thresholds to be adjusted for inflation each year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Wisconsin have a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Wisconsin levies no city, county, or municipal income tax on wages. The only local taxes Wisconsin authorizes are sales and use taxes, including the 0.5% county sales tax that 70 counties impose and the additional city of Milwaukee sales tax, and none of those are withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Wisconsin standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wisconsin uses a sliding standard deduction rather than a fixed amount. The maximum is $13,560 for a single filer, $25,110 for a married couple filing jointly, $11,930 for a married person filing separately, and $17,520 for a head of household. A single filer keeps the full $13,560 up to about $19,500 of Wisconsin income, after which the deduction phases down and reaches zero at about $132,500, so the amount a filer actually receives depends on income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $70,000 salary in Wisconsin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,122.89 per paycheck from a $70,000 salary: $2,692.31 gross, $252.69 federal income tax, $166.92 Social Security, $39.04 Medicare, and $110.76 Wisconsin state income tax. That is $55,195.12 a year, an effective tax rate of about 21.2%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Wisconsin have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Wisconsin operates no state disability insurance program and no state paid family leave program, so neither an SDI nor a PFL deduction appears on a Wisconsin paycheck. The only state withholding is the graduated income tax, and there is no city or county wage tax on top of it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Wisconsin tax capital gains?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Wisconsin has no preferential capital gains rate, so a long-term gain is added to Wisconsin taxable income and taxed at the same graduated rates that apply to wages, up to 7.65%. That contrasts with Missouri and Arkansas, which allow a percentage subtraction, and with the federal treatment, which still applies a lower rate to long-term gains."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Wisconsin have tax reciprocity with other states?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wisconsin has reciprocal agreements with Illinois, Indiana, Kentucky, and Michigan. A Wisconsin resident who works in one of those states pays income tax only to the work state and files no Wisconsin return on those wages, and Wisconsin allows no credit for tax paid to those four states. For every other state, a Wisconsin resident claims a credit for taxes paid to the other state on the same income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Social Security benefits taxed by Wisconsin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wisconsin provides a subtraction for Social Security benefits received, claimed on Schedule SB. The subtraction phases out as income rises, and a filer whose income exceeds the phase-out range pays Wisconsin tax on part of the benefit. Wisconsin does not tax Railroad Retirement benefits or most federal retirement payments the way some states do."
+      }
+    }
+  ]
+}
