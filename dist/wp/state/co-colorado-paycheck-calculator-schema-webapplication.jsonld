@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Colorado Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/colorado",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Colorado paycheck calculator. Estimate take-home pay after Colorado's 4.40% flat income tax, federal income tax, Social Security, and Medicare for 2026."
+}
