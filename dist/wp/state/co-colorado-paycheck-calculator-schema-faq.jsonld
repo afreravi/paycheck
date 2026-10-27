@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Colorado income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Colorado charges one flat rate of 4.40% on wage income, set by C.R.S. § 39-22-104. A separate statute, C.R.S. § 39-22-627, allows the rate to drop temporarily to 4.25% in any year the state projects a TABOR surplus of at least $300 million, so the withheld rate can be slightly lower than 4.40%. Colorado does not use graduated brackets, so the same 4.40% applies to every dollar of taxable income above the standard deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Colorado have a local or city income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Colorado levies no city, county, or municipal income tax on wages, so nothing is withheld for Denver, Boulder, Aurora, or any other Colorado city. The only local charge on a Denver paycheck is the city's Occupational Privilege Tax of $5.75 per month, which applies to employees earning $500 or more in a month and is not an income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the FAMLI deduction on a Colorado paycheck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FAMLI is Colorado's Family and Medical Leave Insurance premium, funded by a 0.88% charge on covered wages for 2026, split evenly between employee and employer at 0.44% each. The employee share is withheld from wages up to the Social Security wage base of $184,500, so the maximum employee contribution is about $811.80 for the year. Employers with fewer than ten employees nationwide still withhold the employee 0.44% but pay no employer share. It is an insurance premium, not an income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $68,000 salary in Colorado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,089.17 per paycheck from a $68,000 salary: $2,615.38 gross, $235.77 federal income tax, $162.15 Social Security, $37.92 Medicare, and $90.37 Colorado state income tax. That is $54,318.40 a year, an effective tax rate of about 20.1%, before the FAMLI premium of roughly $11.51 per paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Colorado have a state disability insurance program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Colorado does not operate a state disability insurance program, so no SDI line appears on a Colorado paycheck. The only state-level payroll deduction beyond income tax is the FAMLI family and medical leave premium of 0.44% paid by the employee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Colorado's standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Colorado does not publish a standard deduction table of its own; it starts from federal taxable income, so a filer receives whatever federal standard deduction or itemized deductions they claimed. The calculator on this page substitutes a flat amount: $14,600 for a single filer, $29,200 for a married couple filing jointly, and $21,900 for a head of household. Above $300,000 of federal adjusted gross income, C.R.S. § 39-22-104(3)(p.5) limits how much of that deduction a high earner can use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Colorado tax Social Security benefits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Colorado starts from federal taxable income, so the state follows the federal treatment of Social Security benefits. If a portion of your benefits is taxable federally, that same portion is part of the Colorado starting figure, and Colorado subtracts its standard deduction and applies the flat 4.40% rate to what remains. Colorado grants no separate subtraction that exempts Social Security from state tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Colorado have an earned income tax credit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Colorado's Earned Income Tax Credit equals a percentage of the federal credit: 50% for tax year 2025 and 25% for tax year 2026. It is refundable, so if the credit exceeds the Colorado tax owed the balance is refunded, and it is claimed on the annual Colorado return rather than through payroll withholding, so it does not change a paycheck."
+      }
+    }
+  ]
+}

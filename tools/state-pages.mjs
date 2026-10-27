@@ -2060,6 +2060,135 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-CO",
+    abbr: "co",
+    slug: "colorado",
+    name: "Colorado",
+    example: { salary: 68000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Colorado: one flat state rate, no local income tax, plus the FAMLI premium.
+    hasIncomeTax: true,
+    title: "Colorado Paycheck Calculator - Take-Home Pay After CO Tax",
+    description:
+      "Free Colorado paycheck calculator. Estimate take-home pay after Colorado's 4.40% flat income tax, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "See what a Colorado paycheck leaves behind. Colorado charges one flat rate on wage " +
+      "income instead of a bracket ladder, so the state line on a Centennial State stub is " +
+      "easy to predict, and the state has no city or county wage tax to layer on top. The " +
+      "one extra state deduction most people miss is the FAMLI family-leave premium. Enter " +
+      "your pay rate and frequency for net pay per period.",
+    keyHeading: "How Colorado taxes a paycheck",
+    keyParagraphs: [
+      "Colorado taxes wage income at a single flat rate rather than on a graduated scale. " +
+        "C.R.S. &sect; 39-22-104 sets the standard individual income tax rate at 4.40%, and " +
+        "the same percentage applies to a single filer, a married couple filing jointly, and " +
+        "every income level above the standard deduction. A second statute, C.R.S. &sect; " +
+        "39-22-627, can temporarily cut the rate to 4.25% for any tax year in which the state " +
+        "projects a TABOR surplus of at least $300 million, which is why a Colorado stub " +
+        "sometimes withholds a fraction less than the headline rate. The calculator on this " +
+        "page applies the standard 4.40%.",
+      "Colorado also starts its calculation from the federal one. Instead of a deduction " +
+        "table of its own, the state begins with federal taxable income, so whatever federal " +
+        "standard deduction or itemized deductions you claim flow straight into the Colorado " +
+        "figure. That is why a Colorado taxpayer who itemizes on the federal return does not " +
+        "get a second, separate state deduction. Above $300,000 of federal adjusted gross " +
+        "income the state adds back part of those deductions under C.R.S. &sect; 39-22-104(3)" +
+        "(p.5), but at ordinary salaries the deduction carries through in full.",
+      "The deduction the calculator applies for 2026 is a flat $14,600 for a single filer, " +
+        "$29,200 for a married couple filing jointly, and $21,900 for a head of household. " +
+        "Colorado's own return would instead carry over the federal standard deduction " +
+        "amount for the year, so treat the state line here as a close estimate rather than a " +
+        "reproduction of the Department of Revenue&rsquo;s withholding tables. Colorado has no " +
+        "city, county, or municipal income tax, so nothing is added for Denver, Boulder, or " +
+        "Colorado Springs, and the state runs no disability insurance program.",
+    ],
+    calcSteps: [
+      "Start with gross pay for the period. A $68,000 salary paid biweekly is $2,615.38 before any deduction.",
+      "Subtract pre-tax elections first. A 401(k), HSA, or health premium lowers federal taxable income, and Colorado begins its own calculation from the federal figure, so the same contribution reduces the state bill too.",
+      "Subtract Colorado income tax. The state applies its flat 4.40% rate to the income left after the standard deduction, so a $68,000 salary is taxed at 4.40% on $53,400, or $2,349.60 for the year.",
+      "Subtract federal income tax, withheld under the IRS percentage method for your filing status and Form W-4.",
+      "Subtract Social Security at 6.2% of gross pay up to the annual wage base ($184,500 for 2026) and Medicare at 1.45% of all gross pay, plus the 0.9% Additional Medicare Tax above $200,000 of wages.",
+      "Subtract nothing for a local income tax. Colorado cities and counties levy no wage tax, so the state rate is the only state-level income tax on the stub.",
+      "The remainder is net take-home pay for that period.",
+    ],
+    compareParagraphs: [
+      "Colorado is the rare state that charges one flat rate and also has no local wage tax, " +
+        "which makes the state line unusually simple. Utah, its western neighbor, also uses a " +
+        "flat rate but arrives at it differently: Utah applies a 4.55% rate to income after a " +
+        "taxpayer credit, so its effective state rate slides with income instead of staying " +
+        "flat. Kansas and Nebraska both use graduated ladders that top out at 5.58% and 5.20%, " +
+        "and New Mexico starts at 1.5% and climbs to 5.9%. At a $68,000 salary Colorado's 4.40% " +
+        "lands below all three, and because the rate does not change with income, the effective " +
+        "state rate here is the same 4.40% for a $30,000 earner and a $300,000 earner.",
+      "The FAMLI premium is the deduction that sets Colorado apart from the no-tax states and " +
+        "catches people off guard. Colorado voters approved the Family and Medical Leave " +
+        "Insurance program in 2020, and C.R.S. &sect; 8-13.3-506 funds it with a premium of " +
+        "0.88% of covered wages for 2026, split evenly between employee and employer at 0.44% " +
+        "each. The employee share is withheld from wages up to the Social Security wage base of " +
+        "$184,500, so the most a Colorado worker contributes in 2026 is about $811.80, and an " +
+        "employer with fewer than ten employees nationwide still withholds the employee 0.44% " +
+        "even though it is exempt from the employer half. It is an insurance premium rather " +
+        "than an income tax, which is how Colorado collects it alongside a flat income tax.",
+      "The calculator on this page reports the state income tax only and does not subtract " +
+        "the FAMLI premium, so a Colorado paycheck in practice nets slightly less than the " +
+        "figure shown. At $68,000 the employee share is about $299.20 a year, or roughly $11.51 " +
+        "per biweekly paycheck. Denver adds one more wrinkle that is not an income tax: the " +
+        "city&rsquo;s Occupational Privilege Tax is $5.75 a month withheld from an employee who " +
+        "earns $500 or more in a month working inside the city, with the employer paying a " +
+        "separate $4.00 per month. No other Colorado city charges anything comparable, and the " +
+        "state has no SDI line at all.",
+      "Against its neighbors, Colorado sits in the middle of the pack on rate and near the top " +
+        "on simplicity. Arizona charges a flat 2.5%, the lowest in the region, and Wyoming has " +
+        "no income tax at all, so both leave more in a paycheck than Colorado does. Kansas, " +
+        "Nebraska, Oklahoma, and New Mexico all charge more at the margin than Colorado&rsquo;s " +
+        "4.40%. Colorado also grants a state Earned Income Tax Credit that is a percentage of " +
+        "the federal credit &mdash; 50% for tax year 2025 and 25% for tax year 2026 &mdash; but " +
+        "that credit is claimed on the annual return and changes nothing on a paycheck.",
+    ],
+    faqs: [
+      {
+        q: "What is the Colorado income tax rate for 2026?",
+        a: "Colorado charges one flat rate of 4.40% on wage income, set by C.R.S. § 39-22-104. A separate statute, C.R.S. § 39-22-627, allows the rate to drop temporarily to 4.25% in any year the state projects a TABOR surplus of at least $300 million, so the withheld rate can be slightly lower than 4.40%. Colorado does not use graduated brackets, so the same 4.40% applies to every dollar of taxable income above the standard deduction.",
+      },
+      {
+        q: "Does Colorado have a local or city income tax?",
+        a: "No. Colorado levies no city, county, or municipal income tax on wages, so nothing is withheld for Denver, Boulder, Aurora, or any other Colorado city. The only local charge on a Denver paycheck is the city's Occupational Privilege Tax of $5.75 per month, which applies to employees earning $500 or more in a month and is not an income tax.",
+      },
+      {
+        q: "What is the FAMLI deduction on a Colorado paycheck?",
+        a: "FAMLI is Colorado's Family and Medical Leave Insurance premium, funded by a 0.88% charge on covered wages for 2026, split evenly between employee and employer at 0.44% each. The employee share is withheld from wages up to the Social Security wage base of $184,500, so the maximum employee contribution is about $811.80 for the year. Employers with fewer than ten employees nationwide still withhold the employee 0.44% but pay no employer share. It is an insurance premium, not an income tax.",
+      },
+      {
+        q: "How much is taken out of a $68,000 salary in Colorado?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,089.17 per paycheck from a $68,000 salary: $2,615.38 gross, $235.77 federal income tax, $162.15 Social Security, $37.92 Medicare, and $90.37 Colorado state income tax. That is $54,318.40 a year, an effective tax rate of about 20.1%, before the FAMLI premium of roughly $11.51 per paycheck.",
+      },
+      {
+        q: "Does Colorado have a state disability insurance program?",
+        a: "No. Colorado does not operate a state disability insurance program, so no SDI line appears on a Colorado paycheck. The only state-level payroll deduction beyond income tax is the FAMLI family and medical leave premium of 0.44% paid by the employee.",
+      },
+      {
+        q: "What is Colorado's standard deduction for 2026?",
+        a: "Colorado does not publish a standard deduction table of its own; it starts from federal taxable income, so a filer receives whatever federal standard deduction or itemized deductions they claimed. The calculator on this page substitutes a flat amount: $14,600 for a single filer, $29,200 for a married couple filing jointly, and $21,900 for a head of household. Above $300,000 of federal adjusted gross income, C.R.S. § 39-22-104(3)(p.5) limits how much of that deduction a high earner can use.",
+      },
+      {
+        q: "Does Colorado tax Social Security benefits?",
+        a: "Colorado starts from federal taxable income, so the state follows the federal treatment of Social Security benefits. If a portion of your benefits is taxable federally, that same portion is part of the Colorado starting figure, and Colorado subtracts its standard deduction and applies the flat 4.40% rate to what remains. Colorado grants no separate subtraction that exempts Social Security from state tax.",
+      },
+      {
+        q: "Does Colorado have an earned income tax credit?",
+        a: "Yes. Colorado's Earned Income Tax Credit equals a percentage of the federal credit: 50% for tax year 2025 and 25% for tax year 2026. It is refundable, so if the credit exceeds the Colorado tax owed the balance is refunded, and it is claimed on the annual Colorado return rather than through payroll withholding, so it does not change a paycheck.",
+      },
+    ],
+    sources: [
+      { label: "Colorado Department of Revenue — Individual income tax", url: "https://tax.colorado.gov/individual-income-tax" },
+      { label: "C.R.S. § 39-22-104 — Income tax imposed on individuals", url: "https://colorado.public.law/statutes/crs_39-22-104" },
+      { label: "C.R.S. § 8-13.3-506 — FAMLI premiums", url: "https://colorado.public.law/statutes/crs_8-13.3-506" },
+      { label: "Colorado FAMLI Division — Employer guidance", url: "https://famli.colorado.gov/employers" },
+      { label: "Denver Department of Finance — Business taxes", url: "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Finance" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
