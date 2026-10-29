@@ -2189,6 +2189,122 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-MN",
+    abbr: "mn",
+    slug: "minnesota",
+    name: "Minnesota",
+    example: { salary: 76000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Minnesota Department of Revenue
+    // and Minnesota Statutes 290.06, 290.0123, and 268B.14.
+    hasIncomeTax: true,
+    title: "Minnesota Paycheck Calculator - Take-Home Pay After MN Tax",
+    description:
+      "Free Minnesota paycheck calculator. Estimate 2026 take-home pay after Minnesota's graduated income tax, the state standard deduction, Paid Leave, federal tax, and FICA.",
+    intro:
+      "Estimate your take-home pay in Minnesota. The state taxes wage income on a " +
+      "graduated scale that starts at 5.35% and reaches 9.85%, and from 2026 it also " +
+      "withholds a Paid Leave premium. There is no city or county wage tax anywhere in " +
+      "Minnesota, so a Minneapolis paycheck and a Duluth paycheck face the same state " +
+      "withholding. Enter your salary and pay frequency to see your net pay per period.",
+    keyHeading: "Does Minnesota have a state income tax?",
+    keyParagraphs: [
+      "Yes. Minnesota Statutes 290.06, subdivision 2c sets four graduated rates on taxable " +
+        "net income: 5.35%, 6.8%, 7.85%, and 9.85%. The top 9.85% rate is the fourth-highest " +
+        "state rate in the country, and it applies to unmarried filers once taxable income " +
+        "passes $161,720. Because the rates are graduated, the 9.85% figure is a marginal " +
+        "rate on the last dollar earned, not the rate charged on the whole salary; a " +
+        "$76,000 earner pays a blend of the first two rates.",
+      "Minnesota starts from federal taxable income, so a Minnesota return begins with the " +
+        "same adjusted gross income the IRS uses, then subtracts the state standard deduction " +
+        "in section 290.0123. For 2026 the data used here applies $14,575 for a single filer " +
+        "and $29,150 for a married couple filing jointly, with a separate head-of-household " +
+        "figure between the two. That deduction is not permanent: subdivision 5 limits it as " +
+        "income rises, so high earners lose part of the allowance and effectively pay the " +
+        "graduated rates on a larger base.",
+      "The calculator on this page applies the simplified 2026 data held in this repo: three " +
+        "bands per filing status, at 5.35%, 7.6%, and 9.85%, after the $14,575 single " +
+        "deduction. That compresses the statutory 6.8% and 7.85% middle rates into one band " +
+        "and places the band edges at $15,000 and $100,000 rather than at the statutory " +
+        "$26,520 and $87,110 for a single filer. A Minnesota earner whose income sits near " +
+        "one of those edges should treat the state line here as an estimate and check the " +
+        "Department of Revenue withholding tables.",
+      "Minnesota also withholds a Paid Leave premium beginning in 2026. Minnesota Statutes " +
+        "268B.14, subdivision 6 sets the 2026 employer premium rate at 0.7% for an employer " +
+        "offering both the family and medical benefit programs, and subdivision 3 requires " +
+        "the employer to pay at least half of the total premium, with the employee paying " +
+        "the balance through a wage deduction. Subdivision 4 caps the wages subject to the " +
+        "premium at the Social Security wage base for the year. The calculator on this page " +
+        "does not yet subtract this line.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Annual salary divided by the number of pay periods you selected, or hourly rate times hours worked for an hourly employee.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health insurance premiums come out first, and they lower the wages that both Minnesota and the IRS tax.",
+      "<strong>Minnesota standard deduction.</strong> The 2026 data used here subtracts $14,575 for a single filer before any state tax is charged. Section 290.0123 phases that allowance down at higher incomes.",
+      "<strong>Minnesota income tax.</strong> The remainder runs through graduated bands at 5.35%, 7.6%, and 9.85% in the simplified data. The statutory middle rates are 6.8% and 7.85%, so a salary near a band edge will differ slightly from a payroll system that uses the Department of Revenue tables.",
+      "<strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied separately to the same wages.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the 2026 wage base of $184,500, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass $200,000 for a single filer.",
+      "<strong>Minnesota Paid Leave.</strong> A premium on wages up to the Social Security wage base, split so that the employer pays at least half and the employee pays the rest by wage deduction. The calculator does not yet subtract this line.",
+    ],
+    compareParagraphs: [
+      "Minnesota is a high-rate state by design rather than by accident of geography. Its " +
+        "9.85% top rate sits above Wisconsin's 7.65%, above Iowa's 3.8% flat rate, and above " +
+        "the 4.40% flat rate Colorado charges, but below California's 13.3% and New York's " +
+        "10.9% top rate. The practical effect for a $76,000 salary is muted: because the " +
+        "first $15,000 of taxable income is charged at 5.35% and the rest at the middle " +
+        "rate, a Minnesota paycheck withholds less state tax than the top rate suggests.",
+      "Minnesota has no local income tax, which separates it from New York, where New York " +
+        "City and Yonkers add a municipal tax, from Pennsylvania, where most municipalities " +
+        "and school districts levy an earned income tax, and from Ohio, where cities tax " +
+        "wages where the work is performed. Minnesota also ran no state disability insurance " +
+        "program until 2026; the Paid Leave premium is the state's first payroll deduction " +
+        "of that kind, and it is narrower than California's SDI or New Jersey's combined " +
+        "TDI and FLI because it stops at the Social Security wage base.",
+    ],
+    faqs: [
+      {
+        q: "Does Minnesota have a state income tax?",
+        a: "Yes. Minnesota taxes wage income on a graduated scale under Minnesota Statutes 290.06, subdivision 2c, with rates of 5.35%, 6.8%, 7.85%, and 9.85%. The 9.85% rate applies to the portion of taxable income above $161,720 for an unmarried filer and above $269,010 for a married couple filing jointly.",
+      },
+      {
+        q: "What is the Minnesota standard deduction for 2026?",
+        a: "Minnesota Statutes 290.0123 sets the standard deduction, and the 2026 data used here applies $14,575 for a single filer and $29,150 for a married couple filing jointly, with a separate head-of-household figure in between. The married-filing-separately amount is one-half of the married-joint amount. Subdivision 5 phases the deduction down as income rises, so high earners do not receive the full allowance.",
+      },
+      {
+        q: "Does Minnesota have a Paid Leave payroll deduction?",
+        a: "Yes, beginning with wages paid in 2026. Minnesota Statutes 268B.14, subdivision 6 sets the 2026 employer premium rate at 0.7% for an employer offering both the family and medical benefit programs, and subdivision 3 requires the employer to pay at least half of the total premium. The employee pays the remaining share through a wage deduction, and subdivision 4 caps the wages subject to the premium at the Social Security wage base.",
+      },
+      {
+        q: "Do Minnesota cities or counties charge a local income tax?",
+        a: "No. Minnesota municipalities and counties do not levy an income tax on wages. Local revenue in Minnesota comes from property taxes, local sales taxes such as the one Duluth and the Twin Cities metro area collect, and fees, none of which are withheld from a paycheck.",
+      },
+      {
+        q: "How much is taken out of a $76,000 salary in Minnesota?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,229.43 per paycheck from a $76,000 salary: $2,923.08 gross, $303.46 federal income tax, $181.23 Social Security, $42.38 Medicare, and $166.57 Minnesota state income tax. That is about $57,965.20 a year. The Paid Leave premium comes out on top of that figure.",
+      },
+      {
+        q: "Does Minnesota tax Social Security benefits?",
+        a: "Minnesota starts its income tax from federal taxable income, so benefits that are taxable at the federal level are part of the Minnesota starting figure. Minnesota does offer a subtraction for some taxpayers who receive Social Security benefits, but it is limited by income and filing status and is claimed on the annual return rather than through paycheck withholding.",
+      },
+      {
+        q: "Is Minnesota's 9.85% rate charged on my whole salary?",
+        a: "No. Minnesota uses graduated brackets, so 9.85% applies only to the dollars of taxable income above $161,720 for an unmarried filer, above $214,980 for a head of household, and above $269,010 for a married couple filing jointly. A $76,000 salary is taxed at the lower rates on every dollar, which is why the effective state rate on that salary is far below 9.85%.",
+      },
+      {
+        q: "Do you have to file a Minnesota state tax return?",
+        a: "Yes, if you meet the filing thresholds. Minnesota requires a state return from residents whose income exceeds the threshold for their filing status, and Minnesota's thresholds are low enough that most wage earners with a regular job file. Minnesota also has a reciprocity agreement with Wisconsin, Michigan, and North Dakota that changes which state taxes certain income earned across the border.",
+      },
+    ],
+    sources: [
+      { label: "Minnesota Department of Revenue — Income tax", url: "https://www.revenue.state.mn.us/income-tax" },
+      { label: "Minnesota Statutes 290.06 — Rates of tax; credits", url: "https://www.revisor.mn.gov/statutes/cite/290.06" },
+      { label: "Minnesota Statutes 290.0123 — Standard deduction", url: "https://www.revisor.mn.gov/statutes/cite/290.0123" },
+      { label: "Minnesota Statutes 268B.14 — Paid Leave premiums", url: "https://www.revisor.mn.gov/statutes/cite/268B.14" },
+      { label: "Minnesota Paid Leave — Premium rate and contributions", url: "https://mn.gov/deed/programs-services/paid-leave/employers/premium-rate.jsp" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
