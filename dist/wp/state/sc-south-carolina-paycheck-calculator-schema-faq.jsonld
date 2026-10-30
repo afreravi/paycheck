@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does South Carolina have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. For 2026 South Carolina taxes wage income at two rates under Section 12-6-510: 1.99% on taxable income below $30,000 and 5.21% on taxable income of $30,000 or more. Act No. 110 of 2026 replaced the previous graduated schedule, which had climbed to a 6% top rate for 2025."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the South Carolina income tax brackets for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are only two. Taxable income under $30,000 is charged 1.99%. Taxable income of $30,000 or more is charged 5.21% of the amount minus $966, which makes the tax continuous at the $30,000 threshold. The brackets are indexed for inflation each December under Section 12-6-520, capped at a four percent annual adjustment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the South Carolina Income Adjusted Deduction (SCIAD)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SCIAD is the deduction South Carolina created for 2026 when it stopped using the federal standard deduction. It is $15,000 for a single filer or a married person filing separately, $22,500 for a head of household, and $30,000 for a married couple filing jointly or a surviving spouse. It is reduced as federal adjusted gross income rises, and the Department of Revenue published the phase-down formula in Information Letter #26-20."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does South Carolina tax Social Security and retirement income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "South Carolina does not tax Social Security benefits, and Section 12-6-1170 allows a deduction for other retirement income: up to $3,000 before age 65 and up to $10,000 from age 65, plus a further $15,000 deduction for filers 65 and older. Those breaks apply to retirement income rather than to the wages this calculator models."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do South Carolina cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. South Carolina has no municipal or county income tax on wages. Local revenue comes from property taxes and local sales and use taxes, which are collected on property or at the register rather than withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does South Carolina withhold disability or paid family leave tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. South Carolina operates no state disability insurance program and no state paid family leave payroll tax, so neither is deducted from a paycheck. South Carolina unemployment insurance is an employer-paid tax, not an employee withholding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in South Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,901.83 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $36.25 South Carolina state income tax. That is $49,447.60 a year, an effective tax rate of about 17.6%. The state figure uses this calculator's simplified dataset and runs slightly high against the current 5.21% rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does South Carolina have an earned income tax credit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Section 12-6-3632 allows a nonrefundable credit equal to 125% of the federal earned income tax credit, capped at $200. South Carolina also allows a two-wage-earner credit for married couples filing jointly when both spouses have earned income, limited to 0.7% of the lower earner's qualified income up to $50,000."
+      }
+    }
+  ]
+}

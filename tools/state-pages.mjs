@@ -2305,6 +2305,124 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-SC",
+    abbr: "sc",
+    slug: "south-carolina",
+    name: "South Carolina",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the South Carolina Department of
+    // Revenue (Information Letter #26-20) and S.C. Code 12-6-510, 12-6-1170,
+    // 12-6-3632, and 12-6-520.
+    hasIncomeTax: true,
+    title: "South Carolina Paycheck Calculator - Take-Home Pay After SC Tax",
+    description:
+      "Free South Carolina paycheck calculator. Estimate take-home pay after South Carolina's two-bracket 2026 income tax, the new SCIAD deduction, federal tax, and FICA.",
+    intro:
+      "Estimate your take-home pay in South Carolina. For 2026 the state collapsed its " +
+      "graduated income tax into two rates and stopped using the federal standard deduction, " +
+      "replacing it with a South Carolina Income Adjusted Deduction. South Carolina charges " +
+      "no local income tax and withholds nothing for disability or paid family leave, so the " +
+      "state line is the only state-level deduction on a paycheck. Enter your salary and pay " +
+      "frequency to see your net pay per period.",
+    keyHeading: "How does South Carolina tax a paycheck in 2026?",
+    keyParagraphs: [
+      "South Carolina taxes wage income at two rates for 2026. Act No. 110 of 2026 rewrote " +
+        "Section 12-6-510 and set 1.99% on taxable income below $30,000 and 5.21% on taxable " +
+        "income of $30,000 or more, where the higher bracket is computed as 5.21% of the whole " +
+        "amount minus a flat $966. That replaced the schedule that applied for 2025, which " +
+        "topped out at 6%, and the six-step table beneath it that ran from 2.5% to 7%, and the " +
+        "act instructs the Department " +
+        "of Revenue to rework the withholding tables to match. Section 12-6-510 also directs " +
+        "further cuts toward a single rate, and then toward zero, if individual income tax " +
+        "revenue grows by at least five percent in a year, so the two-rate structure is a " +
+        "stage in a planned reduction rather than a fixed schedule.",
+      "The same act decoupled South Carolina from the federal standard deduction. A South " +
+        "Carolina return now begins with federal adjusted gross income instead of federal " +
+        "taxable income and subtracts a new South Carolina Income Adjusted Deduction, or " +
+        "SCIAD, that stands in for the federal deduction the state no longer adopts. The SCIAD " +
+        "is $15,000 for a single filer or a married person filing separately, $22,500 for a " +
+        "head of household, and $30,000 for a married couple filing jointly or a surviving " +
+        "spouse. Unlike a flat standard deduction, it shrinks as federal AGI rises; the " +
+        "Department of Revenue published the phase-down formula in Information Letter #26-20 " +
+        "and said a SCIAD calculator would follow on MyDORWAY.",
+      "The calculator on this page still runs the simplified dataset held in this repository, " +
+        "which was generated before Act No. 110 took effect: a $14,600 deduction for a single " +
+        "filer and three bands at 0%, 3.1%, and 6.2%. Those figures overstate the state tax on " +
+        "a middle salary, because the 2026 law charges 5.21% at the top instead of 6.2% and " +
+        "allows $15,000 instead of $14,600. Use the South Carolina line here as an estimate and " +
+        "confirm it against the Department of Revenue withholding tables.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your annual salary, or an hourly rate times hours worked, expressed as one paycheck for the pay frequency you chose.",
+      "<strong>Pre-tax deductions.</strong> A traditional 401(k), an HSA, or a health premium reduces the wages that both federal and South Carolina income tax are charged on.",
+      "<strong>South Carolina deduction.</strong> This dataset subtracts $14,600 for a single filer before any state tax is charged. The 2026 law replaces that with the SCIAD of $15,000, phased down as federal AGI rises.",
+      "<strong>South Carolina income tax.</strong> The remainder runs through the dataset's three bands at 0%, 3.1%, and 6.2%. The statutory 2026 rates are 1.99% below $30,000 of taxable income and 5.21% minus $966 above it, so a payroll system using the current tables will withhold less.",
+      "<strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied to the same wages, separately from the South Carolina calculation.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the 2026 wage base of $184,500, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass $200,000 for a single filer.",
+    ],
+    compareParagraphs: [
+      "South Carolina's 5.21% top rate is the highest of its immediate neighbors that tax " +
+        "wages, sitting above Georgia's flat 4.99% and North Carolina's flat 4.25%, but its " +
+        "1.99% bottom rate is the lowest of the three. Because South Carolina applies the low " +
+        "rate to the first $30,000 of taxable income and only then steps up, a modest salary is " +
+        "taxed at an effective state rate well under 5.21%, and a low earner keeps more than " +
+        "the same salary would keep in Georgia or North Carolina. South Carolina also reached " +
+        "5.21% by a deliberate multi-year cut from a 7% top rate in 2021, rather than by " +
+        "indexing an unchanged schedule.",
+      "South Carolina levies no city or county income tax, which separates it from New York, " +
+        "where New York City and Yonkers add a municipal tax, from Pennsylvania, where most " +
+        "municipalities and school districts charge an earned income tax, and from Ohio, where " +
+        "cities tax wages where the work is performed. South Carolina also runs no state " +
+        "disability insurance and no paid family leave payroll tax, so a paycheck carries no " +
+        "state leave premium the way it does in California, New Jersey, or Washington. South " +
+        "Carolina softens the wage tax in other ways: Section 12-6-1170 lets a taxpayer deduct " +
+        "up to $3,000 of retirement income before age 65 and $10,000 at 65 or older, with a " +
+        "further $15,000 for filers 65 and up, and Section 12-6-3632 grants an earned income " +
+        "tax credit equal to 125% of the federal credit, capped at $200.",
+    ],
+    faqs: [
+      {
+        q: "Does South Carolina have a state income tax?",
+        a: "Yes. For 2026 South Carolina taxes wage income at two rates under Section 12-6-510: 1.99% on taxable income below $30,000 and 5.21% on taxable income of $30,000 or more. Act No. 110 of 2026 replaced the previous graduated schedule, which had climbed to a 6% top rate for 2025.",
+      },
+      {
+        q: "What are the South Carolina income tax brackets for 2026?",
+        a: "There are only two. Taxable income under $30,000 is charged 1.99%. Taxable income of $30,000 or more is charged 5.21% of the amount minus $966, which makes the tax continuous at the $30,000 threshold. The brackets are indexed for inflation each December under Section 12-6-520, capped at a four percent annual adjustment.",
+      },
+      {
+        q: "What is the South Carolina Income Adjusted Deduction (SCIAD)?",
+        a: "The SCIAD is the deduction South Carolina created for 2026 when it stopped using the federal standard deduction. It is $15,000 for a single filer or a married person filing separately, $22,500 for a head of household, and $30,000 for a married couple filing jointly or a surviving spouse. It is reduced as federal adjusted gross income rises, and the Department of Revenue published the phase-down formula in Information Letter #26-20.",
+      },
+      {
+        q: "Does South Carolina tax Social Security and retirement income?",
+        a: "South Carolina does not tax Social Security benefits, and Section 12-6-1170 allows a deduction for other retirement income: up to $3,000 before age 65 and up to $10,000 from age 65, plus a further $15,000 deduction for filers 65 and older. Those breaks apply to retirement income rather than to the wages this calculator models.",
+      },
+      {
+        q: "Do South Carolina cities or counties charge a local income tax?",
+        a: "No. South Carolina has no municipal or county income tax on wages. Local revenue comes from property taxes and local sales and use taxes, which are collected on property or at the register rather than withheld from a paycheck.",
+      },
+      {
+        q: "Does South Carolina withhold disability or paid family leave tax?",
+        a: "No. South Carolina operates no state disability insurance program and no state paid family leave payroll tax, so neither is deducted from a paycheck. South Carolina unemployment insurance is an employer-paid tax, not an employee withholding.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in South Carolina?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,901.83 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $36.25 South Carolina state income tax. That is $49,447.60 a year, an effective tax rate of about 17.6%. The state figure uses this calculator's simplified dataset and runs slightly high against the current 5.21% rate.",
+      },
+      {
+        q: "Does South Carolina have an earned income tax credit?",
+        a: "Yes. Section 12-6-3632 allows a nonrefundable credit equal to 125% of the federal earned income tax credit, capped at $200. South Carolina also allows a two-wage-earner credit for married couples filing jointly when both spouses have earned income, limited to 0.7% of the lower earner's qualified income up to $50,000.",
+      },
+    ],
+    sources: [
+      { label: "South Carolina Department of Revenue — Individual Income Tax", url: "https://dor.sc.gov/tax/individual-income-tax" },
+      { label: "South Carolina Department of Revenue — Withholding", url: "https://dor.sc.gov/tax/withholding" },
+      { label: "S.C. Code Title 12, Chapter 6 — Section 12-6-510 (rates) and 12-6-1170 (retirement deduction)", url: "https://www.scstatehouse.gov/code/t12c006.php" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
