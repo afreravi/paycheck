@@ -2305,6 +2305,112 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-AL",
+    abbr: "al",
+    slug: "alabama",
+    name: "Alabama",
+    example: { salary: 55000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Alabama Department of Revenue,
+    // Code of Alabama 1975 § 40-18-5, and the overtime deduction in Act 2026-604.
+    hasIncomeTax: true,
+    title: "Alabama Paycheck Calculator - Take-Home Pay After AL Tax",
+    description:
+      "Free Alabama paycheck calculator. Estimate take-home pay after Alabama's 2%, 4%, and 5% income tax brackets, the personal exemption, and federal withholdings for 2026.",
+    intro:
+      "See what an Alabama paycheck keeps after tax. Alabama taxes wages on a short " +
+      "three-bracket schedule that tops out at 5%, and it lets a filer subtract the " +
+      "federal income tax they paid along with a personal exemption. Enter your salary " +
+      "and pay frequency to see the federal, state, and FICA amounts that leave each " +
+      "period.",
+    keyHeading: "How does Alabama tax a paycheck?",
+    keyParagraphs: [
+      "Alabama taxes wage income on a graduated schedule with only three brackets. For a " +
+        "single filer, a head of family, or a married person filing separately, the first " +
+        "$500 of taxable income is taxed at 2%, the next $2,500 at 4%, and everything above " +
+        "$3,000 at 5%. A married couple filing jointly gets the same rates on wider bands: " +
+        "2% on the first $1,000, 4% on the next $5,000, and 5% above $6,000. The 5% top rate " +
+        "is one of the lowest ceilings among the states that tax wages, and the Code of " +
+        "Alabama sets these rates in § 40-18-5.",
+      "Two features separate Alabama from most states. First, Alabama allows a deduction " +
+        "for the federal income tax a taxpayer paid, so the state does not simply start " +
+        "from federal taxable income. Second, Alabama grants a personal exemption of " +
+        "$1,500 for a single filer, a married person filing separately, or a head of " +
+        "family, and $3,000 for a married couple filing jointly. The 2026 data behind this " +
+        "calculator applies a $3,000 single-filer standard deduction to stand in for those " +
+        "adjustments, so the state line here is an estimate rather than the figure an " +
+        "employer withholds.",
+      "Alabama levies no local or county income tax on wages. A handful of the larger " +
+        "cities, including Birmingham, Montgomery, and Gadsden, charge a municipal " +
+        "occupational tax of about 1% or less under their own ordinances, and this " +
+        "calculator does not model it, so a worker inside one of those city limits nets " +
+        "slightly less. The state also runs no disability insurance fund and no paid family " +
+        "leave payroll tax, so no state leave benefit is withheld.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Take your yearly salary, or an hourly rate multiplied by hours worked, and express it as one paycheck for your pay frequency.",
+      "<strong>Pre-tax deductions first.</strong> A traditional 401(k), an HSA, or a health premium lowers the wages that federal and Alabama income tax are charged on.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is removed, then the remaining income runs up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45%, and the extra 0.9% Medicare tax above the high-earner threshold.",
+      "<strong>Alabama income tax.</strong> Alabama subtracts its standard deduction and then applies the 2%, 4%, and 5% brackets, so only the dollars above $3,000 of single-filer taxable income reach the top rate.",
+      "<strong>Model caveat.</strong> This calculator applies the dataset's simplified $3,000 single-filer standard deduction and does not subtract the federal income tax deduction Alabama allows, so the state line runs somewhat high; a city occupational tax would reduce take-home pay further.",
+    ],
+    compareParagraphs: [
+      "Alabama's 5% top rate is low by national standards. It sits above the flat rates in " +
+        "Georgia (4.99%) and North Carolina (3.99%), and far below the top marginal rates " +
+        "in California, New Jersey, or New York. Because Alabama has no state or county " +
+        "income tax on wages, the state bracket is usually the only income-tax line on an " +
+        "Alabama paycheck, unlike Ohio or Pennsylvania, where a municipal or school " +
+        "district rate is withheld on top.",
+      "Alabama runs no state disability insurance and no paid family leave payroll tax, so " +
+        "there is no state leave deduction the way there is in California, New Jersey, " +
+        "Washington, or Minnesota. Alabama unemployment insurance is funded by employer " +
+        "contributions, not employee withholding. Alabama also exempts Social Security " +
+        "benefits from state income tax, and beginning in 2026 it allows a deduction for " +
+        "premium overtime pay under Act 2026-604, a break aimed at hourly workers.",
+    ],
+    faqs: [
+      {
+        q: "Does Alabama have a state income tax?",
+        a: "Yes. Alabama taxes wage income on a graduated schedule with rates of 2%, 4%, and 5%, set in Code of Alabama 1975 § 40-18-5. The top rate of 5% applies to taxable income above $3,000 for a single filer and above $6,000 for a married couple filing jointly.",
+      },
+      {
+        q: "What is the Alabama income tax rate for 2026?",
+        a: "Alabama's rates for 2026 are 2% on the first $500 of taxable income, 4% on the next $2,500, and 5% on everything above $3,000 for a single filer, head of family, or married person filing separately. A married couple filing jointly pays 2% on the first $1,000, 4% on the next $5,000, and 5% above $6,000.",
+      },
+      {
+        q: "Does Alabama have a standard deduction or personal exemption?",
+        a: "Alabama grants a personal exemption of $1,500 for a single filer, a married person filing separately, or a head of family, and $3,000 for a married couple filing jointly, and it also allows a standard deduction that varies with income. The simplified 2026 data behind this calculator uses a $3,000 single-filer standard deduction instead, so treat the state line as an estimate.",
+      },
+      {
+        q: "How much is taken out of a $55,000 salary in Alabama?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,722.21 per paycheck from a $55,000 salary: $2,115.38 gross, $170.00 federal income tax, $131.15 Social Security, $30.67 Medicare, and $61.35 Alabama state income tax. That is about $44,777.50 a year.",
+      },
+      {
+        q: "Does Alabama have a local or city income tax?",
+        a: "Alabama levies no county or statewide local income tax on wages. A few cities, including Birmingham, Montgomery, and Gadsden, charge a municipal occupational tax of about 1% or less under their own ordinances. This calculator does not model a city occupational tax, so a worker inside one of those city limits nets slightly less than the estimate shown.",
+      },
+      {
+        q: "Does Alabama have disability or paid family leave withholding?",
+        a: "No. Alabama has no state disability insurance program and no state paid family leave payroll tax, so neither is deducted from a paycheck. Alabama unemployment insurance is an employer-paid tax, not an employee deduction.",
+      },
+      {
+        q: "Can Alabama taxpayers deduct the federal income tax they paid?",
+        a: "Yes, and it is unusual. Alabama allows a taxpayer to deduct the federal income tax paid during the year, which lowers Alabama taxable income. This calculator does not subtract that federal deduction, so its Alabama line runs a little high; your employer's withholding tables account for it.",
+      },
+      {
+        q: "Does Alabama tax overtime or retirement income?",
+        a: "Beginning with tax year 2026, Alabama allows a deduction for premium overtime pay under Act 2026-604, which helps hourly workers. Alabama also exempts Social Security benefits from state income tax and offers a retirement income exclusion for some filers 65 and older. Those breaks apply to overtime or retirement income, not to the ordinary wages this calculator models.",
+      },
+    ],
+    sources: [
+      { label: "Alabama Department of Revenue — Individual Income Tax", url: "https://www.revenue.alabama.gov/individual-corporate/individual-income-tax/" },
+      { label: "Alabama Department of Revenue — Withholding Tax", url: "https://www.revenue.alabama.gov/individual-corporate/withholding-tax/" },
+      { label: "Code of Alabama 1975 — Individual income tax", url: "https://alison.legislature.state.al.us/code-of-alabama" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
