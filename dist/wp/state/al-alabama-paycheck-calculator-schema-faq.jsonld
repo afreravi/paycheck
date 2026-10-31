@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Alabama have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Alabama taxes wage income on a graduated schedule with rates of 2%, 4%, and 5%, set in Code of Alabama 1975 § 40-18-5. The top rate of 5% applies to taxable income above $3,000 for a single filer and above $6,000 for a married couple filing jointly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Alabama income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alabama's rates for 2026 are 2% on the first $500 of taxable income, 4% on the next $2,500, and 5% on everything above $3,000 for a single filer, head of family, or married person filing separately. A married couple filing jointly pays 2% on the first $1,000, 4% on the next $5,000, and 5% above $6,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Alabama have a standard deduction or personal exemption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alabama grants a personal exemption of $1,500 for a single filer, a married person filing separately, or a head of family, and $3,000 for a married couple filing jointly, and it also allows a standard deduction that varies with income. The simplified 2026 data behind this calculator uses a $3,000 single-filer standard deduction instead, so treat the state line as an estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $55,000 salary in Alabama?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,722.21 per paycheck from a $55,000 salary: $2,115.38 gross, $170.00 federal income tax, $131.15 Social Security, $30.67 Medicare, and $61.35 Alabama state income tax. That is about $44,777.50 a year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Alabama have a local or city income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alabama levies no county or statewide local income tax on wages. A few cities, including Birmingham, Montgomery, and Gadsden, charge a municipal occupational tax of about 1% or less under their own ordinances. This calculator does not model a city occupational tax, so a worker inside one of those city limits nets slightly less than the estimate shown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Alabama have disability or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Alabama has no state disability insurance program and no state paid family leave payroll tax, so neither is deducted from a paycheck. Alabama unemployment insurance is an employer-paid tax, not an employee deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Alabama taxpayers deduct the federal income tax they paid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it is unusual. Alabama allows a taxpayer to deduct the federal income tax paid during the year, which lowers Alabama taxable income. This calculator does not subtract that federal deduction, so its Alabama line runs a little high; your employer's withholding tables account for it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Alabama tax overtime or retirement income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beginning with tax year 2026, Alabama allows a deduction for premium overtime pay under Act 2026-604, which helps hourly workers. Alabama also exempts Social Security benefits from state income tax and offers a retirement income exclusion for some filers 65 and older. Those breaks apply to overtime or retirement income, not to the ordinary wages this calculator models."
+      }
+    }
+  ]
+}
