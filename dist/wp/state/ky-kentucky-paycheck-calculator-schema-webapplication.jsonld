@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Kentucky Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/kentucky",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Kentucky paycheck calculator. Estimate 2026 take-home pay after Kentucky's 3.5% flat income tax, the state standard deduction, local occupational fees, and FICA."
+}
