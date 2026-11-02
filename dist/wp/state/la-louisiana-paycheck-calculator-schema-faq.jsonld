@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Louisiana have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Louisiana taxes wage income at a flat 3% under R.S. 47:32(A), as amended by Acts 2024, Third Extraordinary Session, No. 11. The graduated brackets that previously charged 1.85%, 3.5%, and 4.25% were repealed for tax years beginning on or after January 1, 2025."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Louisiana standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "R.S. 47:294 allows a standard deduction of $12,500 for a single individual or a married person filing separately, and 200% of that amount for a married couple filing jointly, a qualified surviving spouse, or a head of household. Beginning January 1, 2026, the amount is adjusted annually for inflation based on the Consumer Price Index for all urban consumers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do Louisiana withholding tables use 3.09% instead of 3%?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Department of Revenue uses 3.09% in its withholding tables rather than the 3% statutory rate to provide a cushion. The extra withholding reduces the chance that a taxpayer will owe a balance when the annual return is filed, and any amount withheld above the actual liability is refunded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Louisiana cities or parishes charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Louisiana parishes, municipalities, and school boards do not levy an income tax on wages. Local revenue in Louisiana comes from sales taxes, property taxes, and fees, none of which are withheld from a paycheck, so the state 3% rate is the only income tax on a Louisiana stub."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Louisiana have a state disability or paid family leave payroll tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Louisiana operates neither a state disability insurance program nor a state paid family leave program, so there is no SDI or paid leave line on a Louisiana paycheck. The 3% state income tax is the only state-level deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Louisiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,889.28 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $48.80 Louisiana state income tax. That is roughly $49,121.25 a year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did Louisiana income tax brackets change recently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Acts 2024, Third Extraordinary Session, No. 11 replaced Louisiana's graduated individual income tax with a single 3% rate for tax years beginning on or after January 1, 2025, and raised the standard deduction. The law that would have automatically cut the rate when revenue benchmarks were met was also repealed, so there is no scheduled future reduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Louisiana exempt retirement income from tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Louisiana allows an annual retirement exemption that, for taxable periods beginning on or after January 1, 2025, is $12,000 for a person age 65 or older and is adjusted annually for inflation. That exemption is claimed on the annual return rather than through paycheck withholding, so it does not reduce the state tax shown on a pay stub."
+      }
+    }
+  ]
+}
