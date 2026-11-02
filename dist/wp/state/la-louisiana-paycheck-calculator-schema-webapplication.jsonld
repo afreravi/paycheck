@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Louisiana Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/louisiana",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Louisiana paycheck calculator. Louisiana charges a flat 3% income tax after a $12,500 standard deduction, with no local wage tax. Estimate net pay. 2026."
+}

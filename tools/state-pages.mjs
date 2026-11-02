@@ -2306,6 +2306,109 @@ export const STATE_PAGES = [
     ],
   },
   {
+    code: "US-LA",
+    abbr: "la",
+    slug: "louisiana",
+    name: "Louisiana",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    hasIncomeTax: true,
+    title: "Louisiana Paycheck Calculator - Take-Home Pay After Taxes",
+    description:
+      "Free Louisiana paycheck calculator. Louisiana charges a flat 3% income tax after a $12,500 standard deduction, with no local wage tax. Estimate net pay. 2026.",
+    intro:
+      "Estimate your take-home pay in Louisiana. Louisiana replaced its graduated brackets with a " +
+      "single 3% rate for 2025, so a Louisiana paycheck carries one state income tax line, no city " +
+      "or parish wage tax, and no state disability or paid leave deduction. Enter your salary and pay " +
+      "frequency to see your net pay per period.",
+    keyHeading: "Does Louisiana have a state income tax?",
+    keyParagraphs: [
+      "Yes. Louisiana taxes wage income at a flat 3% under R.S. 47:32(A), as amended by Acts 2024, " +
+        "Third Extraordinary Session, No. 11. That law repealed the graduated schedule that had run " +
+        "from 1.85% to 4.25% and replaced it with one rate charged on every dollar of taxable income, " +
+        "so a single filer in Baton Rouge and a married couple filing jointly in Monroe pay the same " +
+        "3% on the income that is actually taxed.",
+      "Louisiana does not let you deduct the federal income tax you paid, so the state calculation " +
+        "starts from federal adjusted gross income and then subtracts Louisiana's own standard " +
+        "deduction. R.S. 47:294 sets that deduction at $12,500 for a single filer or a married person " +
+        "filing separately, and at twice that amount for a married couple filing jointly, a qualified " +
+        "surviving spouse, or a head of household. Beginning January 1, 2026, the figure is adjusted " +
+        "each year for inflation using the Consumer Price Index, so it rises without new legislation.",
+      "The calculator on this page applies the simplified 2026 data held in this repo: three bands at " +
+        "1.85%, 3.05%, and 4.25% after the $12,500 single deduction. Those band rates are the average " +
+        "of Louisiana's repealed graduated schedule rather than the current statute, and the " +
+        "Department of Revenue's own withholding tables deliberately use 3.09% instead of 3% to build " +
+        "a cushion so fewer filers owe a balance in April. Treat the state line here as a close " +
+        "estimate and check the LDR tables before relying on it for payroll.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> A 401(k), HSA, or health premium comes out first, lowering the wages that both Louisiana and the IRS tax.",
+      "<strong>Louisiana standard deduction.</strong> R.S. 47:294 allows $12,500 for a single filer or a married person filing separately, and 200% of that for a married couple filing jointly, a qualified surviving spouse, or a head of household.",
+      "<strong>Louisiana income tax.</strong> A flat 3% on what remains, per R.S. 47:32(A). The 2026 data used here spreads that across bands at 1.85%, 3.05%, and 4.25%, so a salary sitting near a band edge can differ slightly from the Department of Revenue withholding tables.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is applied, then the remaining income runs through the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base of $184,500 and Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax above $200,000 for a single filer.",
+      "<strong>Local income tax: $0.</strong> Louisiana parishes, municipalities, and school boards levy no tax on wages, so nothing is added for New Orleans, Baton Rouge, or Shreveport.",
+      "<strong>State disability and paid leave: $0.</strong> Louisiana operates neither a disability insurance program nor a paid family leave payroll tax.",
+    ],
+    compareParagraphs: [
+      "A flat 3% puts Louisiana among the lowest state income tax rates in the South. Arkansas and " +
+        "Mississippi both charge more on a typical salary, and Texas, Florida, and Tennessee charge " +
+        "nothing at all because they do not tax wage income. What Louisiana has that its no-tax " +
+        "neighbours lack is a standard deduction written into statute and indexed to inflation, so a " +
+        "modest Louisiana salary can end up owing very little even though the state does levy a tax.",
+      "Louisiana is also one of the states where the state rate is the whole story. New York stacks a " +
+        "New York City or Yonkers resident tax on top of its state withholding, Pennsylvania lets " +
+        "municipalities and school districts levy an earned income tax, Ohio taxes wages where the " +
+        "work is performed, and Maryland and Indiana collect a county income tax. Louisiana has none " +
+        "of that. No parish, city, or school board income tax exists in the state, so a New Orleans " +
+        "paycheck and a Shreveport paycheck carry identical state withholding.",
+      "The state also runs no disability insurance program and no paid family leave payroll tax, " +
+        "which separates it from California, New Jersey, New York, Massachusetts, Washington, " +
+        "Colorado, and Minnesota. On a Louisiana stub the 3% income tax is the only state-level " +
+        "deduction, and a taxpayer whose income falls under the standard deduction owes nothing to " +
+        "the state at all.",
+    ],
+    faqs: [
+      {
+        q: "Does Louisiana have a state income tax?",
+        a: "Yes. Louisiana taxes wage income at a flat 3% under R.S. 47:32(A), as amended by Acts 2024, Third Extraordinary Session, No. 11. The graduated brackets that previously charged 1.85%, 3.5%, and 4.25% were repealed for tax years beginning on or after January 1, 2025.",
+      },
+      {
+        q: "What is the Louisiana standard deduction for 2026?",
+        a: "R.S. 47:294 allows a standard deduction of $12,500 for a single individual or a married person filing separately, and 200% of that amount for a married couple filing jointly, a qualified surviving spouse, or a head of household. Beginning January 1, 2026, the amount is adjusted annually for inflation based on the Consumer Price Index for all urban consumers.",
+      },
+      {
+        q: "Why do Louisiana withholding tables use 3.09% instead of 3%?",
+        a: "The Department of Revenue uses 3.09% in its withholding tables rather than the 3% statutory rate to provide a cushion. The extra withholding reduces the chance that a taxpayer will owe a balance when the annual return is filed, and any amount withheld above the actual liability is refunded.",
+      },
+      {
+        q: "Do Louisiana cities or parishes charge a local income tax?",
+        a: "No. Louisiana parishes, municipalities, and school boards do not levy an income tax on wages. Local revenue in Louisiana comes from sales taxes, property taxes, and fees, none of which are withheld from a paycheck, so the state 3% rate is the only income tax on a Louisiana stub.",
+      },
+      {
+        q: "Does Louisiana have a state disability or paid family leave payroll tax?",
+        a: "No. Louisiana operates neither a state disability insurance program nor a state paid family leave program, so there is no SDI or paid leave line on a Louisiana paycheck. The 3% state income tax is the only state-level deduction.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Louisiana?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,889.28 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $48.80 Louisiana state income tax. That is roughly $49,121.25 a year.",
+      },
+      {
+        q: "Did Louisiana income tax brackets change recently?",
+        a: "Yes. Acts 2024, Third Extraordinary Session, No. 11 replaced Louisiana's graduated individual income tax with a single 3% rate for tax years beginning on or after January 1, 2025, and raised the standard deduction. The law that would have automatically cut the rate when revenue benchmarks were met was also repealed, so there is no scheduled future reduction.",
+      },
+      {
+        q: "Does Louisiana exempt retirement income from tax?",
+        a: "Louisiana allows an annual retirement exemption that, for taxable periods beginning on or after January 1, 2025, is $12,000 for a person age 65 or older and is adjusted annually for inflation. That exemption is claimed on the annual return rather than through paycheck withholding, so it does not reduce the state tax shown on a pay stub.",
+      },
+    ],
+    sources: [
+      { label: "Louisiana Department of Revenue - Withholding tax", url: "https://revenue.louisiana.gov/businesses/widely-used-tax-types/withholding/" },
+      { label: "LDR - Louisiana withholding tax tables", url: "https://revenue.louisiana.gov/tax-professionals/general-resources/louisiana-withholding-tax-tables/" },
+      { label: "LDR - Income tax reform FAQs", url: "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/income-tax-reform/" },
+      { label: "Louisiana R.S. 47:32 - Rates of tax", url: "https://www.legis.la.gov/legis/Law.aspx?p=y&d=101946" },
+      { label: "Louisiana R.S. 47:294 - Standard deduction", url: "https://www.legis.la.gov/Legis/Law.aspx?d=101761" },
     code: "US-AL",
     abbr: "al",
     slug: "alabama",
