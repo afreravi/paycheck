@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Kentucky have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Kentucky taxes individual income under KRS Chapter 141 at a single flat rate, and the Kentucky Department of Revenue set the withholding rate at 3.5% for tax year 2026. There are no graduated brackets, so the same percentage applies to taxable wages at every income level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Kentucky income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3.5%. Kentucky reduced the rate from 4% after the revenue trigger adopted in 2022 was met, and the Department of Revenue's employer withholding guidance states that the Kentucky withholding tax rate is 3.5% for tax year 2026. The rate is set by statute rather than by a graduated schedule, so it applies to all taxable wage income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Kentucky standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Kentucky Department of Revenue announced a 2026 standard deduction of $3,360, an increase of $90 over 2025, calculated under KRS 141.081. The simplified 2026 data used by this calculator applies $3,160 for a single filer and $6,320 for a married couple filing jointly, which is below the published amount and produces a slightly larger Kentucky tax line."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Kentucky have a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in many places, though Kentucky calls it an occupational license fee rather than an income tax. Louisville Metro charges 2.2% for employees who live and work in Jefferson County and 1.45% for employees who work there but live elsewhere, and Lexington-Fayette Urban County Government charges 2.25%. Cities, counties, and school districts across the state levy their own rates, and the fee is withheld from wages like an income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Kentucky have a state disability or paid family leave payroll tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Kentucky does not operate a state disability insurance program and has no state paid family leave program, so there is no state payroll premium of the kind California, New Jersey, Washington, or Massachusetts charge. The only state-level deduction from a Kentucky paycheck is the income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $52,000 salary in Kentucky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,615.71 per paycheck from a $52,000 salary: $2,000.00 gross, $156.15 federal income tax, $124.00 Social Security, $29.00 Medicare, and $75.14 Kentucky state income tax. That is about $42,008.40 a year, an effective tax rate of about 19.2%. A local occupational license fee in Louisville or Lexington would come out on top of that figure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I work in Kentucky but live in another state. Which state taxes my pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your home state. Under 103 KAR 17.140, Kentucky has reciprocal agreements with Illinois, Indiana, Michigan, Ohio, Virginia, West Virginia, and Wisconsin, so a resident of one of those states who commutes into Kentucky is taxed by the state where they live, not by Kentucky, and files a Kentucky exemption certificate with the employer. A resident of any other state who works in Kentucky is a nonresident and generally files a Kentucky return to settle the tax on the Kentucky wages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Kentucky tax Social Security benefits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Kentucky does not tax Social Security benefits, so they are not part of the Kentucky taxable income on a return. The flat rate applies to wage and other income that Kentucky does tax, which is why the state tax on a paycheck is charged only on wages and not on benefits a retiree receives."
+      }
+    }
+  ]
+}

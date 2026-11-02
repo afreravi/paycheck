@@ -128,6 +128,10 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/minnesota',
             'description' => 'Free Minnesota paycheck calculator. Estimate 2026 take-home pay after Minnesota\'s graduated income tax, the state standard deduction, Paid Leave, federal tax, and FICA.',
         ),
+        'kentucky' => array(
+            'name'        => 'Kentucky Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/kentucky',
+            'description' => 'Free Kentucky paycheck calculator. Estimate 2026 take-home pay after Kentucky\'s 3.5% flat income tax, the state standard deduction, local occupational fees, and FICA.',
         'louisiana' => array(
             'name'        => 'Louisiana Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/louisiana',
@@ -150,7 +154,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'louisiana', 'alabama'.'south-carolina' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama'.'south-carolina' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );

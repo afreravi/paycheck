@@ -2306,6 +2306,116 @@ export const STATE_PAGES = [
     ],
   },
   {
+    code: "US-KY",
+    abbr: "ky",
+    slug: "kentucky",
+    name: "Kentucky",
+    example: { salary: 52000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Kentucky Department of Revenue,
+    // KRS Chapter 141, and 103 KAR 17.140.
+    hasIncomeTax: true,
+    title: "Kentucky Paycheck Calculator - Take-Home Pay After KY Tax",
+    description:
+      "Free Kentucky paycheck calculator. Estimate 2026 take-home pay after Kentucky's 3.5% flat income tax, the state standard deduction, local occupational fees, and FICA.",
+    intro:
+      "Estimate your take-home pay in Kentucky. Kentucky taxes wage income at a single flat " +
+      "rate rather than a graduated scale, and the Department of Revenue set that rate at " +
+      "3.5% for 2026 after it fell from 4%. The state runs no disability insurance and no " +
+      "paid family leave program, so there is no extra state payroll premium, but many " +
+      "Kentucky cities and counties charge their own occupational license fee on wages. " +
+      "Enter your salary and pay frequency to see your net pay per period.",
+    keyHeading: "Does Kentucky have a state income tax?",
+    keyParagraphs: [
+      "Yes, and it is one of the simplest income taxes in the country. KRS Chapter 141 " +
+        "imposes the individual income tax, and since 2018 Kentucky has charged a single flat " +
+        "percentage instead of a graduated schedule. The Kentucky Department of Revenue set " +
+        "the withholding rate at 3.5% for tax year 2026, after the rate was reduced from 4% " +
+        "under the revenue trigger the legislature wrote into law in 2022. Because there is " +
+        "only one rate, every dollar of taxable wages is charged the same amount no matter how " +
+        "large the salary, which is why a Kentucky paycheck is easier to estimate than one " +
+        "from Ohio, West Virginia, or Virginia, where graduated brackets apply.",
+      "Kentucky does grant a standard deduction before the flat rate is charged. KRS 141.081 " +
+        "requires the Department of Revenue to recalculate it each year for inflation, and the " +
+        "Department announced $3,360 for 2026 in September 2025, an increase of $90 over 2025. " +
+        "The simplified 2026 data used by the calculator on this page applies $3,160 for a " +
+        "single filer and $6,320 for a married couple filing jointly, which is below the " +
+        "published figure and therefore produces a slightly larger state line.",
+      "The rate applied by this calculator is also slightly above the current law. The repo's " +
+        "2026 data still carries the 4.0% bands that were in force for 2025, so the state " +
+        "figure shown here is about half a percentage point higher than a payroll system " +
+        "withholding at the 2026 rate of 3.5%. On a $52,000 salary the model charges $75.14 of " +
+        "Kentucky tax per biweekly paycheck; the same salary withheld at 3.5% after the " +
+        "published $3,360 deduction would be closer to $65. Treat the state line as a " +
+        "conservative estimate and check the Department of Revenue withholding tables if you " +
+        "need the exact amount.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Annual salary divided by the number of pay periods you selected, or hourly rate times hours worked for an hourly employee.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health insurance premiums come out first, and they lower the wages that both Kentucky and the IRS tax.",
+      "<strong>Kentucky standard deduction.</strong> The 2026 data used here subtracts $3,160 for a single filer and $6,320 for a married couple filing jointly before any state tax is charged. The Department of Revenue's published 2026 allowance is $3,360, so this model starts from a smaller deduction.",
+      "<strong>Kentucky income tax.</strong> The remainder is charged at the flat rate in the data, 4.0% for 2026, which is the rate that applied in 2025. The Department of Revenue set the 2026 withholding rate at 3.5%, so a payroll system using the current tables will withhold a little less than the figure shown here.",
+      "<strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied separately to the same wages.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the 2026 wage base of $184,500, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass $200,000 for a single filer.",
+      "<strong>Local occupational license fee.</strong> Kentucky levies no state disability or paid leave premium, but Louisville Metro, Lexington-Fayette, and many other cities and counties charge an occupational license fee on wages. The calculator does not subtract it.",
+    ],
+    compareParagraphs: [
+      "Kentucky's flat rate sits in the middle of its neighbors. It is below the 4.95% flat " +
+        "rate Illinois charges and below the top marginal rates in Ohio, West Virginia, and " +
+        "Virginia, all of which use graduated schedules that reach higher as income rises. It " +
+        "is above Indiana's flat rate and well above Tennessee, which taxes no wage income at " +
+        "all. Because Kentucky charges one rate, a $52,000 salary and a $152,000 salary pay " +
+        "the same percentage on taxable wages, unlike the graduated states across the river.",
+      "Kentucky is also not a no-local-tax state. The occupational license fees in " +
+        "Louisville Metro and Lexington-Fayette are the same kind of municipal wage tax that " +
+        "New York City, Pennsylvania, Ohio, and Indiana impose, and they are why the net " +
+        "figure on this page can overstate take-home pay for a city resident. What Kentucky " +
+        "does not have is a state payroll premium: unlike California's SDI, New Jersey's " +
+        "combined TDI and FLI, Washington's PFML, or Massachusetts's PFML, Kentucky operates " +
+        "no disability insurance and no paid family leave program, so once the state tax and " +
+        "any local fee are removed, only federal withholding remains.",
+    ],
+    faqs: [
+      {
+        q: "Does Kentucky have a state income tax?",
+        a: "Yes. Kentucky taxes individual income under KRS Chapter 141 at a single flat rate, and the Kentucky Department of Revenue set the withholding rate at 3.5% for tax year 2026. There are no graduated brackets, so the same percentage applies to taxable wages at every income level.",
+      },
+      {
+        q: "What is the Kentucky income tax rate for 2026?",
+        a: "3.5%. Kentucky reduced the rate from 4% after the revenue trigger adopted in 2022 was met, and the Department of Revenue's employer withholding guidance states that the Kentucky withholding tax rate is 3.5% for tax year 2026. The rate is set by statute rather than by a graduated schedule, so it applies to all taxable wage income.",
+      },
+      {
+        q: "What is the Kentucky standard deduction for 2026?",
+        a: "The Kentucky Department of Revenue announced a 2026 standard deduction of $3,360, an increase of $90 over 2025, calculated under KRS 141.081. The simplified 2026 data used by this calculator applies $3,160 for a single filer and $6,320 for a married couple filing jointly, which is below the published amount and produces a slightly larger Kentucky tax line.",
+      },
+      {
+        q: "Does Kentucky have a local income tax?",
+        a: "Yes, in many places, though Kentucky calls it an occupational license fee rather than an income tax. Louisville Metro charges 2.2% for employees who live and work in Jefferson County and 1.45% for employees who work there but live elsewhere, and Lexington-Fayette Urban County Government charges 2.25%. Cities, counties, and school districts across the state levy their own rates, and the fee is withheld from wages like an income tax.",
+      },
+      {
+        q: "Does Kentucky have a state disability or paid family leave payroll tax?",
+        a: "No. Kentucky does not operate a state disability insurance program and has no state paid family leave program, so there is no state payroll premium of the kind California, New Jersey, Washington, or Massachusetts charge. The only state-level deduction from a Kentucky paycheck is the income tax.",
+      },
+      {
+        q: "How much is taken out of a $52,000 salary in Kentucky?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,615.71 per paycheck from a $52,000 salary: $2,000.00 gross, $156.15 federal income tax, $124.00 Social Security, $29.00 Medicare, and $75.14 Kentucky state income tax. That is about $42,008.40 a year, an effective tax rate of about 19.2%. A local occupational license fee in Louisville or Lexington would come out on top of that figure.",
+      },
+      {
+        q: "I work in Kentucky but live in another state. Which state taxes my pay?",
+        a: "It depends on your home state. Under 103 KAR 17.140, Kentucky has reciprocal agreements with Illinois, Indiana, Michigan, Ohio, Virginia, West Virginia, and Wisconsin, so a resident of one of those states who commutes into Kentucky is taxed by the state where they live, not by Kentucky, and files a Kentucky exemption certificate with the employer. A resident of any other state who works in Kentucky is a nonresident and generally files a Kentucky return to settle the tax on the Kentucky wages.",
+      },
+      {
+        q: "Does Kentucky tax Social Security benefits?",
+        a: "No. Kentucky does not tax Social Security benefits, so they are not part of the Kentucky taxable income on a return. The flat rate applies to wage and other income that Kentucky does tax, which is why the state tax on a paycheck is charged only on wages and not on benefits a retiree receives.",
+      },
+    ],
+    sources: [
+      { label: "Kentucky Department of Revenue — Individual Income Tax", url: "https://revenue.ky.gov/Individual/Individual-Income-Tax/Pages/default.aspx" },
+      { label: "Kentucky DOR — Employer Payroll Withholding (2026 rate)", url: "https://revenue.ky.gov/Business/Pages/Employer-Payroll-Withholding.aspx" },
+      { label: "Kentucky DOR — Announces 2026 Standard Deduction", url: "https://revenue.ky.gov/News/Pages/Kentucky-DOR-Announces-2026-Standard-Deduction.aspx" },
+      { label: "KRS Chapter 141 — Income taxes", url: "https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=38843" },
+      { label: "103 KAR 17.140 — Individual income tax, reciprocity with nonresidents", url: "https://revenue.ky.gov/DOR%20Training%20Materials/103%20KAR%2017.140.%20Individual%20income%20tax%20-%20reciprocity%20-%20nonresidents.pdf" },
+      { label: "Lexington-Fayette Urban County Government — Occupational license fee rates", url: "https://www.lexingtonky.gov/working/business-licensing-taxes/occupational-license-fee-rates-current-forms" },
     code: "US-LA",
     abbr: "la",
     slug: "louisiana",
