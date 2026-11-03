@@ -2772,18 +2772,19 @@ export const STATE_PAGES = [
         "imposes the tax and ORS 316.037(1)(a) sets the brackets: 4.75% on the first slice of " +
         "taxable income, 6.75% above $4,550, 8.75% above $11,400, and 9.9% above $125,000 for " +
         "a single filer in 2026. A married couple filing jointly reaches the same 9.9% top " +
-        "rate, but not until taxable income passes $250,000. That 9.9% is the highest top " +
-        "marginal rate of any state that levies a broad-based income tax, which is the single " +
+        "rate, but not until taxable income passes $250,000. That 9.9% is the fourth-highest " +
+        "top marginal rate in the country, behind California at 13.3%, Hawaii at 11%, and New " +
+        "Jersey at 10.75%. It is the highest rate Oregon has ever charged, and it is the single " +
         "most important fact about an Oregon paycheck.",
       "Oregon also has no sales tax, so it leans hard on income and property taxes instead. " +
         "Before the brackets apply, the calculator subtracts a standard deduction of $2,745 " +
         "for a single filer, $5,490 for a married couple filing jointly, and $4,118 for a head " +
         "of household. The dataset behind this page stores a simplified three-band version of " +
         "the schedule &mdash; 4.75%, 7.325%, and 9.9% &mdash; which merges Oregon's middle " +
-        "6.75% and 8.75% rates into a single band. At an ordinary salary the merged band " +
-        "produces a state figure close to the statutory one, but treat the state line here as " +
-        "a careful estimate rather than a reproduction of the Department of Revenue " +
-        "withholding tables.",
+        "6.75% and 8.75% rates into a single band. The dataset is a deliberately rough " +
+        "approximation: at $70,000 it returns about $4,540, where the full statutory schedule " +
+        "would produce roughly $5,570. Treat the state line here as a conservative estimate, " +
+        "not a reproduction of the Department of Revenue withholding tables.",
       "The Portland metro area adds a tax that no other part of Oregon pays. Two separate " +
         "measures create local personal income taxes on residents. Multnomah County voters " +
         "approved the Preschool for All tax in 2020, and it applies to Multnomah County " +
@@ -2813,7 +2814,7 @@ export const STATE_PAGES = [
         "home meaningfully more than the same salary earned in Portland. Nevada and Wyoming, " +
         "two more no-tax states, sit further east along the same Interstate 80 corridor. At " +
         "$70,000 a single Oregon filer pays about $4,540 a year in state income tax, where the " +
-        "same salary in Washington would pay nothing and in Idaho would pay roughly $3,800.",
+        "same salary in Washington would pay nothing and in Idaho would pay roughly $3,160.",
       "What makes Oregon unusual among high-tax states is the local layer, and it exists in " +
         "only one corner of the state. California, New York, Pennsylvania, Ohio, Maryland, and " +
         "Indiana all levy local income taxes, but Oregon's apply to just three counties around " +
@@ -2842,7 +2843,7 @@ export const STATE_PAGES = [
     faqs: [
       {
         q: "What is the Oregon income tax rate for 2026?",
-        a: "Oregon uses graduated brackets under ORS 316.037(1)(a). For a single filer the 2026 rates are 4.75% on taxable income up to $4,550, 6.75% above $4,550, 8.75% above $11,400, and 9.9% above $125,000. A married couple filing jointly uses the same rates with doubled thresholds, reaching 9.9% above $250,000. Oregon's 9.9% top rate is the highest of any state with a broad-based income tax.",
+        a: "Oregon uses graduated brackets under ORS 316.037(1)(a). For a single filer the 2026 rates are 4.75% on taxable income up to $4,550, 6.75% above $4,550, 8.75% above $11,400, and 9.9% above $125,000. A married couple filing jointly uses the same rates with doubled thresholds, reaching 9.9% above $250,000. That 9.9% is the fourth-highest top rate in the country, behind California, Hawaii, and New Jersey.",
       },
       {
         q: "How much is taken out of a $70,000 salary in Oregon?",
