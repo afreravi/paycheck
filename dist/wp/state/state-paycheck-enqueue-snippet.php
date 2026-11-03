@@ -132,18 +132,26 @@ function state_paycheck_pages() {
             'name'        => 'Kentucky Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/kentucky',
             'description' => 'Free Kentucky paycheck calculator. Estimate 2026 take-home pay after Kentucky\'s 3.5% flat income tax, the state standard deduction, local occupational fees, and FICA.',
+        ),
         'louisiana' => array(
             'name'        => 'Louisiana Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/louisiana',
             'description' => 'Free Louisiana paycheck calculator. Louisiana charges a flat 3% income tax after a $12,500 standard deduction, with no local wage tax. Estimate net pay. 2026.',
+        ),
         'alabama' => array(
             'name'        => 'Alabama Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/alabama',
             'description' => 'Free Alabama paycheck calculator. Estimate take-home pay after Alabama\'s 2%, 4%, and 5% income tax brackets, the personal exemption, and federal withholdings for 2026.',
+        ),
         'south-carolina' => array(
             'name'        => 'South Carolina Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/south-carolina',
             'description' => 'Free South Carolina paycheck calculator. Estimate take-home pay after South Carolina\'s two-bracket 2026 income tax, the new SCIAD deduction, federal tax, and FICA.',
+        ),
+        'oregon' => array(
+            'name'        => 'Oregon Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/oregon',
+            'description' => 'Free Oregon paycheck calculator. Estimate take-home pay after Oregon\'s graduated income tax, federal tax, Social Security, and Medicare, plus the Paid Leave and transit withholding. 2026.',
         ),
     );
 }
@@ -154,7 +162,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama'.'south-carolina' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
