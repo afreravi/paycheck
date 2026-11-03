@@ -2416,6 +2416,9 @@ export const STATE_PAGES = [
       { label: "KRS Chapter 141 — Income taxes", url: "https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=38843" },
       { label: "103 KAR 17.140 — Individual income tax, reciprocity with nonresidents", url: "https://revenue.ky.gov/DOR%20Training%20Materials/103%20KAR%2017.140.%20Individual%20income%20tax%20-%20reciprocity%20-%20nonresidents.pdf" },
       { label: "Lexington-Fayette Urban County Government — Occupational license fee rates", url: "https://www.lexingtonky.gov/working/business-licensing-taxes/occupational-license-fee-rates-current-forms" },
+    ],
+  },
+  {
     code: "US-LA",
     abbr: "la",
     slug: "louisiana",
@@ -2519,6 +2522,9 @@ export const STATE_PAGES = [
       { label: "LDR - Income tax reform FAQs", url: "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/income-tax-reform/" },
       { label: "Louisiana R.S. 47:32 - Rates of tax", url: "https://www.legis.la.gov/legis/Law.aspx?p=y&d=101946" },
       { label: "Louisiana R.S. 47:294 - Standard deduction", url: "https://www.legis.la.gov/Legis/Law.aspx?d=101761" },
+    ],
+  },
+  {
     code: "US-AL",
     abbr: "al",
     slug: "alabama",
@@ -2621,6 +2627,9 @@ export const STATE_PAGES = [
       { label: "Alabama Department of Revenue — Individual Income Tax", url: "https://www.revenue.alabama.gov/individual-corporate/individual-income-tax/" },
       { label: "Alabama Department of Revenue — Withholding Tax", url: "https://www.revenue.alabama.gov/individual-corporate/withholding-tax/" },
       { label: "Code of Alabama 1975 — Individual income tax", url: "https://alison.legislature.state.al.us/code-of-alabama" },
+    ],
+  },
+  {
     code: "US-SC",
     abbr: "sc",
     slug: "south-carolina",
@@ -2735,6 +2744,142 @@ export const STATE_PAGES = [
       { label: "South Carolina Department of Revenue — Individual Income Tax", url: "https://dor.sc.gov/tax/individual-income-tax" },
       { label: "South Carolina Department of Revenue — Withholding", url: "https://dor.sc.gov/tax/withholding" },
       { label: "S.C. Code Title 12, Chapter 6 — Section 12-6-510 (rates) and 12-6-1170 (retirement deduction)", url: "https://www.scstatehouse.gov/code/t12c006.php" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
+  {
+    code: "US-OR",
+    abbr: "or",
+    slug: "oregon",
+    name: "Oregon",
+    example: { salary: 70000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Oregon: graduated state brackets, a tri-county local income tax, plus the
+    // Paid Leave Oregon premium and the statewide transit tax.
+    hasIncomeTax: true,
+    title: "Oregon Paycheck Calculator - Take-Home Pay After OR Tax",
+    description:
+      "Free Oregon paycheck calculator. Estimate take-home pay after Oregon's graduated income tax, federal tax, Social Security, and Medicare, plus the Paid Leave and transit withholding. 2026.",
+    intro:
+      "See what an Oregon paycheck actually nets. Oregon runs a graduated income tax whose " +
+      "top rate is among the highest in the country, and unlike most states it lets three " +
+      "Portland-area counties layer a local income tax on the same wages. Two smaller state " +
+      "lines come out too: the Paid Leave Oregon premium and the statewide transit tax. " +
+      "Enter your salary and pay frequency to see net pay per period.",
+    keyHeading: "How Oregon taxes a paycheck",
+    keyParagraphs: [
+      "Oregon taxes wage income on a graduated scale, and the ladder is steep. ORS 316.037 " +
+        "imposes the tax and ORS 316.037(1)(a) sets the brackets: 4.75% on the first slice of " +
+        "taxable income, 6.75% above $4,550, 8.75% above $11,400, and 9.9% above $125,000 for " +
+        "a single filer in 2026. A married couple filing jointly reaches the same 9.9% top " +
+        "rate, but not until taxable income passes $250,000. That 9.9% is the highest top " +
+        "marginal rate of any state that levies a broad-based income tax, which is the single " +
+        "most important fact about an Oregon paycheck.",
+      "Oregon also has no sales tax, so it leans hard on income and property taxes instead. " +
+        "Before the brackets apply, the calculator subtracts a standard deduction of $2,745 " +
+        "for a single filer, $5,490 for a married couple filing jointly, and $4,118 for a head " +
+        "of household. The dataset behind this page stores a simplified three-band version of " +
+        "the schedule &mdash; 4.75%, 7.325%, and 9.9% &mdash; which merges Oregon's middle " +
+        "6.75% and 8.75% rates into a single band. At an ordinary salary the merged band " +
+        "produces a state figure close to the statutory one, but treat the state line here as " +
+        "a careful estimate rather than a reproduction of the Department of Revenue " +
+        "withholding tables.",
+      "The Portland metro area adds a tax that no other part of Oregon pays. Two separate " +
+        "measures create local personal income taxes on residents. Multnomah County voters " +
+        "approved the Preschool for All tax in 2020, and it applies to Multnomah County " +
+        "residents alone. Regional voters approved the Metro supportive housing services tax " +
+        "in 2020, and that one covers residents of Multnomah, Washington, and Clackamas " +
+        "counties. Both are collected by the Oregon Department of Revenue alongside the state " +
+        "return, and both are charged as a percentage of taxable income above a high " +
+        "threshold, so a Multnomah County resident who owes both can face a combined marginal " +
+        "rate above 11%. The calculator on this page reports the state tax only and does not " +
+        "add either local tax.",
+    ],
+    calcSteps: [
+      "Start with gross pay for the period. A $70,000 salary paid biweekly is $2,692.31 before any deduction.",
+      "Subtract pre-tax elections first. A 401(k), HSA, or health premium reduces federal taxable income, and because Oregon starts its own calculation from federal taxable income, the same contribution lowers the Oregon bill too.",
+      "Subtract federal income tax, withheld under the IRS percentage method for your filing status and the elections on your Form W-4.",
+      "Subtract Social Security at 6.2% of gross pay up to the annual wage base ($184,500 for 2026) and Medicare at 1.45% of all gross pay, plus the 0.9% Additional Medicare Tax above $200,000 of wages.",
+      "<strong>Apply Oregon income tax.</strong> Subtract the $2,745 single-filer standard deduction, then run the remainder through the graduated brackets. This calculator uses the dataset's three-band approximation of 4.75%, 7.325%, and 9.9%, so a salary near a band edge can differ slightly from a payroll system that uses the Department of Revenue tables.",
+      "<strong>Oregon Paid Leave and transit withholding.</strong> Two more state lines come out of Oregon wages but are not yet subtracted here: the Paid Leave Oregon premium at 0.6% of wages up to $184,500, and the statewide transit tax at 0.1% of wages with no cap.",
+      "Subtract nothing for a local income tax unless you live in Multnomah, Washington, or Clackamas County, where the Preschool for All and supportive housing services taxes apply. Neither is modeled here.",
+      "The remainder is net take-home pay for that period.",
+    ],
+    compareParagraphs: [
+      "Oregon sits at the opposite end of the income-tax spectrum from its eastern neighbor " +
+        "Idaho. Idaho charges a flat 5.695%, less than Oregon's 6.75% second band, and Idaho " +
+        "runs no local income tax anywhere in the state. Washington, directly to the north, has " +
+        "no wage income tax at all, which is why a Portland worker commuting to Vancouver takes " +
+        "home meaningfully more than the same salary earned in Portland. Nevada and Wyoming, " +
+        "two more no-tax states, sit further east along the same Interstate 80 corridor. At " +
+        "$70,000 a single Oregon filer pays about $4,540 a year in state income tax, where the " +
+        "same salary in Washington would pay nothing and in Idaho would pay roughly $3,800.",
+      "What makes Oregon unusual among high-tax states is the local layer, and it exists in " +
+        "only one corner of the state. California, New York, Pennsylvania, Ohio, Maryland, and " +
+        "Indiana all levy local income taxes, but Oregon's apply to just three counties around " +
+        "Portland. A resident of those counties pays the state rate plus the county rate, so " +
+        "the combined marginal rate on high income can exceed 11%. A resident of Eugene, Bend, " +
+        "Medford, or Salem pays the state rate alone, because no other Oregon county has " +
+        "adopted a local personal income tax.",
+      "Oregon also withholds two smaller payroll amounts that a no-tax state does not. Paid " +
+        "Leave Oregon, created by HB 2005 in 2019, is funded by a premium of 1% of gross wages " +
+        "up to the Social Security wage base of $184,500, and the employee pays 60% of that, " +
+        "or 0.6% of wages. The employer pays the other 40% only if it averages 25 or more " +
+        "employees; a smaller employer withholds the employee share but pays nothing itself. " +
+        "Separately, the statewide transit tax withholds 0.1% of wages from every Oregon " +
+        "worker, resident or not, to fund public transit, and it has no wage cap. On $70,000 " +
+        "the two together take about $490 a year, or roughly $18.85 per biweekly paycheck, on " +
+        "top of the state income tax shown above.",
+      "Oregon's rate ladder is also unusual for how low it starts. The 4.75% first band covers " +
+        "only the first $4,550 of taxable income, then the rate jumps to 6.75% and again to " +
+        "8.75% at just $11,400. Most states with a top rate near 10% hold their lower bands for " +
+        "far more income. The practical effect is that a modest Oregon salary reaches a " +
+        "mid-single-digit marginal rate quickly, and the 9.9% top rate arrives at $125,000 of " +
+        "taxable income, a level many two-earner Oregon households cross. Oregon does soften " +
+        "the load for low earners with a state earned income credit and a retirement income " +
+        "credit, but both are claimed on the annual return and change nothing on a paycheck.",
+    ],
+    faqs: [
+      {
+        q: "What is the Oregon income tax rate for 2026?",
+        a: "Oregon uses graduated brackets under ORS 316.037(1)(a). For a single filer the 2026 rates are 4.75% on taxable income up to $4,550, 6.75% above $4,550, 8.75% above $11,400, and 9.9% above $125,000. A married couple filing jointly uses the same rates with doubled thresholds, reaching 9.9% above $250,000. Oregon's 9.9% top rate is the highest of any state with a broad-based income tax.",
+      },
+      {
+        q: "How much is taken out of a $70,000 salary in Oregon?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,059.03 per paycheck from a $70,000 salary: $2,692.31 gross, $252.69 federal income tax, $166.92 Social Security, $39.04 Medicare, and $174.62 Oregon state income tax. That is $53,534.82 a year, an effective tax rate of about 23.5%. The state figure uses this calculator's simplified three-band dataset, and it does not include the Paid Leave or transit withholding.",
+      },
+      {
+        q: "Does Oregon have a local or county income tax?",
+        a: "Yes, in the Portland area only, and under two separate measures. Multnomah County residents pay the Preschool for All personal income tax, approved by county voters in 2020. Residents of Multnomah, Washington, and Clackamas counties pay the Metro supportive housing services tax, approved by regional voters in 2020. Both are collected by the Oregon Department of Revenue and apply as a percentage of taxable income above a high threshold. No other Oregon county has adopted a local personal income tax, so residents of Eugene, Salem, Bend, or Medford pay the state rate alone.",
+      },
+      {
+        q: "What is the Paid Leave Oregon deduction?",
+        a: "Paid Leave Oregon is funded by a premium of 1% of gross wages up to the 2026 Social Security wage base of $184,500. Employees pay 60% of that premium, which is 0.6% of wages, and employers with 25 or more employees on average pay the remaining 40%. Employers with fewer than 25 employees withhold the employee share but pay no employer share. On a $70,000 salary the employee share is about $420 a year, or roughly $16.15 per biweekly paycheck.",
+      },
+      {
+        q: "What is the Oregon statewide transit tax?",
+        a: "It is a withholding tax of one-tenth of one percent, or 0.001, on wages, enacted by HB 2017 to fund public transit. Employers have withheld it since July 1, 2018 from the wages of Oregon residents regardless of where they work, and from nonresidents who perform services in Oregon. It has no wage cap, so it applies to every dollar of wages. On a $70,000 salary it comes to $70 a year, about $2.69 per biweekly paycheck.",
+      },
+      {
+        q: "What is Oregon's standard deduction for 2026?",
+        a: "The calculator on this page subtracts $2,745 for a single filer, $5,490 for a married couple filing jointly, and $4,118 for a head of household. Oregon indexes its standard deduction for inflation, so the published amount for the year can differ slightly from the figure used in this simplified dataset. Treat the Oregon line here as a close estimate rather than a reproduction of the Department of Revenue withholding tables.",
+      },
+      {
+        q: "Does Oregon have a state disability insurance program?",
+        a: "No. Oregon operates no state disability insurance program, so no SDI line appears on an Oregon paycheck. The state's only payroll insurance deduction is the Paid Leave Oregon premium of 0.6% of wages paid by the employee, which funds family and medical leave benefits rather than short-term disability.",
+      },
+      {
+        q: "Does Oregon tax Social Security benefits?",
+        a: "Oregon does not tax Social Security benefits. The state allows a subtraction for Social Security income included in federal taxable income, so those benefits are removed before the Oregon brackets are applied. Oregon also offers a retirement income credit for filers 62 and older whose household income falls below a threshold, claimed on the annual return rather than through payroll.",
+      },
+    ],
+    sources: [
+      { label: "Oregon Department of Revenue — Personal income tax", url: "https://www.oregon.gov/dor/programs/individuals/Pages/personal-income-tax.aspx" },
+      { label: "ORS 316.037 — Imposition and rate of tax", url: "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html" },
+      { label: "Oregon Department of Revenue — Statewide Transit Tax", url: "https://www.oregon.gov/dor/programs/businesses/Pages/statewide-transit-tax.aspx" },
+      { label: "Paid Leave Oregon — Employer contributions", url: "https://paidleave.oregon.gov/employers/" },
+      { label: "Multnomah County — Preschool for All", url: "https://multco.us/preschool-all" },
+      { label: "Oregon Metro — Supportive housing services local income tax", url: "https://www.oregonmetro.gov/public-projects/supportive-housing-services/local-income-tax" },
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },

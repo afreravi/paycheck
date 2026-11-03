@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Oregon income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oregon uses graduated brackets under ORS 316.037(1)(a). For a single filer the 2026 rates are 4.75% on taxable income up to $4,550, 6.75% above $4,550, 8.75% above $11,400, and 9.9% above $125,000. A married couple filing jointly uses the same rates with doubled thresholds, reaching 9.9% above $250,000. Oregon's 9.9% top rate is the highest of any state with a broad-based income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $70,000 salary in Oregon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,059.03 per paycheck from a $70,000 salary: $2,692.31 gross, $252.69 federal income tax, $166.92 Social Security, $39.04 Medicare, and $174.62 Oregon state income tax. That is $53,534.82 a year, an effective tax rate of about 23.5%. The state figure uses this calculator's simplified three-band dataset, and it does not include the Paid Leave or transit withholding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Oregon have a local or county income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in the Portland area only, and under two separate measures. Multnomah County residents pay the Preschool for All personal income tax, approved by county voters in 2020. Residents of Multnomah, Washington, and Clackamas counties pay the Metro supportive housing services tax, approved by regional voters in 2020. Both are collected by the Oregon Department of Revenue and apply as a percentage of taxable income above a high threshold. No other Oregon county has adopted a local personal income tax, so residents of Eugene, Salem, Bend, or Medford pay the state rate alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Paid Leave Oregon deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paid Leave Oregon is funded by a premium of 1% of gross wages up to the 2026 Social Security wage base of $184,500. Employees pay 60% of that premium, which is 0.6% of wages, and employers with 25 or more employees on average pay the remaining 40%. Employers with fewer than 25 employees withhold the employee share but pay no employer share. On a $70,000 salary the employee share is about $420 a year, or roughly $16.15 per biweekly paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Oregon statewide transit tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a withholding tax of one-tenth of one percent, or 0.001, on wages, enacted by HB 2017 to fund public transit. Employers have withheld it since July 1, 2018 from the wages of Oregon residents regardless of where they work, and from nonresidents who perform services in Oregon. It has no wage cap, so it applies to every dollar of wages. On a $70,000 salary it comes to $70 a year, about $2.69 per biweekly paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Oregon's standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator on this page subtracts $2,745 for a single filer, $5,490 for a married couple filing jointly, and $4,118 for a head of household. Oregon indexes its standard deduction for inflation, so the published amount for the year can differ slightly from the figure used in this simplified dataset. Treat the Oregon line here as a close estimate rather than a reproduction of the Department of Revenue withholding tables."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Oregon have a state disability insurance program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Oregon operates no state disability insurance program, so no SDI line appears on an Oregon paycheck. The state's only payroll insurance deduction is the Paid Leave Oregon premium of 0.6% of wages paid by the employee, which funds family and medical leave benefits rather than short-term disability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Oregon tax Social Security benefits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oregon does not tax Social Security benefits. The state allows a subtraction for Social Security income included in federal taxable income, so those benefits are removed before the Oregon brackets are applied. Oregon also offers a retirement income credit for filers 62 and older whose household income falls below a threshold, claimed on the annual return rather than through payroll."
+      }
+    }
+  ]
+}
