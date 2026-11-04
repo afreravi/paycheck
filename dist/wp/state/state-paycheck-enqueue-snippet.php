@@ -153,6 +153,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/oregon',
             'description' => 'Free Oregon paycheck calculator. Estimate take-home pay after Oregon\'s graduated income tax, federal tax, Social Security, and Medicare, plus the Paid Leave and transit withholding. 2026.',
         ),
+        'oklahoma' => array(
+            'name'        => 'Oklahoma Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/oklahoma',
+            'description' => 'Free Oklahoma paycheck calculator. Estimate 2026 take-home pay after Oklahoma\'s graduated income tax, the state standard deduction, federal tax, and FICA.',
+        ),
     );
 }
 
@@ -162,7 +167,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
