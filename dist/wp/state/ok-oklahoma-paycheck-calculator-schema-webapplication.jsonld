@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Oklahoma Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/oklahoma",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Oklahoma paycheck calculator. Estimate 2026 take-home pay after Oklahoma's graduated income tax, the state standard deduction, federal tax, and FICA."
+}

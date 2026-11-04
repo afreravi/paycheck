@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Oklahoma have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Oklahoma taxes individual income under Section 2355 of Title 68 of the Oklahoma Statutes. The tax is graduated rather than flat, and the top rate for tax year 2026 is 4.5%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Oklahoma income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oklahoma applies four rates for 2026: 0% on the first $3,750 of taxable income for a single filer, 2.5% on the next $1,150, 3.5% on the next $2,300, and 4.5% on everything above $7,200. A married couple filing jointly or a head of household uses the same rates on doubled thresholds, so their top 4.5% band begins at $14,400."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Oklahoma standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The simplified 2026 data used by this calculator applies a $6,350 standard deduction for a single filer, $12,700 for a married couple filing jointly, and $9,525 for a head of household. Oklahoma also allows a $1,000 personal exemption for the taxpayer and the same for a spouse and for each dependent, and it adds $1,000 exemptions for a legally blind filer and for a filer 65 or older who meets the income limits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Oklahoma have a local or city income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Oklahoma levies no city, county, or municipal income tax on wages, so nothing is withheld for Oklahoma City, Tulsa, Norman, or any other city. Local revenue in Oklahoma comes from sales and property taxes, which are not taken out of a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Oklahoma have a state disability or paid family leave payroll tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Oklahoma operates no state disability insurance program and no state paid family leave program, so there is no SDI or PFL premium on an Oklahoma paycheck. The only state-level deduction is the income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $52,000 salary in Oklahoma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,659.93 per paycheck from a $52,000 salary: $2,000.00 gross, $156.15 federal income tax, $124.00 Social Security, $29.00 Medicare, and $30.91 Oklahoma state income tax. That is about $43,158.25 a year, an effective tax rate of roughly 17.0%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the Oklahoma top rate 4.5% in 2026 but 4.75% in 2025?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oklahoma cut its top individual income tax rate by a quarter of a percentage point for tax year 2026. Subsection E of 68 O.S. 2355 requires automatic quarter-point reductions whenever the State Board of Equalization certifies that collections exceed a revenue trigger, and the statute continues those reductions until the rate reaches zero. The 2025 top rate was 4.75%; the 2026 top rate is 4.5%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Oklahoma tax capital gains or retirement income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oklahoma taxes capital gains as ordinary income under the same graduated rates, with a limited subtraction available for certain qualifying gains. Retirement income is also taxable: Oklahoma allows a subtraction for Social Security benefits but caps it by income, and it does not exempt most pension income the way a few states do. Those items are handled on the annual Oklahoma return rather than through paycheck withholding."
+      }
+    }
+  ]
+}

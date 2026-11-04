@@ -2884,6 +2884,144 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-OK",
+    abbr: "ok",
+    slug: "oklahoma",
+    name: "Oklahoma",
+    example: { salary: 52000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Oklahoma: a graduated income tax whose top rate fell to 4.5% for 2026, no
+    // local wage tax, and no SDI or paid leave program. Reviewed against 68 O.S.
+    // 2355 and the Oklahoma Tax Commission.
+    hasIncomeTax: true,
+    title: "Oklahoma Paycheck Calculator - Take-Home Pay After OK Tax",
+    description:
+      "Free Oklahoma paycheck calculator. Estimate 2026 take-home pay after Oklahoma's graduated income tax, the state standard deduction, federal tax, and FICA.",
+    intro:
+      "See what an Oklahoma paycheck leaves after tax. Oklahoma charges a graduated " +
+      "income tax rather than one flat rate, and the top rate now reaches 4.5% after the " +
+      "state cut it from 4.75% for 2026. There is no city or county wage tax and no state " +
+      "disability or paid family leave premium, so the income tax is the only state line " +
+      "on the stub. Enter your pay rate and frequency for net pay per period.",
+    keyHeading: "How Oklahoma taxes a paycheck",
+    keyParagraphs: [
+      "Oklahoma taxes wage income on a graduated scale, and 2026 is the year the ladder " +
+        "was shortened. Section 2355 of Title 68 of the Oklahoma Statutes imposes the tax, " +
+        "and for tax year 2026 it applies a 0% band, then 2.5%, then 3.5%, and a top rate " +
+        "of 4.5% on the remainder. That top rate fell from 4.75%, which applied for 2025, " +
+        "because the Legislature wrote an automatic reduction into the statute: under " +
+        "subsection E, every year the State Board of Equalization certifies that " +
+        "collections beat a revenue trigger, each bracket rate drops by a quarter of a " +
+        "percentage point until the tax reaches zero. The same rate schedule covers every " +
+        "filer; what changes with filing status is where each bracket begins.",
+      "For a single filer the 0% band covers the first $3,750 of Oklahoma taxable income, " +
+        "the 2.5% rate runs across the next $1,150, the 3.5% rate across the following " +
+        "$2,300, and the 4.5% rate applies above $7,200. A married couple filing jointly " +
+        "or a head of household uses the same rates on doubled thresholds, so their 4.5% " +
+        "band does not begin until $14,400. Oklahoma then subtracts its own standard " +
+        "deduction, which the 2026 data used here sets at $6,350 for a single filer and " +
+        "$12,700 for a married couple filing jointly, plus a $1,000 personal exemption for " +
+        "the taxpayer and another for a spouse. Because that exemption is a flat dollar " +
+        "amount rather than a credit, it is worth the same to a high earner and a low " +
+        "earner, which is not how most neighboring states structure theirs.",
+      "Oklahoma is a clean stub in every other respect. The state levies no city, county, " +
+        "or municipal income tax, so nothing is withheld for Oklahoma City, Tulsa, Norman, " +
+        "or any other city, and the Oklahoma Tax Commission runs no disability insurance " +
+        "program and no paid family leave program, so no SDI or PFL premium appears. The " +
+        "rate model behind this calculator is a simplified three-band approximation, so it " +
+        "understates the small amount of tax the real 2026 schedule collects in the lowest " +
+        "bands. On a $52,000 salary it charges $803.66 of Oklahoma income tax for the year, " +
+        "about $30.91 per biweekly paycheck; withholding from the current Tax Commission " +
+        "tables lands close to that figure. Treat the state line as a conservative estimate " +
+        "and check the official tables when you need an exact amount.",
+      "Oklahoma's ladder is short, which makes the state rate behave almost like a flat tax " +
+        "once income clears the middle bands. A single filer reaches the 4.5% band at just " +
+        "$7,200 of Oklahoma taxable income, so nearly the whole salary above the standard " +
+        "deduction is charged at the top rate. The practical result is that Oklahoma's " +
+        "effective state rate sits close to 4.5% for most wage earners and climbs only " +
+        "slightly with income, unlike a long ladder such as California's where the effective " +
+        "rate keeps rising through nine bands. The calculator on this page computes the " +
+        "state line from the simplified 2026 bands and reports it beside the federal and " +
+        "FICA figures in the worked example below.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Annual salary divided by the number of pay periods you selected, or hourly rate times hours worked for an hourly employee.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health insurance premiums come out first, and they lower the wages that both Oklahoma and the IRS tax.",
+      "<strong>Oklahoma standard deduction.</strong> The 2026 data used here subtracts $6,350 for a single filer and $12,700 for a married couple filing jointly before the Oklahoma brackets apply, and a $1,000 personal exemption is available for the taxpayer and for a spouse.",
+      "<strong>Oklahoma income tax.</strong> The remainder runs through the graduated 2026 bands: 0% on the first $3,750, then 2.5%, then 3.5%, then a 4.5% top rate. On a $52,000 salary the model charges $803.66 for the year, or $30.91 per biweekly paycheck.",
+      "<strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied separately to the same wages.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the 2026 wage base of $184,500, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass $200,000 for a single filer.",
+      "<strong>No local or state payroll premium.</strong> Oklahoma has no city or county income tax and no state disability or paid family leave deduction, so the only state line on the stub is the income tax.",
+    ],
+    compareParagraphs: [
+      "Oklahoma sits near the bottom of its region on rate. Kansas charges a top rate of " +
+        "5.58%, Missouri 4.7%, and Nebraska 5.2%, all above Oklahoma's new 4.5% top rate. " +
+        "New Mexico runs a five-band ladder that climbs to 5.9%, while Arkansas applies " +
+        "3.9% at the top, just below Oklahoma. Texas has no income tax at all, so a worker " +
+        "who lives in Texarkana and commutes across the border keeps the state line " +
+        "entirely, and Colorado charges a flat 4.4% that lands under Oklahoma's top rate " +
+        "but far above Oklahoma's effective rate at a modest salary. Among the states that " +
+        "do tax wages, Oklahoma's ladder is the shortest in the neighborhood.",
+      "Oklahoma is also simpler than several of its neighbors on the deductions that " +
+        "surround the income tax. It levies no municipal or county income tax, unlike the " +
+        "Ohio, Pennsylvania, Indiana, and Maryland systems where a local wage tax is " +
+        "withheld alongside the state tax. It also runs no SDI or paid leave program, so it " +
+        "avoids the California SDI, New Jersey TDI and FLI, Washington PFML, and Colorado " +
+        "FAMLI premiums that show up on those states' paychecks. The only state-level " +
+        "deduction from an Oklahoma paycheck is the income tax itself.",
+      "Oklahoma's 2026 rate cut is the product of an unusual statutory design. Instead of " +
+        "leaving each change to a fresh legislative vote, 68 O.S. 2355 subsection E ties " +
+        "automatic quarter-point reductions to a revenue trigger certified by the State " +
+        "Board of Equalization. That makes Oklahoma one of a handful of states, Iowa and " +
+        "Kentucky among them, that have written automatic rate reductions into statute " +
+        "rather than deciding each cut on its own; Oklahoma is the one whose statute names " +
+        "zero as the destination. For a paycheck the effect so far is modest: the top rate " +
+        "moved from 4.75% to 4.5% for 2026, which trims the annual state bill on a $52,000 " +
+        "salary rather than transforming take-home pay.",
+    ],
+    faqs: [
+      {
+        q: "Does Oklahoma have a state income tax?",
+        a: "Yes. Oklahoma taxes individual income under Section 2355 of Title 68 of the Oklahoma Statutes. The tax is graduated rather than flat, and the top rate for tax year 2026 is 4.5%.",
+      },
+      {
+        q: "What is the Oklahoma income tax rate for 2026?",
+        a: "Oklahoma applies four rates for 2026: 0% on the first $3,750 of taxable income for a single filer, 2.5% on the next $1,150, 3.5% on the next $2,300, and 4.5% on everything above $7,200. A married couple filing jointly or a head of household uses the same rates on doubled thresholds, so their top 4.5% band begins at $14,400.",
+      },
+      {
+        q: "What is the Oklahoma standard deduction for 2026?",
+        a: "The simplified 2026 data used by this calculator applies a $6,350 standard deduction for a single filer, $12,700 for a married couple filing jointly, and $9,525 for a head of household. Oklahoma also allows a $1,000 personal exemption for the taxpayer and the same for a spouse and for each dependent, and it adds $1,000 exemptions for a legally blind filer and for a filer 65 or older who meets the income limits.",
+      },
+      {
+        q: "Does Oklahoma have a local or city income tax?",
+        a: "No. Oklahoma levies no city, county, or municipal income tax on wages, so nothing is withheld for Oklahoma City, Tulsa, Norman, or any other city. Local revenue in Oklahoma comes from sales and property taxes, which are not taken out of a paycheck.",
+      },
+      {
+        q: "Does Oklahoma have a state disability or paid family leave payroll tax?",
+        a: "No. Oklahoma operates no state disability insurance program and no state paid family leave program, so there is no SDI or PFL premium on an Oklahoma paycheck. The only state-level deduction is the income tax.",
+      },
+      {
+        q: "How much is taken out of a $52,000 salary in Oklahoma?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,659.93 per paycheck from a $52,000 salary: $2,000.00 gross, $156.15 federal income tax, $124.00 Social Security, $29.00 Medicare, and $30.91 Oklahoma state income tax. That is about $43,158.25 a year, an effective tax rate of roughly 17.0%.",
+      },
+      {
+        q: "Why is the Oklahoma top rate 4.5% in 2026 but 4.75% in 2025?",
+        a: "Oklahoma cut its top individual income tax rate by a quarter of a percentage point for tax year 2026. Subsection E of 68 O.S. 2355 requires automatic quarter-point reductions whenever the State Board of Equalization certifies that collections exceed a revenue trigger, and the statute continues those reductions until the rate reaches zero. The 2025 top rate was 4.75%; the 2026 top rate is 4.5%.",
+      },
+      {
+        q: "Does Oklahoma tax capital gains or retirement income?",
+        a: "Oklahoma taxes capital gains as ordinary income under the same graduated rates, with a limited subtraction available for certain qualifying gains. Retirement income is also taxable: Oklahoma allows a subtraction for Social Security benefits but caps it by income, and it does not exempt most pension income the way a few states do. Those items are handled on the annual Oklahoma return rather than through paycheck withholding.",
+      },
+    ],
+    sources: [
+      { label: "Oklahoma Tax Commission — Individuals", url: "https://oklahoma.gov/tax/individuals.html" },
+      { label: "Oklahoma Tax Commission — Income tax exemptions", url: "https://oklahoma.gov/tax/individuals/exemptions.html" },
+      { label: "68 O.S. § 2355 — Tax imposed; classes of taxpayers (Oklahoma Statutes via OSCN)", url: "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=92565" },
+      { label: "Oklahoma Tax Commission — Withholding tax", url: "https://oklahoma.gov/tax/businesses/withholding.html" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
