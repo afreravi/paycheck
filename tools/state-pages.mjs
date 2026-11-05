@@ -3022,6 +3022,158 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-CT",
+    abbr: "ct",
+    slug: "connecticut",
+    name: "Connecticut",
+    example: { salary: 68000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Connecticut: a seven-rate graduated income tax that starts at 2%, plus an
+    // employee-funded CT Paid Leave contribution of 0.5%. No local wage tax and
+    // no state disability program. Reviewed against Conn. Gen. Stat. Chapter 229,
+    // the DRS, and the CT Paid Leave Authority.
+    hasIncomeTax: true,
+    title: "Connecticut Paycheck Calculator - Take-Home Pay After CT Tax",
+    description:
+      "Free Connecticut paycheck calculator. Estimate 2026 take-home pay after Connecticut's graduated income tax, the CT Paid Leave contribution, federal tax, and FICA.",
+    intro:
+      "Connecticut takes two bites out of a paycheck, and this calculator shows both. The " +
+      "state runs a graduated income tax whose lowest rate is just 2%, and it withholds a " +
+      "0.5% employee contribution for CT Paid Leave, a family and medical leave insurance " +
+      "program that has been collecting since 2022. There is no city or county wage tax and " +
+      "no separate disability deduction. Enter your pay details to see net pay per period.",
+    keyHeading: "How Connecticut taxes a paycheck",
+    keyParagraphs: [
+      "Connecticut taxes wage income on a graduated scale with seven rates, and the bottom " +
+        "of that ladder is unusually gentle. Chapter 229 of the Connecticut General Statutes, " +
+        "beginning at section 12-700, imposes the tax, and the schedule now runs 2% on the " +
+        "first $10,000 of taxable income, then 4.5%, 5.5%, 6%, 6.5%, and 6.9% through the " +
+        "middle bands, up to a top rate of 6.99% that applies above $500,000 for a single " +
+        "filer. Connecticut trimmed the first two rates for tax year 2024, cutting the " +
+        "opening rate from 3% to 2% and the next from 5% to 4.5%, so the entry point into " +
+        "the tax is the lowest it has been in years. A married couple filing jointly uses " +
+        "the same rates on doubled thresholds, and a head of household gets its own " +
+        "midpoint thresholds in between.",
+      "Two mechanical features make the Connecticut return more complicated than the rate " +
+        "table suggests, and both are worth knowing because they push the real bill above " +
+        "what the headline rates imply. The first is the 2% Tax Rate Phase-Out Add-Back on " +
+        "Table C of Schedule CT-1040: because the lowest band is so generous, Connecticut " +
+        "adds a slice of it back for filers above a middle-income threshold so they do not " +
+        "keep the full benefit of a rate designed for modest earners. The second is tax " +
+        "recapture on Table D, which claws back the advantage of the graduated brackets " +
+        "once income climbs high enough. After those two adjustments the state multiplies " +
+        "the result by the personal tax credit decimal from Table E, which Connecticut " +
+        "allows as a percentage credit rather than a flat dollar amount.",
+      "Connecticut pairs the income tax with a $15,000 personal exemption for a single " +
+        "filer, doubled to $30,000 for a married couple filing jointly and set at $22,500 " +
+        "for a head of household in the 2026 data used here. That exemption is not a " +
+        "permanent floor, because Connecticut phases it down as income rises: for a single " +
+        "filer the phase-out begins once Connecticut adjusted gross income passes $66,000, " +
+        "and it shrinks from there until nothing is left. A worker well into six figures " +
+        "therefore gets no exemption at all, which is why the effective Connecticut rate " +
+        "climbs faster than the marginal table alone would suggest. Connecticut also layers " +
+        "on its own earned income tax credit, worth 40% of the federal credit, but that " +
+        "lands on the annual return as a refundable credit rather than as a paycheck " +
+        "adjustment.",
+      "The second line on a Connecticut stub is the CT Paid Leave contribution. Connecticut " +
+        "is one of the states that funds family and medical leave through a payroll premium " +
+        "rather than a general appropriation, and the CT Paid Leave Authority set the " +
+        "employee rate at 0.5% of wages for 2026. Employers withhold it, remit it to the " +
+        "authority, and the money is pooled into a trust that pays up to 12 weeks of wage " +
+        "replacement for a qualifying birth, adoption, serious illness, or family care " +
+        "need. The contribution stops once earnings reach the Social Security wage base, so " +
+        "a high earner pays it only on the first $184,500 of 2026 wages. Connecticut does " +
+        "not run a separate state disability insurance program, so there is no SDI line " +
+        "beside it, and the state levies no municipal income tax, so the income tax and the " +
+        "paid leave premium are the only two state deductions on the stub.",
+      "The rate model behind this calculator is a simplified three-band approximation of " +
+        "the Connecticut schedule, so it understates the state line for a filer whose " +
+        "income triggers the Table C add-back or the Table D recapture. On a $68,000 salary " +
+        "it charges $77.23 of Connecticut income tax per biweekly paycheck, about $2,008 " +
+        "for the year, and it does not subtract the 0.5% CT Paid Leave contribution. Treat " +
+        "the state line as a conservative estimate and check the official DRS withholding " +
+        "tables when you need an exact figure.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Annual salary divided by the number of pay periods you selected, or hourly rate times hours worked for an hourly employee.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health insurance premiums come out first and lower the wages that both Connecticut and the IRS tax.",
+      "<strong>Connecticut personal exemption.</strong> The 2026 data used here subtracts $15,000 for a single filer, $30,000 for a married couple filing jointly, and $22,500 for a head of household. Connecticut phases the exemption down as income rises, starting above $66,000 of adjusted gross income for a single filer, and the simplified model here does not apply that phase-out.",
+      "<strong>Connecticut income tax.</strong> The remainder runs through the graduated 2026 bands, which start at 2% on the first $10,000 and climb to a 6.99% top rate. On a $68,000 salary the model charges $77.23 per biweekly paycheck, about $2,008 for the year. The real Schedule CT-1040 also applies the Table C 2% add-back, the Table D recapture, and the Table E personal credit, which this simplified model leaves out.",
+      "<strong>CT Paid Leave.</strong> A 0.5% employee contribution on wages up to the Social Security wage base, withheld by the employer and remitted to the CT Paid Leave Authority. This calculator does not yet subtract it, so a real stub comes out slightly lower.",
+      "<strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied separately to the same wages.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the 2026 wage base of $184,500, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass $200,000 for a single filer.",
+      "<strong>No local income tax.</strong> Connecticut has no city or county wage tax, so no municipal line appears on the stub.",
+    ],
+    compareParagraphs: [
+      "Connecticut's opening rate is the lowest in New England, and its top rate is the " +
+        "highest in the region. The 2% first bracket sits below Massachusetts (5% flat), " +
+        "Rhode Island (3.75% to 5.99%), Vermont (3.35% to 8.75%), Maine (5.8% to 7.15%), " +
+        "and New Hampshire, which taxes no wage income at all. At the other end, " +
+        "Connecticut's 6.99% top rate edges past Massachusetts and Rhode Island, though it " +
+        "stays well under Vermont's 8.75% and under Maine's top rate. That spread means " +
+        "Connecticut is unusually kind to a low earner and roughly average to a high " +
+        "earner among its neighbors.",
+      "What sets Connecticut apart inside the region is not the rate table but the " +
+        "mechanics around it. Connecticut is the only New England state that writes both a " +
+        "phase-out add-back and a tax recapture into its own return schedule, so a filer " +
+        "cannot read the bracket table alone and know the bill. Massachusetts, by contrast, " +
+        "uses one flat rate plus a surtax above a high threshold, and Rhode Island and " +
+        "Vermont rely on plain graduated tables. Connecticut is also the only state in the " +
+        "region with a payroll-funded family and medical leave program: Massachusetts and " +
+        "Rhode Island run their own PFML and TDI systems, but Maine, New Hampshire, and " +
+        "Vermont do not withhold a leave premium from a paycheck at all.",
+      "On local tax Connecticut is simpler than its southern neighbors rather than its " +
+        "northern ones. It levies no municipal or county income tax, so nothing is withheld " +
+        "for Hartford, Bridgeport, Stamford, or New Haven, which puts it in a different " +
+        "category from New York's city and Yonkers taxes and from the Pennsylvania, Ohio, " +
+        "and Indiana systems where a local wage tax rides alongside the state tax. " +
+        "Connecticut also has no state disability insurance program, so it avoids the " +
+        "California SDI, New Jersey TDI, and Rhode Island TDI lines; its only state payroll " +
+        "premium is the CT Paid Leave contribution.",
+    ],
+    faqs: [
+      {
+        q: "Does Connecticut have a state income tax?",
+        a: "Yes. Connecticut taxes individual income under Chapter 229 of the Connecticut General Statutes, beginning at section 12-700. The tax is graduated rather than flat, with seven rates from 2% to 6.99%.",
+      },
+      {
+        q: "What are the Connecticut income tax brackets for 2026?",
+        a: "For a single filer the 2026 schedule applies 2% to the first $10,000 of taxable income, 4.5% from $10,000 to $50,000, 5.5% from $50,000 to $100,000, 6% from $100,000 to $200,000, 6.5% from $200,000 to $250,000, 6.9% from $250,000 to $500,000, and 6.99% above $500,000. A married couple filing jointly uses the same rates on doubled thresholds, and a head of household uses thresholds between the two.",
+      },
+      {
+        q: "What is the Connecticut personal exemption for 2026?",
+        a: "The simplified 2026 data used by this calculator applies a $15,000 personal exemption for a single filer, $30,000 for a married couple filing jointly, and $22,500 for a head of household. Connecticut reduces the exemption as income rises, beginning above $66,000 of adjusted gross income for a single filer, so a high earner may receive no exemption. This calculator does not apply that phase-out.",
+      },
+      {
+        q: "What are the Connecticut 2% phase-out add-back and tax recapture?",
+        a: "Both appear on Schedule CT-1040 and both raise the effective bill above the bracket table. The Table C add-back restores part of the benefit of the 2% first bracket to filers above a middle-income threshold, and the Table D tax recapture claws back the advantage of the graduated brackets once income passes a higher threshold. Connecticut then multiplies the result by the personal tax credit decimal from Table E.",
+      },
+      {
+        q: "Does Connecticut have a local or city income tax?",
+        a: "No. Connecticut levies no city, county, or municipal income tax on wages, so nothing is withheld for Hartford, Bridgeport, Stamford, New Haven, or any other municipality. Local revenue in Connecticut comes from property and sales taxes, which are not taken out of a paycheck.",
+      },
+      {
+        q: "How much is the CT Paid Leave contribution for 2026?",
+        a: "The CT Paid Leave Authority set the employee contribution rate at 0.5% of wages for 2026, and employers withhold it and remit it to the authority. The contribution stops once earnings reach the Social Security wage base, which is $184,500 for 2026. The money funds up to 12 weeks of wage replacement for a qualifying family or medical leave. This calculator does not yet subtract the premium.",
+      },
+      {
+        q: "Does Connecticut have a state disability insurance program?",
+        a: "No. Connecticut operates no state disability insurance program, so no SDI line appears on a Connecticut paycheck. The state's only payroll-funded benefit premium is the 0.5% CT Paid Leave contribution, which funds family and medical leave rather than short-term disability.",
+      },
+      {
+        q: "How much is taken out of a $68,000 salary in Connecticut?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,102.30 per paycheck from a $68,000 salary: $2,615.38 gross, $235.77 federal income tax, $162.15 Social Security, $37.92 Medicare, and $77.23 Connecticut state income tax. That is about $54,659.90 a year, an effective tax rate of roughly 19.6%. The CT Paid Leave contribution comes out on top of that, and the real state line is higher once the add-back and recapture apply.",
+      },
+    ],
+    sources: [
+      { label: "Connecticut Department of Revenue Services — Individual income tax", url: "https://portal.ct.gov/drs/individuals/individual-income-tax" },
+      { label: "Connecticut Department of Revenue Services — Income tax filing season information", url: "https://portal.ct.gov/drs/individuals/individual-income-tax/income-tax-filing-season-information" },
+      { label: "Connecticut General Statutes, Chapter 229 — Income Tax (§ 12-700 et seq.)", url: "https://www.cga.ct.gov/current/pub/chap_229.htm" },
+      { label: "CT Paid Leave Authority — How contributions work", url: "https://www.ctpaidleave.org/how-ct-paid-leave-works/contributions" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

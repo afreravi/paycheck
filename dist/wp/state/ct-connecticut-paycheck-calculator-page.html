@@ -1,0 +1,646 @@
+<!-- Paste into the "Connecticut" Page body. Use the Code Editor, not the Visual editor.
+     Parent Page: Paycheck Calculator  ->  this page's slug: connecticut
+     Resulting URL: https://afreetools.com/finance/paycheck-calculator/connecticut
+
+  Rank Math SEO fields to set on this Page:
+    Focus keyword : connecticut paycheck calculator
+    SEO title     : Connecticut Paycheck Calculator - Take-Home Pay After CT Tax
+    Meta description (162 characters):
+      Free Connecticut paycheck calculator. Estimate 2026 take-home pay after Connecticut's graduated income tax, the CT Paid Leave contribution, federal tax, and FICA.
+
+  Do not delete the opening paragraph. Search engines read it, and without it the
+  meta description falls back to the first form labels.
+-->
+<style>
+/* Paycheck calculator styling.
+ *
+ * Matches the palette and component vocabulary used by the other afreetools
+ * calculators (see /rule-of-72-calculator): Bootstrap 4 grid + utilities, plus
+ * a small set of brand components. WordPress supplies Bootstrap 4.6.2 from the
+ * theme, so this file only carries what Bootstrap does not.
+ *
+ * The standalone build has no Bootstrap, so tools/build.mjs prepends a minimal
+ * shim for the grid and utility classes used here. Keep that shim in sync if
+ * the markup starts using new Bootstrap classes.
+ */
+
+:root {
+  --brand: #60089c;
+  --brand-deep: #3f0568;
+  --brand-bright: #8b2fd0;
+  --brand-wash: #f7f1fd;
+  --brand-edge: #e3d4f4;
+  --ink: #221f28;
+  --muted: #6a6673;
+  --rule: #e8e2f0;
+  --good: #1c7d4d;
+  --bad: #b32639;
+}
+
+/* ---------- labels ---------- */
+.section-kicker {
+  color: var(--brand-deep);
+  letter-spacing: .08em;
+  font-size: .76rem;
+  border-left: 3px solid var(--brand);
+  padding-left: .55rem;
+}
+
+label { font-weight: 600; font-size: .95rem; color: var(--ink); }
+.form-text { color: var(--muted); font-size: .82rem; }
+
+/* ---------- form ---------- */
+.form-control, .custom-select {
+  border-color: var(--rule);
+  border-radius: .25rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  background-color: #fff;
+}
+.form-control:focus, .custom-select:focus {
+  border-color: var(--brand-bright);
+  box-shadow: 0 0 0 .2rem rgba(96, 8, 156, .14);
+}
+.input-group-text {
+  background: var(--brand-wash);
+  border-color: var(--rule);
+  color: var(--brand-deep);
+  font-weight: 700;
+}
+
+/* ---------- buttons ---------- */
+.btn-brand {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  padding: .6rem 1.35rem;
+}
+.btn-brand:hover, .btn-brand:focus {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #fff;
+}
+
+/* ---------- stat tiles ---------- */
+.stat-tile {
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--brand);
+  border-radius: .3rem;
+  background: linear-gradient(90deg, var(--brand-wash) 0%, #ffffff 65%);
+}
+.stat-label {
+  display: block;
+  font-size: .74rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  font-weight: 700;
+  margin-bottom: .25rem;
+}
+.stat-value {
+  display: block;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--brand);
+  line-height: 1.15;
+}
+.stat-note { display: block; color: var(--muted); font-size: .84rem; margin-top: .15rem; }
+
+/* ---------- tables ---------- */
+.table thead th {
+  border-top: 0;
+  border-bottom: 2px solid var(--brand-edge);
+  color: var(--brand-deep);
+  font-size: .8rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.table td, .table th { border-color: var(--rule); }
+.table-striped tbody tr:nth-of-type(odd) { background: var(--brand-wash); }
+.pc-breakdown td { font-variant-numeric: tabular-nums; }
+.pc-breakdown .pc-total th, .pc-breakdown .pc-total td {
+  font-weight: 800;
+  color: var(--ink);
+  border-bottom: 0;
+}
+
+/* ---------- calculator specifics ---------- */
+.pc-app { margin-bottom: 1rem; }
+
+.pc-advanced { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-advanced summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+
+.pc-math { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-math summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-math ol { margin: .75rem 0 .25rem; padding-left: 1.25rem; }
+.pc-math li { margin-bottom: .5rem; font-size: .875rem; }
+.pc-math code { background: var(--brand-wash); padding: 1px 4px; border-radius: 4px; word-break: break-word; }
+.pc-trace-label { font-weight: 600; }
+
+.pc-rates strong { color: var(--ink); }
+
+.pc-disclaimer {
+  border-left: 3px solid var(--brand-edge);
+  padding-left: .75rem;
+}
+
+/* ---------- prose + FAQ (outside .pc-app) ---------- */
+.pc-intro { max-width: 70ch; }
+.pc-faq { max-width: 70ch; }
+.pc-faq details {
+  border: 1px solid var(--rule);
+  border-radius: .3rem;
+  padding: .6rem .85rem;
+  margin-bottom: .5rem;
+  background: #fff;
+}
+.pc-faq summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-faq p { margin: .6rem 0 .25rem; }
+
+</style>
+
+<p class="pc-intro">Connecticut takes two bites out of a paycheck, and this calculator shows both. The state runs a graduated income tax whose lowest rate is just 2%, and it withholds a 0.5% employee contribution for CT Paid Leave, a family and medical leave insurance program that has been collecting since 2022. There is no city or county wage tax and no separate disability deduction. Enter your pay details to see net pay per period.</p>
+
+<div class="card shadow-sm border-0 mb-5" id="toolCard">
+<div class="card-body p-4">
+
+<h2 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Your pay details</h2>
+
+<div id="paycheck-calculator" class="pc-app" aria-label="Connecticut paycheck calculator">
+
+  <form class="pc" novalidate>
+    <div class="row">
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-tax-year">Tax year</label>
+          <select class="custom-select" id="pc-tax-year" name="tax_year">
+            
+            <option value="2026" selected>2026</option>
+            <option value="2025">2025</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-pay-type">Pay type</label>
+          <select class="custom-select" id="pc-pay-type" name="pay_type">
+            
+            <option value="salary" selected>Salary (annual)</option>
+            <option value="hourly">Hourly</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-pay-frequency">Pay frequency</label>
+          <select class="custom-select" id="pc-pay-frequency" name="pay_frequency">
+            <option value="weekly">Weekly</option>
+            <option value="biweekly" selected>Bi-weekly</option>
+            <option value="semimonthly">Semi-monthly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-when="salary">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-annual-salary">Annual salary</label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-annual-salary" name="annual_salary" type="number"
+              min="0" step="100" value="75000"
+              inputmode="decimal" aria-describedby="pc-salary-help" />
+            
+          </div>
+          <small class="form-text text-muted" id="pc-salary-help">Gross pay before any deductions.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-when="hourly" hidden>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-hourly-rate">Hourly rate</label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-hourly-rate" name="hourly_rate" type="number"
+              min="0" step="0.01" value="25"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-hours-week">Hours / week</label>
+          <div class="input-group">
+            
+            <input class="form-control" id="pc-hours-week" name="hours_per_week" type="number"
+              min="0" step="1" value="40"
+              inputmode="decimal" />
+            <div class="input-group-append"><span class="input-group-text">hrs</span></div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-overtime-hours">Overtime hours / week</label>
+          <div class="input-group">
+            
+            <input class="form-control" id="pc-overtime-hours" name="overtime_hours" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            <div class="input-group-append"><span class="input-group-text">hrs</span></div>
+          </div>
+          <small class="form-text text-muted">Paid at 1.5&times; your hourly rate.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-filing-status">Filing status</label>
+          <select class="custom-select" id="pc-filing-status" name="filing_status">
+            <option value="single">Single</option>
+            <option value="mfj">Married filing jointly</option>
+            <option value="mfs">Married filing separately</option>
+            <option value="hoh">Head of household</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-state">State</label>
+          <select class="custom-select" id="pc-state" name="state">
+            <option value="US-AL">Alabama</option>
+            <option value="US-AK">Alaska</option>
+            <option value="US-AZ">Arizona</option>
+            <option value="US-AR">Arkansas</option>
+            <option value="US-CA">California</option>
+            <option value="US-CO">Colorado</option>
+            <option value="US-CT" selected>Connecticut</option>
+            <option value="US-DE">Delaware</option>
+            <option value="US-DC">District of Columbia</option>
+            <option value="US-FL">Florida</option>
+            <option value="US-GA">Georgia</option>
+            <option value="US-HI">Hawaii</option>
+            <option value="US-ID">Idaho</option>
+            <option value="US-IL">Illinois</option>
+            <option value="US-IN">Indiana</option>
+            <option value="US-IA">Iowa</option>
+            <option value="US-KS">Kansas</option>
+            <option value="US-KY">Kentucky</option>
+            <option value="US-LA">Louisiana</option>
+            <option value="US-ME">Maine</option>
+            <option value="US-MD">Maryland</option>
+            <option value="US-MA">Massachusetts</option>
+            <option value="US-MI">Michigan</option>
+            <option value="US-MN">Minnesota</option>
+            <option value="US-MS">Mississippi</option>
+            <option value="US-MO">Missouri</option>
+            <option value="US-MT">Montana</option>
+            <option value="US-NE">Nebraska</option>
+            <option value="US-NV">Nevada</option>
+            <option value="US-NH">New Hampshire</option>
+            <option value="US-NJ">New Jersey</option>
+            <option value="US-NM">New Mexico</option>
+            <option value="US-NY">New York</option>
+            <option value="US-NC">North Carolina</option>
+            <option value="US-ND">North Dakota</option>
+            <option value="US-OH">Ohio</option>
+            <option value="US-OK">Oklahoma</option>
+            <option value="US-OR">Oregon</option>
+            <option value="US-PA">Pennsylvania</option>
+            <option value="US-RI">Rhode Island</option>
+            <option value="US-SC">South Carolina</option>
+            <option value="US-SD">South Dakota</option>
+            <option value="US-TN">Tennessee</option>
+            <option value="US-TX">Texas</option>
+            <option value="US-UT">Utah</option>
+            <option value="US-VT">Vermont</option>
+            <option value="US-VA">Virginia</option>
+            <option value="US-WA">Washington</option>
+            <option value="US-WV">West Virginia</option>
+            <option value="US-WI">Wisconsin</option>
+            <option value="US-WY">Wyoming</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <p class="pc-intro-state pc-disclaimer small text-muted mt-2 mb-3" data-state-note hidden></p>
+
+    <details class="pc-advanced mb-3">
+      <summary>Deductions &amp; W-4 (optional)</summary>
+      <div class="row mt-2">
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-d401k">401(k) / 403(b) <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-d401k" name="ded_d401k" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-hsa">HSA <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-hsa" name="ded_hsa" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-fsa">FSA <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-fsa" name="ded_fsa" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-health">Health premium <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-health" name="ded_health" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-post">Other post-tax deduction <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-post" name="ded_post" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-w4-step3">W-4 Step 3 credits <small class="text-muted">annual</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-w4-step3" name="w4_step3" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-w4-step4c">W-4 extra withholding <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-w4-step4c" name="w4_step4c" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      </div>
+    </details>
+
+    <button type="submit" class="btn btn-brand btn-lg btn-block">Calculate take-home pay</button>
+  </form>
+
+  <section class="pc-result mt-4" hidden aria-live="polite">
+    <div class="pc-net stat-tile mb-4">
+      <span class="pc-net-label stat-label">Net take-home pay <small>per period</small></span>
+      <strong class="pc-net-value stat-value" data-out="net_per_period">&mdash;</strong>
+      <span class="pc-net-annual stat-note" data-out="net_annual">&mdash;</span>
+    </div>
+
+    <h3 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Where your pay goes</h3>
+    <div class="table-responsive">
+      <table class="pc-breakdown table table-sm table-striped mb-0">
+        <tbody>
+          <tr><th>Gross pay</th><td class="text-right" data-out="gross_per_period"></td></tr>
+          <tr><th>Federal income tax</th><td class="text-right" data-out="federal_income_tax"></td></tr>
+          <tr><th>Social Security</th><td class="text-right" data-out="social_security"></td></tr>
+          <tr><th>Medicare</th><td class="text-right" data-out="medicare"></td></tr>
+          <tr data-out-row="additional_medicare" hidden><th>Additional Medicare</th><td class="text-right" data-out="additional_medicare"></td></tr>
+          <tr><th>State income tax</th><td class="text-right" data-out="state_income_tax"></td></tr>
+          <tr><th>Pre-tax deductions</th><td class="text-right" data-out="pre_tax_deductions"></td></tr>
+          <tr><th>Post-tax deductions</th><td class="text-right" data-out="post_tax_deductions"></td></tr>
+          <tr class="pc-total"><th>Net pay</th><td class="text-right" data-out="net_per_period_total"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pc-rates small text-muted mt-3 mb-0">
+      Effective tax rate <strong data-out="effective_rate"></strong> &middot;
+      Marginal rate <strong data-out="marginal_rate"></strong>
+    </p>
+
+    <details class="pc-math mt-3">
+      <summary>Show the math</summary>
+      <ol data-out="trace"></ol>
+    </details>
+
+    <p class="pc-disclaimer small text-muted mt-3 mb-2">
+      This is an estimate for planning. It covers federal income tax, FICA, and simplified state income tax.
+      It does not include local or paid-leave taxes. Your employer's payroll system may calculate a different amount.
+    </p>
+    <p class="pc-updated small text-muted mb-0" data-out="updated"></p>
+  </section>
+</div>
+
+</div>
+</div>
+
+<h2 class="wp-block-heading" id="state-income-tax">How Connecticut taxes a paycheck</h2>
+
+<p>Connecticut taxes wage income on a graduated scale with seven rates, and the bottom of that ladder is unusually gentle. Chapter 229 of the Connecticut General Statutes, beginning at section 12-700, imposes the tax, and the schedule now runs 2% on the first $10,000 of taxable income, then 4.5%, 5.5%, 6%, 6.5%, and 6.9% through the middle bands, up to a top rate of 6.99% that applies above $500,000 for a single filer. Connecticut trimmed the first two rates for tax year 2024, cutting the opening rate from 3% to 2% and the next from 5% to 4.5%, so the entry point into the tax is the lowest it has been in years. A married couple filing jointly uses the same rates on doubled thresholds, and a head of household gets its own midpoint thresholds in between.</p>
+
+<p>Two mechanical features make the Connecticut return more complicated than the rate table suggests, and both are worth knowing because they push the real bill above what the headline rates imply. The first is the 2% Tax Rate Phase-Out Add-Back on Table C of Schedule CT-1040: because the lowest band is so generous, Connecticut adds a slice of it back for filers above a middle-income threshold so they do not keep the full benefit of a rate designed for modest earners. The second is tax recapture on Table D, which claws back the advantage of the graduated brackets once income climbs high enough. After those two adjustments the state multiplies the result by the personal tax credit decimal from Table E, which Connecticut allows as a percentage credit rather than a flat dollar amount.</p>
+
+<p>Connecticut pairs the income tax with a $15,000 personal exemption for a single filer, doubled to $30,000 for a married couple filing jointly and set at $22,500 for a head of household in the 2026 data used here. That exemption is not a permanent floor, because Connecticut phases it down as income rises: for a single filer the phase-out begins once Connecticut adjusted gross income passes $66,000, and it shrinks from there until nothing is left. A worker well into six figures therefore gets no exemption at all, which is why the effective Connecticut rate climbs faster than the marginal table alone would suggest. Connecticut also layers on its own earned income tax credit, worth 40% of the federal credit, but that lands on the annual return as a refundable credit rather than as a paycheck adjustment.</p>
+
+<p>The second line on a Connecticut stub is the CT Paid Leave contribution. Connecticut is one of the states that funds family and medical leave through a payroll premium rather than a general appropriation, and the CT Paid Leave Authority set the employee rate at 0.5% of wages for 2026. Employers withhold it, remit it to the authority, and the money is pooled into a trust that pays up to 12 weeks of wage replacement for a qualifying birth, adoption, serious illness, or family care need. The contribution stops once earnings reach the Social Security wage base, so a high earner pays it only on the first $184,500 of 2026 wages. Connecticut does not run a separate state disability insurance program, so there is no SDI line beside it, and the state levies no municipal income tax, so the income tax and the paid leave premium are the only two state deductions on the stub.</p>
+
+<p>The rate model behind this calculator is a simplified three-band approximation of the Connecticut schedule, so it understates the state line for a filer whose income triggers the Table C add-back or the Table D recapture. On a $68,000 salary it charges $77.23 of Connecticut income tax per biweekly paycheck, about $2,008 for the year, and it does not subtract the 0.5% CT Paid Leave contribution. Treat the state line as a conservative estimate and check the official DRS withholding tables when you need an exact figure.</p>
+
+<h2 class="wp-block-heading" id="how-take-home-pay-is-calculated">How Connecticut take-home pay is calculated</h2>
+
+
+<ol class="wp-block-list">
+<li><strong>Gross pay.</strong> Annual salary divided by the number of pay periods you selected, or hourly rate times hours worked for an hourly employee.</li>
+<li><strong>Pre-tax deductions.</strong> 401(k), HSA, and health insurance premiums come out first and lower the wages that both Connecticut and the IRS tax.</li>
+<li><strong>Connecticut personal exemption.</strong> The 2026 data used here subtracts $15,000 for a single filer, $30,000 for a married couple filing jointly, and $22,500 for a head of household. Connecticut phases the exemption down as income rises, starting above $66,000 of adjusted gross income for a single filer, and the simplified model here does not apply that phase-out.</li>
+<li><strong>Connecticut income tax.</strong> The remainder runs through the graduated 2026 bands, which start at 2% on the first $10,000 and climb to a 6.99% top rate. On a $68,000 salary the model charges $77.23 per biweekly paycheck, about $2,008 for the year. The real Schedule CT-1040 also applies the Table C 2% add-back, the Table D recapture, and the Table E personal credit, which this simplified model leaves out.</li>
+<li><strong>CT Paid Leave.</strong> A 0.5% employee contribution on wages up to the Social Security wage base, withheld by the employer and remitted to the CT Paid Leave Authority. This calculator does not yet subtract it, so a real stub comes out slightly lower.</li>
+<li><strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied separately to the same wages.</li>
+<li><strong>FICA.</strong> Social Security at 6.2% up to the 2026 wage base of $184,500, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass $200,000 for a single filer.</li>
+<li><strong>No local income tax.</strong> Connecticut has no city or county wage tax, so no municipal line appears on the stub.</li>
+</ol>
+
+<p>The result is your net pay for the period you selected. Pay frequency matters: a biweekly schedule pays 26 times a year and a semi-monthly schedule 24, so the same salary produces different per-paycheck amounts.</p>
+
+<h2 class="wp-block-heading" id="worked-example">Worked example: $68,000 in Connecticut</h2>
+
+<p>A single filer earning $68,000 a year, paid bi-weekly in 2026:</p>
+
+<table class="table table-sm table-striped">
+<thead><tr><th>Line</th><th class="text-right">Per paycheck</th></tr></thead>
+<tbody>
+<tr><th>Gross pay</th><td class="text-right">$2,615.38</td></tr>
+<tr><th>Federal income tax</th><td class="text-right">$235.77</td></tr>
+<tr><th>Social Security</th><td class="text-right">$162.15</td></tr>
+<tr><th>Medicare</th><td class="text-right">$37.92</td></tr>
+<tr><th>Connecticut state income tax</th><td class="text-right">$77.23</td></tr>
+<tr class="pc-total"><th>Net take-home pay</th><td class="text-right">$2,102.30</td></tr>
+</tbody>
+</table>
+
+<p>That is $54,659.90 a year, an effective tax rate of about 19.6%. Change the inputs in the calculator above to see your own numbers.</p>
+
+<h2 class="wp-block-heading" id="how-it-compares">How Connecticut compares</h2>
+
+<p>Connecticut's opening rate is the lowest in New England, and its top rate is the highest in the region. The 2% first bracket sits below Massachusetts (5% flat), Rhode Island (3.75% to 5.99%), Vermont (3.35% to 8.75%), Maine (5.8% to 7.15%), and New Hampshire, which taxes no wage income at all. At the other end, Connecticut's 6.99% top rate edges past Massachusetts and Rhode Island, though it stays well under Vermont's 8.75% and under Maine's top rate. That spread means Connecticut is unusually kind to a low earner and roughly average to a high earner among its neighbors.</p>
+
+<p>What sets Connecticut apart inside the region is not the rate table but the mechanics around it. Connecticut is the only New England state that writes both a phase-out add-back and a tax recapture into its own return schedule, so a filer cannot read the bracket table alone and know the bill. Massachusetts, by contrast, uses one flat rate plus a surtax above a high threshold, and Rhode Island and Vermont rely on plain graduated tables. Connecticut is also the only state in the region with a payroll-funded family and medical leave program: Massachusetts and Rhode Island run their own PFML and TDI systems, but Maine, New Hampshire, and Vermont do not withhold a leave premium from a paycheck at all.</p>
+
+<p>On local tax Connecticut is simpler than its southern neighbors rather than its northern ones. It levies no municipal or county income tax, so nothing is withheld for Hartford, Bridgeport, Stamford, or New Haven, which puts it in a different category from New York's city and Yonkers taxes and from the Pennsylvania, Ohio, and Indiana systems where a local wage tax rides alongside the state tax. Connecticut also has no state disability insurance program, so it avoids the California SDI, New Jersey TDI, and Rhode Island TDI lines; its only state payroll premium is the CT Paid Leave contribution.</p>
+
+<h2 class="wp-block-heading" id="faq">FAQ</h2>
+
+<div id="rank-math-faq" class="rank-math-block">
+<div class="rank-math-list ">
+<div id="faq-question-1" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does Connecticut have a state income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>Yes. Connecticut taxes individual income under Chapter 229 of the Connecticut General Statutes, beginning at section 12-700. The tax is graduated rather than flat, with seven rates from 2% to 6.99%.</p>
+
+</div>
+</div>
+<div id="faq-question-2" class="rank-math-list-item">
+<h4 class="rank-math-question ">What are the Connecticut income tax brackets for 2026?</h4>
+<div class="rank-math-answer ">
+
+<p>For a single filer the 2026 schedule applies 2% to the first $10,000 of taxable income, 4.5% from $10,000 to $50,000, 5.5% from $50,000 to $100,000, 6% from $100,000 to $200,000, 6.5% from $200,000 to $250,000, 6.9% from $250,000 to $500,000, and 6.99% above $500,000. A married couple filing jointly uses the same rates on doubled thresholds, and a head of household uses thresholds between the two.</p>
+
+</div>
+</div>
+<div id="faq-question-3" class="rank-math-list-item">
+<h4 class="rank-math-question ">What is the Connecticut personal exemption for 2026?</h4>
+<div class="rank-math-answer ">
+
+<p>The simplified 2026 data used by this calculator applies a $15,000 personal exemption for a single filer, $30,000 for a married couple filing jointly, and $22,500 for a head of household. Connecticut reduces the exemption as income rises, beginning above $66,000 of adjusted gross income for a single filer, so a high earner may receive no exemption. This calculator does not apply that phase-out.</p>
+
+</div>
+</div>
+<div id="faq-question-4" class="rank-math-list-item">
+<h4 class="rank-math-question ">What are the Connecticut 2% phase-out add-back and tax recapture?</h4>
+<div class="rank-math-answer ">
+
+<p>Both appear on Schedule CT-1040 and both raise the effective bill above the bracket table. The Table C add-back restores part of the benefit of the 2% first bracket to filers above a middle-income threshold, and the Table D tax recapture claws back the advantage of the graduated brackets once income passes a higher threshold. Connecticut then multiplies the result by the personal tax credit decimal from Table E.</p>
+
+</div>
+</div>
+<div id="faq-question-5" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does Connecticut have a local or city income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>No. Connecticut levies no city, county, or municipal income tax on wages, so nothing is withheld for Hartford, Bridgeport, Stamford, New Haven, or any other municipality. Local revenue in Connecticut comes from property and sales taxes, which are not taken out of a paycheck.</p>
+
+</div>
+</div>
+<div id="faq-question-6" class="rank-math-list-item">
+<h4 class="rank-math-question ">How much is the CT Paid Leave contribution for 2026?</h4>
+<div class="rank-math-answer ">
+
+<p>The CT Paid Leave Authority set the employee contribution rate at 0.5% of wages for 2026, and employers withhold it and remit it to the authority. The contribution stops once earnings reach the Social Security wage base, which is $184,500 for 2026. The money funds up to 12 weeks of wage replacement for a qualifying family or medical leave. This calculator does not yet subtract the premium.</p>
+
+</div>
+</div>
+<div id="faq-question-7" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does Connecticut have a state disability insurance program?</h4>
+<div class="rank-math-answer ">
+
+<p>No. Connecticut operates no state disability insurance program, so no SDI line appears on a Connecticut paycheck. The state's only payroll-funded benefit premium is the 0.5% CT Paid Leave contribution, which funds family and medical leave rather than short-term disability.</p>
+
+</div>
+</div>
+<div id="faq-question-8" class="rank-math-list-item">
+<h4 class="rank-math-question ">How much is taken out of a $68,000 salary in Connecticut?</h4>
+<div class="rank-math-answer ">
+
+<p>For 2026, a single filer paid biweekly takes home about $2,102.30 per paycheck from a $68,000 salary: $2,615.38 gross, $235.77 federal income tax, $162.15 Social Security, $37.92 Medicare, and $77.23 Connecticut state income tax. That is about $54,659.90 a year, an effective tax rate of roughly 19.6%. The CT Paid Leave contribution comes out on top of that, and the real state line is higher once the add-back and recapture apply.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<h2 class="wp-block-heading" id="sources">Sources and last updated</h2>
+
+<p>This page covers tax years 2025 and 2026. State tax status is checked against the sources below; federal brackets, the standard deduction, and FICA rates come from the IRS. Tax data last verified 2026-10-02.</p>
+
+<ul class="wp-block-list">
+<li><a href="https://portal.ct.gov/drs/individuals/individual-income-tax">Connecticut Department of Revenue Services — Individual income tax</a></li>
+<li><a href="https://portal.ct.gov/drs/individuals/individual-income-tax/income-tax-filing-season-information">Connecticut Department of Revenue Services — Income tax filing season information</a></li>
+<li><a href="https://www.cga.ct.gov/current/pub/chap_229.htm">Connecticut General Statutes, Chapter 229 — Income Tax (§ 12-700 et seq.)</a></li>
+<li><a href="https://www.ctpaidleave.org/how-ct-paid-leave-works/contributions">CT Paid Leave Authority — How contributions work</a></li>
+<li><a href="https://www.irs.gov/publications/p15">IRS Publication 15 (Circular E)</a></li>
+</ul>
+
+<h2 class="wp-block-heading" id="related-tools">Related tools</h2>
+
+<ul class="wp-block-list">
+<li><a href="/finance/paycheck-calculator">Paycheck Calculator</a> &mdash; the national calculator, pre-set to any state.</li>
+<li><a href="/finance/">Money &amp; Pay Calculators</a> &mdash; the rest of the finance hub.</li>
+</ul>
+
+<div class="gb-container gb-container-b53f53f1">
+
+<p><strong>Reviewed by:</strong> aFreeTools Editorial Team</p>
+
+<p><strong>Last updated:</strong> October 02, 2026</p>
+
+<p class="mb-0"><strong>Freshness:</strong> The page&rsquo;s content and sources were last reviewed October 02, 2026. Check related guidance and pay stub for situations that will require an exact withholding amount.</p>
+
+</div>
+
+<hr class="wp-block-separator has-text-color has-global-color-17-color has-alpha-channel-opacity has-global-color-17-background-color has-background is-style-default p-0"/>
+
+<section class="wp-block-group has-global-color-17-background-color has-background"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<p class="mb-0"><strong>Disclaimer:</strong> This paycheck calculator is for informational and planning purposes only. It provides an estimate of take-home pay based on the information you enter and standard federal/state tax assumptions, but actual pay can vary due to local taxes, benefits, deductions, withholding elections, payroll rules, and employer-specific factors. Results are not a guarantee of wages, tax liability, or net pay and should not be considered tax, legal, accounting, or financial advice. Please verify final amounts with your employer&rsquo;s payroll system or a qualified tax professional.</p>
+</div></section>
