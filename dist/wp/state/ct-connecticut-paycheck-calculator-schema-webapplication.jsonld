@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Connecticut Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/connecticut",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Connecticut paycheck calculator. Estimate 2026 take-home pay after Connecticut's graduated income tax, the CT Paid Leave contribution, federal tax, and FICA."
+}

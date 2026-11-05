@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Connecticut have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Connecticut taxes individual income under Chapter 229 of the Connecticut General Statutes, beginning at section 12-700. The tax is graduated rather than flat, with seven rates from 2% to 6.99%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the Connecticut income tax brackets for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a single filer the 2026 schedule applies 2% to the first $10,000 of taxable income, 4.5% from $10,000 to $50,000, 5.5% from $50,000 to $100,000, 6% from $100,000 to $200,000, 6.5% from $200,000 to $250,000, 6.9% from $250,000 to $500,000, and 6.99% above $500,000. A married couple filing jointly uses the same rates on doubled thresholds, and a head of household uses thresholds between the two."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Connecticut personal exemption for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The simplified 2026 data used by this calculator applies a $15,000 personal exemption for a single filer, $30,000 for a married couple filing jointly, and $22,500 for a head of household. Connecticut reduces the exemption as income rises, beginning above $66,000 of adjusted gross income for a single filer, so a high earner may receive no exemption. This calculator does not apply that phase-out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the Connecticut 2% phase-out add-back and tax recapture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both appear on Schedule CT-1040 and both raise the effective bill above the bracket table. The Table C add-back restores part of the benefit of the 2% first bracket to filers above a middle-income threshold, and the Table D tax recapture claws back the advantage of the graduated brackets once income passes a higher threshold. Connecticut then multiplies the result by the personal tax credit decimal from Table E."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Connecticut have a local or city income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Connecticut levies no city, county, or municipal income tax on wages, so nothing is withheld for Hartford, Bridgeport, Stamford, New Haven, or any other municipality. Local revenue in Connecticut comes from property and sales taxes, which are not taken out of a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is the CT Paid Leave contribution for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The CT Paid Leave Authority set the employee contribution rate at 0.5% of wages for 2026, and employers withhold it and remit it to the authority. The contribution stops once earnings reach the Social Security wage base, which is $184,500 for 2026. The money funds up to 12 weeks of wage replacement for a qualifying family or medical leave. This calculator does not yet subtract the premium."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Connecticut have a state disability insurance program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Connecticut operates no state disability insurance program, so no SDI line appears on a Connecticut paycheck. The state's only payroll-funded benefit premium is the 0.5% CT Paid Leave contribution, which funds family and medical leave rather than short-term disability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $68,000 salary in Connecticut?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,102.30 per paycheck from a $68,000 salary: $2,615.38 gross, $235.77 federal income tax, $162.15 Social Security, $37.92 Medicare, and $77.23 Connecticut state income tax. That is about $54,659.90 a year, an effective tax rate of roughly 19.6%. The CT Paid Leave contribution comes out on top of that, and the real state line is higher once the add-back and recapture apply."
+      }
+    }
+  ]
+}
