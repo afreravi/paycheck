@@ -62,7 +62,7 @@ const STATES = [
   ["SD", "South Dakota", true, 0, 0, 0],
   ["TN", "Tennessee", true, 0, 0, 0],
   ["TX", "Texas", true, 0, 0, 0],
-  ["UT", "Utah", false, 0.0455, 0.0455, 0],
+  ["UT", "Utah", false, 0.045, 0.045, 0],
   ["VT", "Vermont", false, 0.0335, 0.0875, 6500],
   ["VA", "Virginia", false, 0.02, 0.0575, 8500],
   ["WA", "Washington", true, 0, 0, 0],
