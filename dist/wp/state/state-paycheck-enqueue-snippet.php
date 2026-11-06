@@ -163,6 +163,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/connecticut',
             'description' => 'Free Connecticut paycheck calculator. Estimate 2026 take-home pay after Connecticut\'s graduated income tax, the CT Paid Leave contribution, federal tax, and FICA.',
         ),
+        'utah' => array(
+            'name'        => 'Utah Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/utah',
+            'description' => 'Free Utah paycheck calculator. Estimate 2026 take-home pay after Utah\'s 4.5% flat income tax, the taxpayer tax credit, federal tax, and FICA.',
+        ),
     );
 }
 
@@ -172,7 +177,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );

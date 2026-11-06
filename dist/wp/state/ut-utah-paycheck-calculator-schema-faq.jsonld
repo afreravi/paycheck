@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Utah have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Utah taxes individual income under Title 59, Chapter 10 of the Utah Code, at a single rate that applies to all income levels. The rate has been 4.5% since January 1, 2025."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Utah income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "4.5%. Utah does not use graduated brackets; section 59-10-104 sets one rate for every income level, and line 10 of Form TC-40 simply multiplies taxable income by 4.5 percent. The rate stepped down from 4.55% in 2024 to 4.5% for 2025 and later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Utah have a standard deduction or personal exemption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Utah's own form does not give a standard deduction the way the federal return does. Instead it allows a personal exemption of $2,111 per dependent under UCA section 59-10-1018(1)(g) and then lets you subtract the federal standard or itemized deduction you claimed on your federal return. Those two amounts feed the taxpayer tax credit rather than the tax base directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Utah taxpayer tax credit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a nonrefundable credit computed on Form TC-40. Utah adds the personal exemption to your federal standard or itemized deduction, multiplies that total by 6 percent for the initial credit, and then reduces it as income rises above a base amount set by filing status. Because it is nonrefundable it can reduce the state tax to zero but cannot create a refund by itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "At what income does the Utah taxpayer tax credit phase out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The phase-out starts from a base amount that depends on filing status: $18,213 for a single filer or a married person filing separately, $27,320 for a head of household, and $36,426 for a married couple filing jointly or a qualifying surviving spouse. Above that base the credit shrinks as income grows, so a high earner ends up paying close to the full 4.5% rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Utah have a local or city income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Utah levies no city, county, or municipal income tax on wages, so nothing is withheld for Salt Lake City, Provo, West Valley City, or any other municipality. Local revenue in Utah comes from property and sales taxes, which are not taken out of a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Utah have state disability insurance or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Utah operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so there is no SDI or PFML line on a Utah paycheck. The 4.5% income tax is the only state deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Utah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,834.23 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $103.85 Utah state income tax. That is about $47,690 a year, an effective tax rate of roughly 20.5%. The figure uses the full 4.5% rate and does not apply the taxpayer tax credit, so a real Utah stub is often a little higher."
+      }
+    }
+  ]
+}
