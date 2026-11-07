@@ -168,6 +168,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/utah',
             'description' => 'Free Utah paycheck calculator. Estimate 2026 take-home pay after Utah\'s 4.5% flat income tax, the taxpayer tax credit, federal tax, and FICA.',
         ),
+        'iowa' => array(
+            'name'        => 'Iowa Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/iowa',
+            'description' => 'Free Iowa paycheck calculator. Iowa now taxes wages at a single 3.8% rate. Estimate 2026 take-home pay after Iowa income tax, federal tax, and FICA.',
+        ),
     );
 }
 
@@ -177,7 +182,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
