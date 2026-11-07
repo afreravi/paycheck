@@ -3320,6 +3320,110 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-IA",
+    abbr: "ia",
+    slug: "iowa",
+    name: "Iowa",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Iowa Department of Revenue and
+    // Iowa Code section 422.5.
+    hasIncomeTax: true,
+    title: "Iowa Paycheck Calculator - Take-Home Pay After Iowa Tax",
+    description:
+      "Free Iowa paycheck calculator. Iowa now taxes wages at a single 3.8% rate. Estimate 2026 take-home pay after Iowa income tax, federal tax, and FICA.",
+    intro:
+      "Estimate your take-home pay in Iowa. Iowa taxes wage income at a single 3.8% rate, " +
+      "and every Iowan pays that same rate no matter the salary, so the state line on a " +
+      "paycheck rises in a straight line with pay. There is no city or county wage tax " +
+      "anywhere in Iowa, and no state disability or paid-leave deduction. Enter your " +
+      "salary and pay frequency to see your net pay per period.",
+    keyHeading: "Does Iowa have a state income tax?",
+    keyParagraphs: [
+      "Yes, but Iowa is now a flat-tax state. Iowa Code section 422.5 taxes the taxable " +
+        "income of every resident at \"a rate of three and eight-tenths percent\" (3.8%) for " +
+        "tax years beginning on or after January 1, 2025. Iowa reached that single rate " +
+        "through a series of annual cuts that began with the 2018 tax act and accelerated " +
+        "under the 2022 law; before 2023 the state ran as many as nine graduated brackets " +
+        "topping out near 8.53%.",
+      "The 3.8% rate does not apply to the whole salary. Iowa allows a standard deduction " +
+        "under Iowa Code section 422.5A, and the 2026 data used here subtracts $2,210 for a " +
+        "single filer, $4,420 for a married couple filing jointly, $2,210 for a married " +
+        "person filing separately, and $3,315 for a head of household. Iowa also offers an " +
+        "exemption credit for the taxpayer, spouse, and dependents, which is claimed on the " +
+        "annual return and reduces the tax itself rather than the income it is charged on.",
+      "Because the rate is flat, the tax is simple to read off a paycheck: roughly 3.8% of " +
+        "taxable income, which is about 3.66% of gross pay for a $60,000 single earner once " +
+        "the $2,210 deduction is set aside. There is no cliff where extra earnings jump a " +
+        "bracket, so a raise in Iowa never pushes the earlier dollars into a higher rate.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums come out first, so they lower the income that both Iowa and the IRS tax.",
+      "<strong>Iowa standard deduction.</strong> The 2026 data used here subtracts $2,210 for a single filer before any state tax is charged. Iowa Code section 422.5A sets the allowance.",
+      "<strong>Iowa income tax.</strong> The remainder is charged at the single 3.8% rate set by Iowa Code section 422.5. Every dollar above the deduction carries the same rate.",
+      "<strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied separately to the same wages.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass the high-earner threshold.",
+      "<strong>No state SDI or paid leave.</strong> Iowa withholds nothing for a state disability or family leave program, so 3.8% state income tax is the only state line.",
+    ],
+    compareParagraphs: [
+      "Iowa used to be a high-rate state and is now a low-rate one, which changes the " +
+        "comparison on every border. Iowa's 3.8% flat rate is below Wisconsin's graduated " +
+        "top rate of 7.65% and below Minnesota's 9.85% top rate, so a paycheck earned in Des " +
+        "Moines withholds less state tax than the same salary earned in Madison or " +
+        "Minneapolis. It sits above Missouri's 4.7% top rate and Illinois's 4.95% flat rate, " +
+        "so an Iowa earner pays slightly less than a neighbor in Chicago or Kansas City. " +
+        "South Dakota, which borders Iowa on the west, has no income tax at all.",
+      "Iowa is also simpler than the states where local tax is the hard part. There is no " +
+        "municipal or county wage tax like Ohio's, no school-district earned income tax like " +
+        "Pennsylvania's, and no city surtax like New York City's or Yonkers's. The state also " +
+        "runs no disability insurance program and withholds no paid-family-leave premium, so " +
+        "unlike California, New Jersey, Washington, or Massachusetts, an Iowa paycheck has no " +
+        "second state payroll line beyond the 3.8% income tax.",
+    ],
+    faqs: [
+      {
+        q: "Does Iowa have a state income tax?",
+        a: "Yes. Iowa taxes wage income, but at a single flat rate. Iowa Code section 422.5 taxes every resident's taxable income at \"a rate of three and eight-tenths percent\" (3.8%) for tax years beginning on or after January 1, 2025, replacing the graduated brackets Iowa used before 2023.",
+      },
+      {
+        q: "What is the Iowa income tax rate for 2026?",
+        a: "3.8%. Iowa Code section 422.5 sets that single rate, and it is not scheduled to change for 2026. Every dollar of taxable income above the Iowa standard deduction is charged the same 3.8%, so a $40,000 salary and a $400,000 salary face the same rate on the dollars above the deduction.",
+      },
+      {
+        q: "What is the Iowa standard deduction for 2026?",
+        a: "The 2026 data used here applies $2,210 for a single filer, $4,420 for a married couple filing jointly, $2,210 for a married person filing separately, and $3,315 for a head of household. Iowa Code section 422.5A sets the allowance, and Iowa also allows an exemption credit that is claimed on the annual return.",
+      },
+      {
+        q: "Is Iowa a flat tax state?",
+        a: "Yes. Iowa moved from as many as nine graduated brackets to a single 3.8% rate, first applying it to tax years beginning on or after January 1, 2025. Because there is only one rate, a raise cannot push earlier dollars into a higher bracket the way it can in Wisconsin, Minnesota, or the other graduated-rate states.",
+      },
+      {
+        q: "Do Iowa cities or counties charge a local income tax?",
+        a: "No. Iowa cities and counties do not levy an income tax on wages, so nothing is withheld for Des Moines, Cedar Rapids, Davenport, or any other city. Local revenue in Iowa comes from property taxes and local option sales taxes, neither of which is taken out of a paycheck.",
+      },
+      {
+        q: "Does Iowa have state disability insurance or paid family leave?",
+        a: "No. Iowa operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so there is no SDI or PFML line on an Iowa paycheck. The 3.8% income tax is the only state deduction.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Iowa?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,853.61 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $84.46 Iowa state income tax. That is about $48,193.98 a year, an effective tax rate of roughly 19.7%.",
+      },
+      {
+        q: "Do you have to file an Iowa state tax return?",
+        a: "Yes, if you meet Iowa's filing thresholds. Iowa requires a state return from residents whose income exceeds the threshold for their filing status, and most wage earners with a regular job file. Iowa taxes the income of residents on the full-year federal return and has reciprocity with Illinois, so a resident who works across the border may be taxed by the state where they live rather than the state where they work.",
+      },
+    ],
+    sources: [
+      { label: "Iowa Department of Revenue — Individual income tax", url: "https://tax.iowa.gov/iowa-income-tax" },
+      { label: "Iowa Code § 422.5 — Imposition of tax (3.8% single rate)", url: "https://www.legis.iowa.gov/docs/code/422.5.pdf" },
+      { label: "Iowa Code § 422.5A — Standard deduction", url: "https://www.legis.iowa.gov/docs/code/422.5A.pdf" },
+      { label: "Iowa Department of Revenue — Tax/fee descriptions and rates", url: "https://tax.iowa.gov/iowa-taxfee-descriptions-and-rates" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

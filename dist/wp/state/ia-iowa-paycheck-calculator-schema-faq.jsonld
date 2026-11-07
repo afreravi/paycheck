@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Iowa have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Iowa taxes wage income, but at a single flat rate. Iowa Code section 422.5 taxes every resident's taxable income at \"a rate of three and eight-tenths percent\" (3.8%) for tax years beginning on or after January 1, 2025, replacing the graduated brackets Iowa used before 2023."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Iowa income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3.8%. Iowa Code section 422.5 sets that single rate, and it is not scheduled to change for 2026. Every dollar of taxable income above the Iowa standard deduction is charged the same 3.8%, so a $40,000 salary and a $400,000 salary face the same rate on the dollars above the deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Iowa standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 2026 data used here applies $2,210 for a single filer, $4,420 for a married couple filing jointly, $2,210 for a married person filing separately, and $3,315 for a head of household. Iowa Code section 422.5A sets the allowance, and Iowa also allows an exemption credit that is claimed on the annual return."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Iowa a flat tax state?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Iowa moved from as many as nine graduated brackets to a single 3.8% rate, first applying it to tax years beginning on or after January 1, 2025. Because there is only one rate, a raise cannot push earlier dollars into a higher bracket the way it can in Wisconsin, Minnesota, or the other graduated-rate states."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Iowa cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Iowa cities and counties do not levy an income tax on wages, so nothing is withheld for Des Moines, Cedar Rapids, Davenport, or any other city. Local revenue in Iowa comes from property taxes and local option sales taxes, neither of which is taken out of a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Iowa have state disability insurance or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Iowa operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so there is no SDI or PFML line on an Iowa paycheck. The 3.8% income tax is the only state deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Iowa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,853.61 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $84.46 Iowa state income tax. That is about $48,193.98 a year, an effective tax rate of roughly 19.7%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have to file an Iowa state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you meet Iowa's filing thresholds. Iowa requires a state return from residents whose income exceeds the threshold for their filing status, and most wage earners with a regular job file. Iowa taxes the income of residents on the full-year federal return and has reciprocity with Illinois, so a resident who works across the border may be taxed by the state where they live rather than the state where they work."
+      }
+    }
+  ]
+}

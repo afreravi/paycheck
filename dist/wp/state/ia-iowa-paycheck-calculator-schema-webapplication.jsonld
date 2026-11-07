@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Iowa Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/iowa",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Iowa paycheck calculator. Iowa now taxes wages at a single 3.8% rate. Estimate 2026 take-home pay after Iowa income tax, federal tax, and FICA."
+}
