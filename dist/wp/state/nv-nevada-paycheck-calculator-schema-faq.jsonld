@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Nevada have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Nevada does not tax the wages or personal income of individuals. Article 10, Section 1, subsection 9 of the Nevada Constitution provides that no income tax shall be levied upon the wages or personal income of natural persons, so no state income tax is withheld from a Nevada paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my Nevada paycheck still taxed if there is no state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because federal taxes still apply. Federal income tax, Social Security (6.2%), and Medicare (1.45%) are withheld from every Nevada paycheck. The constitutional ban removes only the state income tax line, not the federal ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Nevada have state disability insurance or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Nevada does not operate a state disability insurance program and withholds no payroll-funded family or medical leave premium, so there is no SDI or paid-leave line on a Nevada paycheck. California, New Jersey, Washington, and Massachusetts are the states that add such a deduction; Nevada does not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Nevada cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No city or county in Nevada levies an income tax on wages, so nothing is withheld for Las Vegas, Reno, Henderson, Sparks, or any other locality. Local revenue in Nevada comes from sales, property, and gaming taxes, none of which is taken out of a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Nevada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,938.08 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $0.00 Nevada state income tax. That is about $50,390 a year, an effective tax rate of roughly 16.0%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Nevada Modified Business Tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Modified Business Tax (MBT) is a quarterly tax that Nevada employers pay on the gross wages they report under the state unemployment law. The general business rate is 1.17%, and the first $50,000 of wages each quarter is not taxed. It is a business tax paid by the employer and is not withheld from an employee's paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have to file a Nevada state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Because Nevada imposes no personal income tax, there is no Nevada personal income tax return to file. Residents with wage income generally file only a federal return with the IRS. Businesses, however, do file Nevada returns such as the Modified Business Tax and sales and use tax returns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Nevada compare to California, Arizona, and Utah on paycheck taxes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nevada withholds nothing for the state, while all three of those neighbors tax wages. California applies a graduated income tax reaching 13.3% plus a state disability insurance premium; Arizona charges a flat rate; and Utah taxes wages on a graduated scale. A Nevada resident keeps more of the same gross salary than a worker in any of those states."
+      }
+    }
+  ]
+}
