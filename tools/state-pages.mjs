@@ -3525,6 +3525,120 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+
+  {
+    code: "US-AR",
+    abbr: "ar",
+    slug: "arkansas",
+    name: "Arkansas",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Arkansas DFA and Arkansas Code
+    // sections 26-51-201 and 26-51-4301.
+    hasIncomeTax: true,
+    title: "Arkansas Paycheck Calculator - Take-Home Pay After Arkansas Tax",
+    description:
+      "Free Arkansas paycheck calculator. Arkansas taxes wages from 2% to 3.9% after a $2,340 deduction, with no local wage tax. Estimate 2026 take-home pay.",
+    intro:
+      "Estimate your take-home pay in Arkansas. Arkansas charges a low, graduated income " +
+      "tax that tops out at 3.9%, so the state line on a paycheck stays small relative to " +
+      "the federal one. No Arkansas city or county levies an income tax, and the state runs " +
+      "no disability or paid-leave payroll deduction. Enter your salary and pay frequency to " +
+      "see your net pay per period.",
+    keyHeading: "Does Arkansas have a state income tax?",
+    keyParagraphs: [
+      "Yes, at a low graduated rate. Arkansas Code section 26-51-201 imposes the tax and " +
+        "section 26-51-202 sets the rate table. The 2026 schedule used here starts at 2% and " +
+        "rises through 2.95% to a top rate of 3.9% once taxable income passes $100,000 for a " +
+        "single filer. Even the top rate is far below the national average, and a typical " +
+        "wage earner pays only a few hundred dollars a year to the state.",
+      "The tax is not charged on the whole salary. Arkansas allows a standard deduction, and " +
+        "the 2026 data used here subtracts $2,340 for a single filer or a married person " +
+        "filing separately, $4,680 for a married couple filing jointly, and $3,510 for a head " +
+        "of household. A lower-income filer can also claim the low-income tax tables that " +
+        "Arkansas Code section 26-51-440 provides, which reduce or wipe out the tax entirely " +
+        "for a small salary.",
+      "One more wrinkle matters to a subset of residents. Arkansas's border city exemption, " +
+        "set out in Income Tax Regulation 1.26 Ark. Code R. 51-403, exempts the income of " +
+        "people whose permanent residence is inside Texarkana, Arkansas, from the state " +
+        "individual income tax, because the " +
+        "city straddles the Texas line and Texas has no income tax. Those residents still " +
+        "file an Arkansas return to document the exemption, and it does not apply to a " +
+        "Texarkana resident working for an employer outside the city.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums come out first, so they lower the income that both Arkansas and the IRS tax.",
+      "<strong>Arkansas standard deduction.</strong> The 2026 data used here subtracts $2,340 for a single filer, $4,680 for a married couple filing jointly, $2,340 for a married person filing separately, and $3,510 for a head of household before any state tax is charged.",
+      "<strong>Arkansas income tax.</strong> The remainder runs through the graduated Arkansas schedule in Arkansas Code section 26-51-202, which the 2026 data here applies as bands of 2%, 2.95%, and 3.9%. Arkansas also offers a low-income tax table and a small personal credit on the annual return.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is applied, then the remaining income runs through the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base of $184,500 and Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax above the high-earner threshold.",
+      "<strong>Local income tax: $0.</strong> No Arkansas city or county taxes wages, so nothing is added for Little Rock, Fayetteville, or Fort Smith.",
+      "<strong>State disability and paid leave: $0.</strong> Arkansas operates no state disability insurance program and withholds no payroll-funded family or medical leave premium.",
+    ],
+    compareParagraphs: [
+      "Arkansas sits in the middle of the low-tax South, which is a strong position on a " +
+        "paycheck. Its top rate of 3.9% is below the flat rates charged by its neighbors " +
+        "Mississippi and Louisiana, and far below Missouri's graduated top rate of 4.7% and " +
+        "Tennessee's zero rate on wages. Arkansas is not a no-income-tax state like Texas, " +
+        "Florida, or Tennessee, but a worker earning an average salary pays the state only a " +
+        "small amount because the standard deduction removes the first slice and the bands " +
+        "stay in the low single digits.",
+      "Arkansas is also one of the states where the state rate is the whole story. There is " +
+        "no municipal or county wage tax like Ohio's, no local earned income tax like " +
+        "Pennsylvania's, and no city surtax like New York City's or Yonkers's. The state runs " +
+        "no disability insurance program and withholds no paid-family-leave premium, so unlike " +
+        "California, New Jersey, Washington, Massachusetts, Colorado, or Minnesota, an " +
+        "Arkansas paycheck has no second state payroll line beyond the income tax.",
+      "For someone comparing a move, the practical effect is that Arkansas keeps a bit more " +
+        "than Missouri, Illinois, or Mississippi on the same salary, and less than Texas, " +
+        "Tennessee, or Florida, which withhold nothing for the state. The difference is small " +
+        "enough that federal tax and FICA, not the state line, decide most of a take-home pay " +
+        "comparison across the region.",
+    ],
+    faqs: [
+      {
+        q: "Does Arkansas have a state income tax?",
+        a: "Yes. Arkansas taxes wage income on a graduated scale set by Arkansas Code section 26-51-202 and imposed by section 26-51-201. The 2026 schedule used here charges 2% on the lowest band, 2.95% in the middle, and a top rate of 3.9% on taxable income above $100,000 for a single filer, so the state tax on a typical paycheck is small.",
+      },
+      {
+        q: "What is the Arkansas income tax rate for 2026?",
+        a: "The top marginal rate applied here for 2026 is 3.9%, reached once a single filer's taxable income passes $100,000. The lower bands are 2% and 2.95%. Arkansas reduced its top individual rate over the last decade and now ranks among the lower-tax states; the 2026 figures in this calculator reflect the schedule used in this repo.",
+      },
+      {
+        q: "What is the Arkansas standard deduction for 2026?",
+        a: "The 2026 data used here applies $2,340 for a single filer or a married person filing separately, $4,680 for a married couple filing jointly, and $3,510 for a head of household. Arkansas Code section 26-51-4301 sets the allowance, and a lower-income filer can also use the low-income tax tables under section 26-51-440 to reduce or eliminate the tax.",
+      },
+      {
+        q: "Do Arkansas cities or counties charge a local income tax?",
+        a: "No. No city or county in Arkansas levies an income tax on wages, so nothing is withheld for Little Rock, Fayetteville, Fort Smith, or any other locality. Local revenue in Arkansas comes from sales and property taxes, neither of which is taken out of a paycheck.",
+      },
+      {
+        q: "Does Arkansas have state disability insurance or paid family leave?",
+        a: "No. Arkansas operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so there is no SDI or paid-leave line on an Arkansas paycheck. The graduated income tax is the only state deduction.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Arkansas?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,878.14 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $59.94 Arkansas state income tax. That is roughly $48,831.53 a year, an effective tax rate of about 18.6%.",
+      },
+      {
+        q: "Do you have to file an Arkansas state tax return?",
+        a: "Yes, if you meet Arkansas's filing thresholds. Arkansas requires a state individual income tax return from residents whose gross income exceeds the threshold for their filing status, and most wage earners with a regular job file. The return is where the low-income tax table and the personal credit are applied, so it can reduce the tax shown on a pay stub.",
+      },
+      {
+        q: "Why are Texarkana residents exempt from Arkansas income tax?",
+        a: "Arkansas grants a border city exemption to residents whose permanent residence is inside Texarkana, Arkansas, because the city straddles the Texas line and Texas has no income tax. Their income is exempt from Arkansas individual income tax, but they still file an Arkansas return to document the exemption, and it does not apply to a Texarkana resident working for an employer outside the city.",
+      },
+    ],
+    sources: [
+      { label: "Arkansas DFA — Individual Income Tax", url: "https://www.dfa.arkansas.gov/office/taxes/income-tax-administration/individual-income-tax/" },
+      { label: "Arkansas DFA — Withholding Tax", url: "https://www.dfa.arkansas.gov/office/taxes/income-tax-administration/withholding-tax/" },
+      { label: "Arkansas Code § 26-51-201 — Imposition of income tax", url: "https://law.justia.com/codes/arkansas/title-26/subtitle-5/chapter-51/subchapter-2/section-26-51-201/" },
+      { label: "Arkansas border city tax exemption (Texarkana) — 1.26 Ark. Code R. 51-403", url: "https://www.law.cornell.edu/regulations/arkansas/1-26-Ark-Code-R-51-403(b-parens-13)" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
+
 ];
 
 const money = (n) =>
