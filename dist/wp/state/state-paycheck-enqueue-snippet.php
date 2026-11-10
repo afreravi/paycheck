@@ -183,6 +183,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/arkansas',
             'description' => 'Free Arkansas paycheck calculator. Arkansas taxes wages from 2% to 3.9% after a $2,340 deduction, with no local wage tax. Estimate 2026 take-home pay.',
         ),
+        'mississippi' => array(
+            'name'        => 'Mississippi Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/mississippi',
+            'description' => 'Free Mississippi paycheck calculator. Mississippi charges a flat 4.4% after the first $10,000 of taxable income, with no local wage tax. Estimate 2026 take-home pay.',
+        ),
     );
 }
 
@@ -192,7 +197,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
