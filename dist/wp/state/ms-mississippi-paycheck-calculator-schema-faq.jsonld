@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Mississippi have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Mississippi Code section 27-7-5 imposes an individual income tax, and the state now applies a single flat rate. Under the schedule used in the 2026 data here, the first $10,000 of taxable income is exempt and the remainder is taxed at 4.4%, with a standard deduction applied before the tax is figured."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Mississippi income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Mississippi Department of Revenue states that the first $10,000 of taxable income is exempt and the remaining taxable income is taxed at 4.4% for 2026. That rate is the product of House Bill 531, enacted in 2022, which replaced Mississippi's graduated brackets with a flat rate and set a schedule of further cuts if revenue triggers are met."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Mississippi a flat tax state?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Mississippi moved from a graduated income tax to a single flat rate under House Bill 531 in 2022. One rate now applies to taxable income above the first $10,000 exemption for each taxpayer, rather than a set of brackets that rise with income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Mississippi standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 2026 data used here applies $2,300 for a single filer or a married person filing separately, $4,600 for a married couple filing jointly, and $3,450 for a head of household. Combined with the $10,000 exemption on taxable income, a single filer can shelter roughly the first $12,300 of income from Mississippi tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $52,000 salary in Mississippi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,611.72 per paycheck from a $52,000 salary: $2,000.00 gross, $156.15 federal income tax, $124.00 Social Security, $29.00 Medicare, and $79.13 Mississippi state income tax. That is roughly $41,904.60 a year, an effective tax rate of about 19.4%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Mississippi cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No city or county in Mississippi levies an income tax on wages, so nothing is withheld for Jackson, Gulfport, Southaven, or any other locality. Local revenue in Mississippi comes from sales and property taxes, neither of which is taken out of a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Mississippi have state disability insurance or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Mississippi operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so there is no SDI or paid-leave line on a Mississippi paycheck. The flat income tax is the only state deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have to file a Mississippi state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if your gross income exceeds Mississippi's filing threshold for your filing status. Most wage earners with a regular job file a Mississippi individual income tax return. The return is where the standard deduction, the $10,000 exemption, and any credits are applied, so it can reduce the tax shown on a pay stub."
+      }
+    }
+  ]
+}

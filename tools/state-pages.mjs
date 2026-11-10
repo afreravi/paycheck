@@ -3638,6 +3638,120 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-MS",
+    abbr: "ms",
+    slug: "mississippi",
+    name: "Mississippi",
+    example: { salary: 52000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Mississippi Department of
+    // Revenue and Mississippi Code section 27-7-5 (imposition of income tax).
+    hasIncomeTax: true,
+    title: "Mississippi Paycheck Calculator - Take-Home Pay After MS Tax",
+    description:
+      "Free Mississippi paycheck calculator. Mississippi charges a flat 4.4% after the first $10,000 of taxable income, with no local wage tax. Estimate 2026 take-home pay.",
+    intro:
+      "Estimate your take-home pay in Mississippi. Mississippi has moved to a flat " +
+      "individual income tax: the first $10,000 of taxable income is exempt and " +
+      "everything above it is taxed at one rate. The state levies no city or county " +
+      "wage tax and runs no disability or paid-leave payroll deduction, so the state " +
+      "line on a paycheck is a single, easy-to-read number. Enter your salary and pay " +
+      "frequency to see your net pay per period.",
+    keyHeading: "Does Mississippi have a state income tax?",
+    keyParagraphs: [
+      "Yes, but it is now a flat tax. Mississippi Code section 27-7-5 imposes the tax, " +
+        "and the Department of Revenue applies a single rate. For the 2026 data used here " +
+        "the first $10,000 of taxable income is exempt and the remainder is taxed at 4.4%. " +
+        "For a married couple filing jointly the first $10,000 of each spouse's taxable " +
+        "income is exempt, so a two-earner couple can shield $20,000 before the flat rate " +
+        "starts.",
+      "That 4.4% rate is mid-phase-down. House Bill 531, enacted in 2022, set Mississippi " +
+        "on a schedule that lowers the individual rate in steps once revenue triggers are " +
+        "met, and it removed the old graduated structure in favor of one flat rate. The " +
+        "rate fell to 4.4% at the start of 2025; the statute still provides for further " +
+        "reductions if the state's revenue targets are reached, so the rate can change from " +
+        "year to year. The 2026 figure in this calculator reflects the flat rate applied in " +
+        "this repo's tax data.",
+      "The tax is charged only on taxable income, not on the whole salary. Mississippi " +
+        "allows a standard deduction, and the 2026 data used here subtracts $2,300 for a " +
+        "single filer or a married person filing separately, $4,600 for a married couple " +
+        "filing jointly, and $3,450 for a head of household. The calculator on this page " +
+        "approximates the flat rate with a simplified three-band schedule (4%, 4.2%, and " +
+        "4.4%), so treat the state line it shows as a close estimate rather than an exact " +
+        "withholding figure.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your annual salary, or hourly rate times hours worked, converted to the pay period you selected.",
+      "<strong>Pre-tax deductions.</strong> 401(k), HSA, and health premiums are subtracted first, which lowers the income that Mississippi and the IRS both tax.",
+      "<strong>Mississippi standard deduction.</strong> The 2026 data used here subtracts $2,300 for a single filer, $4,600 for a married couple filing jointly, $2,300 for a married person filing separately, and $3,450 for a head of household before the state tax is charged.",
+      "<strong>Mississippi income tax.</strong> Mississippi applies one flat 4.4% rate to taxable income above the first $10,000 exemption. This calculator models that with a simplified band structure of 4%, 4.2%, and 4.4%, so the figure is an estimate of the flat tax rather than the DOR's exact withholding tables.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is applied, then the remaining income runs through the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base of $184,500 and Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax above the high-earner threshold.",
+      "<strong>Local income tax: $0.</strong> No Mississippi city or county taxes wages, so nothing is added for Jackson, Gulfport, or Southaven.",
+      "<strong>State disability and paid leave: $0.</strong> Mississippi operates no state disability insurance program and withholds no payroll-funded family or medical leave premium.",
+    ],
+    compareParagraphs: [
+      "Mississippi is one of the Southern states that moved to a single-rate income tax, " +
+        "and it sits low in that group. Its flat 4.4% is a little higher than Arkansas's top " +
+        "3.9% rate for 2026, close to Louisiana's graduated top rate in the low 4% range, and " +
+        "below Alabama's top marginal rate near 5%. It is well below the flat rates charged " +
+        "by Illinois (4.95%) or Kentucky (4%), and it is a world away from the top rates in " +
+        "California or New York.",
+      "The exemption matters as much as the rate. Because the first $10,000 of taxable " +
+        "income is exempt and the standard deduction removes another $2,300 for a single " +
+        "filer, a single Mississippian does not pay state income tax on roughly the first " +
+        "$12,300 of income. That means a part-time or entry-level worker often owes the state " +
+        "nothing at all, which is not true in the flat states that start taxing the first " +
+        "dollar.",
+      "Mississippi is also one of the states where the state rate is the whole story. There " +
+        "is no municipal income tax like Ohio's, no local earned income tax like " +
+        "Pennsylvania's, and no city surtax like New York City's or Yonkers's. The state runs " +
+        "no disability insurance program and withholds no paid-family-leave premium, so " +
+        "unlike California, New Jersey, Washington, Massachusetts, or Colorado, a Mississippi " +
+        "paycheck has no second state payroll line beyond the income tax.",
+    ],
+    faqs: [
+      {
+        q: "Does Mississippi have a state income tax?",
+        a: "Yes. Mississippi Code section 27-7-5 imposes an individual income tax, and the state now applies a single flat rate. Under the schedule used in the 2026 data here, the first $10,000 of taxable income is exempt and the remainder is taxed at 4.4%, with a standard deduction applied before the tax is figured.",
+      },
+      {
+        q: "What is the Mississippi income tax rate for 2026?",
+        a: "The Mississippi Department of Revenue states that the first $10,000 of taxable income is exempt and the remaining taxable income is taxed at 4.4% for 2026. That rate is the product of House Bill 531, enacted in 2022, which replaced Mississippi's graduated brackets with a flat rate and set a schedule of further cuts if revenue triggers are met.",
+      },
+      {
+        q: "Is Mississippi a flat tax state?",
+        a: "Yes. Mississippi moved from a graduated income tax to a single flat rate under House Bill 531 in 2022. One rate now applies to taxable income above the first $10,000 exemption for each taxpayer, rather than a set of brackets that rise with income.",
+      },
+      {
+        q: "What is the Mississippi standard deduction for 2026?",
+        a: "The 2026 data used here applies $2,300 for a single filer or a married person filing separately, $4,600 for a married couple filing jointly, and $3,450 for a head of household. Combined with the $10,000 exemption on taxable income, a single filer can shelter roughly the first $12,300 of income from Mississippi tax.",
+      },
+      {
+        q: "How much is taken out of a $52,000 salary in Mississippi?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,611.72 per paycheck from a $52,000 salary: $2,000.00 gross, $156.15 federal income tax, $124.00 Social Security, $29.00 Medicare, and $79.13 Mississippi state income tax. That is roughly $41,904.60 a year, an effective tax rate of about 19.4%.",
+      },
+      {
+        q: "Do Mississippi cities or counties charge a local income tax?",
+        a: "No. No city or county in Mississippi levies an income tax on wages, so nothing is withheld for Jackson, Gulfport, Southaven, or any other locality. Local revenue in Mississippi comes from sales and property taxes, neither of which is taken out of a paycheck.",
+      },
+      {
+        q: "Does Mississippi have state disability insurance or paid family leave?",
+        a: "No. Mississippi operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so there is no SDI or paid-leave line on a Mississippi paycheck. The flat income tax is the only state deduction.",
+      },
+      {
+        q: "Do you have to file a Mississippi state tax return?",
+        a: "Yes, if your gross income exceeds Mississippi's filing threshold for your filing status. Most wage earners with a regular job file a Mississippi individual income tax return. The return is where the standard deduction, the $10,000 exemption, and any credits are applied, so it can reduce the tax shown on a pay stub.",
+      },
+    ],
+    sources: [
+      { label: "Mississippi Department of Revenue — Individual Income Tax FAQs", url: "https://www.dor.ms.gov/individual/individual-income-tax-frequently-asked-questions" },
+      { label: "Mississippi Department of Revenue — Withholding Tax", url: "https://www.dor.ms.gov/business/withholding-tax" },
+      { label: "Mississippi Code § 27-7-5 — Imposition of income tax", url: "https://law.justia.com/codes/mississippi/title-27/chapter-7/article-1/section-27-7-5/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 
 ];
 
