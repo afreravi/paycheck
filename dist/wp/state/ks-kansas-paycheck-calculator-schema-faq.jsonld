@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Kansas have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. K.S.A. 79-32,110 imposes an individual income tax on Kansas taxable income. Kansas uses a two-rate schedule rather than a long ladder: for a single filer, 5.2% on the first $23,000 of taxable income and 5.58% on the amount above that, with the joint breakpoint at $46,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Kansas income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kansas applies 5.2% to the first $23,000 of Kansas taxable income for a single filer, a head of household, or a married person filing separately, and 5.58% above that. A married couple filing jointly pays 5.2% on the first $46,000 and 5.58% above it. Those two steps come from K.S.A. 79-32,110 and the 2025 K-40 tax computation worksheet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Kansas standard deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For tax year 2025 the Kansas standard deduction is $3,605 for a single filer or a married person filing separately, $8,240 for a married couple filing jointly, and $6,180 for a head of household, with an extra $850 for a filer 65 or older or blind. Kansas also allows a separate personal exemption of $9,160 for a single, head-of-household, or married-separate filer and $18,320 for a married couple filing jointly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $58,000 salary in Kansas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Using this calculator's simplified dataset for 2026, a single filer paid biweekly takes home about $1,792.45 per paycheck from a $58,000 salary: $2,230.77 gross, $183.85 federal income tax, $138.31 Social Security, $32.35 Medicare, and $83.82 Kansas state income tax. That is about $46,603.70 a year, an effective tax rate near 19.7%. The state figure is an estimate and runs a little low against the real two-rate schedule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Kansas cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Kansas has no city or county income tax on wages, so nothing is withheld for Wichita, Overland Park, Topeka, Kansas City, or any other locality. Local government in Kansas raises money through sales and property taxes, neither of which is taken out of a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Kansas have state disability insurance or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Kansas operates no state disability insurance program and withholds no payroll-funded family or medical leave premium. The two-bracket income tax is the only state-level deduction on a Kansas paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Kansas tax Social Security or retirement income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kansas begins its return from federal adjusted gross income, so Social Security benefits that are excluded from federal tax are also excluded from Kansas tax. The state does not add a Kansas-specific tax on retirement benefits, but it does conform to the federal treatment of taxable benefits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Kansas earned income tax credit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kansas allows a state earned income tax credit equal to 17% of the federal earned income tax credit. It is claimed on the Kansas return, not through payroll withholding, so it does not change the state tax shown on a paycheck. Part of the credit is refundable."
+      }
+    }
+  ]
+}

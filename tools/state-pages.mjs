@@ -3752,6 +3752,120 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-KS",
+    abbr: "ks",
+    slug: "kansas",
+    name: "Kansas",
+    example: { salary: 58000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Kansas Department of Revenue
+    // and K.S.A. 79-32,110 (imposition of individual income tax).
+    hasIncomeTax: true,
+    title: "Kansas Paycheck Calculator - Take-Home Pay After Kansas Tax",
+    description:
+      "Free Kansas paycheck calculator. Kansas uses a two-bracket tax, 5.2% up to $23,000 of taxable income and 5.58% above it. Estimate 2026 take-home pay.",
+    intro:
+      "Estimate what a Kansas paycheck keeps after tax. Kansas taxes wage income on a " +
+      "short two-step schedule: one rate on the first slice of taxable income and a " +
+      "slightly higher rate on everything above it. There is no city or county wage tax " +
+      "and no state disability or paid-leave withholding, so the state line on a Kansas " +
+      "paycheck is the only state deduction. Enter your salary and pay frequency to see " +
+      "your net pay per period.",
+    keyHeading: "How does Kansas tax a paycheck?",
+    keyParagraphs: [
+      "Kansas is one of the states that scrapped a graduated ladder for a near-flat pair " +
+        "of rates. K.S.A. 79-32,110 imposes the tax and sets just two steps for a single " +
+        "filer: 5.2% on the first $23,000 of Kansas taxable income, then 5.58% on the " +
+        "amount above that. A married couple filing jointly gets double the room before " +
+        "the second rate starts, with the breakpoint at $46,000. Because the gap between " +
+        "the two rates is only 0.38 of a point, the effective Kansas rate barely moves " +
+        "across most middle incomes.",
+      "Kansas starts from federal adjusted gross income rather than from gross wages, so " +
+        "the same pre-tax items that shrink a federal return &mdash; a traditional 401(k), " +
+        "an HSA, an employer health premium &mdash; shrink the Kansas base too. The state " +
+        "then subtracts its own standard deduction: $3,605 for a single filer or a " +
+        "married person filing separately, $8,240 for a married couple filing jointly, " +
+        "and $6,180 for a head of household. Kansas also grants a personal exemption of " +
+        "$9,160 for a single, head-of-household, or married-separate filer and $18,320 " +
+        "for a married couple filing jointly, plus $2,320 for each dependent.",
+      "The standard deduction and exemption stack, which is why a low-wage Kansan can owe " +
+        "the state nothing: a single filer subtracts $3,605 and $9,160 before any tax is " +
+        "charged. Kansas adds a state earned income tax credit worth 17% of the federal " +
+        "credit, and it has been phasing out its sales tax on groceries. None of those " +
+        "items changes the withholding math on a paycheck, but they are why the final " +
+        "Kansas return often settles up in the filer's favor.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your yearly salary, or an hourly rate times hours worked, expressed as one paycheck for the frequency you picked.",
+      "<strong>Pre-tax deductions first.</strong> A traditional 401(k), an HSA contribution, or a health premium is subtracted before tax, lowering both the federal and the Kansas base.",
+      "<strong>Federal income tax.</strong> The federal standard deduction comes off first, then the remaining income moves up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% of all wages, and the extra 0.9% Medicare tax once income passes the high-earner threshold.",
+      "<strong>Kansas standard deduction.</strong> Kansas removes $3,605 for a single filer, $8,240 for a married couple filing jointly, $4,120 for a married person filing separately, or $6,180 for a head of household before the state tax is charged.",
+      "<strong>Kansas income tax.</strong> The dataset behind this page stores Kansas as three simplified bands at 3.1%, 4.34%, and 5.58%, an approximation of the real two-rate schedule of 5.2% and 5.58% set by K.S.A. 79-32,110, so the state figure here is a close estimate rather than the Department of Revenue withholding table.",
+      "<strong>Local income tax: $0.</strong> No Kansas city or county taxes wages, so nothing is added for Wichita, Overland Park, Topeka, or any other locality.",
+      "<strong>State disability and paid leave: $0.</strong> Kansas runs no state disability insurance program and withholds no payroll-funded family or medical leave premium.",
+    ],
+    compareParagraphs: [
+      "Kansas sits in the middle of the pack among states that tax wages. Its top rate of " +
+        "5.58% is above the flat rates charged by Illinois (4.95%), Kentucky (4%), or " +
+        "Mississippi (4.4%), and above Missouri's graduated top rate of 4.7%, but it lands " +
+        "well under Iowa, Minnesota, or the top rates in California, New Jersey, and New " +
+        "York. Neighboring Nebraska tops out near 5.2% and Colorado is a flat 4.4%, so a " +
+        "Kansas earner near the state line can see a real difference in take-home pay.",
+      "What sets Kansas apart is not the rate but the flatness of it. Because the second " +
+        "bracket starts at just $23,000 for a single filer and the two rates are 5.2% and " +
+        "5.58%, almost every full-time wage earner lands in the top band and pays close to " +
+        "the same marginal rate. That is a world away from Missouri's ladder or from the " +
+        "many brackets in Iowa and Minnesota, where the marginal rate climbs with income.",
+      "Kansas also keeps the state charge simple. There is no municipal income tax like " +
+        "Ohio's, no local earned income tax like Pennsylvania's or Indiana's county tax, " +
+        "and no city surtax like New York City's or Yonkers's. The state operates no " +
+        "disability insurance program and withholds no paid-family-leave premium, so " +
+        "unlike California, New Jersey, Washington, Massachusetts, or Colorado, a Kansas " +
+        "paycheck has no second state payroll line.",
+    ],
+    faqs: [
+      {
+        q: "Does Kansas have a state income tax?",
+        a: "Yes. K.S.A. 79-32,110 imposes an individual income tax on Kansas taxable income. Kansas uses a two-rate schedule rather than a long ladder: for a single filer, 5.2% on the first $23,000 of taxable income and 5.58% on the amount above that, with the joint breakpoint at $46,000.",
+      },
+      {
+        q: "What is the Kansas income tax rate for 2026?",
+        a: "Kansas applies 5.2% to the first $23,000 of Kansas taxable income for a single filer, a head of household, or a married person filing separately, and 5.58% above that. A married couple filing jointly pays 5.2% on the first $46,000 and 5.58% above it. Those two steps come from K.S.A. 79-32,110 and the 2025 K-40 tax computation worksheet.",
+      },
+      {
+        q: "What is the Kansas standard deduction?",
+        a: "For tax year 2025 the Kansas standard deduction is $3,605 for a single filer or a married person filing separately, $8,240 for a married couple filing jointly, and $6,180 for a head of household, with an extra $850 for a filer 65 or older or blind. Kansas also allows a separate personal exemption of $9,160 for a single, head-of-household, or married-separate filer and $18,320 for a married couple filing jointly.",
+      },
+      {
+        q: "How much is taken out of a $58,000 salary in Kansas?",
+        a: "Using this calculator's simplified dataset for 2026, a single filer paid biweekly takes home about $1,792.45 per paycheck from a $58,000 salary: $2,230.77 gross, $183.85 federal income tax, $138.31 Social Security, $32.35 Medicare, and $83.82 Kansas state income tax. That is about $46,603.70 a year, an effective tax rate near 19.7%. The state figure is an estimate and runs a little low against the real two-rate schedule.",
+      },
+      {
+        q: "Do Kansas cities or counties charge a local income tax?",
+        a: "No. Kansas has no city or county income tax on wages, so nothing is withheld for Wichita, Overland Park, Topeka, Kansas City, or any other locality. Local government in Kansas raises money through sales and property taxes, neither of which is taken out of a paycheck.",
+      },
+      {
+        q: "Does Kansas have state disability insurance or paid family leave?",
+        a: "No. Kansas operates no state disability insurance program and withholds no payroll-funded family or medical leave premium. The two-bracket income tax is the only state-level deduction on a Kansas paycheck.",
+      },
+      {
+        q: "Does Kansas tax Social Security or retirement income?",
+        a: "Kansas begins its return from federal adjusted gross income, so Social Security benefits that are excluded from federal tax are also excluded from Kansas tax. The state does not add a Kansas-specific tax on retirement benefits, but it does conform to the federal treatment of taxable benefits.",
+      },
+      {
+        q: "What is the Kansas earned income tax credit?",
+        a: "Kansas allows a state earned income tax credit equal to 17% of the federal earned income tax credit. It is claimed on the Kansas return, not through payroll withholding, so it does not change the state tax shown on a paycheck. Part of the credit is refundable.",
+      },
+    ],
+    sources: [
+      { label: "Kansas Department of Revenue — Individual Income Tax", url: "https://www.ksrevenue.gov/perstaxtypesii.html" },
+      { label: "Kansas 2025 K-40 Individual Income Tax Booklet (instructions, rates, standard deduction)", url: "https://www.ksrevenue.gov/pdf/ip25.pdf" },
+      { label: "K.S.A. 79-32,110 — Imposition of income tax on individuals", url: "https://ksrevisor.gov/statutes/chapters/ch79/079_032_0110.html" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 
 ];
 
