@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does New Mexico have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. NMSA 1978, Section 7-2-7 imposes a graduated individual income tax. For a single filer the six rates are 1.5%, 3.2%, 4.3%, 4.7%, 4.9%, and 5.9%, applied to New Mexico taxable income. The schedule was last amended by Laws 2024, Chapter 67, Section 5, effective for tax years beginning on or after January 1, 2025."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the New Mexico income tax brackets for 2025?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a single filer, 1.5% on taxable income up to $5,500; 3.2% from $5,500 to $16,500; 4.3% from $16,500 to $33,500; 4.7% from $33,500 to $66,500; 4.9% from $66,500 to $210,000; and 5.9% above $210,000. A married couple filing jointly doubles most breakpoints: 1.5% to $8,000, then 3.2%, 4.3%, 4.7%, and 4.9%, reaching 5.9% above $315,000 of joint taxable income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $65,000 salary in New Mexico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Using this calculator's simplified dataset for 2026, a single filer paid biweekly takes home about $2,033.57 per paycheck from a $65,000 salary: $2,500.00 gross, $216.15 federal income tax, $155.00 Social Security, $36.25 Medicare, and $59.03 New Mexico state income tax. That is roughly $52,872.70 a year, an effective tax rate near 18.7%. The state figure is an estimate built from three simplified bands."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the New Mexico standard deduction for 2025?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New Mexico allows a standard deduction that depends on filing status, and the dataset behind this page carries $14,600 for a single filer. It is subtracted from federal adjusted gross income before the state brackets apply. The deduction is claimed on Form PIT-1, and the exact figure for a given year is set in the Personal Income Tax instructions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do New Mexico cities or counties charge a local income tax on wages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. New Mexico has no municipal or county income tax on wages, so nothing is withheld for Albuquerque, Las Cruces, Rio Rancho, Santa Fe, or any other locality. Cities and counties in New Mexico raise local revenue mainly through gross receipts tax and property tax, neither of which is taken out of a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does New Mexico have state disability insurance or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. New Mexico operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so the state income tax is the only state-level deduction on a New Mexico paycheck. Paid family and medical leave proposals in the 2025 legislative session did not pass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does New Mexico tax Social Security benefits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most retirees, no. Beginning with tax year 2022, New Mexico exempts Social Security benefits from state tax for single taxpayers with income under $100,000, married couples filing jointly and surviving spouses under $150,000, and married couples filing separately under $75,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the New Mexico child tax credit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New Mexico offers a refundable child tax credit claimed on the state personal income tax return. The 2025 amounts are $637 per qualifying child for adjusted gross income up to $25,000, $424 for income up to $50,000, and smaller amounts for higher income, phasing out above $350,000. It reduces the annual tax bill but is not part of payroll withholding."
+      }
+    }
+  ]
+}
