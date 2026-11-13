@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Nebraska have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Neb. Rev. Stat. § 77-2715.03 imposes the Nebraska individual income tax and sets its brackets and rates. Nebraska taxes wage income on a graduated schedule, not a flat rate, and the tax is figured on federal adjusted gross income as modified by Nebraska."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Nebraska income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026 a single filer pays 2.46% on the first $4,130 of Nebraska taxable income, 3.51% on the amount from $4,130 to $24,760, and 4.55% above $24,760. A married couple filing jointly uses double the bracket widths, so the top rate begins at $49,530. The 4.55% top rate is the 2026 step of the LB 754 (2023) phase-down, which drops again to 3.99% for 2027."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Nebraska standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Nebraska standard deduction is $8,850 for a single filer or a married person filing separately and $17,700 for a married couple filing jointly, with a head-of-household amount of $11,400. Nebraska also allows a personal exemption credit of $176 for a single filer, $352 for a married couple filing jointly, and $176 for each dependent. The credit reduces the tax owed rather than the taxable income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Nebraska?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Using this calculator's simplified dataset for 2026, a single filer paid biweekly takes home about $1,868.79 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $69.29 Nebraska state income tax. That is roughly $48,588.58 a year, an effective tax rate near 19.0%. The state figure is an estimate and runs a little low against the real 2.46% / 3.51% / 4.55% schedule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Nebraska cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No Nebraska city or county levies an income tax on wages, so nothing is withheld for Omaha, Lincoln, Bellevue, Grand Island, or any other locality. Local government in Nebraska is funded mainly through property and sales taxes, neither of which is deducted from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Nebraska have state disability insurance or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Nebraska operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so there is no SDI or paid-leave line on a Nebraska paycheck. The graduated income tax is the only state-level deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Nebraska income tax rate going down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Legislative Bill 754 (2023) set a multiyear phase-down of Nebraska's top individual income tax rate. The top rate was 5.2% for 2025, falls to 4.55% for 2026, and is scheduled to reach 3.99% for 2027. Further reductions, and a possible phaseout, depend on revenue triggers set in the law."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have to file a Nebraska state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if your Nebraska gross income reaches the state's filing threshold for your filing status. Nebraska residents file Form 1040N, which starts from the federal return and applies the Nebraska standard deduction, the personal exemption credit, and any credits. Filing is where a wage earner claims those items, so it can reduce the tax shown on a pay stub."
+      }
+    }
+  ]
+}

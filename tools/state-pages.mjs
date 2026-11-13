@@ -3867,6 +3867,120 @@ export const STATE_PAGES = [
     ],
   },
   {
+    code: "US-NE",
+    abbr: "ne",
+    slug: "nebraska",
+    name: "Nebraska",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Nebraska Department of Revenue
+    // and Neb. Rev. Stat. § 77-2715.03 (brackets and rates), as amended by LB 754 (2023).
+    hasIncomeTax: true,
+    title: "Nebraska Paycheck Calculator - Take-Home Pay After Nebraska Tax",
+    description:
+      "Free Nebraska paycheck calculator. Nebraska's graduated income tax drops to a 4.55% top rate for 2026 under LB 754. Estimate take-home pay after federal and state tax.",
+    intro:
+      "Work out what a Nebraska paycheck keeps after tax. Nebraska taxes wage income on a " +
+      "graduated schedule that starts at 2.46% and now tops out at 4.55% for 2026, the " +
+      "second step in a phase-down that continues to 3.99% by 2027. The state levies no " +
+      "city or county wage tax and runs no disability or paid-leave payroll program, so " +
+      "the income tax is the only Nebraska line on a pay stub. Enter your salary and pay " +
+      "frequency to see your net pay per period.",
+    keyHeading: "How Nebraska taxes a paycheck",
+    keyParagraphs: [
+      "Nebraska's individual income tax is progressive on paper but compressed in practice. " +
+        "Legislative Bill 754 (2023) cut the top rate from 6.84% and set a glide path: 5.2% " +
+        "for 2025, 4.55% for 2026, and 3.99% for 2027. For 2026 a single filer pays 2.46% " +
+        "on the first $4,130 of Nebraska taxable income, 3.51% on the slice from $4,130 to " +
+        "$24,760, and 4.55% on everything above $24,760. A married couple filing jointly " +
+        "gets double the bracket widths, so the top rate starts at $49,530 for them. Neb. " +
+        "Rev. Stat. § 77-2715.03 sets those brackets and rates.",
+      "Nebraska builds its tax from federal adjusted gross income rather than from gross " +
+        "wages, so the pre-tax items that shrink a federal return &mdash; a traditional " +
+        "401(k), an HSA, an employer health premium &mdash; shrink the Nebraska base too. " +
+        "The state then subtracts its own standard deduction, $8,850 for a single filer or " +
+        "a married person filing separately and $17,700 for a married couple filing jointly " +
+        "for 2026, and applies a personal exemption credit of $176 per filer, $352 for a " +
+        "couple, plus $176 for each dependent. That credit trims the tax itself rather than " +
+        "the income, so it comes off after the brackets are applied, and the $4,130 and " +
+        "$24,760 bracket edges are indexed for inflation each year.",
+      "One caveat about the state figure this page prints: the tax dataset behind the " +
+        "calculator stores Nebraska as three simplified bands at 2.46%, 3.83%, and 5.2%, " +
+        "with a $7,600 standard deduction, an approximation built from an earlier Nebraska " +
+        "schedule rather than the current 2.46% / 3.51% / 4.55% ladder and $8,850 deduction. " +
+        "The Nebraska line below is therefore a close estimate that runs a little low " +
+        "against the Department of Revenue's 2026 tables. Treat it as planning guidance and " +
+        "confirm the exact withholding on a pay stub.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your yearly salary, or an hourly rate times hours worked, expressed as a single paycheck for the frequency you chose.",
+      "<strong>Pre-tax deductions first.</strong> A traditional 401(k), an HSA contribution, or a health premium comes out before tax, lowering both the federal and the Nebraska base.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is applied, then the remaining income runs up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax once income passes the high-earner threshold.",
+      "<strong>Nebraska standard deduction.</strong> Nebraska removes $8,850 for a single filer or a married person filing separately, $17,700 for a married couple filing jointly, or $11,400 for a head of household before the state tax is charged.",
+      "<strong>Nebraska income tax.</strong> The dataset behind this page stores Nebraska as three simplified bands at 2.46%, 3.83%, and 5.2%, an approximation of the real 2026 schedule of 2.46%, 3.51%, and 4.55% set by Neb. Rev. Stat. § 77-2715.03, so the state figure here is a close estimate rather than the Department of Revenue withholding table.",
+      "<strong>Local income tax: $0.</strong> No Nebraska city or county taxes wages, so nothing is added for Omaha, Lincoln, Bellevue, or any other locality.",
+      "<strong>State disability and paid leave: $0.</strong> Nebraska operates no state disability insurance program and withholds no payroll-funded family or medical leave premium.",
+    ],
+    compareParagraphs: [
+      "Nebraska now sits near the bottom of the taxing states. Its 4.55% top rate for 2026 " +
+        "is under Kansas (5.58%) and Missouri (4.7%), a hair above Colorado's flat 4.4% and " +
+        "Iowa's flat 3.8%, and far below Minnesota's 9.85% or the top rates in California " +
+        "and New Jersey. Two of Nebraska's neighbors, South Dakota and Wyoming, levy no " +
+        "income tax at all, so a worker living near the western border can see a real swing " +
+        "in take-home pay from one state line to the next.",
+      "The rate ladder is short, and that is the point. Nebraska's top bracket begins at " +
+        "$24,760 for a single filer, so a typical full-time worker reaches the 4.55% marginal " +
+        "rate quickly and then stays there, while the effective rate stays modest. Because " +
+        "the state starts from federal adjusted gross income, federal deductions carry " +
+        "straight through to the Nebraska calculation, which keeps the state charge smaller " +
+        "than the headline rate alone would suggest.",
+      "The state layer in Nebraska is only one line deep. No Nebraska city or county imposes " +
+        "an income tax on wages, so Omaha, Lincoln, and Grand Island workers withhold nothing " +
+        "locally &mdash; a contrast with Ohio's municipal tax, Pennsylvania's local earned " +
+        "income tax, or New York City's resident tax. Nebraska likewise runs no state " +
+        "disability insurance and collects no payroll-funded family leave premium, so there " +
+        "is no SDI or paid-leave deduction of the kind California, New Jersey, Washington, " +
+        "Massachusetts, or Colorado workers see.",
+    ],
+    faqs: [
+      {
+        q: "Does Nebraska have a state income tax?",
+        a: "Yes. Neb. Rev. Stat. § 77-2715.03 imposes the Nebraska individual income tax and sets its brackets and rates. Nebraska taxes wage income on a graduated schedule, not a flat rate, and the tax is figured on federal adjusted gross income as modified by Nebraska.",
+      },
+      {
+        q: "What is the Nebraska income tax rate for 2026?",
+        a: "For 2026 a single filer pays 2.46% on the first $4,130 of Nebraska taxable income, 3.51% on the amount from $4,130 to $24,760, and 4.55% above $24,760. A married couple filing jointly uses double the bracket widths, so the top rate begins at $49,530. The 4.55% top rate is the 2026 step of the LB 754 (2023) phase-down, which drops again to 3.99% for 2027.",
+      },
+      {
+        q: "What is the Nebraska standard deduction for 2026?",
+        a: "The Nebraska standard deduction is $8,850 for a single filer or a married person filing separately and $17,700 for a married couple filing jointly, with a head-of-household amount of $11,400. Nebraska also allows a personal exemption credit of $176 for a single filer, $352 for a married couple filing jointly, and $176 for each dependent. The credit reduces the tax owed rather than the taxable income.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Nebraska?",
+        a: "Using this calculator's simplified dataset for 2026, a single filer paid biweekly takes home about $1,868.79 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $69.29 Nebraska state income tax. That is roughly $48,588.58 a year, an effective tax rate near 19.0%. The state figure is an estimate and runs a little low against the real 2.46% / 3.51% / 4.55% schedule.",
+      },
+      {
+        q: "Do Nebraska cities or counties charge a local income tax?",
+        a: "No. No Nebraska city or county levies an income tax on wages, so nothing is withheld for Omaha, Lincoln, Bellevue, Grand Island, or any other locality. Local government in Nebraska is funded mainly through property and sales taxes, neither of which is deducted from a paycheck.",
+      },
+      {
+        q: "Does Nebraska have state disability insurance or paid family leave?",
+        a: "No. Nebraska operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so there is no SDI or paid-leave line on a Nebraska paycheck. The graduated income tax is the only state-level deduction.",
+      },
+      {
+        q: "Is the Nebraska income tax rate going down?",
+        a: "Yes. Legislative Bill 754 (2023) set a multiyear phase-down of Nebraska's top individual income tax rate. The top rate was 5.2% for 2025, falls to 4.55% for 2026, and is scheduled to reach 3.99% for 2027. Further reductions, and a possible phaseout, depend on revenue triggers set in the law.",
+      },
+      {
+        q: "Do you have to file a Nebraska state tax return?",
+        a: "Yes, if your Nebraska gross income reaches the state's filing threshold for your filing status. Nebraska residents file Form 1040N, which starts from the federal return and applies the Nebraska standard deduction, the personal exemption credit, and any credits. Filing is where a wage earner claims those items, so it can reduce the tax shown on a pay stub.",
+      },
+    ],
+    sources: [
+      { label: "Nebraska Department of Revenue — Individual Income Tax", url: "https://revenue.nebraska.gov/individuals/individual-income-tax" },
+      { label: "Nebraska 2025 Individual Income Tax Booklet (Form 1040N instructions, rates, standard deduction)", url: "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf" },
+      { label: "Neb. Rev. Stat. § 77-2715.03 — Individual income tax brackets and rates", url: "https://nebraskalegislature.gov/laws/statutes.php?statute=77-2715.03" },
     code: "US-NM",
     abbr: "nm",
     slug: "new-mexico",
