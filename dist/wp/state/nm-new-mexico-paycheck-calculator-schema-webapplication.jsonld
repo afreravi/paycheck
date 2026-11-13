@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "New Mexico Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/new-mexico",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free New Mexico paycheck calculator. New Mexico taxes wages on a six-bracket scale from 1.5% to 5.9% and adds no local wage tax. Estimate 2026 take-home pay."
+}
