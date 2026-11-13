@@ -3981,6 +3981,122 @@ export const STATE_PAGES = [
       { label: "Nebraska Department of Revenue — Individual Income Tax", url: "https://revenue.nebraska.gov/individuals/individual-income-tax" },
       { label: "Nebraska 2025 Individual Income Tax Booklet (Form 1040N instructions, rates, standard deduction)", url: "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf" },
       { label: "Neb. Rev. Stat. § 77-2715.03 — Individual income tax brackets and rates", url: "https://nebraskalegislature.gov/laws/statutes.php?statute=77-2715.03" },
+    code: "US-NM",
+    abbr: "nm",
+    slug: "new-mexico",
+    name: "New Mexico",
+    example: { salary: 65000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the New Mexico Taxation and
+    // Revenue Department and NMSA 1978, Section 7-2-7 (individual income tax
+    // rates), as amended by Laws 2024, Chapter 67, Section 5.
+    hasIncomeTax: true,
+    title: "New Mexico Paycheck Calculator - Take-Home Pay After NM Tax",
+    description:
+      "Free New Mexico paycheck calculator. New Mexico taxes wages on a six-bracket scale from 1.5% to 5.9% and adds no local wage tax. Estimate 2026 take-home pay.",
+    intro:
+      "Estimate what a New Mexico paycheck keeps after tax. New Mexico taxes wage income " +
+      "on a six-step graduated schedule that starts at 1.5% and climbs to 5.9%, and it " +
+      "begins the calculation from federal adjusted gross income rather than from gross " +
+      "wages. The state runs no city or county income tax and withholds nothing for " +
+      "disability or paid leave, so the New Mexico income tax is the only state line on " +
+      "the stub. Enter your salary and pay frequency to see your net pay per period.",
+    keyHeading: "How does New Mexico tax a paycheck?",
+    keyParagraphs: [
+      "New Mexico uses a graduated rate table, not a flat rate. NMSA 1978, Section 7-2-7 " +
+        "sets six steps for a single filer: 1.5% on the first $5,500 of New Mexico taxable " +
+        "income, 3.2% from there to $16,500, 4.3% to $33,500, 4.7% to $66,500, 4.9% to " +
+        "$210,000, and 5.9% on everything above that. A married couple filing jointly gets " +
+        "wider steps, starting at $8,000 and not reaching 5.9% until joint taxable income " +
+        "passes $315,000. The 2024 amendments in Laws 2024, Chapter 67, Section 5 apply to " +
+        "tax years beginning on or after January 1, 2025, and left the top rate at 5.9%.",
+      "The New Mexico return does not start from gross wages. It starts from federal " +
+        "adjusted gross income, so the same pre-tax items that shrink a federal return " +
+        "&mdash; a traditional 401(k), an HSA, an employer health premium &mdash; shrink the " +
+        "New Mexico base too. The state then subtracts its own standard deduction before " +
+        "the brackets apply. The dataset behind this page approximates the schedule with " +
+        "three bands at 1.5%, 3.7%, and 5.9% and a $14,600 single standard deduction, so " +
+        "treat the New Mexico figure here as a close estimate rather than a payroll-system " +
+        "withholding table.",
+      "Nothing else is withheld at the state level. New Mexico has no municipal or county " +
+        "income tax on wages anywhere in the state, no state disability insurance program, " +
+        "and no payroll-funded family or medical leave premium. The state has also stopped " +
+        "taxing most Social Security benefits: since tax year 2022 a single filer under " +
+        "$100,000 of income, or a married couple under $150,000, pays no New Mexico tax on " +
+        "those benefits. A refundable New Mexico child tax credit worth up to $637 per " +
+        "qualifying child for low-income families further reduces the annual bill, though " +
+        "it is claimed on the return and never on the paycheck.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your yearly salary, or an hourly rate times hours worked, expressed as one paycheck for the frequency you picked.",
+      "<strong>Pre-tax deductions first.</strong> A traditional 401(k), an HSA contribution, or a health premium comes out before tax, lowering the federal and the New Mexico base alike, because New Mexico starts from federal adjusted gross income.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is subtracted, then the remaining income runs up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax once income passes the high-earner threshold.",
+      "<strong>New Mexico standard deduction.</strong> New Mexico removes its own standard deduction before the state brackets apply. The dataset used here carries $14,600 for a single filer.",
+      "<strong>New Mexico income tax.</strong> The remaining income runs through the state's six-step graduated table, which climbs from 1.5% at the bottom to 5.9% on single income above $210,000.",
+      "<strong>Local income tax: $0.</strong> No New Mexico city or county taxes wages, so nothing is added for Albuquerque, Las Cruces, Santa Fe, or any other locality.",
+      "<strong>State disability and paid leave: $0.</strong> New Mexico operates no state disability insurance program and withholds no family or medical leave premium, so the income tax is the only state deduction.",
+    ],
+    compareParagraphs: [
+      "New Mexico sits in the middle of the pack on rate. Its 5.9% top marginal rate is " +
+        "above the flat rates charged by neighboring Colorado (4.4%), Utah (4.55%), or " +
+        "Arizona (2.5%), and above the graduated top rates in Missouri (4.7%) or Kansas " +
+        "(5.58%), but it lands well below California, New Jersey, or New York. What matters " +
+        "more at ordinary salaries is where the steps begin: a single New Mexican reaches " +
+        "the 4.7% band at $33,500 and the 4.9% band at $66,500, so a middle-income earner " +
+        "pays a blended rate closer to 4% than to the headline 5.9%.",
+      "New Mexico also starts the state calculation from federal adjusted gross income, " +
+        "which is a quieter difference than the rate. Because a 401(k) or HSA contribution " +
+        "lowers the federal AGI first, it lowers the New Mexico base by the same amount. " +
+        "States that start from federal taxable income instead, or that apply their own " +
+        "add-backs, do not always give that pre-tax dollar the same effect.",
+      "What New Mexico shares with the simplest states is the absence of a second state " +
+        "payroll line. There is no municipal income tax like Ohio's or Pennsylvania's, no " +
+        "county tax like Indiana's or Maryland's, and no city surcharge like New York " +
+        "City's or Yonkers's. The state runs no disability insurance program and withholds " +
+        "no paid-family-leave premium, so unlike California, New Jersey, Washington, " +
+        "Massachusetts, or Colorado, a New Mexico paycheck carries one state deduction, not " +
+        "two. Its gross receipts tax is a business tax on sales and services, not something " +
+        "taken out of a wage.",
+    ],
+    faqs: [
+      {
+        q: "Does New Mexico have a state income tax?",
+        a: "Yes. NMSA 1978, Section 7-2-7 imposes a graduated individual income tax. For a single filer the six rates are 1.5%, 3.2%, 4.3%, 4.7%, 4.9%, and 5.9%, applied to New Mexico taxable income. The schedule was last amended by Laws 2024, Chapter 67, Section 5, effective for tax years beginning on or after January 1, 2025.",
+      },
+      {
+        q: "What are the New Mexico income tax brackets for 2025?",
+        a: "For a single filer, 1.5% on taxable income up to $5,500; 3.2% from $5,500 to $16,500; 4.3% from $16,500 to $33,500; 4.7% from $33,500 to $66,500; 4.9% from $66,500 to $210,000; and 5.9% above $210,000. A married couple filing jointly doubles most breakpoints: 1.5% to $8,000, then 3.2%, 4.3%, 4.7%, and 4.9%, reaching 5.9% above $315,000 of joint taxable income.",
+      },
+      {
+        q: "How much is taken out of a $65,000 salary in New Mexico?",
+        a: "Using this calculator's simplified dataset for 2026, a single filer paid biweekly takes home about $2,033.57 per paycheck from a $65,000 salary: $2,500.00 gross, $216.15 federal income tax, $155.00 Social Security, $36.25 Medicare, and $59.03 New Mexico state income tax. That is roughly $52,872.70 a year, an effective tax rate near 18.7%. The state figure is an estimate built from three simplified bands.",
+      },
+      {
+        q: "What is the New Mexico standard deduction for 2025?",
+        a: "New Mexico allows a standard deduction that depends on filing status, and the dataset behind this page carries $14,600 for a single filer. It is subtracted from federal adjusted gross income before the state brackets apply. The deduction is claimed on Form PIT-1, and the exact figure for a given year is set in the Personal Income Tax instructions.",
+      },
+      {
+        q: "Do New Mexico cities or counties charge a local income tax on wages?",
+        a: "No. New Mexico has no municipal or county income tax on wages, so nothing is withheld for Albuquerque, Las Cruces, Rio Rancho, Santa Fe, or any other locality. Cities and counties in New Mexico raise local revenue mainly through gross receipts tax and property tax, neither of which is taken out of a paycheck.",
+      },
+      {
+        q: "Does New Mexico have state disability insurance or paid family leave withholding?",
+        a: "No. New Mexico operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so the state income tax is the only state-level deduction on a New Mexico paycheck. Paid family and medical leave proposals in the 2025 legislative session did not pass.",
+      },
+      {
+        q: "Does New Mexico tax Social Security benefits?",
+        a: "For most retirees, no. Beginning with tax year 2022, New Mexico exempts Social Security benefits from state tax for single taxpayers with income under $100,000, married couples filing jointly and surviving spouses under $150,000, and married couples filing separately under $75,000.",
+      },
+      {
+        q: "What is the New Mexico child tax credit?",
+        a: "New Mexico offers a refundable child tax credit claimed on the state personal income tax return. The 2025 amounts are $637 per qualifying child for adjusted gross income up to $25,000, $424 for income up to $50,000, and smaller amounts for higher income, phasing out above $350,000. It reduces the annual tax bill but is not part of payroll withholding.",
+      },
+    ],
+    sources: [
+      { label: "New Mexico Taxation and Revenue Department — Personal Income Tax Information", url: "https://www.tax.newmexico.gov/individuals/personal-income-tax-information-overview/" },
+      { label: "New Mexico Personal Income Tax Rates (NMSA 1978, Section 7-2-7, as amended)", url: "https://www.tax.newmexico.gov/all-nm-taxes/current-historic-tax-rates-overview/personal-income-tax-rates/" },
+      { label: "New Mexico Taxation and Revenue Department — Social Security Income Tax Exemption", url: "https://www.tax.newmexico.gov/social-security-income-tax-exemption/" },
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
