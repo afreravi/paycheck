@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Idaho Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/idaho",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Idaho paycheck calculator. Idaho taxes wages at a flat 5.3% with no local or city income tax. Estimate your 2026 take-home pay after federal and Idaho tax."
+}
