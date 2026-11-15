@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Hawaii have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Hawaii taxes wage income under Chapter 235 of the Hawaii Revised Statutes. Act 46, Session Laws of Hawaii 2024, rewrote the rate table, and the schedule published for tax year 2025 has twelve brackets for a single filer running from 1.4% to 11%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the Hawaii income tax brackets for 2025?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a single or married-filing-separately filer, 1.4% on taxable income up to $9,600, then 3.2%, 5.5%, 6.4%, 6.8%, 7.2%, 7.6%, 7.9%, 8.25%, 9%, and 10%, and 11% above $325,000. A married couple filing jointly doubles most breakpoints and does not reach 11% until joint taxable income passes $650,000. Act 46 lowers these rates each year through tax year 2031."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $70,000 salary in Hawaii?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Using this calculator's simplified dataset for 2026, a single filer paid biweekly takes home about $2,099.67 per paycheck from a $70,000 salary: $2,692.31 gross, $252.69 federal income tax, $166.92 Social Security, $39.04 Medicare, and $133.98 Hawaii state income tax. That is roughly $54,591.40 a year, an effective tax rate near 22.0%. The state figure is an estimate built from three simplified bands, and it does not include any TDI withholding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Hawaii standard deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Act 46, Session Laws of Hawaii 2024, raised the standard deduction for the first time in decades. For tax year 2025 it is $4,400 for a single or married-filing-separately filer, $6,424 for head of household, and $8,800 for a married couple filing jointly or a surviving spouse. The simplified dataset behind this page uses $2,200 for a single filer, so the estimate here is slightly conservative."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Hawaii have a Temporary Disability Insurance deduction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hawaii employers must provide Temporary Disability Insurance, a wage-replacement program enacted in 1969. The employer may pay the full premium or split it with the employee, but the employee's share cannot exceed 0.5% of weekly wages or the maximum weekly deduction, whichever is lower. Because not every employer shares the cost, this calculator does not subtract TDI, so your actual net pay can be slightly lower."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Hawaii have a paid family leave payroll tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Hawaii operates Temporary Disability Insurance but does not run a separate state paid family leave program funded by a payroll tax. There is no leave deduction like California's SDI, New Jersey's FLI, or Washington's PFML, so the Hawaii income tax and the capped TDI premium are the only state-level lines on a Hawaii paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Hawaii counties charge a local income tax on wages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Hawaii has no county or municipal income tax on wages, so nothing is withheld for Honolulu, Maui, Kauai, or Hawaii Island. Hawaii counties raise local revenue mainly through property tax, and the county surcharge that appears on the general excise tax is a business tax on gross income rather than a deduction from an employee's paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What form does a Hawaii employee file for state withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Hawaii employee gives the employer a completed Form HW-4, which sets withholding allowances based on personal exemptions and deductions. Claiming more than 10 exemptions may be treated as excessive and reviewed by the Department of Taxation. The HW-4 is separate from the federal Form W-4, and wages are reported at year end on Form HW-2 or the federal Form W-2."
+      }
+    }
+  ]
+}

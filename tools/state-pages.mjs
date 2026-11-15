@@ -3981,6 +3981,9 @@ export const STATE_PAGES = [
       { label: "Nebraska Department of Revenue — Individual Income Tax", url: "https://revenue.nebraska.gov/individuals/individual-income-tax" },
       { label: "Nebraska 2025 Individual Income Tax Booklet (Form 1040N instructions, rates, standard deduction)", url: "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf" },
       { label: "Neb. Rev. Stat. § 77-2715.03 — Individual income tax brackets and rates", url: "https://nebraskalegislature.gov/laws/statutes.php?statute=77-2715.03" },
+    ],
+  },
+  {
     code: "US-NM",
     abbr: "nm",
     slug: "new-mexico",
@@ -4097,6 +4100,128 @@ export const STATE_PAGES = [
       { label: "New Mexico Taxation and Revenue Department — Personal Income Tax Information", url: "https://www.tax.newmexico.gov/individuals/personal-income-tax-information-overview/" },
       { label: "New Mexico Personal Income Tax Rates (NMSA 1978, Section 7-2-7, as amended)", url: "https://www.tax.newmexico.gov/all-nm-taxes/current-historic-tax-rates-overview/personal-income-tax-rates/" },
       { label: "New Mexico Taxation and Revenue Department — Social Security Income Tax Exemption", url: "https://www.tax.newmexico.gov/social-security-income-tax-exemption/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
+  {
+    code: "US-HI",
+    abbr: "hi",
+    slug: "hawaii",
+    name: "Hawaii",
+    example: { salary: 70000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Hawaii Department of Taxation
+    // (tax.hawaii.gov) tax-year information and the Disability Compensation
+    // Division's TDI guidance. Brackets and the standard deduction were rewritten
+    // by Act 46, Session Laws of Hawaii 2024, which phases the rates down through
+    // tax year 2031.
+    hasIncomeTax: true,
+    title: "Hawaii Paycheck Calculator - Take-Home Pay After HI Tax",
+    description:
+      "Free Hawaii paycheck calculator. Hawaii taxes wages on a 12-bracket scale from 1.4% to 11%, plus TDI withholding up to 0.5%. Estimate 2026 take-home pay.",
+    intro:
+      "Estimate what a Hawaii paycheck keeps after tax. Hawaii taxes wage income on a " +
+      "12-step graduated schedule that runs from 1.4% to 11%, one of the longest bracket " +
+      "ladders in the country, and it layers a separate Temporary Disability Insurance " +
+      "deduction on top of the income tax. Hawaii has no city or county income tax, so " +
+      "the state withholds no local wage tax for Honolulu, Maui, Kauai, or Hawaii Island. " +
+      "Enter your salary and pay frequency to see your net pay per period.",
+    keyHeading: "How does Hawaii tax a paycheck?",
+    keyParagraphs: [
+      "Hawaii levies a graduated individual income tax under Chapter 235 of the Hawaii " +
+        "Revised Statutes. Act 46, Session Laws of Hawaii 2024, rewrote the rate table and " +
+        "the standard deduction, and the schedule the Department of Taxation published for " +
+        "tax year 2025 shows twelve brackets for a single or married-filing-separately " +
+        "filer: 1.4% on the first $9,600 of taxable income, then steps at 3.2%, 5.5%, 6.4%, " +
+        "6.8%, 7.2%, 7.6%, 7.9%, 8.25%, 9%, and 10%, reaching 11% only on taxable income " +
+        "above $325,000. A married couple filing jointly starts at 1.4% too but does not " +
+        "hit 11% until joint taxable income passes $650,000. Act 46 keeps lowering these " +
+        "rates each year through tax year 2031, so a Hawaii employee's withholding drifts " +
+        "downward over the decade.",
+      "The 2024 act also raised Hawaii's standard deduction, which had not moved in " +
+        "decades. For tax year 2025 it is $4,400 for a single or married-filing-separately " +
+        "filer, $6,424 for head of household, and $8,800 for a married couple filing " +
+        "jointly. The dataset behind this page approximates the state schedule with three " +
+        "bands at 1.4%, 6.2%, and 11% and a $2,200 single standard deduction, so treat the " +
+        "Hawaii figure here as a close estimate rather than a payroll-system withholding " +
+        "table.",
+      "Two features separate Hawaii from a mainland no-tax state. First, the employer must " +
+        "carry Temporary Disability Insurance, a wage-replacement program enacted in 1969, " +
+        "and may take the employee's half of the premium out of the paycheck up to 0.5% of " +
+        "weekly wages or the maximum weekly deduction, whichever is lower. Second, Hawaii " +
+        "does not run a separate paid family leave payroll tax, so unlike California, New " +
+        "Jersey, or Washington there is no second state leave line. The general excise tax " +
+        "and its county surcharge are business taxes on gross income, not deductions from a " +
+        "wage, and Hawaii counties levy no income tax of their own.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your yearly salary, or an hourly rate times hours worked, expressed as one paycheck for the frequency you chose.",
+      "<strong>Pre-tax deductions first.</strong> A traditional 401(k), an HSA contribution, or a health premium comes out before tax and lowers the income that both federal and Hawaii tax are charged on.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is subtracted, then the remaining income runs up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax once income passes the high-earner threshold.",
+      "<strong>Hawaii standard deduction.</strong> Hawaii removes its own standard deduction before the state brackets apply. The dataset used here carries $2,200 for a single filer.",
+      "<strong>Hawaii income tax.</strong> The remaining income runs through the state's graduated table, which starts at 1.4% and reaches 11% on single income above $325,000.",
+      "<strong>Hawaii Temporary Disability Insurance.</strong> If the employer shares the TDI premium, the employee's share can be withheld up to 0.5% of weekly wages or the maximum weekly deduction. This calculator does not subtract TDI, so your real net pay can be slightly lower.",
+      "<strong>Local income tax: $0.</strong> No Hawaii county taxes wages, so nothing is added for Honolulu, Maui, Kauai, or Hawaii Island.",
+    ],
+    compareParagraphs: [
+      "Hawaii is a high-tax state by rate but a narrow one by reach. Its 11% top marginal " +
+        "rate is the highest in the country outside California's 12.3%, and it begins far " +
+        "lower than California's top bracket: a single Hawaii filer crosses 9% at $225,000 " +
+        "of taxable income, where a California filer is still in the 9.3% band. The bottom " +
+        "of the ladder is gentle, though, at 1.4%, so a Hawaii earner at a modest salary " +
+        "pays a blended rate well below the headline number.",
+      "What a Hawaii paycheck does not carry is a second government layer. There is no city " +
+        "or county income tax the way there is in New York City, Yonkers, or Philadelphia, " +
+        "and no county wage tax like Ohio's or Indiana's. The only extra state line is the " +
+        "Temporary Disability Insurance premium, capped at 0.5% of weekly wages, which is " +
+        "cheaper than California's 1.3% SDI or New Jersey's combined TDI and FLI.",
+      "Hawaii also taxes some retirement income that mainland states exempt, including " +
+        "pension and annuity income, though it does not tax Social Security benefits the " +
+        "way the federal return does. For a current employee the practical difference is " +
+        "the standard deduction, which Act 46 roughly doubled: a Hawaii filer who used to " +
+        "shelter only $2,200 from state tax now shelters $4,400, which pulls more of a " +
+        "middle-income paycheck below the first bracket.",
+    ],
+    faqs: [
+      {
+        q: "Does Hawaii have a state income tax?",
+        a: "Yes. Hawaii taxes wage income under Chapter 235 of the Hawaii Revised Statutes. Act 46, Session Laws of Hawaii 2024, rewrote the rate table, and the schedule published for tax year 2025 has twelve brackets for a single filer running from 1.4% to 11%.",
+      },
+      {
+        q: "What are the Hawaii income tax brackets for 2025?",
+        a: "For a single or married-filing-separately filer, 1.4% on taxable income up to $9,600, then 3.2%, 5.5%, 6.4%, 6.8%, 7.2%, 7.6%, 7.9%, 8.25%, 9%, and 10%, and 11% above $325,000. A married couple filing jointly doubles most breakpoints and does not reach 11% until joint taxable income passes $650,000. Act 46 lowers these rates each year through tax year 2031.",
+      },
+      {
+        q: "How much is taken out of a $70,000 salary in Hawaii?",
+        a: "Using this calculator's simplified dataset for 2026, a single filer paid biweekly takes home about $2,099.67 per paycheck from a $70,000 salary: $2,692.31 gross, $252.69 federal income tax, $166.92 Social Security, $39.04 Medicare, and $133.98 Hawaii state income tax. That is roughly $54,591.40 a year, an effective tax rate near 22.0%. The state figure is an estimate built from three simplified bands, and it does not include any TDI withholding.",
+      },
+      {
+        q: "What is the Hawaii standard deduction?",
+        a: "Act 46, Session Laws of Hawaii 2024, raised the standard deduction for the first time in decades. For tax year 2025 it is $4,400 for a single or married-filing-separately filer, $6,424 for head of household, and $8,800 for a married couple filing jointly or a surviving spouse. The simplified dataset behind this page uses $2,200 for a single filer, so the estimate here is slightly conservative.",
+      },
+      {
+        q: "Does Hawaii have a Temporary Disability Insurance deduction?",
+        a: "Hawaii employers must provide Temporary Disability Insurance, a wage-replacement program enacted in 1969. The employer may pay the full premium or split it with the employee, but the employee's share cannot exceed 0.5% of weekly wages or the maximum weekly deduction, whichever is lower. Because not every employer shares the cost, this calculator does not subtract TDI, so your actual net pay can be slightly lower.",
+      },
+      {
+        q: "Does Hawaii have a paid family leave payroll tax?",
+        a: "No. Hawaii operates Temporary Disability Insurance but does not run a separate state paid family leave program funded by a payroll tax. There is no leave deduction like California's SDI, New Jersey's FLI, or Washington's PFML, so the Hawaii income tax and the capped TDI premium are the only state-level lines on a Hawaii paycheck.",
+      },
+      {
+        q: "Do Hawaii counties charge a local income tax on wages?",
+        a: "No. Hawaii has no county or municipal income tax on wages, so nothing is withheld for Honolulu, Maui, Kauai, or Hawaii Island. Hawaii counties raise local revenue mainly through property tax, and the county surcharge that appears on the general excise tax is a business tax on gross income rather than a deduction from an employee's paycheck.",
+      },
+      {
+        q: "What form does a Hawaii employee file for state withholding?",
+        a: "A Hawaii employee gives the employer a completed Form HW-4, which sets withholding allowances based on personal exemptions and deductions. Claiming more than 10 exemptions may be treated as excessive and reviewed by the Department of Taxation. The HW-4 is separate from the federal Form W-4, and wages are reported at year end on Form HW-2 or the federal Form W-2.",
+      },
+    ],
+    sources: [
+      { label: "Hawaii Department of Taxation — Tax Year Information (brackets and standard deduction)", url: "https://tax.hawaii.gov/tax-year-information/" },
+      { label: "Hawaii Department of Taxation — Withholding Tax for Employers", url: "https://tax.hawaii.gov/geninfo/a2_b2_4empl_whhold/" },
+      { label: "Hawaii Department of Labor and Industrial Relations — About Temporary Disability Insurance", url: "https://labor.hawaii.gov/dcd/home/about-tdi/" },
+      { label: "Hawaii Revised Statutes Chapter 235 — Income Tax (HRS §235-51)", url: "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/" },
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
