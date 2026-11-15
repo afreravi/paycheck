@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Idaho have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Idaho taxes individual income at a flat 5.3% under Idaho Code section 63-3024. There are no marginal brackets, so the same rate applies to every dollar of Idaho taxable income above the statute's indexed threshold."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Idaho's income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Idaho's individual income tax rate is 5.3%. It was reduced from 5.695% for tax year 2024 to 5.3% by House Bill 40, the 2025 income tax reduction. The Tax Commission's rate schedule shows 0% on the first $4,811 of single taxable income and 5.3% above that, with the break at $9,622 for a joint return."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in Idaho?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,843.81 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $94.27 Idaho state income tax. That is roughly $47,939 a year, an effective tax rate near 20.1%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Idaho have a standard deduction on its income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Idaho Code section 63-3022(j) lets an individual take the federal standard deduction from gross income. The dataset behind this page carries $14,600 for a single filer, and it is subtracted before the flat 5.3% rate applies. Idaho has no separate personal exemption for most filers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Idaho cities or counties charge a local income tax on wages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Idaho has no city or county income tax on wages, so nothing is withheld for Boise, Meridian, Nampa, Idaho Falls, Pocatello, Coeur d'Alene, or any other locality. Idaho cities and counties raise local revenue through property and sales taxes instead, neither of which is withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Idaho have state disability insurance or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Idaho operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so the flat 5.3% income tax is the only state-level deduction on an Idaho paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What form does an Idaho employee file for state withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An Idaho employee files Form W-4, the Idaho Employee's Withholding Allowance Certificate, with their employer to set the state income tax withheld. It is separate from the federal Form W-4, and Idaho's form is used to claim the allowances and exemptions that adjust withholding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did Idaho's income tax rate drop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Idaho has cut its individual income tax rate for several years running: 5.8% in 2023, 5.695% for 2024, and 5.3% under House Bill 40 of 2025. The reductions came with the state's move to a single flat rate in place of its older graduated schedule."
+      }
+    }
+  ]
+}
