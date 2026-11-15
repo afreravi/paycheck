@@ -3981,6 +3981,10 @@ export const STATE_PAGES = [
       { label: "Nebraska Department of Revenue — Individual Income Tax", url: "https://revenue.nebraska.gov/individuals/individual-income-tax" },
       { label: "Nebraska 2025 Individual Income Tax Booklet (Form 1040N instructions, rates, standard deduction)", url: "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf" },
       { label: "Neb. Rev. Stat. § 77-2715.03 — Individual income tax brackets and rates", url: "https://nebraskalegislature.gov/laws/statutes.php?statute=77-2715.03" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
+  {
     code: "US-NM",
     abbr: "nm",
     slug: "new-mexico",
@@ -4097,6 +4101,124 @@ export const STATE_PAGES = [
       { label: "New Mexico Taxation and Revenue Department — Personal Income Tax Information", url: "https://www.tax.newmexico.gov/individuals/personal-income-tax-information-overview/" },
       { label: "New Mexico Personal Income Tax Rates (NMSA 1978, Section 7-2-7, as amended)", url: "https://www.tax.newmexico.gov/all-nm-taxes/current-historic-tax-rates-overview/personal-income-tax-rates/" },
       { label: "New Mexico Taxation and Revenue Department — Social Security Income Tax Exemption", url: "https://www.tax.newmexico.gov/social-security-income-tax-exemption/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
+  {
+    code: "US-ID",
+    abbr: "id",
+    slug: "idaho",
+    name: "Idaho",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the Idaho State Tax Commission
+    // rate schedule and Idaho Code sections 63-3024 (rate) and 63-3022(j)
+    // (standard deduction), as amended by House Bill 40 of 2025.
+    hasIncomeTax: true,
+    title: "Idaho Paycheck Calculator - Take-Home Pay After Idaho Tax",
+    description:
+      "Free Idaho paycheck calculator. Idaho taxes wages at a flat 5.3% with no local or city income tax. Estimate your 2026 take-home pay after federal and Idaho tax.",
+    intro:
+      "Estimate what an Idaho paycheck keeps after tax. Idaho charges a single flat rate " +
+      "on wage income rather than a bracket table, and it layers no city or county income " +
+      "tax on top, so the Idaho line on a stub is one steady percentage of taxable pay. " +
+      "Enter your salary and pay frequency to see the federal, FICA, and Idaho pieces " +
+      "that come out of each period.",
+    keyHeading: "How does Idaho tax a paycheck?",
+    keyParagraphs: [
+      "Idaho taxes wage income at one flat rate: 5.3%. Idaho Code section 63-3024 imposes " +
+        "the tax at five and three-tenths percent of taxable income, with no marginal " +
+        "brackets and no high-income surcharge, so every dollar of Idaho taxable income " +
+        "meets the same rate. The statute also carries a threshold &mdash; $2,500 for a " +
+        "single filer and $5,000 for a joint return &mdash; that the Tax Commission indexes " +
+        "for inflation each year, which is why the published rate schedule shows 0% on the " +
+        "first few thousand dollars and 5.3% above it. For 2025 the schedule puts the " +
+        "single break at $4,811 and the joint break at $9,622.",
+      "Idaho's rate has fallen for three straight years. It was 5.8% in 2023, dropped to " +
+        "5.695% for 2024, and came down to 5.3% under House Bill 40, the 2025 income tax " +
+        "reduction. Idaho reached the flat structure by collapsing its old graduated table, " +
+        "so a high earner and a middle earner now pay the same marginal rate. Idaho " +
+        "conforms to the Internal Revenue Code, so the state calculation starts from " +
+        "federal taxable income and the same pre-tax items &mdash; a traditional 401(k), an " +
+        "HSA, a health premium &mdash; lower the Idaho base too.",
+      "Idaho allows a standard deduction rather than a personal exemption: section " +
+        "63-3022(j) lets a taxpayer take the federal standard deduction, and the dataset " +
+        "behind this page carries $14,600 for a single filer. Nothing else is withheld at " +
+        "the state level. Idaho has no city or county income tax on wages anywhere in the " +
+        "state, no state disability insurance program, and no payroll-funded family or " +
+        "medical leave premium, so the flat income tax is the only state deduction on an " +
+        "Idaho paycheck.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your annual salary, or an hourly rate times hours worked, expressed as one paycheck for the frequency you picked.",
+      "<strong>Pre-tax deductions.</strong> A traditional 401(k), an HSA contribution, or a health premium comes out before tax, which lowers the base that federal income tax and Idaho tax are both figured on, because Idaho starts from federal taxable income.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is subtracted first, then the remaining income runs up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax once income passes the high-earner threshold.",
+      "<strong>Idaho standard deduction.</strong> Idaho allows the federal standard deduction under Idaho Code section 63-3022(j). The dataset used here carries $14,600 for a single filer.",
+      "<strong>Idaho income tax.</strong> The remaining income is charged the flat 5.3% rate from Idaho Code section 63-3024, applied above the indexed threshold rather than through a bracket table.",
+      "<strong>Local income tax: $0.</strong> No Idaho city or county taxes wages, so nothing is added for Boise, Meridian, Nampa, Idaho Falls, or any other locality.",
+      "<strong>State disability and paid leave: $0.</strong> Idaho runs no state disability insurance program and withholds no family or medical leave premium, so the flat income tax is the only state deduction.",
+    ],
+    compareParagraphs: [
+      "Idaho's 5.3% flat rate sits in the lower middle of the region. It is about " +
+        "three-quarters of a point above Utah's flat 4.55% rate, but it is roughly half of " +
+        "Oregon's 9.9% top marginal rate just across the Snake River, and Idaho is one of " +
+        "the states that neighbors a no-income-tax state: Washington and Nevada both tax " +
+        "no wage income at all. Because Idaho applies one rate with no brackets, an Idaho " +
+        "earner never reaches a higher marginal rate as pay rises the way an Oregon or " +
+        "California earner does.",
+      "The flat rate also makes Idaho's withholding predictable. States with graduated " +
+        "tables, such as California, New York, or Minnesota, withhold a larger share as " +
+        "income climbs, so two workers on the same salary in different states can net very " +
+        "different amounts. In Idaho the state share of a paycheck scales evenly with pay, " +
+        "and the only progression comes from the small indexed threshold that keeps the " +
+        "first few thousand dollars at 0%.",
+      "What Idaho shares with the simplest states is the absence of a second state payroll " +
+        "line. There is no municipal income tax like Ohio's or Pennsylvania's, no county " +
+        "tax like Indiana's or Maryland's, and no city surcharge like New York City's or " +
+        "Yonkers's. Idaho also runs no disability insurance program and withholds no " +
+        "paid-family-leave premium, so unlike California, New Jersey, Washington, " +
+        "Massachusetts, or Colorado, an Idaho paycheck carries one state deduction, not two.",
+    ],
+    faqs: [
+      {
+        q: "Does Idaho have a state income tax?",
+        a: "Yes. Idaho taxes individual income at a flat 5.3% under Idaho Code section 63-3024. There are no marginal brackets, so the same rate applies to every dollar of Idaho taxable income above the statute's indexed threshold.",
+      },
+      {
+        q: "What is Idaho's income tax rate for 2026?",
+        a: "Idaho's individual income tax rate is 5.3%. It was reduced from 5.695% for tax year 2024 to 5.3% by House Bill 40, the 2025 income tax reduction. The Tax Commission's rate schedule shows 0% on the first $4,811 of single taxable income and 5.3% above that, with the break at $9,622 for a joint return.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in Idaho?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,843.81 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $94.27 Idaho state income tax. That is roughly $47,939 a year, an effective tax rate near 20.1%.",
+      },
+      {
+        q: "Does Idaho have a standard deduction on its income tax?",
+        a: "Yes. Idaho Code section 63-3022(j) lets an individual take the federal standard deduction from gross income. The dataset behind this page carries $14,600 for a single filer, and it is subtracted before the flat 5.3% rate applies. Idaho has no separate personal exemption for most filers.",
+      },
+      {
+        q: "Do Idaho cities or counties charge a local income tax on wages?",
+        a: "No. Idaho has no city or county income tax on wages, so nothing is withheld for Boise, Meridian, Nampa, Idaho Falls, Pocatello, Coeur d'Alene, or any other locality. Idaho cities and counties raise local revenue through property and sales taxes instead, neither of which is withheld from a paycheck.",
+      },
+      {
+        q: "Does Idaho have state disability insurance or paid family leave withholding?",
+        a: "No. Idaho operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so the flat 5.3% income tax is the only state-level deduction on an Idaho paycheck.",
+      },
+      {
+        q: "What form does an Idaho employee file for state withholding?",
+        a: "An Idaho employee files Form W-4, the Idaho Employee's Withholding Allowance Certificate, with their employer to set the state income tax withheld. It is separate from the federal Form W-4, and Idaho's form is used to claim the allowances and exemptions that adjust withholding.",
+      },
+      {
+        q: "Why did Idaho's income tax rate drop?",
+        a: "Idaho has cut its individual income tax rate for several years running: 5.8% in 2023, 5.695% for 2024, and 5.3% under House Bill 40 of 2025. The reductions came with the state's move to a single flat rate in place of its older graduated schedule.",
+      },
+    ],
+    sources: [
+      { label: "Idaho State Tax Commission — Individual Income Tax Rate Schedule", url: "https://tax.idaho.gov/taxes/income-tax/individual-income/individual-income-tax-rate-schedule/" },
+      { label: "Idaho Code Section 63-3024 — Individuals' tax (flat 5.3% rate)", url: "https://legislature.idaho.gov/statutesrules/idstat/Title63/T63CH30/SECT63-3024/" },
+      { label: "Idaho Code Section 63-3022 — Adjustments to taxable income (standard deduction)", url: "https://legislature.idaho.gov/statutesrules/idstat/Title63/T63CH30/SECT63-3022/" },
+      { label: "Idaho State Tax Commission — Withholding", url: "https://tax.idaho.gov/taxes/income-tax/withholding/" },
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
