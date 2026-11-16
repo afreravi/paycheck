@@ -203,6 +203,10 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/new-mexico',
             'description' => 'Free New Mexico paycheck calculator. New Mexico taxes wages on a six-bracket scale from 1.5% to 5.9% and adds no local wage tax. Estimate 2026 take-home pay.',
         ),
+        'hawaii' => array(
+            'name'        => 'Hawaii Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/hawaii',
+            'description' => 'Free Hawaii paycheck calculator. Hawaii taxes wages on a 12-bracket scale from 1.4% to 11%, plus TDI withholding up to 0.5%. Estimate 2026 take-home pay.',
         'idaho' => array(
             'name'        => 'Idaho Paycheck Calculator',
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/idaho',
@@ -222,7 +226,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'idaho', 'west-virginia' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'idaho', 'west-virginia','hawaii' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
