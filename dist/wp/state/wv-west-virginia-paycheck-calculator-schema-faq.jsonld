@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does West Virginia have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. West Virginia taxes individual income on a graduated scale under W. Va. Code section 11-21-4j, starting at 2.11% and reaching a 4.58% top rate on taxable income above $60,000 for 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is West Virginia's income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026 West Virginia's rates run from 2.11% to 4.58%. Senate Bill 392, signed March 31, 2026, cut every rate by five percent retroactive to January 1, 2026, lowering the top rate from 4.82% to 4.58% and the entry rate from 2.22% to 2.11%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $60,000 salary in West Virginia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,865.21 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $72.87 West Virginia state income tax. That is roughly $48,495 a year, an effective tax rate near 19.2%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does West Virginia have a standard deduction or a personal exemption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "West Virginia uses a personal exemption, not a standard deduction. W. Va. Code section 11-21-16 allows $2,000 for each exemption claimed, or $500 if someone else can claim you as a dependent, and that amount is subtracted before the rate table applies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do West Virginia cities or counties charge a local income tax on wages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. West Virginia has no city or county income tax on wages, so nothing is withheld for Charleston, Huntington, Morgantown, Parkersburg, Wheeling, or any other locality. West Virginia municipalities raise revenue mainly through sales and property taxes, neither of which is withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does West Virginia have state disability insurance or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. West Virginia operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so the graduated income tax is the only state-level deduction on a West Virginia paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What form does a West Virginia employee file for state withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A West Virginia employee files Form IT-104, the Employee's Withholding/Exemption Certificate, with their employer to set the state income tax withheld. It is separate from the federal Form W-4 and is used to claim the exemptions that feed the $2,000 personal allowance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How has West Virginia's income tax changed recently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "West Virginia has cut income tax rates in back-to-back sessions. The 2025 schedule ran from 2.22% to 4.82%; Senate Bill 392, signed March 31, 2026, cut every rate five percent retroactive to January 1, 2026, so the 2026 schedule runs from 2.11% to 4.58%."
+      }
+    }
+  ]
+}
