@@ -212,6 +212,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/idaho',
             'description' => 'Free Idaho paycheck calculator. Idaho taxes wages at a flat 5.3% with no local or city income tax. Estimate your 2026 take-home pay after federal and Idaho tax.',
         ),
+        'west-virginia' => array(
+            'name'        => 'West Virginia Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/west-virginia',
+            'description' => 'Free West Virginia paycheck calculator. Estimate take-home pay after West Virginia income tax, federal tax, Social Security, and Medicare for 2026.',
+        ),
     );
 }
 
@@ -221,7 +226,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'hawaii', 'idaho' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'idaho', 'west-virginia','hawaii' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );

@@ -4340,6 +4340,129 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-WV",
+    abbr: "wv",
+    slug: "west-virginia",
+    name: "West Virginia",
+    example: { salary: 60000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against the West Virginia Tax Division's
+    // "2026 Income Tax Rate Cut" schedule and W. Va. Code sections 11-21-4j
+    // (2026 rate table) and 11-21-16 (personal exemptions).
+    hasIncomeTax: true,
+    title: "West Virginia Paycheck Calculator - Take-Home Pay After WV Tax",
+    description:
+      "Free West Virginia paycheck calculator. Estimate take-home pay after West Virginia income tax, federal tax, Social Security, and Medicare for 2026.",
+    intro:
+      "Estimate what a West Virginia paycheck keeps after tax. West Virginia taxes wage " +
+      "income on a graduated scale that was cut five percent for 2026, and it collects no " +
+      "city or county income tax anywhere in the state, so the Mountain State stub carries " +
+      "one state line and no local one. Enter your salary and pay frequency to see the " +
+      "federal, FICA, and West Virginia pieces that come out of each period.",
+    keyHeading: "How does West Virginia tax a paycheck?",
+    keyParagraphs: [
+      "West Virginia taxes wage income on a graduated scale set by W. Va. Code section " +
+        "11-21-4j. For a single filer the 2026 schedule opens at 2.11% on the first $10,000 " +
+        "of West Virginia taxable income and steps up through 2.81%, 3.16%, and 4.22% to a " +
+        "4.58% top rate on income above $60,000, so the state is progressive but with a " +
+        "mild slope &mdash; the gap between the entry rate and the top rate is under two and " +
+        "a half points. Married couples filing separately use a schedule with the same rates " +
+        "and half the break points, and the rate table applies to joint returns and heads of " +
+        "household on the wider single table.",
+      "The 2026 numbers reflect the second across-the-board cut in two years. Senate Bill " +
+        "392, signed March 31, 2026, trimmed every rate five percent retroactive to January " +
+        "1, 2026, which pulled the top rate down from 4.82% to 4.58% and the entry rate from " +
+        "2.22% to 2.11%. Because West Virginia starts from federal adjusted gross income, the " +
+        "same pre-tax items that cut a federal bill &mdash; a traditional 401(k), an HSA " +
+        "contribution, a health premium &mdash; also lower the West Virginia base.",
+      "West Virginia also keeps a personal exemption rather than a standard deduction. " +
+        "Section 11-21-16 allows $2,000 for each exemption a filer claims, or $500 if " +
+        "someone else can claim the taxpayer as a dependent, and that allowance is subtracted " +
+        "before the rate table applies. The calculator on this page uses a simplified " +
+        "three-band version of the schedule &mdash; 2.16%, 3.49%, and 4.82% &mdash; and does " +
+        "not subtract the exemption, so treat its West Virginia figure as a close but " +
+        "slightly conservative estimate. Your employer withholds using the Tax Division's " +
+        "own percentage-method tables.",
+      "Nothing else is withheld at the state level. West Virginia has no city or county " +
+        "income tax on wages, so no locality from Charleston to Morgantown adds a line, and " +
+        "the state runs no disability insurance program and withholds no payroll-funded " +
+        "family or medical leave premium. West Virginia's only payroll-funded benefit, " +
+        "workers' compensation, is paid by the employer, not withheld from the employee.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your annual salary, or an hourly rate times hours worked, expressed as one paycheck for the frequency you picked.",
+      "<strong>Pre-tax deductions.</strong> A traditional 401(k), an HSA contribution, or a health premium comes out before tax, which lowers the base that federal income tax and West Virginia tax are both figured on, because West Virginia starts from federal adjusted gross income.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is subtracted first, then the remaining income runs up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax once income passes the high-earner threshold.",
+      "<strong>West Virginia income tax.</strong> The state applies its graduated rate table under W. Va. Code section 11-21-4j. This calculator uses a simplified three-band version &mdash; 2.16%, 3.49%, and 4.82% &mdash; and does not subtract the $2,000 personal exemption, so it lands a dollar or two above the state's own withholding.",
+      "<strong>Local income tax: $0.</strong> No West Virginia city or county taxes wages, so nothing is added for Charleston, Huntington, Morgantown, Parkersburg, or any other locality.",
+      "<strong>State disability and paid leave: $0.</strong> West Virginia runs no state disability insurance program and withholds no family or medical leave premium, so the income tax is the only state deduction.",
+    ],
+    compareParagraphs: [
+      "West Virginia's top marginal rate of 4.58% is on the low side of its region. Ohio " +
+        "and Pennsylvania both border the state and charge less at the top of their income " +
+        "tax &mdash; Ohio's rate is 3.5% and Pennsylvania's is a flat 3.07% &mdash; but both " +
+        "of those states add a tax West Virginia does not: Ohio lets municipalities levy " +
+        "their own income tax, and Pennsylvania's Act 32 local earned income tax reaches " +
+        "nearly every worker. Virginia's top rate of 5.75% and Maryland's 5.75% state rate " +
+        "are higher, and Maryland layers county income tax on top. So West Virginia sits in " +
+        "the middle on rate while avoiding the local-tax complication its neighbors carry.",
+      "The graduated shape matters less in West Virginia than in a steep state. Because the " +
+        "2026 table runs from 2.11% to 4.58%, a high earner pays only about two and a half " +
+        "points more on the top slice of income than a low earner pays on the first slice. " +
+        "That is a far flatter progression than California's 1% to 13.3% climb or New " +
+        "Jersey's 1.4% to 10.75% range, and it keeps the state share of a paycheck from " +
+        "jumping sharply as pay rises.",
+      "What West Virginia shares with the simplest states is the single state line. There is " +
+        "no municipal income tax like Ohio's or Pennsylvania's, no county tax like Indiana's " +
+        "or Maryland's, and no city surcharge like New York City's or Yonkers's. West " +
+        "Virginia also runs no disability insurance program and withholds no paid-family-leave " +
+        "premium, so unlike California, New Jersey, Washington, Massachusetts, or Colorado, " +
+        "a West Virginia paycheck carries one state deduction, not two.",
+    ],
+    faqs: [
+      {
+        q: "Does West Virginia have a state income tax?",
+        a: "Yes. West Virginia taxes individual income on a graduated scale under W. Va. Code section 11-21-4j, starting at 2.11% and reaching a 4.58% top rate on taxable income above $60,000 for 2026.",
+      },
+      {
+        q: "What is West Virginia's income tax rate for 2026?",
+        a: "For 2026 West Virginia's rates run from 2.11% to 4.58%. Senate Bill 392, signed March 31, 2026, cut every rate by five percent retroactive to January 1, 2026, lowering the top rate from 4.82% to 4.58% and the entry rate from 2.22% to 2.11%.",
+      },
+      {
+        q: "How much is taken out of a $60,000 salary in West Virginia?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,865.21 per paycheck from a $60,000 salary: $2,307.69 gross, $193.08 federal income tax, $143.08 Social Security, $33.46 Medicare, and $72.87 West Virginia state income tax. That is roughly $48,495 a year, an effective tax rate near 19.2%.",
+      },
+      {
+        q: "Does West Virginia have a standard deduction or a personal exemption?",
+        a: "West Virginia uses a personal exemption, not a standard deduction. W. Va. Code section 11-21-16 allows $2,000 for each exemption claimed, or $500 if someone else can claim you as a dependent, and that amount is subtracted before the rate table applies.",
+      },
+      {
+        q: "Do West Virginia cities or counties charge a local income tax on wages?",
+        a: "No. West Virginia has no city or county income tax on wages, so nothing is withheld for Charleston, Huntington, Morgantown, Parkersburg, Wheeling, or any other locality. West Virginia municipalities raise revenue mainly through sales and property taxes, neither of which is withheld from a paycheck.",
+      },
+      {
+        q: "Does West Virginia have state disability insurance or paid family leave withholding?",
+        a: "No. West Virginia operates no state disability insurance program and withholds no payroll-funded family or medical leave premium, so the graduated income tax is the only state-level deduction on a West Virginia paycheck.",
+      },
+      {
+        q: "What form does a West Virginia employee file for state withholding?",
+        a: "A West Virginia employee files Form IT-104, the Employee's Withholding/Exemption Certificate, with their employer to set the state income tax withheld. It is separate from the federal Form W-4 and is used to claim the exemptions that feed the $2,000 personal allowance.",
+      },
+      {
+        q: "How has West Virginia's income tax changed recently?",
+        a: "West Virginia has cut income tax rates in back-to-back sessions. The 2025 schedule ran from 2.22% to 4.82%; Senate Bill 392, signed March 31, 2026, cut every rate five percent retroactive to January 1, 2026, so the 2026 schedule runs from 2.11% to 4.58%.",
+      },
+    ],
+    sources: [
+      { label: "West Virginia Tax Division — 2026 Income Tax Rate Cut", url: "https://tax.wv.gov/Individuals/Pages/PersonalIncomeTaxReductionBill.aspx" },
+      { label: "W. Va. Code Section 11-21-4j — Rate of tax, taxable years beginning on and after January 1, 2026", url: "https://code.wvlegislature.gov/11-21-4j/" },
+      { label: "W. Va. Code Section 11-21-16 — West Virginia personal exemptions", url: "https://code.wvlegislature.gov/11-21-16/" },
+      { label: "West Virginia Tax Division — IT-100.2.A Percentage Method of Withholding", url: "https://tax.wv.gov/Documents/Withholding/it100.2a.pdf" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 
 ];
 
