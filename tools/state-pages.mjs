@@ -4223,6 +4223,9 @@ export const STATE_PAGES = [
       { label: "Hawaii Department of Taxation — Withholding Tax for Employers", url: "https://tax.hawaii.gov/geninfo/a2_b2_4empl_whhold/" },
       { label: "Hawaii Department of Labor and Industrial Relations — About Temporary Disability Insurance", url: "https://labor.hawaii.gov/dcd/home/about-tdi/" },
       { label: "Hawaii Revised Statutes Chapter 235 — Income Tax (HRS §235-51)", url: "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/" },
+    ],
+  },
+  {
     code: "US-ID",
     abbr: "id",
     slug: "idaho",
@@ -4463,7 +4466,126 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-NH",
+    abbr: "nh",
+    slug: "new-hampshire",
+    name: "New Hampshire",
+    example: { salary: 78000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
 
+    // Unique per-state copy. Reviewed against the New Hampshire Department of
+    // Revenue Administration, the repeal of RSA Chapter 77 (interest and
+    // dividends tax) effective January 1, 2025, and the business tax rates in
+    // RSA 77-A:2 and RSA 77-E:2.
+    hasIncomeTax: false,
+    title: "New Hampshire Paycheck Calculator - Take-Home Pay After Taxes",
+    description:
+      "Free New Hampshire paycheck calculator. New Hampshire taxes no wages, so estimate take-home pay after federal income tax, Social Security, and Medicare. 2026.",
+    intro:
+      "Work out what a New Hampshire paycheck actually keeps. New Hampshire levies no tax " +
+      "on wages or salaries, and since January 1, 2025 it has no personal income tax of any " +
+      "kind, so a Granite State stub carries federal income tax, Social Security, and " +
+      "Medicare and nothing for the state. Enter your salary and pay frequency to see your " +
+      "net pay per period.",
+    keyHeading: "Does New Hampshire tax a paycheck?",
+    keyParagraphs: [
+      "No. New Hampshire does not tax wage or salary income, and it is the only state in " +
+        "New England that withholds nothing for the state from a regular paycheck. Every " +
+        "neighbor taxes wages: Maine runs a graduated income tax, Massachusetts applies a " +
+        "flat 5% rate plus a 4% surtax above the million-dollar mark, Vermont uses a " +
+        "graduated scale, and Rhode Island and Connecticut do the same. A New Hampshire " +
+        "employee pays none of that, so the state income tax line on a New Hampshire pay " +
+        "stub is absent rather than zero.",
+      "New Hampshire used to tax one narrow slice of personal income, and even that is " +
+        "gone. The interest and dividends tax applied only to investment income, never to " +
+        "wages, and the Legislature repealed it outright: RSA Chapter 77 is marked repealed " +
+        "in full, effective January 1, 2025. With that repeal New Hampshire taxes no " +
+        "personal income at all, from any source, which is why the calculator on this page " +
+        "applies only the federal lines.",
+      "What New Hampshire does tax, it taxes businesses rather than paychecks. The Business " +
+        "Profits Tax is levied on business profits and the Business Enterprise Tax on a " +
+        "business's enterprise value, and both are obligations of the employer, not amounts " +
+        "withheld from an employee. New Hampshire also collects no state sales tax and no " +
+        "estate or inheritance tax, so it funds state and local government through the " +
+        "business taxes, the statewide property tax, and local property levies.",
+      "Because there is no state income tax, New Hampshire has no state income tax " +
+        "withholding form to file. An employer withholds nothing for the state, and the " +
+        "federal Form W-4 is the only withholding election a New Hampshire employee makes " +
+        "for income tax. Federal income tax, Social Security at 6.2%, and Medicare at 1.45% " +
+        "are the deductions the calculator applies.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your annual salary, or an hourly rate times hours worked, expressed as one paycheck for the frequency you picked.",
+      "<strong>Pre-tax deductions.</strong> A traditional 401(k), an HSA contribution, or a health premium comes out before tax, which lowers the base that federal income tax is figured on.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is subtracted first, then the remaining income runs up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax once income passes the high-earner threshold.",
+      "<strong>State income tax: $0.</strong> New Hampshire taxes no wage income, so nothing is withheld for the state and no state line appears on the result.",
+      "<strong>No local tax, no SDI, no mandatory paid leave.</strong> No New Hampshire city or town taxes wages, the state runs no disability insurance program, and its paid family and medical leave program is voluntary and employee-funded rather than a payroll tax every employer must withhold.",
+    ],
+    compareParagraphs: [
+      "New Hampshire is the odd one out in its own region. It is the only New England " +
+        "state that taxes no wages, so the same salary earned in Manchester, Nashua, or " +
+        "Concord keeps more than it would in Portland, Boston, Burlington, Providence, or " +
+        "Hartford, each of which withholds a state income tax. Remote workers who live in " +
+        "New Hampshire and commute to a job in Massachusetts get a sharper version of the " +
+        "same point: Massachusetts taxes the wages of non-residents who work there, while " +
+        "New Hampshire taxes the resident nothing on what comes home.",
+      "What New Hampshire gives up on wages it recovers on property. The state has no sales " +
+        "tax and no personal income tax, so schools and local government lean heavily on " +
+        "property taxes, and the effective property tax rate on owner-occupied housing is " +
+        "among the highest in the country. A worker comparing a New Hampshire paycheck with " +
+        "a Massachusetts one should weigh the higher take-home pay against a larger " +
+        "property tax bill and, for anyone buying a home, a higher purchase price.",
+      "On structure, New Hampshire is simpler than the states where local withholding is " +
+        "the hard part. There is no municipal wage tax like Ohio's, no local earned income " +
+        "tax like Pennsylvania's, no county tax like Indiana's or Maryland's, and no city " +
+        "surcharge like New York City's or Yonkers's. One state-level deduction, the " +
+        "voluntary paid leave premium, can appear if an employer chooses to offer the " +
+        "program, but it is never mandatory and most New Hampshire paychecks do not carry it.",
+    ],
+    faqs: [
+      {
+        q: "Does New Hampshire have a state income tax?",
+        a: "No. New Hampshire taxes no wage or salary income, and as of January 1, 2025 it has no personal income tax at all. The interest and dividends tax, the state's last levy on personal income, was repealed when RSA Chapter 77 was repealed in full, effective January 1, 2025.",
+      },
+      {
+        q: "What is withheld from a New Hampshire paycheck?",
+        a: "Three things: federal income tax, Social Security at 6.2% up to the annual wage base, and Medicare at 1.45%. If you elect pre-tax benefits such as a 401(k) or a health savings account, those come out first and reduce the federal income tax withheld. Nothing is withheld for New Hampshire.",
+      },
+      {
+        q: "How much is taken out of a $78,000 salary in New Hampshire?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,450.12 per paycheck from a $78,000 salary: $3,000.00 gross, $320.38 federal income tax, $186.00 Social Security, $43.50 Medicare, and $0 New Hampshire state income tax. That is $63,703.00 a year, an effective tax rate of about 18.3%.",
+      },
+      {
+        q: "Do New Hampshire cities or towns charge a local income tax?",
+        a: "No. No New Hampshire city or town levies an income tax on wages, so nothing is withheld for Manchester, Nashua, Concord, Derry, Dover, or any other municipality. Local government in New Hampshire is funded mainly through the property tax, which is not withheld from a paycheck.",
+      },
+      {
+        q: "Does New Hampshire have state disability insurance or paid family leave withholding?",
+        a: "No. New Hampshire operates no state disability insurance program, and its paid family and medical leave program is voluntary and funded by participating employees rather than a mandatory payroll tax. An employer is not required to offer it, so no leave premium appears on a New Hampshire paycheck unless the employer has opted into the program.",
+      },
+      {
+        q: "What taxes does New Hampshire levy instead of an income tax?",
+        a: "New Hampshire raises revenue mainly through the property tax and through business taxes. The Business Profits Tax applies to business profits and the Business Enterprise Tax to a business's enterprise value; both are paid by the business, not withheld from employee wages. New Hampshire also collects no state sales tax and no estate or inheritance tax.",
+      },
+      {
+        q: "Did New Hampshire ever tax interest and dividends?",
+        a: "Yes. New Hampshire's interest and dividends tax applied to investment income above an exemption, never to wages, and was collected through an annual return rather than payroll withholding. The Legislature repealed the tax effective January 1, 2025, so New Hampshire now imposes no personal income tax of any kind.",
+      },
+      {
+        q: "Do you have to file a New Hampshire state tax return?",
+        a: "Not for wages. With no personal income tax, New Hampshire has no individual income tax return for a wage earner to file. The interest and dividends tax return is gone as well. You still file a federal return with the IRS, and businesses file separately with the New Hampshire Department of Revenue Administration.",
+      },
+    ],
+    sources: [
+      { label: "New Hampshire Department of Revenue Administration", url: "https://www.revenue.nh.gov/" },
+      { label: "N.H. RSA Chapter 77 — Taxation of Incomes, repealed effective January 1, 2025", url: "https://www.gencourt.state.nh.us/rsa/html/V/77/77-mrg.htm" },
+      { label: "N.H. RSA 77-A:2 — Business Profits Tax, imposition of tax", url: "https://www.gencourt.state.nh.us/rsa/html/V/77-A/77-A-2.htm" },
+      { label: "N.H. RSA 77-E:2 — Business Enterprise Tax, imposition of tax", url: "https://www.gencourt.state.nh.us/rsa/html/V/77-E/77-E-2.htm" },
+      { label: "Tax Foundation — New Hampshire tax rates and collections", url: "https://taxfoundation.org/location/new-hampshire/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
