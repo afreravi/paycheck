@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does New Hampshire have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. New Hampshire taxes no wage or salary income, and as of January 1, 2025 it has no personal income tax at all. The interest and dividends tax, the state's last levy on personal income, was repealed when RSA Chapter 77 was repealed in full, effective January 1, 2025."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is withheld from a New Hampshire paycheck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three things: federal income tax, Social Security at 6.2% up to the annual wage base, and Medicare at 1.45%. If you elect pre-tax benefits such as a 401(k) or a health savings account, those come out first and reduce the federal income tax withheld. Nothing is withheld for New Hampshire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $78,000 salary in New Hampshire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,450.12 per paycheck from a $78,000 salary: $3,000.00 gross, $320.38 federal income tax, $186.00 Social Security, $43.50 Medicare, and $0 New Hampshire state income tax. That is $63,703.00 a year, an effective tax rate of about 18.3%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do New Hampshire cities or towns charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No New Hampshire city or town levies an income tax on wages, so nothing is withheld for Manchester, Nashua, Concord, Derry, Dover, or any other municipality. Local government in New Hampshire is funded mainly through the property tax, which is not withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does New Hampshire have state disability insurance or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. New Hampshire operates no state disability insurance program, and its paid family and medical leave program is voluntary and funded by participating employees rather than a mandatory payroll tax. An employer is not required to offer it, so no leave premium appears on a New Hampshire paycheck unless the employer has opted into the program."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What taxes does New Hampshire levy instead of an income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New Hampshire raises revenue mainly through the property tax and through business taxes. The Business Profits Tax applies to business profits and the Business Enterprise Tax to a business's enterprise value; both are paid by the business, not withheld from employee wages. New Hampshire also collects no state sales tax and no estate or inheritance tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did New Hampshire ever tax interest and dividends?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. New Hampshire's interest and dividends tax applied to investment income above an exemption, never to wages, and was collected through an annual return rather than payroll withholding. The Legislature repealed the tax effective January 1, 2025, so New Hampshire now imposes no personal income tax of any kind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have to file a New Hampshire state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not for wages. With no personal income tax, New Hampshire has no individual income tax return for a wage earner to file. The interest and dividends tax return is gone as well. You still file a federal return with the IRS, and businesses file separately with the New Hampshire Department of Revenue Administration."
+      }
+    }
+  ]
+}
