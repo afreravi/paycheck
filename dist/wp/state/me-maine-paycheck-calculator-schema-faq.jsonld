@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Maine have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Maine taxes individual income on a graduated scale under Title 36, section 5111. For 2026 a single filer pays 5.8% on the first $27,399 of Maine taxable income, 6.75% from there to $64,849, and 7.15% above $64,849."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Maine's top income tax rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Maine's top marginal rate is 9.15% for 2026. The 7.15% top bracket rate is still the rate on ordinary high incomes, and a 2% surcharge added by Public Law 2025, chapter 650 applies to Maine taxable income above $1,000,000 for a single filer and $1,500,000 for a married couple filing jointly, which brings the marginal rate on that slice to 9.15%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $64,000 salary in Maine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,942.56 per paycheck from a $64,000 salary: $2,461.54 gross, $211.54 federal income tax, $152.62 Social Security, $35.69 Medicare, and $119.13 Maine state income tax. That is roughly $50,507 a year, an effective tax rate of about 21.1%, before the paid leave premium."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Maine standard deduction for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Title 36, section 5124-C sets the 2026 basic standard deduction at $15,700 for a single filer or a married person filing separately, one and a half times that for a head of household, and twice it for a married couple filing jointly, plus any additional standard deduction allowed under the Internal Revenue Code for a taxpayer 65 or older or blind. The deduction phases down once Maine adjusted gross income exceeds $80,000 for a single filer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Maine have a personal exemption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, separately from the standard deduction. Title 36, section 5126-A allows a personal exemption of $4,150, with another $4,150 for a spouse on a joint return, and the amount phases out at higher incomes. The simplified data behind this calculator does not subtract the personal exemption, so its Maine figure runs a little high."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Maine Paid Family and Medical Leave contribution rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Maine's paid leave premium is no more than 1.0% of wages, capped at the Social Security contribution and benefit base. An employer with 15 or more covered Maine employees may deduct up to half of the premium, or 0.5% of wages, from employees, and an employer with fewer than 15 covered employees may deduct all or part of the smaller 0.5% rate. Contributions began January 2025 and benefits began May 1, 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Maine cities or counties charge a local income tax on wages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Maine has no city or county income tax on wages, so nothing is withheld for Portland, Lewiston, Bangor, South Portland, Auburn, or any other municipality. Maine municipalities raise local revenue mainly from the property tax, which is not withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What form does a Maine employee file for state withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Maine employee files Form W-4ME, the Maine Employee's Withholding Allowance Certificate, with their employer to set the state income tax withheld. It is separate from the federal Form W-4 and is used to claim the withholding allowances that feed Maine's percentage-method tables."
+      }
+    }
+  ]
+}

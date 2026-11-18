@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Maine Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/maine",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Maine paycheck calculator. Estimate 2026 take-home pay after Maine income tax, the new 2% surcharge, PFML, federal tax, Social Security, and Medicare."
+}

@@ -4586,6 +4586,132 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-ME",
+    abbr: "me",
+    slug: "maine",
+    name: "Maine",
+    example: { salary: 64000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Reviewed against Maine Revenue Services, Title 36
+    // sections 5111 (rates), 5124-C (standard deduction) and 5126-A (personal
+    // exemptions), the 2026 2% surcharge in section 5111 subsection 7, and the
+    // Maine Paid Family and Medical Leave contribution rules.
+    hasIncomeTax: true,
+    title: "Maine Paycheck Calculator - Take-Home Pay After Maine Tax",
+    description:
+      "Free Maine paycheck calculator. Estimate 2026 take-home pay after Maine income tax, the new 2% surcharge, PFML, federal tax, Social Security, and Medicare.",
+    intro:
+      "Estimate what a Maine paycheck keeps after tax. Maine taxes wage income on three " +
+      "graduated rates, added a two percent surcharge on very high incomes for 2026, and " +
+      "withholds a Paid Family and Medical Leave premium that began in 2025. There is no " +
+      "city or county wage tax anywhere in the state, so a Portland paycheck and a Bangor " +
+      "paycheck face the same state withholding. Enter your salary and pay frequency to see " +
+      "your net pay per period.",
+    keyHeading: "Does Maine have a state income tax?",
+    keyParagraphs: [
+      "Yes. Maine taxes wage income on a graduated scale in Title 36, section 5111. For a " +
+        "single filer in 2026 the schedule is 5.8% on the first $27,399 of Maine taxable " +
+        "income, 6.75% on the slice from $27,399 to $64,849, and 7.15% above $64,849. The " +
+        "bracket thresholds are adjusted for inflation each year, so they move a little " +
+        "higher most seasons.",
+      "The 2026 schedule added a new top slice. A two percent surcharge enacted in Public Law " +
+        "2025, chapter 650, part DDDD applies to Maine taxable income above $1,000,000 for a " +
+        "single filer, $1,500,000 for a head of household, and $1,500,000 for a married couple " +
+        "filing jointly, with half of the joint threshold for married people filing separately. " +
+        "That lifts the marginal rate on the top slice from 7.15% to 9.15%, which is why Maine's " +
+        "published range now runs from 5.8% to 9.15% rather than the 5.8% to 7.15% it had " +
+        "before. Only the dollars above the million-dollar line carry the extra two points.",
+      "Maine pairs a standard deduction with a separate personal exemption. Section 5124-C " +
+        "sets the 2026 basic standard deduction at $15,700 for a single filer, one and a half " +
+        "times that for a head of household, and twice it for a married couple filing jointly, " +
+        "then phases the deduction down once Maine adjusted gross income passes $80,000. " +
+        "Section 5126-A allows a personal exemption of $4,150 on top of that. The calculator " +
+        "on this page uses the simplified data held in this repo, so it subtracts a single " +
+        "$14,600 standard deduction and does not take the personal exemption, the phase-out, " +
+        "or the new surcharge into account.",
+      "Maine also withholds a Paid Family and Medical Leave premium. Contributions started in " +
+        "January 2025, benefits began May 1, 2026, and the combined premium is no more than " +
+        "1.0% of wages up to the Social Security contribution and benefit base. An employer " +
+        "with 15 or more covered Maine employees may pass on up to half of that premium, or " +
+        "0.5% of wages, and an employer with fewer than 15 may pass on all or part of the " +
+        "smaller 0.5% rate. The calculator does not yet subtract this line.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay per period.</strong> Your annual salary, or an hourly rate times hours worked, expressed as one paycheck for the frequency you picked.",
+      "<strong>Pre-tax deductions.</strong> A traditional 401(k), an HSA contribution, or a health premium comes out before tax, and Maine starts from federal adjusted gross income, so those items lower the Maine base as well as the federal one.",
+      "<strong>Maine standard deduction.</strong> The simplified 2026 data behind this calculator subtracts $14,600 for a single filer. Maine's own section 5124-C figure for 2026 is $15,700, and it phases out above $80,000 of Maine adjusted gross income.",
+      "<strong>Maine income tax.</strong> Three graduated rates &mdash; 5.8%, 6.75%, and 7.15% in the statute, approximated here as 5.8%, 6.48%, and 7.15%. The 2% surcharge above $1,000,000 of taxable income is not modelled.",
+      "<strong>Federal income tax.</strong> The federal standard deduction is subtracted first, then the remaining income runs up the federal marginal brackets.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% of all wages, plus the extra 0.9% Medicare tax once income passes the high-earner threshold.",
+      "<strong>Maine Paid Family and Medical Leave.</strong> A premium of up to 1.0% of wages, of which the employee share is up to 0.5% at an employer with 15 or more covered workers. The calculator does not subtract this line yet.",
+    ],
+    compareParagraphs: [
+      "Maine sits at the top of New England on wage tax. Massachusetts charges a flat 5% and " +
+        "New Hampshire taxes no wages at all, so both undercut Maine's 5.8% entry rate, and " +
+        "Maine's 7.15% standard top rate is higher than Massachusetts's flat rate for every " +
+        "dollar of ordinary income. Maine only becomes the region's most expensive state at " +
+        "the very top, where the new 9.15% marginal rate edges past Vermont's 8.75%. For a " +
+        "typical salary the ranking is simpler: Maine withholds more than New Hampshire, " +
+        "Massachusetts, or Connecticut.",
+      "What Maine shares with the simplest states is a single state line. There is no " +
+        "municipal wage tax like Ohio's or Pennsylvania's, no county tax like Indiana's or " +
+        "Maryland's, and no city surcharge like New York City's or Yonkers's, so nothing is " +
+        "added for Portland, Lewiston, Bangor, or any other locality. Maine also runs no " +
+        "disability insurance program separate from paid leave, so the family and medical " +
+        "leave premium is the only state payroll deduction beyond the income tax.",
+      "The two new items make Maine a more interesting comparison than it used to be. The 2% " +
+        "surcharge above $1,000,000 is a Maine answer to the millionaire surtaxes in " +
+        "Massachusetts and, in effect, California's mental health tax, though Maine's threshold " +
+        "is lower and the surcharge is smaller. The paid leave premium, at up to 1.0% of wages " +
+        "split between employer and employee, is smaller than the combined New Jersey TDI and " +
+        "FLI deductions but larger than Massachusetts's 0.88% PFML rate, and unlike either it " +
+        "is capped at the Social Security wage base.",
+    ],
+    faqs: [
+      {
+        q: "Does Maine have a state income tax?",
+        a: "Yes. Maine taxes individual income on a graduated scale under Title 36, section 5111. For 2026 a single filer pays 5.8% on the first $27,399 of Maine taxable income, 6.75% from there to $64,849, and 7.15% above $64,849.",
+      },
+      {
+        q: "What is Maine's top income tax rate for 2026?",
+        a: "Maine's top marginal rate is 9.15% for 2026. The 7.15% top bracket rate is still the rate on ordinary high incomes, and a 2% surcharge added by Public Law 2025, chapter 650 applies to Maine taxable income above $1,000,000 for a single filer and $1,500,000 for a married couple filing jointly, which brings the marginal rate on that slice to 9.15%.",
+      },
+      {
+        q: "How much is taken out of a $64,000 salary in Maine?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,942.56 per paycheck from a $64,000 salary: $2,461.54 gross, $211.54 federal income tax, $152.62 Social Security, $35.69 Medicare, and $119.13 Maine state income tax. That is roughly $50,507 a year, an effective tax rate of about 21.1%, before the paid leave premium.",
+      },
+      {
+        q: "What is the Maine standard deduction for 2026?",
+        a: "Title 36, section 5124-C sets the 2026 basic standard deduction at $15,700 for a single filer or a married person filing separately, one and a half times that for a head of household, and twice it for a married couple filing jointly, plus any additional standard deduction allowed under the Internal Revenue Code for a taxpayer 65 or older or blind. The deduction phases down once Maine adjusted gross income exceeds $80,000 for a single filer.",
+      },
+      {
+        q: "Does Maine have a personal exemption?",
+        a: "Yes, separately from the standard deduction. Title 36, section 5126-A allows a personal exemption of $4,150, with another $4,150 for a spouse on a joint return, and the amount phases out at higher incomes. The simplified data behind this calculator does not subtract the personal exemption, so its Maine figure runs a little high.",
+      },
+      {
+        q: "What is the Maine Paid Family and Medical Leave contribution rate?",
+        a: "Maine's paid leave premium is no more than 1.0% of wages, capped at the Social Security contribution and benefit base. An employer with 15 or more covered Maine employees may deduct up to half of the premium, or 0.5% of wages, from employees, and an employer with fewer than 15 covered employees may deduct all or part of the smaller 0.5% rate. Contributions began January 2025 and benefits began May 1, 2026.",
+      },
+      {
+        q: "Do Maine cities or counties charge a local income tax on wages?",
+        a: "No. Maine has no city or county income tax on wages, so nothing is withheld for Portland, Lewiston, Bangor, South Portland, Auburn, or any other municipality. Maine municipalities raise local revenue mainly from the property tax, which is not withheld from a paycheck.",
+      },
+      {
+        q: "What form does a Maine employee file for state withholding?",
+        a: "A Maine employee files Form W-4ME, the Maine Employee's Withholding Allowance Certificate, with their employer to set the state income tax withheld. It is separate from the federal Form W-4 and is used to claim the withholding allowances that feed Maine's percentage-method tables.",
+      },
+    ],
+    sources: [
+      { label: "Maine Revenue Services — Individual income tax", url: "https://www.maine.gov/revenue/taxes/income-estate-tax/individual-income-tax" },
+      { label: "Title 36, §5111 — Imposition and rate of tax", url: "https://legislature.maine.gov/statutes/36/title36sec5111.html" },
+      { label: "Title 36, §5124-C — Standard deduction", url: "https://legislature.maine.gov/statutes/36/title36sec5124-C.html" },
+      { label: "Title 36, §5126-A — Personal exemptions", url: "https://legislature.maine.gov/statutes/36/title36sec5126-A.html" },
+      { label: "Maine Paid Family and Medical Leave", url: "https://www.maine.gov/paidleave" },
+      { label: "Tax Foundation — Maine tax rates and collections", url: "https://taxfoundation.org/location/maine/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
