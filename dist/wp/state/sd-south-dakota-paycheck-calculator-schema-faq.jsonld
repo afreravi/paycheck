@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does South Dakota have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. South Dakota imposes no personal income tax and no corporate income tax, so no state income tax is withheld from a South Dakota paycheck. The state Department of Revenue's list of administered taxes includes sales and use, property, alcohol, cigarette, bank franchise, contractor's excise, and severance taxes, but no income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a South Dakota income tax banned by the state constitution?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, it is a legislative choice rather than a constitutional ban. Article XI, section 2 of the South Dakota Constitution expressly authorizes the Legislature to tax incomes and to graduate those taxes. Article XI, section 14 requires a vote of the people or a two-thirds vote of all elected members of each chamber before any new state tax is imposed, and section 13 applies the same requirement to a rate increase."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $58,000 salary in South Dakota?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,876.27 per paycheck from a $58,000 salary: $2,230.77 gross, $183.85 federal income tax, $138.31 Social Security, $32.35 Medicare, and $0.00 South Dakota income tax. That is $48,783.00 over the year, an effective rate of about 15.9%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What taxes does South Dakota collect instead of an income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mainly consumption and property taxes. The state sales and use tax is 4.2%, and municipalities may add a sales or use tax of generally 1% to 2% plus a 1% municipal gross receipts tax on liquor, restaurant meals, lodging, and admissions. The state also collects property tax, a bank franchise tax, a contractor's excise tax, cigarette and alcohol excise taxes, and mineral severance taxes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do South Dakota cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No South Dakota city, town, or county levies an income tax on wages. Municipalities do impose local sales and use taxes, generally between 1% and 2%, and may add the 1% municipal gross receipts tax, but those are collected by the seller at the point of sale and are never withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does South Dakota have state disability insurance or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. South Dakota operates no state disability insurance program and no state paid family leave payroll tax, so no state wage deduction exists for either. This calculator does not subtract state disability insurance or a paid leave premium for any state, so that omission matches a South Dakota paycheck exactly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does South Dakota tax inheritances or estates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Article XI, section 15 of the South Dakota Constitution forbids the Legislature from levying any tax on an inheritance, and that prohibition took effect July 1, 2001. South Dakota also imposes no estate tax of its own, so an inheritance received by a South Dakota resident carries no state transfer tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you file a South Dakota state income tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. With no personal income tax, South Dakota has no individual income tax return to file, and a wage earner's only annual return is the federal one sent to the IRS. Businesses still file and remit the state taxes that apply to them, such as sales and use tax or the bank franchise tax."
+      }
+    }
+  ]
+}
