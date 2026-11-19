@@ -4712,6 +4712,123 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-SD",
+    abbr: "sd",
+    slug: "south-dakota",
+    name: "South Dakota",
+    example: { salary: 58000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Checked against the South Dakota Department of
+    // Revenue tax pages (no income tax on its administered list; 4.2% state
+    // sales tax; 1-2% municipal sales tax) and Article XI of the South Dakota
+    // Constitution, whose sections 13 and 14 require a public vote or a
+    // two-thirds supermajority before any new tax or rate increase.
+    hasIncomeTax: false,
+    title: "South Dakota Paycheck Calculator - Take-Home Pay, No State Tax",
+    description:
+      "Free South Dakota paycheck calculator. South Dakota levies no personal income tax, so a Rapid City or Sioux Falls paycheck pays only federal tax. See 2026 net pay.",
+    intro:
+      "See what a South Dakota paycheck leaves in the bank. South Dakota collects no " +
+      "personal income tax, so a Pierre or Sioux Falls pay stub carries federal income tax, " +
+      "Social Security, and Medicare and nothing for the state. Put in your wage and how " +
+      "often you are paid to get the net figure for one period.",
+    keyHeading: "Is there a South Dakota state income tax?",
+    keyParagraphs: [
+      "No. South Dakota is one of the handful of states that taxes no wage income, so the " +
+        "state income tax line on a South Dakota stub is blank rather than zero. The state " +
+        "Department of Revenue's own list of taxes it administers runs from alcohol and " +
+        "cigarette excise through the bank franchise tax and the contractor's excise tax to " +
+        "sales, use, and property tax; a personal income tax is not on it, and neither is a " +
+        "corporate income tax.",
+      "The absence is a choice the Legislature has kept, not a constitutional wall. Article " +
+        "XI, section 2 of the South Dakota Constitution expressly lets the Legislature tax " +
+        "incomes and even graduate them, so nothing in the charter forbids an income tax " +
+        "outright. What the constitution does is make one expensive to add: section 14 " +
+        "provides that no new state tax may be imposed, and section 13 that no rate on " +
+        "income, sales, or services may rise, without either a vote of the people by " +
+        "initiative or a two-thirds vote of every member elected to each chamber.",
+      "South Dakota funds state government from consumption instead. The state sales and use " +
+        "tax is 4.2%, and cities may add a municipal sales or use tax of generally 1% to 2%, " +
+        "with a further 1% municipal gross receipts tax available on liquor, restaurant " +
+        "meals, lodging, and admissions. None of that touches a paycheck: sales tax is " +
+        "collected at the register by the seller, not withheld by an employer.",
+      "There is also no state inheritance tax, because Article XI, section 15 forbids the " +
+        "Legislature from levying one. And South Dakota runs no state disability insurance " +
+        "program and no state paid family leave payroll tax, so there is no state wage " +
+        "deduction beyond income tax that an employer could withhold. The calculator on this " +
+        "page subtracts neither, matching a real South Dakota stub.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay for one period.</strong> Your yearly salary, or an hourly wage times the hours you worked, divided by the number of paydays in the frequency you chose.",
+      "<strong>Pre-tax deductions.</strong> Money routed to a traditional 401(k), a health savings account, or a qualifying health premium leaves the wage base before federal income tax is figured.",
+      "<strong>Federal income tax.</strong> The standard deduction for your filing status comes off first, then each federal bracket rate applies only to the slice of income inside it.",
+      "<strong>FICA.</strong> Social Security takes 6.2% up to the annual wage base and Medicare 1.45% of everything, with the additional 0.9% Medicare surtax once earnings clear the high-earner threshold.",
+      "<strong>South Dakota income tax: $0.00.</strong> The state imposes no personal income tax, so this line is always zero for a South Dakota employee.",
+      "<strong>State disability and paid leave: not subtracted.</strong> South Dakota operates neither program, and this calculator does not deduct state disability insurance or a paid family leave premium for any state.",
+    ],
+    compareParagraphs: [
+      "Against its neighbors, South Dakota is the outlier on wage tax. Minnesota, Nebraska, " +
+        "Iowa, and Montana all tax wage income on graduated schedules, and North Dakota does " +
+        "too, so the same salary keeps more in Sioux Falls than in Minneapolis, Omaha, Des " +
+        "Moines, Billings, or Fargo. Wyoming is the one neighbor that matches South Dakota in " +
+        "withholding nothing for the state.",
+      "What South Dakota gives up on income it recovers on spending. A 4.2% state sales tax " +
+        "plus a municipal add-on of 1% to 2% in most cities means a shopper in Rapid City or " +
+        "Watertown pays tax on groceries-adjacent goods, restaurant meals, and most retail " +
+        "purchases that a Montana resident, in a state with no general sales tax, does not. " +
+        "Comparing paychecks alone therefore overstates the South Dakota advantage for " +
+        "someone who spends most of what they earn.",
+      "On structure the state is simple for payroll. There is no municipal income tax, no " +
+        "county wage tax, and no city surcharge, so the only lines on a South Dakota stub are " +
+        "the federal ones and whatever benefit deductions the employee elected. Employers " +
+        "still pay federal and state unemployment insurance, but that is an employer cost and " +
+        "never appears as a deduction from the employee's gross pay.",
+    ],
+    faqs: [
+      {
+        q: "Does South Dakota have a state income tax?",
+        a: "No. South Dakota imposes no personal income tax and no corporate income tax, so no state income tax is withheld from a South Dakota paycheck. The state Department of Revenue's list of administered taxes includes sales and use, property, alcohol, cigarette, bank franchise, contractor's excise, and severance taxes, but no income tax.",
+      },
+      {
+        q: "Is a South Dakota income tax banned by the state constitution?",
+        a: "No, it is a legislative choice rather than a constitutional ban. Article XI, section 2 of the South Dakota Constitution expressly authorizes the Legislature to tax incomes and to graduate those taxes. Article XI, section 14 requires a vote of the people or a two-thirds vote of all elected members of each chamber before any new state tax is imposed, and section 13 applies the same requirement to a rate increase.",
+      },
+      {
+        q: "How much is taken out of a $58,000 salary in South Dakota?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,876.27 per paycheck from a $58,000 salary: $2,230.77 gross, $183.85 federal income tax, $138.31 Social Security, $32.35 Medicare, and $0.00 South Dakota income tax. That is $48,783.00 over the year, an effective rate of about 15.9%.",
+      },
+      {
+        q: "What taxes does South Dakota collect instead of an income tax?",
+        a: "Mainly consumption and property taxes. The state sales and use tax is 4.2%, and municipalities may add a sales or use tax of generally 1% to 2% plus a 1% municipal gross receipts tax on liquor, restaurant meals, lodging, and admissions. The state also collects property tax, a bank franchise tax, a contractor's excise tax, cigarette and alcohol excise taxes, and mineral severance taxes.",
+      },
+      {
+        q: "Do South Dakota cities or counties charge a local income tax?",
+        a: "No. No South Dakota city, town, or county levies an income tax on wages. Municipalities do impose local sales and use taxes, generally between 1% and 2%, and may add the 1% municipal gross receipts tax, but those are collected by the seller at the point of sale and are never withheld from a paycheck.",
+      },
+      {
+        q: "Does South Dakota have state disability insurance or paid family leave withholding?",
+        a: "No. South Dakota operates no state disability insurance program and no state paid family leave payroll tax, so no state wage deduction exists for either. This calculator does not subtract state disability insurance or a paid leave premium for any state, so that omission matches a South Dakota paycheck exactly.",
+      },
+      {
+        q: "Does South Dakota tax inheritances or estates?",
+        a: "No. Article XI, section 15 of the South Dakota Constitution forbids the Legislature from levying any tax on an inheritance, and that prohibition took effect July 1, 2001. South Dakota also imposes no estate tax of its own, so an inheritance received by a South Dakota resident carries no state transfer tax.",
+      },
+      {
+        q: "Do you file a South Dakota state income tax return?",
+        a: "No. With no personal income tax, South Dakota has no individual income tax return to file, and a wage earner's only annual return is the federal one sent to the IRS. Businesses still file and remit the state taxes that apply to them, such as sales and use tax or the bank franchise tax.",
+      },
+    ],
+    sources: [
+      { label: "South Dakota Department of Revenue — Taxes", url: "https://dor.sd.gov/businesses/taxes/" },
+      { label: "South Dakota Department of Revenue — Sales and use tax (4.2% state rate)", url: "https://dor.sd.gov/businesses/taxes/sales-use-tax/" },
+      { label: "South Dakota Department of Revenue — Municipal tax rates by city", url: "https://dor.sd.gov/businesses/taxes/municipal-tax/" },
+      { label: "S.D. Const. Article XI, section 2 — Legislature empowered to tax incomes", url: "https://sdlegislature.gov/Constitution/11" },
+      { label: "S.D. Const. Article XI, section 14 — Vote required to impose a new tax", url: "https://sdlegislature.gov/Constitution/11" },
+      { label: "S.D. Const. Article XI, section 15 — Inheritance tax prohibited", url: "https://sdlegislature.gov/Constitution/11" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

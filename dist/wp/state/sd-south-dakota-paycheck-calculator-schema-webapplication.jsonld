@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "South Dakota Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/south-dakota",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free South Dakota paycheck calculator. South Dakota levies no personal income tax, so a Rapid City or Sioux Falls paycheck pays only federal tax. See 2026 net pay."
+}
