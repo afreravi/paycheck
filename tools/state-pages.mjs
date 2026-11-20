@@ -4829,6 +4829,125 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-AK",
+    abbr: "ak",
+    slug: "alaska",
+    name: "Alaska",
+    example: { salary: 62000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Checked against the Alaska Department of Revenue,
+    // Tax Division: the Withholding Tax and Personal Income Tax program pages
+    // both state that Alaska has no individual income tax, so no state
+    // withholding is required. Article IX of the Alaska Constitution grants the
+    // taxing power without any income tax prohibition, so the absence is
+    // statutory (AS 43.20 repealed retroactive to 1979), not constitutional.
+    hasIncomeTax: false,
+    title: "Alaska Paycheck Calculator - No State Income Tax on Wages",
+    description:
+      "Free Alaska paycheck calculator. Alaska taxes no wage income, so an Anchorage or Fairbanks paycheck pays only federal tax. See 2026 take-home pay per period.",
+    intro:
+      "Figure out what an Alaska paycheck leaves behind. Alaska collects no individual " +
+      "income tax, so a pay stub from Anchorage, Fairbanks, or Juneau shows federal income " +
+      "tax, Social Security, and Medicare and no state withholding line at all. Enter your " +
+      "salary and how often you are paid to see net pay for one period.",
+    keyHeading: "Does Alaska have a state income tax?",
+    keyParagraphs: [
+      "No. The Alaska Department of Revenue's Tax Division says so directly on its " +
+        "Withholding Tax program page: the state has no individual income tax, so an employer " +
+        "withholds nothing for Alaska. The Personal Income Tax program page repeats it. A " +
+        "payroll system configured for Alaska therefore has no state rate table to look up.",
+      "Unlike Texas or Florida, the absence is not written into the state constitution. " +
+        "Article IX, section 1 of the Alaska Constitution simply says the taxing power shall " +
+        "never be surrendered, and nothing in Article IX forbids a tax on personal income. " +
+        "Alaska actually levied one: the Tax Division's own list of repealed programs records " +
+        "an individual income tax under AS 43.20, first enacted in 1949, repealed retroactive " +
+        "to 1979. Reinstating it would be a legislative decision, not a constitutional " +
+        "amendment.",
+      "What replaces the revenue is unusual. Alaska taxes oil and gas production and property " +
+        "heavily, charges a corporate income tax graduated from 0% to 9.4% (the 0% rate covers " +
+        "taxable income up to $25,000 and 9.4% applies at $222,000 and above), and collects " +
+        "fisheries, mining, tobacco, alcohol, motor fuel, and passenger vessel taxes. None of " +
+        "those reach an employee's wages.",
+      "Alaska is also the one state with no statewide sales tax. Municipalities and boroughs " +
+        "may levy their own sales taxes, and the Department of Commerce, Community, and " +
+        "Economic Development publishes the rates community by community in its annual Alaska " +
+        "Taxable report. A local sales tax is rung up by the seller, never withheld from a " +
+        "paycheck, so it does not change the numbers on this page.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay for the period.</strong> Your annual salary, or an hourly rate times hours worked, spread across the pay frequency you picked.",
+      "<strong>Pre-tax deductions.</strong> Traditional 401(k) contributions, HSA deposits, and qualifying health premiums come out before federal income tax is computed.",
+      "<strong>Federal income tax.</strong> The standard deduction for your filing status is subtracted, then each marginal bracket applies only to the income inside it.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% on all wages, and the extra 0.9% Medicare tax on earnings above the high-earner threshold.",
+      "<strong>Alaska income tax: $0.00.</strong> The state levies no individual income tax, so this line is zero for every Alaska employee.",
+      "<strong>State disability and paid leave: not subtracted.</strong> This calculator does not deduct state disability insurance or a paid family leave premium for any state, Alaska included, and Alaska operates neither program.",
+    ],
+    compareParagraphs: [
+      "Alaska is the only state that combines no wage tax with no statewide sales tax. Texas, " +
+        "Florida, Nevada, New Hampshire, South Dakota, Tennessee, Washington, and Wyoming also " +
+        "skip the income tax, but each of them collects a state sales tax at the register. An " +
+        "Alaska resident pays sales tax only where a municipality has adopted one.",
+      "The oil money shows up in a way no other state matches: the Permanent Fund Dividend. " +
+        "The dividend is paid from mineral royalty revenue set aside under Article IX, section " +
+        "15 of the state constitution. The 2026 dividend is $1,200, including a $200 energy " +
+        "relief payment. It arrives once a year as a separate payment, so it never appears on " +
+        "a paycheck and is not part of the estimate here.",
+      "Alaska is expensive to live in relative to its wage levels, and the tax structure " +
+        "reflects that trade-off. With no income tax and no state sales tax, the burden falls " +
+        "on resource extraction and on municipal property and sales taxes. Someone comparing " +
+        "an Alaska offer with one in Washington should compare housing and freight costs, not " +
+        "just the withholding lines.",
+      "Payroll is simple. No state income tax, no municipal wage tax, and no borough income " +
+        "tax exist, so the only deductions are federal and whatever benefits the employee " +
+        "elected. Alaska's Employment Security Tax, the state's unemployment insurance, is " +
+        "paid by the employer and never withheld from the worker.",
+    ],
+    faqs: [
+      {
+        q: "Does Alaska have a state income tax?",
+        a: "No. The Alaska Department of Revenue's Tax Division states on its Withholding Tax page that Alaska has no individual income tax, so no employee withholding for state income tax is required. The state did levy one under AS 43.20 from 1949 until it was repealed retroactive to 1979.",
+      },
+      {
+        q: "Is a state income tax banned by the Alaska Constitution?",
+        a: "No. Article IX, section 1 of the Alaska Constitution grants the taxing power and says it shall never be surrendered, and nothing in Article IX prohibits a tax on personal income. Alaska's income tax ended by statute, not by constitutional amendment, so the Legislature could enact a new one by ordinary law.",
+      },
+      {
+        q: "How much is taken out of a $62,000 salary in Alaska?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,999.88 per paycheck from a $62,000 salary: $2,384.62 gross, $202.31 federal income tax, $147.85 Social Security, $34.58 Medicare, and $0.00 Alaska income tax. That is $51,997.00 over the year, an effective rate of about 16.1%.",
+      },
+      {
+        q: "Does Alaska have a state sales tax?",
+        a: "No. Alaska is the only state without a statewide sales and use tax. Individual municipalities and boroughs may impose their own local sales taxes, and the Department of Commerce, Community, and Economic Development publishes the rates for each community in its annual Alaska Taxable report. A local sales tax is collected by the seller at the point of sale, never withheld from a paycheck.",
+      },
+      {
+        q: "What taxes does Alaska collect instead of a personal income tax?",
+        a: "Mostly resource and excise taxes. Oil and gas production and property taxes supply the largest share, alongside a corporate income tax graduated from 0% to 9.4%, plus fisheries, mining license, tobacco, alcohol, motor fuel, tire, vehicle rental, and commercial passenger vessel taxes. Municipal property and sales taxes fund local government.",
+      },
+      {
+        q: "Does Alaska have state disability insurance or paid family leave withholding?",
+        a: "No. Alaska operates no state disability insurance program and no state paid family leave payroll tax, so there is no state wage deduction for either. This calculator does not subtract state disability insurance or a paid leave premium for any state, so its Alaska figure matches a real Alaska stub on that point.",
+      },
+      {
+        q: "How does the Alaska Permanent Fund Dividend affect my paycheck?",
+        a: "It does not touch it. The dividend is paid once a year from mineral royalty revenue deposited in the Permanent Fund under Article IX, section 15 of the Alaska Constitution, and the 2026 amount is $1,200, including a $200 energy relief payment. It arrives as a separate payment, not as a payroll line, so this calculator leaves it out.",
+      },
+      {
+        q: "Do you file an Alaska state income tax return?",
+        a: "No. With no individual income tax, Alaska has no personal income tax return to file, and a wage earner's only annual return goes to the IRS. Businesses still file the state returns that apply to them, such as the corporate income tax, oil and gas production tax, or Employment Security Tax.",
+      },
+    ],
+    sources: [
+      { label: "Alaska Department of Revenue, Tax Division — Withholding Tax (no individual income tax)", url: "https://tax.alaska.gov/programs/programs/index.aspx?10003" },
+      { label: "Alaska Department of Revenue, Tax Division — Personal Income Tax", url: "https://tax.alaska.gov/programs/programs/index.aspx?10001" },
+      { label: "Alaska Department of Revenue, Tax Division — Corporate Income Tax (0% to 9.4%)", url: "https://tax.alaska.gov/programs/programs/index.aspx?60380" },
+      { label: "Alaska Department of Revenue, Tax Division — Sales and Use Tax (no state rate)", url: "https://tax.alaska.gov/programs/programs/index.aspx?10002" },
+      { label: "Alaska Department of Revenue, Tax Division — Annual Report, repealed tax programs (AS 43.20)", url: "https://tax.alaska.gov/programs/documentviewer/viewer.aspx?861r" },
+      { label: "Alaska Constitution, Article IX — Finance and Taxation", url: "https://ltgov.alaska.gov/information/alaskas-constitution/" },
+      { label: "Alaska Permanent Fund Dividend Division — 2026 dividend amount", url: "https://pfd.alaska.gov/" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

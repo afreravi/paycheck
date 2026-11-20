@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Alaska have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The Alaska Department of Revenue's Tax Division states on its Withholding Tax page that Alaska has no individual income tax, so no employee withholding for state income tax is required. The state did levy one under AS 43.20 from 1949 until it was repealed retroactive to 1979."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a state income tax banned by the Alaska Constitution?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Article IX, section 1 of the Alaska Constitution grants the taxing power and says it shall never be surrendered, and nothing in Article IX prohibits a tax on personal income. Alaska's income tax ended by statute, not by constitutional amendment, so the Legislature could enact a new one by ordinary law."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $62,000 salary in Alaska?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,999.88 per paycheck from a $62,000 salary: $2,384.62 gross, $202.31 federal income tax, $147.85 Social Security, $34.58 Medicare, and $0.00 Alaska income tax. That is $51,997.00 over the year, an effective rate of about 16.1%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Alaska have a state sales tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Alaska is the only state without a statewide sales and use tax. Individual municipalities and boroughs may impose their own local sales taxes, and the Department of Commerce, Community, and Economic Development publishes the rates for each community in its annual Alaska Taxable report. A local sales tax is collected by the seller at the point of sale, never withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What taxes does Alaska collect instead of a personal income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mostly resource and excise taxes. Oil and gas production and property taxes supply the largest share, alongside a corporate income tax graduated from 0% to 9.4%, plus fisheries, mining license, tobacco, alcohol, motor fuel, tire, vehicle rental, and commercial passenger vessel taxes. Municipal property and sales taxes fund local government."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Alaska have state disability insurance or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Alaska operates no state disability insurance program and no state paid family leave payroll tax, so there is no state wage deduction for either. This calculator does not subtract state disability insurance or a paid leave premium for any state, so its Alaska figure matches a real Alaska stub on that point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Alaska Permanent Fund Dividend affect my paycheck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It does not touch it. The dividend is paid once a year from mineral royalty revenue deposited in the Permanent Fund under Article IX, section 15 of the Alaska Constitution, and the 2026 amount is $1,200, including a $200 energy relief payment. It arrives as a separate payment, not as a payroll line, so this calculator leaves it out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you file an Alaska state income tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. With no individual income tax, Alaska has no personal income tax return to file, and a wage earner's only annual return goes to the IRS. Businesses still file the state returns that apply to them, such as the corporate income tax, oil and gas production tax, or Employment Security Tax."
+      }
+    }
+  ]
+}
