@@ -4948,6 +4948,123 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-WY",
+    abbr: "wy",
+    slug: "wyoming",
+    name: "Wyoming",
+    example: { salary: 64000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Checked against the Wyoming Department of Revenue
+    // (Revenue, Excise Tax Division, Mineral Tax Division), Title 39 of the
+    // Wyoming Statutes (W.S. 39-7-101 repealed 1998, 39-12-101 preemption,
+    // 39-15-104 rate, 39-15-204 local options, 39-14-104 severance) and Article
+    // 15, sections 18 and 19 of the Wyoming Constitution.
+    hasIncomeTax: false,
+    title: "Wyoming Paycheck Calculator - Take-Home Pay With No State Tax",
+    description:
+      "Free Wyoming paycheck calculator. Wyoming levies no personal income tax, so a Cheyenne or Casper paycheck pays federal tax and FICA only. 2026 net pay.",
+    intro:
+      "See what a Wyoming paycheck actually deposits. Wyoming taxes no personal income, so " +
+      "a stub from Cheyenne, Casper, Gillette, or Jackson lists federal income tax, Social " +
+      "Security, and Medicare and no state withholding at all. Enter your pay and your pay " +
+      "frequency to get the net amount for one period.",
+    keyHeading: "Is there a Wyoming state income tax?",
+    keyParagraphs: [
+      "No. Wyoming repealed its personal income tax in 1998, and the statute that used to " +
+        "impose it now carries only a repeal note: W.S. 39-7-101 reads \"Repealed By Laws " +
+        "1998, ch. 5, &sect; 4.\" A payroll system set up for Wyoming has no state rate table " +
+        "to look up, so nothing is withheld for the state from a Wyoming paycheck.",
+      "The state constitution stops short of an outright ban. Article 15, section 18 provides " +
+        "that no tax may be imposed on income without allowing a full credit against that " +
+        "liability for every sales, use, and ad valorem tax the same taxpayer paid in Wyoming " +
+        "during the year. That credit requirement, combined with the repealed statute, is why " +
+        "the state funds itself from consumption, property, and minerals rather than from wages.",
+      "Wyoming also preempts the field for itself. W.S. 39-12-101 reserves income, earnings, " +
+        "and wage taxes to the state and forbids every county, city, town, and other political " +
+        "subdivision from levying one, so no Wyoming municipality &mdash; not Jackson, not " +
+        "Cheyenne, not Cody &mdash; adds a local income tax to the state's zero.",
+      "The revenue that would come from an income tax comes largely from minerals instead. " +
+        "Article 15, section 19 of the constitution requires a 1.5% excise on the value of " +
+        "severed minerals and sends the proceeds to the Permanent Wyoming Mineral Trust Fund, " +
+        "and W.S. 39-14-104 adds statutory severance on top &mdash; 6% total on surface coal, " +
+        "for instance. A wage earner never sees either tax on a pay stub.",
+      "Sales and use tax covers the rest. W.S. 39-15-104 imposes a 4% state rate (a 3% levy " +
+        "plus a 1% addition effective July 1, 1993), and W.S. 39-15-204 lets counties stack " +
+        "general-purpose, specific-purpose, and economic development excises up to 3% combined, " +
+        "with cities allowed a further 1%. Depending on the county, the combined rate at the " +
+        "register runs from 4% to about 8%.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay for the period.</strong> Your yearly salary, or an hourly wage times hours worked, divided by the number of paydays in the frequency you chose.",
+      "<strong>Pre-tax deductions.</strong> Traditional 401(k) deposits, HSA contributions, and qualifying health premiums leave the wage base before federal income tax is figured.",
+      "<strong>Federal income tax.</strong> The standard deduction for your filing status is subtracted, then each marginal bracket applies only to the slice of income that falls inside it.",
+      "<strong>FICA.</strong> Social Security takes 6.2% up to the annual wage base, Medicare 1.45% of all wages, and the additional 0.9% Medicare tax applies above the high-earner threshold.",
+      "<strong>Wyoming income tax: $0.00.</strong> The state repealed its income tax in 1998 and preempts local wage taxes, so this line is empty on every Wyoming stub.",
+      "<strong>State disability and paid leave: not subtracted.</strong> Wyoming has no SDI fund and no paid family leave premium to withhold; this calculator subtracts neither for any state, so leaving them out costs a Wyoming estimate no accuracy.",
+    ],
+    compareParagraphs: [
+      "Every state touching Wyoming taxes wages except one. Montana runs a graduated income " +
+        "tax, Idaho and Utah levy flat rates, Colorado and Nebraska tax wage income, and South " +
+        "Dakota is the only neighbor that, like Wyoming, withholds nothing for the state. An " +
+        "offer in Billings or Boise therefore nets less than the same salary in Sheridan or " +
+        "Casper before any cost-of-living difference is counted.",
+      "Wyoming is also one of the few states with no corporate income tax. Businesses pay " +
+        "severance on minerals, sales and use tax on purchases, and property tax on their " +
+        "plants and equipment, but the state levies no tax on business profits. That structure " +
+        "is why the state's revenue rises and falls with coal, oil, and natural gas prices in a " +
+        "way a wage-tax state's does not.",
+      "Payroll itself is simple. There is no Wyoming withholding certificate to file, no state " +
+        "W-4 equivalent, and no year-end state wage statement, so a Wyoming employee's only " +
+        "withholding election is the federal Form W-4. Wyoming unemployment insurance is an " +
+        "employer tax under Title 27 and never appears as a deduction from the worker's pay.",
+    ],
+    faqs: [
+      {
+        q: "Does Wyoming have a state income tax?",
+        a: "No. Wyoming repealed its personal income tax in 1998, and W.S. 39-7-101 now reads only \"Repealed By Laws 1998, ch. 5, § 4.\" No state income tax is withheld from a Wyoming paycheck, and the state has no individual income tax return for residents to file.",
+      },
+      {
+        q: "Does the Wyoming Constitution ban an income tax?",
+        a: "Not outright. Article 15, section 18 provides that no tax may be imposed on income without allowing a full credit against that liability for all sales, use, and ad valorem taxes the same taxpayer paid in Wyoming during the taxable year. The absence of an income tax is a statutory choice: the Legislature repealed the tax in 1998 rather than being barred by the constitution.",
+      },
+      {
+        q: "How much is taken out of a $64,000 salary in Wyoming?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,061.69 per paycheck from a $64,000 salary: $2,461.54 gross, $211.54 federal income tax, $152.62 Social Security, $35.69 Medicare, and $0.00 Wyoming income tax. That is $53,604.00 over the year, an effective rate of about 16.2%.",
+      },
+      {
+        q: "Do Wyoming cities or counties charge a local income tax?",
+        a: "No. W.S. 39-12-101 preempts the field of income, earnings, and wage taxes for the state and bars every county, city, town, and other political subdivision from imposing one. Local governments in Wyoming raise revenue through optional sales and use excises and property tax instead.",
+      },
+      {
+        q: "What taxes does Wyoming collect instead of a personal income tax?",
+        a: "Mineral severance, sales and use, and property tax. Article 15, section 19 requires a 1.5% excise on severed minerals, with the money deposited in the Permanent Wyoming Mineral Trust Fund, and W.S. 39-14-104 adds statutory severance, such as 6% total on surface coal. The state sales tax is 4% under W.S. 39-15-104, and counties and cities may add local options.",
+      },
+      {
+        q: "What is the Wyoming sales tax rate?",
+        a: "The state rate is 4% under W.S. 39-15-104. Under W.S. 39-15-204 a county may add general-purpose and specific-purpose excises of up to 2% each plus up to 1% for economic development, capped at 3% combined, and a city or town may add up to 1%. Resort districts may levy up to 3%, and lodging services may carry up to 2%. Combined rates in the state therefore run from 4% to about 8%.",
+      },
+      {
+        q: "Does Wyoming have state disability insurance or paid family leave withholding?",
+        a: "No. Wyoming operates no state disability insurance program and no state paid family leave payroll tax, so there is no Wyoming SDI or PFL line on a pay stub. This calculator does not subtract SDI or a paid leave premium for any state, so its Wyoming estimate matches a real stub on that point.",
+      },
+      {
+        q: "Do you file a Wyoming state tax return?",
+        a: "No. With no personal income tax, Wyoming has no individual income tax return, and a wage earner's annual filing is the federal return sent to the IRS. Businesses still file the Wyoming returns that apply to them, such as sales and use tax, use tax, or mineral severance reports.",
+      },
+    ],
+    sources: [
+      { label: "Wyoming Department of Revenue — Taxes and divisions", url: "https://revenue.wyo.gov/" },
+      { label: "Wyoming Department of Revenue, Excise Tax Division — Sales, use, and lodging tax", url: "https://excise-tax-div.wyo.gov/" },
+      { label: "Wyoming Department of Revenue, Mineral Tax Division", url: "https://mineral-tax-div.wyo.gov/" },
+      { label: "Wyoming Statutes Title 39 — W.S. 39-7-101 (income tax repealed 1998) and 39-12-101 (state preemption)", url: "https://wyoleg.gov/statutes/compress/title39.pdf" },
+      { label: "Wyoming Statutes — W.S. 39-15-104 (4% state sales tax rate)", url: "https://wyoleg.gov/statutes/compress/title39.pdf" },
+      { label: "Wyoming Statutes — W.S. 39-15-204 (county, city, and resort district excise rates)", url: "https://wyoleg.gov/statutes/compress/title39.pdf" },
+      { label: "Wyoming Statutes — W.S. 39-14-104 (mineral severance tax rates)", url: "https://wyoleg.gov/statutes/compress/title39.pdf" },
+      { label: "Wyoming Constitution, Article 15, sections 18 and 19 (income tax credit, mineral excise)", url: "https://sos.wyo.gov/Forms/Publications/WYConstitution.pdf" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

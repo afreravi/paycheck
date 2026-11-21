@@ -238,6 +238,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/alaska',
             'description' => 'Free Alaska paycheck calculator. Alaska taxes no wage income, so an Anchorage or Fairbanks paycheck pays only federal tax. See 2026 take-home pay per period.',
         ),
+        'wyoming' => array(
+            'name'        => 'Wyoming Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/wyoming',
+            'description' => 'Free Wyoming paycheck calculator. Wyoming levies no personal income tax, so a Cheyenne or Casper paycheck pays federal tax and FICA only. 2026 net pay.',
+        ),
     );
 }
 
@@ -247,7 +252,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'hawaii', 'idaho', 'west-virginia', 'new-hampshire', 'maine', 'south-dakota', 'alaska' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'hawaii', 'idaho', 'west-virginia', 'new-hampshire', 'maine', 'south-dakota', 'alaska', 'wyoming' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
