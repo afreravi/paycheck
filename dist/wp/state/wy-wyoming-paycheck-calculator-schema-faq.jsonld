@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Wyoming have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Wyoming repealed its personal income tax in 1998, and W.S. 39-7-101 now reads only \"Repealed By Laws 1998, ch. 5, § 4.\" No state income tax is withheld from a Wyoming paycheck, and the state has no individual income tax return for residents to file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Wyoming Constitution ban an income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not outright. Article 15, section 18 provides that no tax may be imposed on income without allowing a full credit against that liability for all sales, use, and ad valorem taxes the same taxpayer paid in Wyoming during the taxable year. The absence of an income tax is a statutory choice: the Legislature repealed the tax in 1998 rather than being barred by the constitution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $64,000 salary in Wyoming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,061.69 per paycheck from a $64,000 salary: $2,461.54 gross, $211.54 federal income tax, $152.62 Social Security, $35.69 Medicare, and $0.00 Wyoming income tax. That is $53,604.00 over the year, an effective rate of about 16.2%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Wyoming cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. W.S. 39-12-101 preempts the field of income, earnings, and wage taxes for the state and bars every county, city, town, and other political subdivision from imposing one. Local governments in Wyoming raise revenue through optional sales and use excises and property tax instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What taxes does Wyoming collect instead of a personal income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mineral severance, sales and use, and property tax. Article 15, section 19 requires a 1.5% excise on severed minerals, with the money deposited in the Permanent Wyoming Mineral Trust Fund, and W.S. 39-14-104 adds statutory severance, such as 6% total on surface coal. The state sales tax is 4% under W.S. 39-15-104, and counties and cities may add local options."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Wyoming sales tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The state rate is 4% under W.S. 39-15-104. Under W.S. 39-15-204 a county may add general-purpose and specific-purpose excises of up to 2% each plus up to 1% for economic development, capped at 3% combined, and a city or town may add up to 1%. Resort districts may levy up to 3%, and lodging services may carry up to 2%. Combined rates in the state therefore run from 4% to about 8%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Wyoming have state disability insurance or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Wyoming operates no state disability insurance program and no state paid family leave payroll tax, so there is no Wyoming SDI or PFL line on a pay stub. This calculator does not subtract SDI or a paid leave premium for any state, so its Wyoming estimate matches a real stub on that point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you file a Wyoming state tax return?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. With no personal income tax, Wyoming has no individual income tax return, and a wage earner's annual filing is the federal return sent to the IRS. Businesses still file the Wyoming returns that apply to them, such as sales and use tax, use tax, or mineral severance reports."
+      }
+    }
+  ]
+}
