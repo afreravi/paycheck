@@ -5065,6 +5065,115 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-MT",
+    abbr: "mt",
+    slug: "montana",
+    name: "Montana",
+    example: { salary: 66000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Checked against the Montana Department of Revenue
+    // (individual income tax, 2025 tax tables, sales tax guidance, local resort
+    // tax, Form MW-4) and MCA 15-30-2103, whose 2026 version taxes Montana
+    // taxable income at 4.7% and 5.65% and whose 2027 version cuts the top rate
+    // to 5.4%.
+    hasIncomeTax: true,
+    title: "Montana Paycheck Calculator - Take-Home Pay After MT Tax",
+    description:
+      "Free Montana paycheck calculator. Estimate take-home pay after Montana income tax at 4.7% and 5.65%, plus federal tax and FICA, for 2026.",
+    intro:
+      "Work out what a Montana paycheck leaves after tax. Montana taxes wages at 4.7% on " +
+      "the first slice of taxable income and 5.65% above it for 2026, then the federal " +
+      "government takes income tax, Social Security, and Medicare. Enter your salary and " +
+      "pay frequency to see the deposit for one period.",
+    keyHeading: "Does Montana have a state income tax?",
+    keyParagraphs: [
+      "Yes. Montana Code Annotated 15-30-2103 taxes Montana taxable income at 4.7% on the " +
+        "first $47,500 for a single filer or a married person filing separately, $95,000 for " +
+        "a married couple filing jointly, and $71,250 for a head of household, with 5.65% on " +
+        "everything above those thresholds for tax year 2026. The same section carries the " +
+        "next step: from January 1, 2027 the 4.7% band widens to $65,000 for a single filer " +
+        "and $130,000 for a joint return, and the top rate falls to 5.4%.",
+      "The 2026 data behind this calculator approximates that two-rate schedule with three " +
+        "bands&mdash;4.7%, 5.3%, and 5.9%&mdash;and subtracts a $14,600 standard deduction " +
+        "for a single filer before applying them. Read the Montana line as a close estimate " +
+        "rather than the exact figure a payroll system computes. Montana itself starts Form " +
+        "2 with federal adjusted gross income and lets a filer take the same standard or " +
+        "itemized deduction claimed on the federal return.",
+      "No Montana city or county adds an income tax to the state one, so the only wage tax " +
+        "on a Montana stub is the state line and the federal taxes. Montana is also one of " +
+        "the five states with no general sales tax; it raises revenue from property tax, " +
+        "income tax, and taxes on minerals and other resources instead.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Take your annual salary, or an hourly rate multiplied by the hours on the clock, and divide it by the number of paydays in the frequency you picked.",
+      "<strong>Pre-tax deductions.</strong> Traditional 401(k) contributions, HSA deposits, and qualifying health premiums reduce the wages that income tax is figured on.",
+      "<strong>Montana income tax.</strong> The state standard deduction comes off first, then the remaining Montana taxable income runs through the calculator's three bands of 4.7%, 5.3%, and 5.9%.",
+      "<strong>Federal income tax.</strong> The federal standard deduction for your filing status is subtracted, then the federal marginal brackets apply to what is left.",
+      "<strong>FICA.</strong> Social Security at 6.2% of wages up to the annual wage base, Medicare at 1.45% of all wages, and the extra 0.9% Medicare tax once earnings pass the high-earner threshold.",
+      "<strong>State disability and paid leave: not subtracted.</strong> Montana has no SDI program and no paid family leave payroll tax. This calculator subtracts no SDI or PFL premium for any state&mdash;California, New Jersey, and Washington included&mdash;so that line is absent here as it is on a real Montana stub.",
+    ],
+    compareParagraphs: [
+      "Montana sits between its neighbors on wage tax. Wyoming and South Dakota withhold " +
+        "nothing for the state, while Idaho and North Dakota do tax wage income, so the same " +
+        "salary keeps more in Cheyenne or Rapid City than in Billings or Missoula, and less " +
+        "than in Coeur d'Alene or Fargo on state tax alone.",
+      "What Montana skips at the register it recovers elsewhere. It levies no general-use " +
+        "sales tax, so groceries, clothing, and a new truck carry no state sales tax, but " +
+        "property tax on a home or ranch carries much of the load for local government. A " +
+        "designated resort community may add a local resort tax of up to 3% under MCA " +
+        "7-6-1503, charged on lodging, restaurant meals, bars, and luxury goods sold in the " +
+        "resort area rather than on wages.",
+      "Payroll in Montana is otherwise plain. There is no municipal wage tax, no county " +
+        "income tax, and no state disability or family leave deduction, so an employer " +
+        "withholds Montana income tax, federal income tax, and FICA and nothing more. Montana " +
+        "unemployment insurance is an employer cost and never comes out of the employee's " +
+        "gross pay.",
+    ],
+    faqs: [
+      {
+        q: "Does Montana have a state income tax?",
+        a: "Yes. MCA 15-30-2103 taxes Montana taxable income at 4.7% up to $47,500 for a single filer and 5.65% above that for tax year 2026, with joint filers reaching the higher rate at $95,000 and heads of household at $71,250. The 2027 version of the section lowers the top rate to 5.4% and raises the 4.7% band to $65,000 single and $130,000 joint.",
+      },
+      {
+        q: "How much is taken out of a $66,000 salary in Montana?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,022.18 per paycheck from a $66,000 salary: $2,538.46 gross, $220.77 federal income tax, $157.38 Social Security, $36.81 Medicare, and $101.32 Montana income tax. That is $52,576.80 over the year, an effective rate of about 20.3%.",
+      },
+      {
+        q: "What is Montana's top income tax rate?",
+        a: "5.65% for tax year 2026, charged on Montana taxable income above $47,500 for a single filer. The 2025 Legislature scheduled a further cut: from January 1, 2027 the top rate becomes 5.4% and the 4.7% band reaches $65,000 for a single filer. Net long-term capital gains have their own lower schedule of 3.0% and 4.1% in the same section.",
+      },
+      {
+        q: "Does Montana have a state sales tax?",
+        a: "No. Montana has no general-use sales tax, and the Department of Revenue says so on its sales tax guidance page. A designated resort community may levy a local resort tax of up to 3% under MCA 7-6-1503 on lodging, restaurant meals, bars, and luxury goods, but no sales tax is withheld from a paycheck.",
+      },
+      {
+        q: "Do Montana cities or counties charge a local income tax?",
+        a: "No. No Montana city or county imposes an income tax on wages. Local governments rely on property tax and, in some resort areas, a local resort or local option sales tax, none of which an employer withholds from pay.",
+      },
+      {
+        q: "Does Montana have state disability insurance or paid family leave withholding?",
+        a: "No. Montana runs no state disability insurance program and no paid family leave payroll tax, so no SDI or PFL line appears on a Montana stub. This calculator subtracts no SDI or paid leave premium for any state; its state data sets SDI to null for every state, California, New Jersey, and Washington included, so the omission is uniform.",
+      },
+      {
+        q: "What withholding form does a Montana employee file?",
+        a: "Form MW-4, the Montana Employee's Withholding Allowance and Exemption Certificate. An employee gives it to the employer to set the Montana income tax withheld, and it is separate from the federal Form W-4. Employers pay the withheld tax with Form MW-1 and reconcile annually on Form MW-3.",
+      },
+      {
+        q: "How does Montana's standard deduction work?",
+        a: "Montana Form 2 starts with federal adjusted gross income and subtracts the same standard or itemized deduction the filer claimed on the federal return, so there is no separate Montana standard deduction table. The 2026 data behind this calculator simplifies that step with a $14,600 standard deduction for a single filer, which is one reason its Montana line is an estimate.",
+      },
+    ],
+    sources: [
+      { label: "Montana Department of Revenue — Individual Income Tax", url: "https://mtrevenue.gov/taxes/individual-income-tax/" },
+      { label: "Montana Department of Revenue — 2025 Tax Tables and Deductions", url: "https://mtrevenue.gov/taxes/tax-tables-and-deductions/2025" },
+      { label: "Montana Code Annotated 15-30-2103 — Rate of tax and net long-term capital gains", url: "https://archive.legmt.gov/bills/mca/title_0150/chapter_0300/part_0210/section_0030/0150-0300-0210-0030.html" },
+      { label: "Montana Department of Revenue — Sales Tax Guidance (no general-use sales tax)", url: "https://mtrevenue.gov/taxes/general-sales-tax" },
+      { label: "Montana Department of Revenue — Local Resort Tax (3% maximum, MCA 7-6-1503)", url: "https://mtrevenue.gov/taxes/miscellaneous/local-resort-tax" },
+      { label: "Montana Department of Revenue — Form MW-4, Employee's Withholding Allowance and Exemption Certificate", url: "https://mtrevenue.gov/publications/montana-employees-withholding-allowance-and-exemption-certificate-form-mw-4" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
