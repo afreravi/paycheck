@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Montana have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. MCA 15-30-2103 taxes Montana taxable income at 4.7% up to $47,500 for a single filer and 5.65% above that for tax year 2026, with joint filers reaching the higher rate at $95,000 and heads of household at $71,250. The 2027 version of the section lowers the top rate to 5.4% and raises the 4.7% band to $65,000 single and $130,000 joint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $66,000 salary in Montana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,022.18 per paycheck from a $66,000 salary: $2,538.46 gross, $220.77 federal income tax, $157.38 Social Security, $36.81 Medicare, and $101.32 Montana income tax. That is $52,576.80 over the year, an effective rate of about 20.3%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Montana's top income tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "5.65% for tax year 2026, charged on Montana taxable income above $47,500 for a single filer. The 2025 Legislature scheduled a further cut: from January 1, 2027 the top rate becomes 5.4% and the 4.7% band reaches $65,000 for a single filer. Net long-term capital gains have their own lower schedule of 3.0% and 4.1% in the same section."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Montana have a state sales tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Montana has no general-use sales tax, and the Department of Revenue says so on its sales tax guidance page. A designated resort community may levy a local resort tax of up to 3% under MCA 7-6-1503 on lodging, restaurant meals, bars, and luxury goods, but no sales tax is withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Montana cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No Montana city or county imposes an income tax on wages. Local governments rely on property tax and, in some resort areas, a local resort or local option sales tax, none of which an employer withholds from pay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Montana have state disability insurance or paid family leave withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Montana runs no state disability insurance program and no paid family leave payroll tax, so no SDI or PFL line appears on a Montana stub. This calculator subtracts no SDI or paid leave premium for any state; its state data sets SDI to null for every state, California, New Jersey, and Washington included, so the omission is uniform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What withholding form does a Montana employee file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Form MW-4, the Montana Employee's Withholding Allowance and Exemption Certificate. An employee gives it to the employer to set the Montana income tax withheld, and it is separate from the federal Form W-4. Employers pay the withheld tax with Form MW-1 and reconcile annually on Form MW-3."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Montana's standard deduction work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Montana Form 2 starts with federal adjusted gross income and subtracts the same standard or itemized deduction the filer claimed on the federal return, so there is no separate Montana standard deduction table. The 2026 data behind this calculator simplifies that step with a $14,600 standard deduction for a single filer, which is one reason its Montana line is an estimate."
+      }
+    }
+  ]
+}

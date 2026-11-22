@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Montana Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/montana",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Montana paycheck calculator. Estimate take-home pay after Montana income tax at 4.7% and 5.65%, plus federal tax and FICA, for 2026."
+}
