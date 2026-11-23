@@ -5174,6 +5174,119 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-RI",
+    abbr: "ri",
+    slug: "rhode-island",
+    name: "Rhode Island",
+    example: { salary: 62000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Checked against the Rhode Island Division of Taxation
+    // and R.I. Gen. Laws § 44-30-2.6 (one rate table for all filing statuses, basic
+    // standard deduction, exemption, 2027 high-income surtax) and § 28-40-1 (employee
+    // TDI contribution and the $100,000 TDI taxable wage base effective January 1, 2026).
+    hasIncomeTax: true,
+    title: "Rhode Island Paycheck Calculator - After RI Tax and TDI",
+    description:
+      "Free Rhode Island paycheck calculator. Estimate take-home pay after Rhode Island income tax, the TDI/TCI contribution, federal income tax, and FICA for 2026.",
+    intro:
+      "See what a Rhode Island paycheck leaves you. The Ocean State taxes wages on a " +
+      "three-rate schedule that tops out at 5.99%, and employees also pay the Temporary " +
+      "Disability Insurance contribution, which funds paid family leave as well. This " +
+      "calculator works out the income tax, federal tax, and FICA; the TDI line is " +
+      "explained below and is not subtracted from the figure it shows.",
+    keyHeading: "Does Rhode Island have a state income tax?",
+    keyParagraphs: [
+      "Yes. R.I. Gen. Laws § 44-30-2.6 imposes the Rhode Island personal income tax, and " +
+        "it uses one rate table for every filing status: 3.75% on the first $55,000 of " +
+        "Rhode Island taxable income, 4.75% from $55,000 to $125,000, and 5.99% above " +
+        "$125,000. Those dollar amounts are adjusted for inflation each year, so a later " +
+        "year's thresholds sit somewhat above the printed figures.",
+      "Before the rates apply, the same section allows a Rhode Island basic standard " +
+        "deduction of $7,500 for a single filer or a married person filing separately, " +
+        "$11,250 for a head of household, and $15,000 for a joint return, plus a $3,500 " +
+        "personal exemption for each exemption claimed. Both shrink once modified adjusted " +
+        "gross income passes $175,000: the deduction and the exemption each fall by 20 " +
+        "percentage points for every $5,000 above that line, which pulls a high earner " +
+        "toward the full 5.99% rate.",
+      "The 2026 data behind this calculator compresses that schedule into three bands of " +
+        "3.75%, 4.87%, and 5.99%, with a $10,550 standard deduction for a single filer, so " +
+        "the Rhode Island line here is a close estimate rather than the exact withholding a " +
+        "payroll system produces. No Rhode Island city or county adds an income tax of its " +
+        "own, which leaves the state line as the only non-federal wage tax on a Rhode Island " +
+        "stub. From tax year 2027 a surtax of 1% applies above $1 million of Rhode Island " +
+        "taxable income, rising to 2% in 2028 and 3% in 2029 and later.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Take your annual salary, or an hourly rate times the hours you worked, and divide it by the paydays in the frequency you chose.",
+      "<strong>Pre-tax deductions.</strong> Traditional 401(k) deposits, HSA contributions, and qualifying health premiums come out before income tax is figured, so they lower the taxable wage base.",
+      "<strong>Rhode Island income tax.</strong> The state standard deduction and personal exemption come off first, then what remains runs through the calculator's three Rhode Island bands.",
+      "<strong>Federal income tax.</strong> The federal standard deduction for your filing status is subtracted, then the federal marginal brackets apply to the rest.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% on all wages, and the extra 0.9% Medicare tax once earnings pass the high-earner threshold.",
+      "<strong>TDI and TCI: not subtracted.</strong> Rhode Island employees pay a Temporary Disability Insurance contribution, 1.1% of the first $100,000 of wages for 2026, and the same money funds Temporary Caregiver Insurance. This calculator subtracts no SDI or paid leave premium for any state&mdash;California, New Jersey, and Washington included&mdash;so the Rhode Island contribution is explained here but kept out of the net figure.",
+    ],
+    compareParagraphs: [
+      "Rhode Island's 5.99% top rate sits between its New England neighbors: above " +
+        "Massachusetts, which charges a flat 5% on wages, and below Connecticut, whose top " +
+        "rate is 6.99%. The same salary therefore keeps less in Providence than in Worcester " +
+        "on state tax alone, and more than in Hartford. New Hampshire, to the north, taxes no " +
+        "wage income at all.",
+      "What sets Rhode Island apart from most of the region is TDI. Employees pay 1.1% of " +
+        "the first $100,000 of wages in 2026, a maximum of $1,100 a year, and that single " +
+        "contribution funds both Temporary Disability Insurance and Temporary Caregiver " +
+        "Insurance, the state's paid family leave program. Massachusetts runs a separate " +
+        "family and medical leave contribution, and Connecticut runs its own paid leave " +
+        "trust; Vermont and New Hampshire have no employee-funded leave program.",
+      "Sales tax is not a paycheck line, but it shapes how the state raises money. Rhode " +
+        "Island charges 7% on most retail sales and 8% on meals and beverages, the extra " +
+        "point going to the city or town where the sale happens. Neither touches " +
+        "withholding, and unemployment insurance is an employer cost, so an employer withholds " +
+        "Rhode Island income tax, the TDI contribution, federal income tax, and FICA.",
+    ],
+    faqs: [
+      {
+        q: "Does Rhode Island have a state income tax?",
+        a: "Yes. R.I. Gen. Laws § 44-30-2.6 taxes Rhode Island taxable income at 3.75% on the first $55,000, 4.75% from $55,000 to $125,000, and 5.99% above $125,000, using the same table for every filing status. Those thresholds are adjusted for inflation each year.",
+      },
+      {
+        q: "How much is taken out of a $62,000 salary in Rhode Island?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,909.98 per paycheck from a $62,000 salary: $2,384.62 gross, $202.31 federal income tax, $147.85 Social Security, $34.58 Medicare, and $89.91 Rhode Island income tax. That is $49,659.39 over the year, an effective rate of about 19.9%. The TDI contribution is not part of that figure.",
+      },
+      {
+        q: "What is the Rhode Island TDI deduction on a paycheck?",
+        a: "Rhode Island employees pay a Temporary Disability Insurance contribution of 1.1% of the first $100,000 of wages for 2026, a maximum of $1,100 a year. The same contribution funds Temporary Caregiver Insurance, so there is no separate paid family leave line. The rate is set each November under R.I. Gen. Laws § 28-40-1, which also makes the TDI taxable wage base at least $100,000.",
+      },
+      {
+        q: "Does this calculator subtract Rhode Island TDI?",
+        a: "No. The state data behind this calculator sets SDI to null for every state, California, New Jersey, and Washington included, so no SDI or paid leave premium is subtracted anywhere on this site. Rhode Island's 1.1% TDI contribution therefore comes out of the net figure shown rather than inside it.",
+      },
+      {
+        q: "Do Rhode Island cities or counties charge a local income tax?",
+        a: "No. Rhode Island has no municipal or county income tax. Cities raise revenue from property tax and from the 1% local meals and beverage tax charged on top of the 7% state sales tax, neither of which is withheld from wages.",
+      },
+      {
+        q: "What is Rhode Island's standard deduction and personal exemption?",
+        a: "The Rhode Island basic standard deduction is $7,500 for a single filer or a married person filing separately, $11,250 for a head of household, and $15,000 for a joint return, plus a $3,500 personal exemption for each exemption claimed. Both phase out above $175,000 of modified adjusted gross income, dropping 20 percentage points for every $5,000 over that amount.",
+      },
+      {
+        q: "Does Rhode Island add a surtax on income over $1 million?",
+        a: "Starting with tax year 2027, R.I. Gen. Laws § 44-30-2.6 adds a high-income surtax of 1% on Rhode Island taxable income above $1 million. It rises to 2% for 2028 and 3% for 2029 and later, with the threshold indexed for inflation from 2029. No surtax applies to tax year 2026.",
+      },
+      {
+        q: "What withholding form does a Rhode Island employee fill out?",
+        a: "Form RI W-4, the Rhode Island Employee's Withholding Allowance Certificate. It is separate from the federal Form W-4 and tells the employer how much Rhode Island income tax to withhold. The Division of Taxation publishes the form with the withholding tables.",
+      },
+    ],
+    sources: [
+      { label: "Rhode Island Division of Taxation — Individual Income Tax", url: "https://tax.ri.gov/tax-sections/individual-taxes" },
+      { label: "R.I. Gen. Laws § 44-30-2.6 — Rhode Island taxable income, rate of tax", url: "http://webserver.rilegislature.gov/Statutes/TITLE44/44-30/44-I/44-30-2.6.htm" },
+      { label: "R.I. Gen. Laws § 28-40-1 — Amount of employee contributions, TDI taxable wage base", url: "http://webserver.rilegislature.gov/Statutes/TITLE28/28-40/28-40-1.htm" },
+      { label: "R.I. Gen. Laws § 28-41-34 — Temporary caregiver insurance", url: "http://webserver.rilegislature.gov/Statutes/TITLE28/28-41/28-41-34.htm" },
+      { label: "Rhode Island DLT — Temporary Disability Insurance", url: "https://dlt.ri.gov/individuals/temporary-disability-insurance-tdi" },
+      { label: "Rhode Island Division of Taxation — TDI employer information", url: "https://tax.ri.gov/tax-sections/employer-taxes/temporary-disability-insurance-tdi" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

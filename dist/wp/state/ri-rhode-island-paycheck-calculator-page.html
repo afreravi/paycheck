@@ -1,0 +1,642 @@
+<!-- Paste into the "Rhode Island" Page body. Use the Code Editor, not the Visual editor.
+     Parent Page: Paycheck Calculator  ->  this page's slug: rhode-island
+     Resulting URL: https://afreetools.com/finance/paycheck-calculator/rhode-island
+
+  Rank Math SEO fields to set on this Page:
+    Focus keyword : rhode island paycheck calculator
+    SEO title     : Rhode Island Paycheck Calculator - After RI Tax and TDI
+    Meta description (157 characters):
+      Free Rhode Island paycheck calculator. Estimate take-home pay after Rhode Island income tax, the TDI/TCI contribution, federal income tax, and FICA for 2026.
+
+  Do not delete the opening paragraph. Search engines read it, and without it the
+  meta description falls back to the first form labels.
+-->
+<style>
+/* Paycheck calculator styling.
+ *
+ * Matches the palette and component vocabulary used by the other afreetools
+ * calculators (see /rule-of-72-calculator): Bootstrap 4 grid + utilities, plus
+ * a small set of brand components. WordPress supplies Bootstrap 4.6.2 from the
+ * theme, so this file only carries what Bootstrap does not.
+ *
+ * The standalone build has no Bootstrap, so tools/build.mjs prepends a minimal
+ * shim for the grid and utility classes used here. Keep that shim in sync if
+ * the markup starts using new Bootstrap classes.
+ */
+
+:root {
+  --brand: #60089c;
+  --brand-deep: #3f0568;
+  --brand-bright: #8b2fd0;
+  --brand-wash: #f7f1fd;
+  --brand-edge: #e3d4f4;
+  --ink: #221f28;
+  --muted: #6a6673;
+  --rule: #e8e2f0;
+  --good: #1c7d4d;
+  --bad: #b32639;
+}
+
+/* ---------- labels ---------- */
+.section-kicker {
+  color: var(--brand-deep);
+  letter-spacing: .08em;
+  font-size: .76rem;
+  border-left: 3px solid var(--brand);
+  padding-left: .55rem;
+}
+
+label { font-weight: 600; font-size: .95rem; color: var(--ink); }
+.form-text { color: var(--muted); font-size: .82rem; }
+
+/* ---------- form ---------- */
+.form-control, .custom-select {
+  border-color: var(--rule);
+  border-radius: .25rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  background-color: #fff;
+}
+.form-control:focus, .custom-select:focus {
+  border-color: var(--brand-bright);
+  box-shadow: 0 0 0 .2rem rgba(96, 8, 156, .14);
+}
+.input-group-text {
+  background: var(--brand-wash);
+  border-color: var(--rule);
+  color: var(--brand-deep);
+  font-weight: 700;
+}
+
+/* ---------- buttons ---------- */
+.btn-brand {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  padding: .6rem 1.35rem;
+}
+.btn-brand:hover, .btn-brand:focus {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #fff;
+}
+
+/* ---------- stat tiles ---------- */
+.stat-tile {
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--brand);
+  border-radius: .3rem;
+  background: linear-gradient(90deg, var(--brand-wash) 0%, #ffffff 65%);
+}
+.stat-label {
+  display: block;
+  font-size: .74rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  font-weight: 700;
+  margin-bottom: .25rem;
+}
+.stat-value {
+  display: block;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--brand);
+  line-height: 1.15;
+}
+.stat-note { display: block; color: var(--muted); font-size: .84rem; margin-top: .15rem; }
+
+/* ---------- tables ---------- */
+.table thead th {
+  border-top: 0;
+  border-bottom: 2px solid var(--brand-edge);
+  color: var(--brand-deep);
+  font-size: .8rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.table td, .table th { border-color: var(--rule); }
+.table-striped tbody tr:nth-of-type(odd) { background: var(--brand-wash); }
+.pc-breakdown td { font-variant-numeric: tabular-nums; }
+.pc-breakdown .pc-total th, .pc-breakdown .pc-total td {
+  font-weight: 800;
+  color: var(--ink);
+  border-bottom: 0;
+}
+
+/* ---------- calculator specifics ---------- */
+.pc-app { margin-bottom: 1rem; }
+
+.pc-advanced { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-advanced summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+
+.pc-math { border: 1px solid var(--rule); border-radius: .3rem; padding: .5rem .85rem; }
+.pc-math summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-math ol { margin: .75rem 0 .25rem; padding-left: 1.25rem; }
+.pc-math li { margin-bottom: .5rem; font-size: .875rem; }
+.pc-math code { background: var(--brand-wash); padding: 1px 4px; border-radius: 4px; word-break: break-word; }
+.pc-trace-label { font-weight: 600; }
+
+.pc-rates strong { color: var(--ink); }
+
+.pc-disclaimer {
+  border-left: 3px solid var(--brand-edge);
+  padding-left: .75rem;
+}
+
+/* ---------- prose + FAQ (outside .pc-app) ---------- */
+.pc-intro { max-width: 70ch; }
+.pc-faq { max-width: 70ch; }
+.pc-faq details {
+  border: 1px solid var(--rule);
+  border-radius: .3rem;
+  padding: .6rem .85rem;
+  margin-bottom: .5rem;
+  background: #fff;
+}
+.pc-faq summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+.pc-faq p { margin: .6rem 0 .25rem; }
+
+</style>
+
+<p class="pc-intro">See what a Rhode Island paycheck leaves you. The Ocean State taxes wages on a three-rate schedule that tops out at 5.99%, and employees also pay the Temporary Disability Insurance contribution, which funds paid family leave as well. This calculator works out the income tax, federal tax, and FICA; the TDI line is explained below and is not subtracted from the figure it shows.</p>
+
+<div class="card shadow-sm border-0 mb-5" id="toolCard">
+<div class="card-body p-4">
+
+<h2 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Your pay details</h2>
+
+<div id="paycheck-calculator" class="pc-app" aria-label="Rhode Island paycheck calculator">
+
+  <form class="pc" novalidate>
+    <div class="row">
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-tax-year">Tax year</label>
+          <select class="custom-select" id="pc-tax-year" name="tax_year">
+            
+            <option value="2026" selected>2026</option>
+            <option value="2025">2025</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-pay-type">Pay type</label>
+          <select class="custom-select" id="pc-pay-type" name="pay_type">
+            
+            <option value="salary" selected>Salary (annual)</option>
+            <option value="hourly">Hourly</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-pay-frequency">Pay frequency</label>
+          <select class="custom-select" id="pc-pay-frequency" name="pay_frequency">
+            <option value="weekly">Weekly</option>
+            <option value="biweekly" selected>Bi-weekly</option>
+            <option value="semimonthly">Semi-monthly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-when="salary">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-annual-salary">Annual salary</label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-annual-salary" name="annual_salary" type="number"
+              min="0" step="100" value="75000"
+              inputmode="decimal" aria-describedby="pc-salary-help" />
+            
+          </div>
+          <small class="form-text text-muted" id="pc-salary-help">Gross pay before any deductions.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-when="hourly" hidden>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-hourly-rate">Hourly rate</label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-hourly-rate" name="hourly_rate" type="number"
+              min="0" step="0.01" value="25"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-hours-week">Hours / week</label>
+          <div class="input-group">
+            
+            <input class="form-control" id="pc-hours-week" name="hours_per_week" type="number"
+              min="0" step="1" value="40"
+              inputmode="decimal" />
+            <div class="input-group-append"><span class="input-group-text">hrs</span></div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-overtime-hours">Overtime hours / week</label>
+          <div class="input-group">
+            
+            <input class="form-control" id="pc-overtime-hours" name="overtime_hours" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            <div class="input-group-append"><span class="input-group-text">hrs</span></div>
+          </div>
+          <small class="form-text text-muted">Paid at 1.5&times; your hourly rate.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-filing-status">Filing status</label>
+          <select class="custom-select" id="pc-filing-status" name="filing_status">
+            <option value="single">Single</option>
+            <option value="mfj">Married filing jointly</option>
+            <option value="mfs">Married filing separately</option>
+            <option value="hoh">Head of household</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-state">State</label>
+          <select class="custom-select" id="pc-state" name="state">
+            <option value="US-AL">Alabama</option>
+            <option value="US-AK">Alaska</option>
+            <option value="US-AZ">Arizona</option>
+            <option value="US-AR">Arkansas</option>
+            <option value="US-CA">California</option>
+            <option value="US-CO">Colorado</option>
+            <option value="US-CT">Connecticut</option>
+            <option value="US-DE">Delaware</option>
+            <option value="US-DC">District of Columbia</option>
+            <option value="US-FL">Florida</option>
+            <option value="US-GA">Georgia</option>
+            <option value="US-HI">Hawaii</option>
+            <option value="US-ID">Idaho</option>
+            <option value="US-IL">Illinois</option>
+            <option value="US-IN">Indiana</option>
+            <option value="US-IA">Iowa</option>
+            <option value="US-KS">Kansas</option>
+            <option value="US-KY">Kentucky</option>
+            <option value="US-LA">Louisiana</option>
+            <option value="US-ME">Maine</option>
+            <option value="US-MD">Maryland</option>
+            <option value="US-MA">Massachusetts</option>
+            <option value="US-MI">Michigan</option>
+            <option value="US-MN">Minnesota</option>
+            <option value="US-MS">Mississippi</option>
+            <option value="US-MO">Missouri</option>
+            <option value="US-MT">Montana</option>
+            <option value="US-NE">Nebraska</option>
+            <option value="US-NV">Nevada</option>
+            <option value="US-NH">New Hampshire</option>
+            <option value="US-NJ">New Jersey</option>
+            <option value="US-NM">New Mexico</option>
+            <option value="US-NY">New York</option>
+            <option value="US-NC">North Carolina</option>
+            <option value="US-ND">North Dakota</option>
+            <option value="US-OH">Ohio</option>
+            <option value="US-OK">Oklahoma</option>
+            <option value="US-OR">Oregon</option>
+            <option value="US-PA">Pennsylvania</option>
+            <option value="US-RI" selected>Rhode Island</option>
+            <option value="US-SC">South Carolina</option>
+            <option value="US-SD">South Dakota</option>
+            <option value="US-TN">Tennessee</option>
+            <option value="US-TX">Texas</option>
+            <option value="US-UT">Utah</option>
+            <option value="US-VT">Vermont</option>
+            <option value="US-VA">Virginia</option>
+            <option value="US-WA">Washington</option>
+            <option value="US-WV">West Virginia</option>
+            <option value="US-WI">Wisconsin</option>
+            <option value="US-WY">Wyoming</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <p class="pc-intro-state pc-disclaimer small text-muted mt-2 mb-3" data-state-note hidden></p>
+
+    <details class="pc-advanced mb-3">
+      <summary>Deductions &amp; W-4 (optional)</summary>
+      <div class="row mt-2">
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-d401k">401(k) / 403(b) <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-d401k" name="ded_d401k" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-hsa">HSA <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-hsa" name="ded_hsa" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-fsa">FSA <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-fsa" name="ded_fsa" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-health">Health premium <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-health" name="ded_health" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-4 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-ded-post">Other post-tax deduction <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-ded-post" name="ded_post" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-w4-step3">W-4 Step 3 credits <small class="text-muted">annual</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-w4-step3" name="w4_step3" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pc-field mb-3">
+        <div class="form-group mb-0">
+          <label for="pc-w4-step4c">W-4 extra withholding <small class="text-muted">per period</small></label>
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+            <input class="form-control" id="pc-w4-step4c" name="w4_step4c" type="number"
+              min="0" step="1" value="0"
+              inputmode="decimal" />
+            
+          </div>
+          
+        </div>
+      </div>
+      </div>
+    </details>
+
+    <button type="submit" class="btn btn-brand btn-lg btn-block">Calculate take-home pay</button>
+  </form>
+
+  <section class="pc-result mt-4" hidden aria-live="polite">
+    <div class="pc-net stat-tile mb-4">
+      <span class="pc-net-label stat-label">Net take-home pay <small>per period</small></span>
+      <strong class="pc-net-value stat-value" data-out="net_per_period">&mdash;</strong>
+      <span class="pc-net-annual stat-note" data-out="net_annual">&mdash;</span>
+    </div>
+
+    <h3 class="h6 font-weight-bold text-uppercase section-kicker mb-3">Where your pay goes</h3>
+    <div class="table-responsive">
+      <table class="pc-breakdown table table-sm table-striped mb-0">
+        <tbody>
+          <tr><th>Gross pay</th><td class="text-right" data-out="gross_per_period"></td></tr>
+          <tr><th>Federal income tax</th><td class="text-right" data-out="federal_income_tax"></td></tr>
+          <tr><th>Social Security</th><td class="text-right" data-out="social_security"></td></tr>
+          <tr><th>Medicare</th><td class="text-right" data-out="medicare"></td></tr>
+          <tr data-out-row="additional_medicare" hidden><th>Additional Medicare</th><td class="text-right" data-out="additional_medicare"></td></tr>
+          <tr><th>State income tax</th><td class="text-right" data-out="state_income_tax"></td></tr>
+          <tr><th>Pre-tax deductions</th><td class="text-right" data-out="pre_tax_deductions"></td></tr>
+          <tr><th>Post-tax deductions</th><td class="text-right" data-out="post_tax_deductions"></td></tr>
+          <tr class="pc-total"><th>Net pay</th><td class="text-right" data-out="net_per_period_total"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pc-rates small text-muted mt-3 mb-0">
+      Effective tax rate <strong data-out="effective_rate"></strong> &middot;
+      Marginal rate <strong data-out="marginal_rate"></strong>
+    </p>
+
+    <details class="pc-math mt-3">
+      <summary>Show the math</summary>
+      <ol data-out="trace"></ol>
+    </details>
+
+    <p class="pc-disclaimer small text-muted mt-3 mb-2">
+      This is an estimate for planning. It covers federal income tax, FICA, and simplified state income tax.
+      It does not include local or paid-leave taxes. Your employer's payroll system may calculate a different amount.
+    </p>
+    <p class="pc-updated small text-muted mb-0" data-out="updated"></p>
+  </section>
+</div>
+
+</div>
+</div>
+
+<h2 class="wp-block-heading" id="state-income-tax">Does Rhode Island have a state income tax?</h2>
+
+<p>Yes. R.I. Gen. Laws § 44-30-2.6 imposes the Rhode Island personal income tax, and it uses one rate table for every filing status: 3.75% on the first $55,000 of Rhode Island taxable income, 4.75% from $55,000 to $125,000, and 5.99% above $125,000. Those dollar amounts are adjusted for inflation each year, so a later year's thresholds sit somewhat above the printed figures.</p>
+
+<p>Before the rates apply, the same section allows a Rhode Island basic standard deduction of $7,500 for a single filer or a married person filing separately, $11,250 for a head of household, and $15,000 for a joint return, plus a $3,500 personal exemption for each exemption claimed. Both shrink once modified adjusted gross income passes $175,000: the deduction and the exemption each fall by 20 percentage points for every $5,000 above that line, which pulls a high earner toward the full 5.99% rate.</p>
+
+<p>The 2026 data behind this calculator compresses that schedule into three bands of 3.75%, 4.87%, and 5.99%, with a $10,550 standard deduction for a single filer, so the Rhode Island line here is a close estimate rather than the exact withholding a payroll system produces. No Rhode Island city or county adds an income tax of its own, which leaves the state line as the only non-federal wage tax on a Rhode Island stub. From tax year 2027 a surtax of 1% applies above $1 million of Rhode Island taxable income, rising to 2% in 2028 and 3% in 2029 and later.</p>
+
+<h2 class="wp-block-heading" id="how-take-home-pay-is-calculated">How Rhode Island take-home pay is calculated</h2>
+
+
+<ol class="wp-block-list">
+<li><strong>Gross pay.</strong> Take your annual salary, or an hourly rate times the hours you worked, and divide it by the paydays in the frequency you chose.</li>
+<li><strong>Pre-tax deductions.</strong> Traditional 401(k) deposits, HSA contributions, and qualifying health premiums come out before income tax is figured, so they lower the taxable wage base.</li>
+<li><strong>Rhode Island income tax.</strong> The state standard deduction and personal exemption come off first, then what remains runs through the calculator's three Rhode Island bands.</li>
+<li><strong>Federal income tax.</strong> The federal standard deduction for your filing status is subtracted, then the federal marginal brackets apply to the rest.</li>
+<li><strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% on all wages, and the extra 0.9% Medicare tax once earnings pass the high-earner threshold.</li>
+<li><strong>TDI and TCI: not subtracted.</strong> Rhode Island employees pay a Temporary Disability Insurance contribution, 1.1% of the first $100,000 of wages for 2026, and the same money funds Temporary Caregiver Insurance. This calculator subtracts no SDI or paid leave premium for any state&mdash;California, New Jersey, and Washington included&mdash;so the Rhode Island contribution is explained here but kept out of the net figure.</li>
+</ol>
+
+<p>The result is your net pay for the period you selected. Pay frequency matters: a biweekly schedule pays 26 times a year and a semi-monthly schedule 24, so the same salary produces different per-paycheck amounts.</p>
+
+<h2 class="wp-block-heading" id="worked-example">Worked example: $62,000 in Rhode Island</h2>
+
+<p>A single filer earning $62,000 a year, paid bi-weekly in 2026:</p>
+
+<table class="table table-sm table-striped">
+<thead><tr><th>Line</th><th class="text-right">Per paycheck</th></tr></thead>
+<tbody>
+<tr><th>Gross pay</th><td class="text-right">$2,384.62</td></tr>
+<tr><th>Federal income tax</th><td class="text-right">$202.31</td></tr>
+<tr><th>Social Security</th><td class="text-right">$147.85</td></tr>
+<tr><th>Medicare</th><td class="text-right">$34.58</td></tr>
+<tr><th>Rhode Island state income tax</th><td class="text-right">$89.91</td></tr>
+<tr class="pc-total"><th>Net take-home pay</th><td class="text-right">$1,909.98</td></tr>
+</tbody>
+</table>
+
+<p>That is $49,659.39 a year, an effective tax rate of about 19.9%. Change the inputs in the calculator above to see your own numbers.</p>
+
+<h2 class="wp-block-heading" id="how-it-compares">How Rhode Island compares</h2>
+
+<p>Rhode Island's 5.99% top rate sits between its New England neighbors: above Massachusetts, which charges a flat 5% on wages, and below Connecticut, whose top rate is 6.99%. The same salary therefore keeps less in Providence than in Worcester on state tax alone, and more than in Hartford. New Hampshire, to the north, taxes no wage income at all.</p>
+
+<p>What sets Rhode Island apart from most of the region is TDI. Employees pay 1.1% of the first $100,000 of wages in 2026, a maximum of $1,100 a year, and that single contribution funds both Temporary Disability Insurance and Temporary Caregiver Insurance, the state's paid family leave program. Massachusetts runs a separate family and medical leave contribution, and Connecticut runs its own paid leave trust; Vermont and New Hampshire have no employee-funded leave program.</p>
+
+<p>Sales tax is not a paycheck line, but it shapes how the state raises money. Rhode Island charges 7% on most retail sales and 8% on meals and beverages, the extra point going to the city or town where the sale happens. Neither touches withholding, and unemployment insurance is an employer cost, so an employer withholds Rhode Island income tax, the TDI contribution, federal income tax, and FICA.</p>
+
+<h2 class="wp-block-heading" id="faq">FAQ</h2>
+
+<div id="rank-math-faq" class="rank-math-block">
+<div class="rank-math-list ">
+<div id="faq-question-1" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does Rhode Island have a state income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>Yes. R.I. Gen. Laws § 44-30-2.6 taxes Rhode Island taxable income at 3.75% on the first $55,000, 4.75% from $55,000 to $125,000, and 5.99% above $125,000, using the same table for every filing status. Those thresholds are adjusted for inflation each year.</p>
+
+</div>
+</div>
+<div id="faq-question-2" class="rank-math-list-item">
+<h4 class="rank-math-question ">How much is taken out of a $62,000 salary in Rhode Island?</h4>
+<div class="rank-math-answer ">
+
+<p>For 2026, a single filer paid biweekly takes home about $1,909.98 per paycheck from a $62,000 salary: $2,384.62 gross, $202.31 federal income tax, $147.85 Social Security, $34.58 Medicare, and $89.91 Rhode Island income tax. That is $49,659.39 over the year, an effective rate of about 19.9%. The TDI contribution is not part of that figure.</p>
+
+</div>
+</div>
+<div id="faq-question-3" class="rank-math-list-item">
+<h4 class="rank-math-question ">What is the Rhode Island TDI deduction on a paycheck?</h4>
+<div class="rank-math-answer ">
+
+<p>Rhode Island employees pay a Temporary Disability Insurance contribution of 1.1% of the first $100,000 of wages for 2026, a maximum of $1,100 a year. The same contribution funds Temporary Caregiver Insurance, so there is no separate paid family leave line. The rate is set each November under R.I. Gen. Laws § 28-40-1, which also makes the TDI taxable wage base at least $100,000.</p>
+
+</div>
+</div>
+<div id="faq-question-4" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does this calculator subtract Rhode Island TDI?</h4>
+<div class="rank-math-answer ">
+
+<p>No. The state data behind this calculator sets SDI to null for every state, California, New Jersey, and Washington included, so no SDI or paid leave premium is subtracted anywhere on this site. Rhode Island's 1.1% TDI contribution therefore comes out of the net figure shown rather than inside it.</p>
+
+</div>
+</div>
+<div id="faq-question-5" class="rank-math-list-item">
+<h4 class="rank-math-question ">Do Rhode Island cities or counties charge a local income tax?</h4>
+<div class="rank-math-answer ">
+
+<p>No. Rhode Island has no municipal or county income tax. Cities raise revenue from property tax and from the 1% local meals and beverage tax charged on top of the 7% state sales tax, neither of which is withheld from wages.</p>
+
+</div>
+</div>
+<div id="faq-question-6" class="rank-math-list-item">
+<h4 class="rank-math-question ">What is Rhode Island's standard deduction and personal exemption?</h4>
+<div class="rank-math-answer ">
+
+<p>The Rhode Island basic standard deduction is $7,500 for a single filer or a married person filing separately, $11,250 for a head of household, and $15,000 for a joint return, plus a $3,500 personal exemption for each exemption claimed. Both phase out above $175,000 of modified adjusted gross income, dropping 20 percentage points for every $5,000 over that amount.</p>
+
+</div>
+</div>
+<div id="faq-question-7" class="rank-math-list-item">
+<h4 class="rank-math-question ">Does Rhode Island add a surtax on income over $1 million?</h4>
+<div class="rank-math-answer ">
+
+<p>Starting with tax year 2027, R.I. Gen. Laws § 44-30-2.6 adds a high-income surtax of 1% on Rhode Island taxable income above $1 million. It rises to 2% for 2028 and 3% for 2029 and later, with the threshold indexed for inflation from 2029. No surtax applies to tax year 2026.</p>
+
+</div>
+</div>
+<div id="faq-question-8" class="rank-math-list-item">
+<h4 class="rank-math-question ">What withholding form does a Rhode Island employee fill out?</h4>
+<div class="rank-math-answer ">
+
+<p>Form RI W-4, the Rhode Island Employee's Withholding Allowance Certificate. It is separate from the federal Form W-4 and tells the employer how much Rhode Island income tax to withhold. The Division of Taxation publishes the form with the withholding tables.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<h2 class="wp-block-heading" id="sources">Sources and last updated</h2>
+
+<p>This page covers tax years 2025 and 2026. State tax status is checked against the sources below; federal brackets, the standard deduction, and FICA rates come from the IRS. Tax data last verified 2026-10-02.</p>
+
+<ul class="wp-block-list">
+<li><a href="https://tax.ri.gov/tax-sections/individual-taxes">Rhode Island Division of Taxation — Individual Income Tax</a></li>
+<li><a href="http://webserver.rilegislature.gov/Statutes/TITLE44/44-30/44-I/44-30-2.6.htm">R.I. Gen. Laws § 44-30-2.6 — Rhode Island taxable income, rate of tax</a></li>
+<li><a href="http://webserver.rilegislature.gov/Statutes/TITLE28/28-40/28-40-1.htm">R.I. Gen. Laws § 28-40-1 — Amount of employee contributions, TDI taxable wage base</a></li>
+<li><a href="http://webserver.rilegislature.gov/Statutes/TITLE28/28-41/28-41-34.htm">R.I. Gen. Laws § 28-41-34 — Temporary caregiver insurance</a></li>
+<li><a href="https://dlt.ri.gov/individuals/temporary-disability-insurance-tdi">Rhode Island DLT — Temporary Disability Insurance</a></li>
+<li><a href="https://tax.ri.gov/tax-sections/employer-taxes/temporary-disability-insurance-tdi">Rhode Island Division of Taxation — TDI employer information</a></li>
+<li><a href="https://www.irs.gov/publications/p15">IRS Publication 15 (Circular E)</a></li>
+</ul>
+
+<h2 class="wp-block-heading" id="related-tools">Related tools</h2>
+
+<ul class="wp-block-list">
+<li><a href="/finance/paycheck-calculator">Paycheck Calculator</a> &mdash; the national calculator, pre-set to any state.</li>
+<li><a href="/finance/">Money &amp; Pay Calculators</a> &mdash; the rest of the finance hub.</li>
+</ul>
+
+<div class="gb-container gb-container-b53f53f1">
+
+<p><strong>Reviewed by:</strong> aFreeTools Editorial Team</p>
+
+<p><strong>Last updated:</strong> October 02, 2026</p>
+
+<p class="mb-0"><strong>Freshness:</strong> The page&rsquo;s content and sources were last reviewed October 02, 2026. Check related guidance and pay stub for situations that will require an exact withholding amount.</p>
+
+</div>
+
+<hr class="wp-block-separator has-text-color has-global-color-17-color has-alpha-channel-opacity has-global-color-17-background-color has-background is-style-default p-0"/>
+
+<section class="wp-block-group has-global-color-17-background-color has-background"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<p class="mb-0"><strong>Disclaimer:</strong> This paycheck calculator is for informational and planning purposes only. It provides an estimate of take-home pay based on the information you enter and standard federal/state tax assumptions, but actual pay can vary due to local taxes, benefits, deductions, withholding elections, payroll rules, and employer-specific factors. Results are not a guarantee of wages, tax liability, or net pay and should not be considered tax, legal, accounting, or financial advice. Please verify final amounts with your employer&rsquo;s payroll system or a qualified tax professional.</p>
+</div></section>
