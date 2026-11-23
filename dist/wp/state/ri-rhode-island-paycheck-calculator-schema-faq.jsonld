@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Rhode Island have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. R.I. Gen. Laws § 44-30-2.6 taxes Rhode Island taxable income at 3.75% on the first $55,000, 4.75% from $55,000 to $125,000, and 5.99% above $125,000, using the same table for every filing status. Those thresholds are adjusted for inflation each year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $62,000 salary in Rhode Island?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,909.98 per paycheck from a $62,000 salary: $2,384.62 gross, $202.31 federal income tax, $147.85 Social Security, $34.58 Medicare, and $89.91 Rhode Island income tax. That is $49,659.39 over the year, an effective rate of about 19.9%. The TDI contribution is not part of that figure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Rhode Island TDI deduction on a paycheck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rhode Island employees pay a Temporary Disability Insurance contribution of 1.1% of the first $100,000 of wages for 2026, a maximum of $1,100 a year. The same contribution funds Temporary Caregiver Insurance, so there is no separate paid family leave line. The rate is set each November under R.I. Gen. Laws § 28-40-1, which also makes the TDI taxable wage base at least $100,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this calculator subtract Rhode Island TDI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The state data behind this calculator sets SDI to null for every state, California, New Jersey, and Washington included, so no SDI or paid leave premium is subtracted anywhere on this site. Rhode Island's 1.1% TDI contribution therefore comes out of the net figure shown rather than inside it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Rhode Island cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Rhode Island has no municipal or county income tax. Cities raise revenue from property tax and from the 1% local meals and beverage tax charged on top of the 7% state sales tax, neither of which is withheld from wages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Rhode Island's standard deduction and personal exemption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Rhode Island basic standard deduction is $7,500 for a single filer or a married person filing separately, $11,250 for a head of household, and $15,000 for a joint return, plus a $3,500 personal exemption for each exemption claimed. Both phase out above $175,000 of modified adjusted gross income, dropping 20 percentage points for every $5,000 over that amount."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Rhode Island add a surtax on income over $1 million?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Starting with tax year 2027, R.I. Gen. Laws § 44-30-2.6 adds a high-income surtax of 1% on Rhode Island taxable income above $1 million. It rises to 2% for 2028 and 3% for 2029 and later, with the threshold indexed for inflation from 2029. No surtax applies to tax year 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What withholding form does a Rhode Island employee fill out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Form RI W-4, the Rhode Island Employee's Withholding Allowance Certificate. It is separate from the federal Form W-4 and tells the employer how much Rhode Island income tax to withhold. The Division of Taxation publishes the form with the withholding tables."
+      }
+    }
+  ]
+}

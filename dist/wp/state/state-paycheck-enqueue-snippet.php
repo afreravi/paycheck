@@ -248,6 +248,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/montana',
             'description' => 'Free Montana paycheck calculator. Estimate take-home pay after Montana income tax at 4.7% and 5.65%, plus federal tax and FICA, for 2026.',
         ),
+        'rhode-island' => array(
+            'name'        => 'Rhode Island Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/rhode-island',
+            'description' => 'Free Rhode Island paycheck calculator. Estimate take-home pay after Rhode Island income tax, the TDI/TCI contribution, federal income tax, and FICA for 2026.',
+        ),
     );
 }
 
@@ -257,7 +262,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'hawaii', 'idaho', 'west-virginia', 'new-hampshire', 'maine', 'south-dakota', 'alaska', 'wyoming', 'montana' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'hawaii', 'idaho', 'west-virginia', 'new-hampshire', 'maine', 'south-dakota', 'alaska', 'wyoming', 'montana', 'rhode-island' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
