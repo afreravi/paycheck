@@ -79,19 +79,93 @@ function pct(low, top) {
   return Number(((low + top) / 2).toFixed(5));
 }
 
+/**
+ * Verified state data.
+ *
+ * Each entry replaces the simplified approximation with the state's actual
+ * statutory rate schedule and standard deduction, read from a primary source
+ * (state DOR publication or the statute itself). States not listed here stay
+ * on the estimate tier.
+ *
+ * Add a state only after reading the bracket table at `source_url` for the
+ * tax year in question — not from an aggregator.
+ */
+const VA_BRACKETS = [
+  { min: 0, max: 3000, rate: 0.02 },
+  { min: 3000, max: 5000, rate: 0.03 },
+  { min: 5000, max: 17000, rate: 0.05 },
+  { min: 17000, max: null, rate: 0.0575 },
+];
+
+const VERIFIED = {
+  // Va. Code § 58.1-320 (rates) and § 58.1-322.03 (standard deduction).
+  VA: () => ({
+    source_url: "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-320/",
+    sources: [
+      "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-320/",
+      "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+    ],
+    note:
+      "Verified: 2% to $3,000, 3% to $5,000, 5% to $17,000, 5.75% above " +
+      "(Va. Code § 58.1-320). Standard deduction $8,750 single / $17,500 " +
+      "married for tax years beginning on or after 2025-01-01 and before " +
+      "2027-01-01 (§ 58.1-322.03). Virginia applies one rate schedule to all " +
+      "filing statuses; head of household is treated as single. The age " +
+      "deduction is not modelled.",
+    standard_deduction: { single: 8750, mfj: 17500, mfs: 4375, hoh: 8750 },
+    brackets: { single: VA_BRACKETS, mfj: VA_BRACKETS, mfs: VA_BRACKETS, hoh: VA_BRACKETS },
+  }),
+
+  // NCDOR tax rate schedules + N.C.G.S. § 105-153.5 (standard deduction).
+  NC: (year) => {
+    const rate = year >= 2026 ? 0.0399 : 0.0425;
+    const flat = [{ min: 0, max: null, rate }];
+    return {
+      source_url: "https://www.ncdor.gov/taxes-forms/tax-rate-schedules",
+      sources: [
+        "https://www.ncdor.gov/taxes-forms/tax-rate-schedules",
+        "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-153.5.html",
+      ],
+      note:
+        `Verified: flat ${(rate * 100).toFixed(2)}% rate for tax year ${year} ` +
+        "(NCDOR: 4.25% for 2025, 3.99% for tax years after 2025). Standard " +
+        "deduction per N.C.G.S. § 105-153.5: $12,750 single / $25,500 married " +
+        "filing jointly / $19,125 head of household / $12,750 married filing " +
+        "separately. Local income taxes do not exist in North Carolina.",
+      standard_deduction: { single: 12750, mfj: 25500, mfs: 12750, hoh: 19125 },
+      brackets: { single: flat, mfj: flat, mfs: flat, hoh: flat },
+    };
+  },
+
+  // Fla. Const. Art. VII, § 5(a): no tax on the income of natural persons.
+  FL: () => ({
+    source_url: "https://www.flsenate.gov/Laws/Constitution",
+    sources: ["https://www.flsenate.gov/Laws/Constitution"],
+    note:
+      "Verified: Florida levies no personal income tax. Article VII, section 5(a) " +
+      "of the Florida Constitution prohibits a tax on the income of natural persons.",
+  }),
+};
+
 function buildRecord(code, name, noTax, low, top, stdDed, year) {
   const jurisdiction = `US-${code}`;
+  const verified = VERIFIED[code]?.(year);
   const base = {
     jurisdiction,
     tax_year: year,
     version: `${year}.1`,
     effective_from: `${year}-01-01`,
     effective_to: year === 2025 ? "2025-12-31" : null,
-    source_url: "https://www.taxadmin.org/state-tax-rates",
-    last_verified: "2026-10-02",
-    verified_by: "data-owner",
-    note: "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+    source_url: verified?.source_url ?? "https://www.taxadmin.org/state-tax-rates",
+    last_verified: verified ? "2026-11-24" : "2026-10-02",
+    // A placeholder must not claim a reviewer. Estimate-tier records carry null.
+    verified_by: verified ? "data-owner" : null,
+    verification: verified ? "verified" : "estimate",
+    note: verified
+      ? verified.note
+      : "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
   };
+  if (verified?.sources) base.sources = verified.sources;
 
   if (noTax) {
     return {
@@ -133,14 +207,14 @@ function buildRecord(code, name, noTax, low, top, stdDed, year) {
     no_income_tax: false,
     income_tax: {
       method: "annualized_brackets",
-      standard_deduction: {
+      standard_deduction: verified?.standard_deduction ?? {
         single: stdDed,
         mfj: stdDed * 2,
         mfs: stdDed,
         hoh: Math.round(stdDed * 1.5),
       },
       exemptions: null,
-      brackets,
+      brackets: verified?.brackets ?? brackets,
     },
     sdi: null,
     paid_leave: null,

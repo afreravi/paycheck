@@ -4,34 +4,44 @@
   "version": "2026.1",
   "effective_from": "2026-01-01",
   "effective_to": null,
-  "source_url": "https://www.taxadmin.org/state-tax-rates",
-  "last_verified": "2026-10-02",
+  "source_url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-320/",
+  "last_verified": "2026-11-24",
   "verified_by": "data-owner",
-  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "verification": "verified",
+  "note": "Verified: 2% to $3,000, 3% to $5,000, 5% to $17,000, 5.75% above (Va. Code § 58.1-320). Standard deduction $8,750 single / $17,500 married for tax years beginning on or after 2025-01-01 and before 2027-01-01 (§ 58.1-322.03). Virginia applies one rate schedule to all filing statuses; head of household is treated as single. The age deduction is not modelled.",
+  "sources": [
+    "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-320/",
+    "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/"
+  ],
   "no_income_tax": false,
   "income_tax": {
     "method": "annualized_brackets",
     "standard_deduction": {
-      "single": 8500,
-      "mfj": 17000,
-      "mfs": 8500,
-      "hoh": 12750
+      "single": 8750,
+      "mfj": 17500,
+      "mfs": 4375,
+      "hoh": 8750
     },
     "exemptions": null,
     "brackets": {
       "single": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 3000,
           "rate": 0.02
         },
         {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.03875
+          "min": 3000,
+          "max": 5000,
+          "rate": 0.03
         },
         {
-          "min": 100000,
+          "min": 5000,
+          "max": 17000,
+          "rate": 0.05
+        },
+        {
+          "min": 17000,
           "max": null,
           "rate": 0.0575
         }
@@ -39,16 +49,21 @@
       "mfj": [
         {
           "min": 0,
-          "max": 30000,
+          "max": 3000,
           "rate": 0.02
         },
         {
-          "min": 30000,
-          "max": 200000,
-          "rate": 0.03875
+          "min": 3000,
+          "max": 5000,
+          "rate": 0.03
         },
         {
-          "min": 200000,
+          "min": 5000,
+          "max": 17000,
+          "rate": 0.05
+        },
+        {
+          "min": 17000,
           "max": null,
           "rate": 0.0575
         }
@@ -56,16 +71,21 @@
       "mfs": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 3000,
           "rate": 0.02
         },
         {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.03875
+          "min": 3000,
+          "max": 5000,
+          "rate": 0.03
         },
         {
-          "min": 100000,
+          "min": 5000,
+          "max": 17000,
+          "rate": 0.05
+        },
+        {
+          "min": 17000,
           "max": null,
           "rate": 0.0575
         }
@@ -73,16 +93,21 @@
       "hoh": [
         {
           "min": 0,
-          "max": 22500,
+          "max": 3000,
           "rate": 0.02
         },
         {
-          "min": 22500,
-          "max": 150000,
-          "rate": 0.03875
+          "min": 3000,
+          "max": 5000,
+          "rate": 0.03
         },
         {
-          "min": 150000,
+          "min": 5000,
+          "max": 17000,
+          "rate": 0.05
+        },
+        {
+          "min": 17000,
           "max": null,
           "rate": 0.0575
         }
