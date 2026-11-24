@@ -5719,12 +5719,16 @@ add_action( 'wp_enqueue_scripts', function () {
     }
 
     // Same handle as the national snippet, so WordPress prints it once if both
-    // are active. Bump the version after re-uploading the engine.
+    // are active. The version is the engine file's mtime, so re-uploading the
+    // engine busts browser and CDN caches without anyone remembering to bump it.
+    $engine  = WP_CONTENT_DIR . '/uploads/tools/paycheck-engine.js';
+    $version = file_exists( $engine ) ? (string) filemtime( $engine ) : '1.0.0';
+
     wp_enqueue_script_module(
         'paycheck-engine',
         content_url( '/uploads/tools/paycheck-engine.js' ),
         array(),
-        '1.0.0'
+        $version
     );
 } );
 
