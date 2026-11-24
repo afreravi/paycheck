@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Delaware have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. 30 Del. C. § 1102 imposes a graduated Delaware income tax using one schedule for every filing status. The first $2,000 of Delaware taxable income is untaxed, the rates then step from 2.2% to 5.55% up to $60,000, and 6.6% applies above $60,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $64,000 salary in Delaware?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,971.58 per paycheck from a $64,000 salary: $2,461.54 gross, $211.54 federal income tax, $152.62 Social Security, $35.69 Medicare, and $90.12 Delaware income tax. That is $51,261 a year, an effective rate of about 19.9%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Delaware's top income tax rate, and when does it start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "6.6%, and it starts at just $60,000 of Delaware taxable income, which is low compared with most states that graduate their rates. The Division of Revenue describes the schedule as 2.2% to 5.55% on income under $60,000 and 6.60% on income of $60,000 or more. The threshold is a fixed dollar amount with no inflation adjustment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the Delaware standard deduction and personal credit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "30 Del. C. § 1108 allows a $3,250 standard deduction for a single filer or a married person filing separately and $6,500 on a joint return, plus $2,500 more if the taxpayer, or a spouse on a separate return, is 65 or older or blind. Section 1110 then gives a $110 credit for each federal personal exemption and another $110 for a resident 60 or over, limited to the tax otherwise due."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Delaware withhold state disability insurance or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Delaware has no state disability insurance program, so there is no SDI line on a Delaware stub. Delaware Paid Leave, the family and medical leave insurance program, has charged 0.8% of wages since contributions began January 1, 2025, with benefits starting January 1, 2026, and an employer may require employees to cover up to half of that, 0.4%. This calculator subtracts no SDI or paid leave premium for any state, California, New Jersey, and Washington included, so the Delaware Paid Leave share comes out of the net figure shown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Delaware cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only the City of Wilmington does, through a 1.25% wage tax on wages earned for work performed in the city. No other Delaware municipality or county levies a wage or income tax. The calculator works out the state line only, so a Wilmington employee's take-home pay is about 1.25% lower than the figure here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Delaware charge sales tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Delaware has no state sales tax and no local sales tax, one of five states with neither. The state raises its revenue from the personal income tax, a corporate franchise tax, a gross receipts tax levied on business receipts, and abandoned property. A gross receipts tax is a business tax, not something withheld from an employee's paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a Delaware resident claim credit for tax paid to another state?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. 30 Del. C. § 1111 allows a Delaware resident a credit against Delaware tax for income tax paid to another state or to the District of Columbia on income taxed by both, limited to the Delaware tax attributable to that income. A Delaware resident who works in New Jersey or Pennsylvania files Form PIT-RES and attaches the other state's return."
+      }
+    }
+  ]
+}
