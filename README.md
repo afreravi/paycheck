@@ -4,6 +4,10 @@ A US-only paycheck / take-home pay calculator for [afreetools.com](https://afree
 
 **Estimate tier.** This tool produces a consumer-grade estimate for planning. It is not payroll-grade and is labelled as an estimate in the UI.
 
+**Live:** [afreetools.com/finance/paycheck-calculator](https://afreetools.com/finance/paycheck-calculator) — national calculator plus **34 state pages** published (`/finance/paycheck-calculator/{state}`). 14 further state pages are built but unpublished.
+
+> **Data status, in one line:** federal records use real IRS Rev. Proc. figures; state records are still the simplified three-band approximation described in [Accuracy and data verification](#accuracy-and-data-verification). Verify against state DOR tables before promoting the state pages.
+
 ## Status
 
 Phase 1 MVP implementation. See `docs/` for the full specification set.
@@ -95,6 +99,19 @@ Load-bearing. Do not reorder. See spec §7.2.
 8. Additional Medicare (threshold-based)
 9. State income tax
 10. Net pay
+
+## Continuous integration
+
+`.github/workflows/ci.yml` gates every push and PR:
+
+| Check | Catches |
+|---|---|
+| `node tools/build.mjs` + artifact existence | A build that silently produces nothing |
+| No CDN references in `dist/` | The standalone file depending on a third party |
+| `node --test test/*.test.js` | Golden fixture drift and calculation invariants |
+| `php -l dist/wp/4-enqueue-snippet.php` | A PHP syntax error that would white-screen the site |
+| Engine module loads and exports every symbol | A broken bundle reaching WordPress |
+| `generate-state-data.mjs` produces no diff | Stale committed state data |
 
 ## Development
 
