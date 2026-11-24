@@ -1304,7 +1304,7 @@ export const STATE_PAGES = [
     compareParagraphs: [
       "A flat 5% puts Massachusetts below New York, New Jersey, and California on wage " +
         "income, and above the flat-tax states it is most often compared with. Illinois is " +
-        "at 4.95%, Michigan at 4.25%, North Carolina at 4.25%, and Georgia at 5.19%, so a " +
+        "at 4.95%, Michigan at 4.25%, North Carolina at 3.99%, and Georgia at 5.19%, so a " +
         "Massachusetts paycheck withholds about the same state tax as a Georgia paycheck and " +
         "more than a Michigan or Illinois one. What Massachusetts adds that none of those " +
         "states do is the 4% surtax on taxable income above $1 million.",
@@ -2687,7 +2687,7 @@ export const STATE_PAGES = [
     ],
     compareParagraphs: [
       "South Carolina's 5.21% top rate is the highest of its immediate neighbors that tax " +
-        "wages, sitting above Georgia's flat 4.99% and North Carolina's flat 4.25%, but its " +
+        "wages, sitting above Georgia's flat 4.99% and North Carolina's flat 3.99%, but its " +
         "1.99% bottom rate is the lowest of the three. Because South Carolina applies the low " +
         "rate to the first $30,000 of taxable income and only then steps up, a modest salary is " +
         "taxed at an effective state rate well under 5.21%, and a low earner keeps more than " +
