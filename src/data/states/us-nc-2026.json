@@ -4,10 +4,15 @@
   "version": "2026.1",
   "effective_from": "2026-01-01",
   "effective_to": null,
-  "source_url": "https://www.taxadmin.org/state-tax-rates",
-  "last_verified": "2026-10-02",
+  "source_url": "https://www.ncdor.gov/taxes-forms/tax-rate-schedules",
+  "last_verified": "2026-11-24",
   "verified_by": "data-owner",
-  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "verification": "verified",
+  "note": "Verified: flat 3.99% rate for tax year 2026 (NCDOR: 4.25% for 2025, 3.99% for tax years after 2025). Standard deduction per N.C.G.S. § 105-153.5: $12,750 single / $25,500 married filing jointly / $19,125 head of household / $12,750 married filing separately. Local income taxes do not exist in North Carolina.",
+  "sources": [
+    "https://www.ncdor.gov/taxes-forms/tax-rate-schedules",
+    "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-153.5.html"
+  ],
   "no_income_tax": false,
   "income_tax": {
     "method": "annualized_brackets",
@@ -22,69 +27,29 @@
       "single": [
         {
           "min": 0,
-          "max": 15000,
-          "rate": 0.0425
-        },
-        {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.0425
-        },
-        {
-          "min": 100000,
           "max": null,
-          "rate": 0.0425
+          "rate": 0.0399
         }
       ],
       "mfj": [
         {
           "min": 0,
-          "max": 30000,
-          "rate": 0.0425
-        },
-        {
-          "min": 30000,
-          "max": 200000,
-          "rate": 0.0425
-        },
-        {
-          "min": 200000,
           "max": null,
-          "rate": 0.0425
+          "rate": 0.0399
         }
       ],
       "mfs": [
         {
           "min": 0,
-          "max": 15000,
-          "rate": 0.0425
-        },
-        {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.0425
-        },
-        {
-          "min": 100000,
           "max": null,
-          "rate": 0.0425
+          "rate": 0.0399
         }
       ],
       "hoh": [
         {
           "min": 0,
-          "max": 22500,
-          "rate": 0.0425
-        },
-        {
-          "min": 22500,
-          "max": 150000,
-          "rate": 0.0425
-        },
-        {
-          "min": 150000,
           "max": null,
-          "rate": 0.0425
+          "rate": 0.0399
         }
       ]
     }

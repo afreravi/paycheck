@@ -788,7 +788,6 @@ export const STATE_PAGES = [
       "<strong>Federal income tax.</strong> The federal standard deduction comes off first, then the remaining income moves up the federal marginal brackets.",
       "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45%, and the extra 0.9% Medicare tax once income passes the high-earner threshold.",
       "<strong>North Carolina flat tax.</strong> North Carolina removes its own standard deduction and then applies one rate &mdash; 3.99% for 2026 &mdash; with no brackets to step through.",
-      "<strong>Model caveat.</strong> The calculator still holds North Carolina's 2025 figures (a 4.25% rate), so its state line runs roughly $4.73 high on a biweekly $60,000 paycheck until the dataset is refreshed.",
     ],
     compareParagraphs: [
       "North Carolina's flat rate is among the lowest of the states that tax wages. At " +
@@ -1070,26 +1069,26 @@ export const STATE_PAGES = [
         "the top bracket begins at $17,000, nearly every full-time Virginia wage earner is " +
         "already inside the 5.75% band, and those bracket thresholds have not moved since " +
         "1990.",
-      "The calculator on this page applies a simplified three-band version of that schedule " +
-        "(2%, 3.875%, and 5.75%) after the Virginia standard deduction held in the 2026 data " +
-        "($8,500 for a single filer). Section 58.1-322.03 actually sets the single standard " +
-        "deduction at $8,750 for tax years 2025 and 2026, and Virginia also allows a $930 " +
-        "personal exemption per person that this simplified data does not subtract. Your " +
-        "employer withholds using the Virginia withholding tables and your Form VA-4, so " +
-        "treat the state figure here as a close estimate.",
+      "The calculator on this page applies that four-bracket schedule exactly, after the " +
+        "Virginia standard deduction of $8,750 for a single filer set by Section 58.1-322.03 " +
+        "for tax years 2025 and 2026. Virginia also allows a $930 personal exemption per " +
+        "person that this calculator does not subtract, so a filer claiming exemptions will " +
+        "owe slightly less than the figure shown. Your employer withholds using the Virginia " +
+        "withholding tables and your Form VA-4, so treat the state figure here as a close " +
+        "estimate.",
     ],
     calcSteps: [
       "<strong>Start with gross pay.</strong> Annual salary divided by the number of pay periods you selected, or hourly rate times hours worked for an hourly employee.",
       "<strong>Subtract pre-tax benefits.</strong> 401(k), HSA, and health insurance premiums come off first, and they reduce the wages that both Virginia and the IRS tax.",
-      "<strong>Take the Virginia standard deduction.</strong> The state figure used here is $8,500 for a single filer, removed before any Virginia bracket is reached.",
-      "<strong>Run the Virginia brackets.</strong> 2% on the first $3,000 of what remains, 3.875% on the next stretch up to $100,000, then 5.75% on the rest, which is where most Virginia salaries sit.",
+      "<strong>Take the Virginia standard deduction.</strong> The state figure used here is $8,750 for a single filer, removed before any Virginia bracket is reached.",
+      "<strong>Run the Virginia brackets.</strong> 2% on the first $3,000 of what remains, 3% on the next $2,000, 5% on income up to $17,000, then 5.75% on the rest, which is where most Virginia salaries sit.",
       "<strong>Federal income tax.</strong> The federal standard deduction and marginal brackets are applied separately to the same wages.",
       "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45%, plus the additional 0.9% Medicare tax once wages pass the high-earner threshold.",
       "<strong>Nothing else at the state level.</strong> Virginia has no local wage tax, no state disability insurance, and no paid-leave payroll premium, so the state withholding ends with the income tax line.",
     ],
     compareParagraphs: [
       "Virginia's 5.75% top rate sits in the middle of the state pack: above North Carolina's " +
-        "flat 4.25% and Georgia's 5.19%, level with Maryland's top rate, and well below New " +
+        "flat 3.99% and Georgia's 5.19%, level with Maryland's top rate, and well below New " +
         "Jersey and California. What Virginia does not do is stack a local layer on top. " +
         "Pennsylvania's earned income tax, Ohio's municipal tax, and New York City's resident " +
         "tax all take a second bite at wages that Virginia cities and counties cannot take, " +
