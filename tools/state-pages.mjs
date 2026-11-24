@@ -5287,6 +5287,132 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-DE",
+    abbr: "de",
+    slug: "delaware",
+    name: "Delaware",
+    example: { salary: 64000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Checked against 30 Del. C. § 1102 (imposition and
+    // rate of tax, seven bands, 0% under $2,000, 6.6% over $60,000), § 1108
+    // (standard deduction $3,250 single / $6,500 joint), § 1110 ($110 personal
+    // credit), § 1111 (credit for tax paid to another state), § 1117 (state EITC),
+    // the Division of Revenue's own rate summary, and the Division of Paid Leave.
+    hasIncomeTax: true,
+    title: "Delaware Paycheck Calculator - Pay After Delaware Income Tax",
+    description:
+      "Free Delaware paycheck calculator. Estimate take-home pay after Delaware's graduated income tax, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "Work out what a Delaware paycheck actually pays you. The First State taxes wages on " +
+      "seven graduated bands that reach 6.6% once taxable income passes $60,000, and it " +
+      "leaves the first $2,000 untaxed. Feed in your salary and pay schedule to see net pay " +
+      "for a single period, with the state, federal, and FICA lines shown separately.",
+    keyHeading: "Does Delaware have a state income tax?",
+    keyParagraphs: [
+      "Yes. 30 Del. C. &sect; 1102 imposes the Delaware personal income tax on a single " +
+        "graduated schedule that every filing status shares&mdash;there is no separate " +
+        "married table. The bottom band is zero: the first $2,000 of Delaware taxable income " +
+        "is untaxed, which is unusual among states that levy an income tax. Above that the " +
+        "rate steps up through 2.2%, 3.9%, 4.8%, 5.2%, and 5.55% until taxable income passes " +
+        "$60,000, where 6.6% applies to everything above the line. The Division of Revenue " +
+        "sums it up the same way: 2.2% to 5.55% under $60,000, then 6.60%.",
+      "Two details make Delaware bite earlier than its 6.6% headline suggests. The $60,000 " +
+        "threshold where the top rate begins is low&mdash;Pennsylvania taxes a flat 3.07% and " +
+        "its neighbors in New Jersey and Maryland keep their top rates for six-figure " +
+        "incomes&mdash;so a Delaware earner in the mid-five figures is already paying the " +
+        "state's maximum marginal rate on the last dollars of taxable income. And none of " +
+        "those dollar amounts is indexed for inflation: the brackets were last reset in 2014 " +
+        "and the standard deduction in 30 Del. C. &sect; 1108 has stood at $3,250 for a single " +
+        "filer and $6,500 for a joint return since 2000, with another $2,500 for a taxpayer " +
+        "who is 65 or older or blind.",
+      "Delaware softens the bill with credits rather than with wider brackets. Section 1110 " +
+        "gives $110 for each federal personal exemption plus $110 more for a resident 60 or " +
+        "over, capped at the tax owed. Section 1117 lets a resident take either 20% of the " +
+        "federal earned income credit, nonrefundable, or 4.5% of it with the excess paid out " +
+        "as a refund. Section 1111 credits tax Delaware residents pay to another state on " +
+        "income taxed in both places. The calculator behind this page applies none of those " +
+        "credits, so treat its Delaware line as the tax before credits.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> Your salary, or an hourly wage times the hours you worked, spread across the paydays in the frequency you picked.",
+      "<strong>Pre-tax deductions.</strong> A traditional 401(k), an HSA, and qualifying health premiums leave the wage base before any income tax is computed.",
+      "<strong>Delaware income tax.</strong> The $3,250 state standard deduction comes off first, then the calculator runs what is left through three Delaware bands of 2.2%, 4.4%, and 6.6%. Delaware's statute uses seven bands from 0% to 6.6%; the three here flatten that curve, so the state line is an estimate, not a payroll-exact withholding figure.",
+      "<strong>Federal income tax.</strong> The federal standard deduction for your filing status is applied, then each federal bracket taxes only the slice of income inside it.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base and Medicare at 1.45% of all wages, with the extra 0.9% Medicare tax above the high-earner threshold.",
+      "<strong>State disability and paid leave: not subtracted.</strong> Delaware runs no state disability insurance program. It does run Delaware Paid Leave, a family and medical leave insurance fund whose contributions began January 1, 2025, but this calculator subtracts no SDI or paid leave premium for any state, so that contribution is described below and left out of the net figure.",
+    ],
+    compareParagraphs: [
+      "Set Delaware beside its three neighbors and the shape of the tax matters more than the " +
+        "top rate. Pennsylvania charges a flat 3.07% with no deduction to speak of, so a " +
+        "Pennsylvania earner pays from the first dollar but never crosses 3.07%. New Jersey " +
+        "graduates up to 10.75% yet keeps low earners near zero. Delaware sits between them " +
+        "and reaches its 6.6% ceiling soonest, at $60,000 of taxable income, so a mid-career " +
+        "salary in Wilmington carries a higher marginal state rate than the same salary in " +
+        "Philadelphia, though a lower one than in Princeton.",
+      "Delaware also collects a payroll contribution that no other state in the region " +
+        "shares in the same form. Delaware Paid Leave, the family and medical leave insurance " +
+        "program under the Healthy Delaware Families Act, charges 0.8% of wages, a rate " +
+        "guaranteed through 2026, and employers may pass up to half of it&mdash;at most " +
+        "0.4%&mdash;to employees through payroll deduction. Benefits opened January 1, 2026. " +
+        "Pennsylvania has no such program, and New Jersey funds its own family leave through " +
+        "a worker contribution, so a Delaware stub can carry a state leave line that a " +
+        "Pennsylvania stub never will. This calculator does not subtract it.",
+      "Where Delaware really differs is on the other side of the ledger. It levies no state " +
+        "sales tax and lets its municipalities levy none either, one of only five states in " +
+        "that position, so state revenue comes from the income tax, a corporate franchise " +
+        "tax, a gross receipts tax on business, and abandoned property. A shopper in Newark " +
+        "or Dover pays nothing at the register that a Philadelphia shopper pays at 6% or a " +
+        "Maryland shopper at 6%. None of that touches withholding. The one local wage levy is " +
+        "the City of Wilmington's 1.25% wage tax on work performed in the city, which no " +
+        "state payroll table collects and this calculator does not model.",
+    ],
+    faqs: [
+      {
+        q: "Does Delaware have a state income tax?",
+        a: "Yes. 30 Del. C. § 1102 imposes a graduated Delaware income tax using one schedule for every filing status. The first $2,000 of Delaware taxable income is untaxed, the rates then step from 2.2% to 5.55% up to $60,000, and 6.6% applies above $60,000.",
+      },
+      {
+        q: "How much is taken out of a $64,000 salary in Delaware?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,971.58 per paycheck from a $64,000 salary: $2,461.54 gross, $211.54 federal income tax, $152.62 Social Security, $35.69 Medicare, and $90.12 Delaware income tax. That is $51,261 a year, an effective rate of about 19.9%.",
+      },
+      {
+        q: "What is Delaware's top income tax rate, and when does it start?",
+        a: "6.6%, and it starts at just $60,000 of Delaware taxable income, which is low compared with most states that graduate their rates. The Division of Revenue describes the schedule as 2.2% to 5.55% on income under $60,000 and 6.60% on income of $60,000 or more. The threshold is a fixed dollar amount with no inflation adjustment.",
+      },
+      {
+        q: "What are the Delaware standard deduction and personal credit?",
+        a: "30 Del. C. § 1108 allows a $3,250 standard deduction for a single filer or a married person filing separately and $6,500 on a joint return, plus $2,500 more if the taxpayer, or a spouse on a separate return, is 65 or older or blind. Section 1110 then gives a $110 credit for each federal personal exemption and another $110 for a resident 60 or over, limited to the tax otherwise due.",
+      },
+      {
+        q: "Does Delaware withhold state disability insurance or paid family leave?",
+        a: "Delaware has no state disability insurance program, so there is no SDI line on a Delaware stub. Delaware Paid Leave, the family and medical leave insurance program, has charged 0.8% of wages since contributions began January 1, 2025, with benefits starting January 1, 2026, and an employer may require employees to cover up to half of that, 0.4%. This calculator subtracts no SDI or paid leave premium for any state, California, New Jersey, and Washington included, so the Delaware Paid Leave share comes out of the net figure shown.",
+      },
+      {
+        q: "Do Delaware cities or counties charge a local income tax?",
+        a: "Only the City of Wilmington does, through a 1.25% wage tax on wages earned for work performed in the city. No other Delaware municipality or county levies a wage or income tax. The calculator works out the state line only, so a Wilmington employee's take-home pay is about 1.25% lower than the figure here.",
+      },
+      {
+        q: "Does Delaware charge sales tax?",
+        a: "No. Delaware has no state sales tax and no local sales tax, one of five states with neither. The state raises its revenue from the personal income tax, a corporate franchise tax, a gross receipts tax levied on business receipts, and abandoned property. A gross receipts tax is a business tax, not something withheld from an employee's paycheck.",
+      },
+      {
+        q: "Can a Delaware resident claim credit for tax paid to another state?",
+        a: "Yes. 30 Del. C. § 1111 allows a Delaware resident a credit against Delaware tax for income tax paid to another state or to the District of Columbia on income taxed by both, limited to the Delaware tax attributable to that income. A Delaware resident who works in New Jersey or Pennsylvania files Form PIT-RES and attaches the other state's return.",
+      },
+    ],
+    sources: [
+      { label: "Delaware Division of Revenue — Personal Income Tax FAQs (2.2%–5.55% under $60,000, 6.60% above)", url: "https://revenue.delaware.gov/personal-income-tax/" },
+      { label: "30 Del. C. § 1102 — Imposition and rate of tax", url: "https://delcode.delaware.gov/title30/c011/sc01/index.html#1102" },
+      { label: "30 Del. C. § 1108 — Standard deduction", url: "https://delcode.delaware.gov/title30/c011/sc02/index.html#1108" },
+      { label: "30 Del. C. § 1110 — Personal exemptions and credits", url: "https://delcode.delaware.gov/title30/c011/sc02/index.html#1110" },
+      { label: "30 Del. C. § 1111 — Credit for income tax paid to another state", url: "https://delcode.delaware.gov/title30/c011/sc02/index.html#1111" },
+      { label: "30 Del. C. § 1117 — Earned income tax credit", url: "https://delcode.delaware.gov/title30/c011/sc02/index.html#1117" },
+      { label: "Delaware Department of Labor — Delaware Paid Leave (0.8% contribution, employee share up to 50%)", url: "https://labor.delaware.gov/delaware-paid-leave/" },
+      { label: "City of Wilmington, Department of Finance — wage tax", url: "https://www.wilmingtonde.gov/government/departments/finance" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
