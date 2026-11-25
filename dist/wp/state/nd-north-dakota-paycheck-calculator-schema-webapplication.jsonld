@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "North Dakota Paycheck Calculator",
+  "url": "https://afreetools.com/finance/paycheck-calculator/north-dakota",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free North Dakota paycheck calculator. Estimate take-home pay after North Dakota's 0%-2.5% income tax, federal income tax, Social Security, and Medicare for 2026."
+}
