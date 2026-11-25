@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does North Dakota have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. N.D.C.C. § 57-38-30.3 imposes a graduated individual income tax with three bands: 0%, 1.95%, and 2.50%. For the 2025 tax year a single filer pays nothing on the first $48,475 of North Dakota taxable income, 1.95% from there to $244,825, and 2.50% above that. The dollar thresholds are adjusted for inflation each year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $66,000 salary in North Dakota?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $2,081.10 per paycheck from a $66,000 salary: $2,538.46 gross, $220.77 federal income tax, $157.38 Social Security, $36.81 Medicare, and $42.40 North Dakota income tax. That is $54,108.60 a year, an effective rate of about 18.0%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why would a North Dakota income tax return show zero tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because North Dakota starts from federal taxable income, which already reflects the federal standard deduction, and then exempts the first band of North Dakota taxable income. For 2025 that zero band runs to $48,475 for a single filer, $80,975 for a married couple filing jointly, and $64,950 for a head of household. A single filer with $66,000 of wages and the federal standard deduction has North Dakota taxable income of roughly $50,000, so the return can come out at or near zero even though this calculator's simplified three-band model shows a state line."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is North Dakota's top income tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2.50%. On the 2025 schedule it applies to North Dakota taxable income above $244,825 for a single filer, $298,075 for a married couple filing jointly, and $271,450 for a head of household. North Dakota has not had a rate above 2.9% since the 2023 rate cut."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does North Dakota withhold state disability insurance or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. North Dakota has no state disability insurance program and no state paid family leave payroll tax, so neither appears on a North Dakota stub. This calculator subtracts no SDI or paid leave premium in any state, California, New Jersey, and Washington included, so the net figures here need no adjustment on that account for North Dakota."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do North Dakota cities or counties charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. North Dakota cities and counties do not levy an income or wage tax. Local government raises money through local sales and use taxes, which are collected at the register rather than withheld from a paycheck, plus property taxes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What credits can lower a North Dakota income tax bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "N.D.C.C. § 57-38-01.28 gives a married couple filing jointly a marriage penalty credit of up to $300 per couple, adjusted for inflation with the rate bands. Subsection 4 of § 57-38-30.3 credits a resident for income tax paid to another state or to the District of Columbia on income taxed in both places. Section 57-38-01.38 allows an adoption credit equal to 10% of the federal adoption credit. The calculator applies none of them, so it shows the tax before credits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What form does a North Dakota employee file for state withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no separate state form. North Dakota relies on the federal Form W-4, and an employer works out the state withholding from the employee's taxable wages using the percentage-method or wage-bracket tables in the Office of State Tax Commissioner's annual withholding booklet. An employee who wants more or less North Dakota tax withheld asks payroll to adjust it."
+      }
+    }
+  ]
+}

@@ -5412,6 +5412,126 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-ND",
+    abbr: "nd",
+    slug: "north-dakota",
+    name: "North Dakota",
+    example: { salary: 66000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Checked against N.D.C.C. § 57-38-30.3 (imposition,
+    // three bands 0% / 1.95% / 2.50%, rate schedules inflation-adjusted annually
+    // under subd. 1.g, and the credit for tax paid to another state in subd. 4),
+    // § 57-38-01.28 (marriage penalty credit), § 57-38-01.38 (adoption credit),
+    // the Tax Commissioner's published 2025 schedule and 2026 withholding
+    // booklet, and the absence of any state disability or paid leave payroll tax.
+    hasIncomeTax: true,
+    title: "North Dakota Paycheck Calculator - Pay After ND Income Tax",
+    description:
+      "Free North Dakota paycheck calculator. Estimate take-home pay after North Dakota's 0%-2.5% income tax, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "Find out what a North Dakota paycheck actually leaves in your account. The state taxes " +
+      "wages on a three-band schedule that charges nothing at the bottom, 1.95% in the middle, " +
+      "and 2.50% at the top, so a wage earner in Fargo or Bismarck usually sends more to " +
+      "Washington than to the state capital. Enter your pay details to see net pay for one " +
+      "period, with the state, federal, and FICA lines kept separate.",
+    keyHeading: "Does North Dakota have a state income tax?",
+    keyParagraphs: [
+      "Yes, though at the lightest rates in the northern plains. Section 57-38-30.3 of the " +
+        "North Dakota Century Code imposes the individual income tax on three bands: a zero " +
+        "rate on the bottom band of North Dakota taxable income, 1.95% on the middle band, and " +
+        "2.50% above the top threshold. The Office of State Tax Commissioner's published " +
+        "schedule for the 2025 tax year puts a single filer's zero band at the first $48,475, " +
+        "the 1.95% band from there to $244,825, and 2.50% beyond it; a married couple filing " +
+        "jointly does not reach 2.50% until $298,075, and a head of household until $271,450. " +
+        "Subdivision 1.g of the same section has the Tax Commissioner restate those dollar " +
+        "amounts for inflation each year, so the percentages hold steady while the bands drift " +
+        "upward.",
+      "The tax starts from federal taxable income rather than from gross wages. Because " +
+        "subsection 2 adopts the federal figure, the federal standard deduction or your " +
+        "itemized deductions are already out of the way before North Dakota takes its cut, and " +
+        "the state then allows a short list of its own adjustments, among them a 40% exclusion " +
+        "for net long-term capital gain and qualified dividends and a subtraction for interest " +
+        "on US obligations. That ordering is why a single North Dakotan in the $60,000s can " +
+        "land under the $48,475 line and owe Bismarck nothing: the zero band sits on top of the " +
+        "federal deduction, not instead of it.",
+      "The calculator on this page compresses that schedule into three bands of 1.95%, 2.225%, " +
+        "and 2.50% and takes a $14,600 standard deduction from wages. It has no zero band, so " +
+        "its North Dakota line reads high for anyone whose North Dakota taxable income would " +
+        "fall in the statutory zero band, and it is an estimate in every case. Use it to see " +
+        "the shape of the paycheck, and the percentage-method tables in the state's withholding " +
+        "booklet to see what an employer will actually withhold.",
+    ],
+    calcSteps: [
+      "<strong>Gross pay.</strong> An annual salary divided by the number of paydays in the frequency you chose, or an hourly rate times hours including any overtime premium.",
+      "<strong>Pre-tax deductions.</strong> Traditional 401(k) contributions, HSA deposits, and Section 125 health premiums come out before either income tax is figured.",
+      "<strong>North Dakota income tax.</strong> A $14,600 deduction is taken from wages, then the balance runs through three bands of 1.95%, 2.225%, and 2.50%. The statute's schedule instead begins with a zero band that this model omits, so the state line shown here is the high side of the estimate.",
+      "<strong>Federal income tax.</strong> The federal standard deduction for your filing status, then the marginal brackets, each taxing only the income inside it.",
+      "<strong>FICA.</strong> Social Security at 6.2% up to the annual wage base, Medicare at 1.45% on all wages, and the extra 0.9% Medicare surtax once earnings pass the high-earner threshold.",
+      "<strong>State disability and paid leave: nothing to subtract.</strong> North Dakota operates no disability insurance fund and no family or medical leave payroll program, so there is no state SDI or PFL line on a North Dakota stub and none is deducted from the net figure above.",
+    ],
+    compareParagraphs: [
+      "North Dakota's neighbors make the point by contrast. South Dakota charges no individual " +
+        "income tax at all. Minnesota graduates its rates to 9.85% at the top and reaches 6.8% " +
+        "well before six figures. North Dakota's entire schedule spans 0% to 2.50%, with the top " +
+        "rate reserved for taxable income above $244,825, so a two-earner household in Fargo " +
+        "pays a marginal state rate that a comparable household across the river in Moorhead, " +
+        "Minnesota, would not see until far higher earnings.",
+      "The other half of the picture is what North Dakota does not withhold. There is no state " +
+        "disability insurance, no paid family leave premium, and no municipal or county income " +
+        "tax: cities and counties raise local revenue through sales and use taxes instead, and " +
+        "the state leans on oil and gas production taxes and property taxes to fund most of its " +
+        "budget. A North Dakota paycheck therefore carries one state line at most, and often " +
+        "none.",
+      "Two credits can trim the state bill further. Section 57-38-01.28 allows a marriage " +
+        "penalty credit of up to $300 per couple, indexed the same way the rate bands are, and " +
+        "subsection 4 of section 57-38-30.3 credits tax a resident paid another state or the " +
+        "District of Columbia on income both tax. Neither appears in the calculator's state " +
+        "line, so a return can come out below the figure shown here.",
+    ],
+    faqs: [
+      {
+        q: "Does North Dakota have a state income tax?",
+        a: "Yes. N.D.C.C. § 57-38-30.3 imposes a graduated individual income tax with three bands: 0%, 1.95%, and 2.50%. For the 2025 tax year a single filer pays nothing on the first $48,475 of North Dakota taxable income, 1.95% from there to $244,825, and 2.50% above that. The dollar thresholds are adjusted for inflation each year.",
+      },
+      {
+        q: "How much is taken out of a $66,000 salary in North Dakota?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,081.10 per paycheck from a $66,000 salary: $2,538.46 gross, $220.77 federal income tax, $157.38 Social Security, $36.81 Medicare, and $42.40 North Dakota income tax. That is $54,108.60 a year, an effective rate of about 18.0%.",
+      },
+      {
+        q: "Why would a North Dakota income tax return show zero tax?",
+        a: "Because North Dakota starts from federal taxable income, which already reflects the federal standard deduction, and then exempts the first band of North Dakota taxable income. For 2025 that zero band runs to $48,475 for a single filer, $80,975 for a married couple filing jointly, and $64,950 for a head of household. A single filer with $66,000 of wages and the federal standard deduction has North Dakota taxable income of roughly $50,000, so the return can come out at or near zero even though this calculator's simplified three-band model shows a state line.",
+      },
+      {
+        q: "What is North Dakota's top income tax rate?",
+        a: "2.50%. On the 2025 schedule it applies to North Dakota taxable income above $244,825 for a single filer, $298,075 for a married couple filing jointly, and $271,450 for a head of household. North Dakota has not had a rate above 2.9% since the 2023 rate cut.",
+      },
+      {
+        q: "Does North Dakota withhold state disability insurance or paid family leave?",
+        a: "No. North Dakota has no state disability insurance program and no state paid family leave payroll tax, so neither appears on a North Dakota stub. This calculator subtracts no SDI or paid leave premium in any state, California, New Jersey, and Washington included, so the net figures here need no adjustment on that account for North Dakota.",
+      },
+      {
+        q: "Do North Dakota cities or counties charge a local income tax?",
+        a: "No. North Dakota cities and counties do not levy an income or wage tax. Local government raises money through local sales and use taxes, which are collected at the register rather than withheld from a paycheck, plus property taxes.",
+      },
+      {
+        q: "What credits can lower a North Dakota income tax bill?",
+        a: "N.D.C.C. § 57-38-01.28 gives a married couple filing jointly a marriage penalty credit of up to $300 per couple, adjusted for inflation with the rate bands. Subsection 4 of § 57-38-30.3 credits a resident for income tax paid to another state or to the District of Columbia on income taxed in both places. Section 57-38-01.38 allows an adoption credit equal to 10% of the federal adoption credit. The calculator applies none of them, so it shows the tax before credits.",
+      },
+      {
+        q: "What form does a North Dakota employee file for state withholding?",
+        a: "There is no separate state form. North Dakota relies on the federal Form W-4, and an employer works out the state withholding from the employee's taxable wages using the percentage-method or wage-bracket tables in the Office of State Tax Commissioner's annual withholding booklet. An employee who wants more or less North Dakota tax withheld asks payroll to adjust it.",
+      },
+    ],
+    sources: [
+      { label: "North Dakota Office of State Tax Commissioner — Individual Income Tax (2025 rate schedule, 0% / 1.95% / 2.50%)", url: "https://www.tax.nd.gov/individual-income-tax" },
+      { label: "N.D.C.C. § 57-38-30.3 — Individual, estate, and trust income tax", url: "https://ndlegis.gov/cencode/t57c38.html" },
+      { label: "N.D.C.C. ch. 57-38 — Income Tax (incl. § 57-38-01.28 marriage penalty credit and § 57-38-01.38 adoption credit)", url: "https://ndlegis.gov/cencode/t57c38.pdf" },
+      { label: "North Dakota Office of State Tax Commissioner — Income Tax Withholding (federal Form W-4, 2026 rates and instructions)", url: "https://www.tax.nd.gov/income-tax-withholding" },
+      { label: "North Dakota Income Tax Withholding Rates and Instructions, 2026 calendar year", url: "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2026-iit/2026-income-tax-withholding-rates-booklet.pdf" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>

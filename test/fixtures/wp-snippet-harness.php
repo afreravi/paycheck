@@ -13,6 +13,11 @@ $slug    = $argv[2] ?? 'paycheck-calculator';
 $GLOBALS['head'] = '';
 $GLOBALS['enqueued'] = [];
 
+// WordPress core constant the snippets use to version the engine by mtime.
+if (!defined('WP_CONTENT_DIR')) {
+    define('WP_CONTENT_DIR', sys_get_temp_dir() . '/wp-content');
+}
+
 function add_action($hook, $fn) { $GLOBALS['actions'][$hook][] = $fn; }
 function is_page($s) { return is_array($s) ? in_array($GLOBALS['slug'], $s, true) : $s === $GLOBALS['slug']; }
 function content_url($p) { return 'https://afreetools.com/wp-content' . $p; }
