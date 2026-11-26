@@ -4,35 +4,38 @@
   "version": "2026.1",
   "effective_from": "2026-01-01",
   "effective_to": null,
-  "source_url": "https://www.taxadmin.org/state-tax-rates",
-  "last_verified": "2026-10-02",
+  "source_url": "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/",
+  "last_verified": "2026-11-26",
   "verified_by": null,
-  "verification": "estimate",
-  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "verification": "secondary",
+  "note": "SECONDARY TIER: Rate schedule and deduction transcribed from the Tax Foundation's 2026 table, which cites state statutes, forms and instructions; not yet checked against the state DOR. Excludes local and city income taxes and state credits, and applies personal exemptions at full value.",
+  "sources": [
+    "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/"
+  ],
   "no_income_tax": false,
   "income_tax": {
     "method": "annualized_brackets",
     "standard_deduction": {
-      "single": 10550,
-      "mfj": 21100,
-      "mfs": 10550,
-      "hoh": 15825
+      "single": 11200,
+      "mfj": 22400,
+      "mfs": 11200,
+      "hoh": 11200
     },
     "exemptions": null,
     "brackets": {
       "single": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 82050,
           "rate": 0.0375
         },
         {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.0487
+          "min": 82050,
+          "max": 186450,
+          "rate": 0.0475
         },
         {
-          "min": 100000,
+          "min": 186450,
           "max": null,
           "rate": 0.0599
         }
@@ -40,16 +43,16 @@
       "mfj": [
         {
           "min": 0,
-          "max": 30000,
+          "max": 82050,
           "rate": 0.0375
         },
         {
-          "min": 30000,
-          "max": 200000,
-          "rate": 0.0487
+          "min": 82050,
+          "max": 186450,
+          "rate": 0.0475
         },
         {
-          "min": 200000,
+          "min": 186450,
           "max": null,
           "rate": 0.0599
         }
@@ -57,16 +60,16 @@
       "mfs": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 41025,
           "rate": 0.0375
         },
         {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.0487
+          "min": 41025,
+          "max": 93225,
+          "rate": 0.0475
         },
         {
-          "min": 100000,
+          "min": 93225,
           "max": null,
           "rate": 0.0599
         }
@@ -74,16 +77,16 @@
       "hoh": [
         {
           "min": 0,
-          "max": 22500,
+          "max": 82050,
           "rate": 0.0375
         },
         {
-          "min": 22500,
-          "max": 150000,
-          "rate": 0.0487
+          "min": 82050,
+          "max": 186450,
+          "rate": 0.0475
         },
         {
-          "min": 150000,
+          "min": 186450,
           "max": null,
           "rate": 0.0599
         }

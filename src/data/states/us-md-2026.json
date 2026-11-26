@@ -4,88 +4,231 @@
   "version": "2026.1",
   "effective_from": "2026-01-01",
   "effective_to": null,
-  "source_url": "https://www.taxadmin.org/state-tax-rates",
-  "last_verified": "2026-10-02",
+  "source_url": "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/",
+  "last_verified": "2026-11-26",
   "verified_by": null,
-  "verification": "estimate",
-  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "verification": "secondary",
+  "note": "SECONDARY TIER: Rate schedule and deduction transcribed from the Tax Foundation's 2026 table, which cites state statutes, forms and instructions; not yet checked against the state DOR. Excludes local and city income taxes and state credits, and applies personal exemptions at full value. Maryland's county income tax (about 2.25% to 3.2%) is excluded, so the state figure reads low for most filers.",
+  "sources": [
+    "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/"
+  ],
   "no_income_tax": false,
   "income_tax": {
     "method": "annualized_brackets",
     "standard_deduction": {
-      "single": 2400,
-      "mfj": 4800,
-      "mfs": 2400,
-      "hoh": 3600
+      "single": 3350,
+      "mfj": 6700,
+      "mfs": 3350,
+      "hoh": 3350
     },
     "exemptions": null,
     "brackets": {
       "single": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 1000,
           "rate": 0.02
         },
         {
-          "min": 15000,
+          "min": 1000,
+          "max": 2000,
+          "rate": 0.03
+        },
+        {
+          "min": 2000,
+          "max": 3000,
+          "rate": 0.04
+        },
+        {
+          "min": 3000,
           "max": 100000,
-          "rate": 0.03875
+          "rate": 0.0475
         },
         {
           "min": 100000,
-          "max": null,
+          "max": 125000,
+          "rate": 0.05
+        },
+        {
+          "min": 125000,
+          "max": 150000,
+          "rate": 0.0525
+        },
+        {
+          "min": 150000,
+          "max": 250000,
+          "rate": 0.055
+        },
+        {
+          "min": 250000,
+          "max": 500000,
           "rate": 0.0575
+        },
+        {
+          "min": 500000,
+          "max": 1000000,
+          "rate": 0.0625
+        },
+        {
+          "min": 1000000,
+          "max": null,
+          "rate": 0.065
         }
       ],
       "mfj": [
         {
           "min": 0,
-          "max": 30000,
+          "max": 1000,
           "rate": 0.02
         },
         {
-          "min": 30000,
-          "max": 200000,
-          "rate": 0.03875
+          "min": 1000,
+          "max": 2000,
+          "rate": 0.03
         },
         {
-          "min": 200000,
-          "max": null,
+          "min": 2000,
+          "max": 3000,
+          "rate": 0.04
+        },
+        {
+          "min": 3000,
+          "max": 150000,
+          "rate": 0.0475
+        },
+        {
+          "min": 150000,
+          "max": 175000,
+          "rate": 0.05
+        },
+        {
+          "min": 175000,
+          "max": 225000,
+          "rate": 0.0525
+        },
+        {
+          "min": 225000,
+          "max": 300000,
+          "rate": 0.055
+        },
+        {
+          "min": 300000,
+          "max": 600000,
           "rate": 0.0575
+        },
+        {
+          "min": 600000,
+          "max": 1200000,
+          "rate": 0.0625
+        },
+        {
+          "min": 1200000,
+          "max": null,
+          "rate": 0.065
         }
       ],
       "mfs": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 500,
           "rate": 0.02
         },
         {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.03875
+          "min": 500,
+          "max": 1000,
+          "rate": 0.03
         },
         {
-          "min": 100000,
-          "max": null,
+          "min": 1000,
+          "max": 1500,
+          "rate": 0.04
+        },
+        {
+          "min": 1500,
+          "max": 75000,
+          "rate": 0.0475
+        },
+        {
+          "min": 75000,
+          "max": 87500,
+          "rate": 0.05
+        },
+        {
+          "min": 87500,
+          "max": 112500,
+          "rate": 0.0525
+        },
+        {
+          "min": 112500,
+          "max": 150000,
+          "rate": 0.055
+        },
+        {
+          "min": 150000,
+          "max": 300000,
           "rate": 0.0575
+        },
+        {
+          "min": 300000,
+          "max": 600000,
+          "rate": 0.0625
+        },
+        {
+          "min": 600000,
+          "max": null,
+          "rate": 0.065
         }
       ],
       "hoh": [
         {
           "min": 0,
-          "max": 22500,
+          "max": 1000,
           "rate": 0.02
         },
         {
-          "min": 22500,
+          "min": 1000,
+          "max": 2000,
+          "rate": 0.03
+        },
+        {
+          "min": 2000,
+          "max": 3000,
+          "rate": 0.04
+        },
+        {
+          "min": 3000,
+          "max": 100000,
+          "rate": 0.0475
+        },
+        {
+          "min": 100000,
+          "max": 125000,
+          "rate": 0.05
+        },
+        {
+          "min": 125000,
           "max": 150000,
-          "rate": 0.03875
+          "rate": 0.0525
         },
         {
           "min": 150000,
-          "max": null,
+          "max": 250000,
+          "rate": 0.055
+        },
+        {
+          "min": 250000,
+          "max": 500000,
           "rate": 0.0575
+        },
+        {
+          "min": 500000,
+          "max": 1000000,
+          "rate": 0.0625
+        },
+        {
+          "min": 1000000,
+          "max": null,
+          "rate": 0.065
         }
       ]
     }

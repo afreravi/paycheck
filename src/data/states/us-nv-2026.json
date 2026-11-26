@@ -7,8 +7,11 @@
   "source_url": "https://www.taxadmin.org/state-tax-rates",
   "last_verified": "2026-10-02",
   "verified_by": null,
-  "verification": "estimate",
-  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "verification": "secondary",
+  "note": "SECONDARY TIER: no wage income tax on wages, per the Tax Foundation, 2026 State Individual Income Tax Rates and Brackets.",
+  "sources": [
+    "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/"
+  ],
   "no_income_tax": true,
   "income_tax": null,
   "sdi": null,

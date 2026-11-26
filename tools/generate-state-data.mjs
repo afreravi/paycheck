@@ -8,7 +8,7 @@
  * Brackets must be replaced with verified state DOR figures before any
  * payroll-grade use.
  */
-import { writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -147,25 +147,98 @@ const VERIFIED = {
   }),
 };
 
+const TF_SOURCE = JSON.parse(
+  readFileSync(join(__dirname, "..", "src", "data", "tax-foundation-2026.json"), "utf8"),
+);
+const TF = TF_SOURCE.states;
+
+/**
+ * Brackets from the Tax Foundation table. The table lists only positive rates,
+ * so a state whose first threshold is above zero (Idaho, Mississippi, Ohio)
+ * starts with a 0% band rather than taxing the first dollars at its entry rate.
+ */
+function tfBrackets(pairs, scale = 1) {
+  const out = [];
+  if (pairs[0][0] > 0) out.push({ min: 0, max: Math.round(pairs[0][0] * scale), rate: 0 });
+  for (let i = 0; i < pairs.length; i += 1) {
+    const [min, rate] = pairs[i];
+    const next = i + 1 < pairs.length ? Math.round(pairs[i + 1][0] * scale) : null;
+    out.push({ min: Math.round(min * scale), max: next, rate });
+  }
+  return out;
+}
+
+const TF_MODEL_NOTE =
+  "Rate schedule and deduction transcribed from the Tax Foundation's 2026 " +
+  "table, which cites state statutes, forms and instructions; not yet checked " +
+  "against the state DOR. Excludes local and city income taxes and state " +
+  "credits, and applies personal exemptions at full value.";
+
+// States whose divergence from this model is large enough to name in the record.
+const TF_CAVEAT = {
+  UT: "Utah replaced its deduction with a taxpayer tax credit, which this model does not apply; the state figure reads high.",
+  PA: "Pennsylvania has no standard deduction or personal exemption, and the tax forgiveness credit for low incomes is not modelled.",
+  CT: "Connecticut's $15,000 personal exemption phases out at higher incomes and is applied here at full value.",
+  OH: "Ohio's personal exemption phases out above roughly $40,000 of income and is applied here at full value; municipal income taxes are excluded.",
+  MD: "Maryland's county income tax (about 2.25% to 3.2%) is excluded, so the state figure reads low for most filers.",
+  IN: "Indiana's county Local Income Tax is excluded, so the state figure reads low.",
+  NY: "New York City and Yonkers resident taxes are excluded.",
+  AL: "Alabama allows a deduction for federal income tax paid, which this model does not apply.",
+};
+
+function tfRecord(code) {
+  const s = TF[code];
+  if (!s || s.single.length === 0) return null;
+  const single = s.deduction.single ?? s.personal_exemption.single ?? 0;
+  const couple =
+    s.deduction.couple ?? s.personal_exemption.couple ?? s.personal_exemption.single * 2 ?? single * 2;
+  return {
+    standard_deduction: {
+      single,
+      mfj: couple,
+      mfs: Math.round(couple / 2),
+      hoh: single,
+    },
+    brackets: {
+      single: tfBrackets(s.single),
+      mfj: tfBrackets(s.mfj),
+      // Half of the jointly-filed thresholds is the usual convention for
+      // married-filing-separately; headed-of-household reuses the single
+      // schedule. Both are modelled rather than read, and are flagged as such.
+      mfs: tfBrackets(s.mfj, 0.5),
+      hoh: tfBrackets(s.single),
+    },
+  };
+}
+
 function buildRecord(code, name, noTax, low, top, stdDed, year) {
   const jurisdiction = `US-${code}`;
   const verified = VERIFIED[code]?.(year);
+  const tfState = year === 2026 ? TF[code] : null;
+  const tfNoTax = !!tfState && tfState.single.length === 0;
+  const tf = !verified && year === 2026 && !noTax ? tfRecord(code) : null;
+  const tier = verified ? "verified" : tf || (noTax && tfNoTax) ? "secondary" : "estimate";
   const base = {
     jurisdiction,
     tax_year: year,
     version: `${year}.1`,
     effective_from: `${year}-01-01`,
     effective_to: year === 2025 ? "2025-12-31" : null,
-    source_url: verified?.source_url ?? "https://www.taxadmin.org/state-tax-rates",
-    last_verified: verified ? "2026-11-24" : "2026-10-02",
-    // A placeholder must not claim a reviewer. Estimate-tier records carry null.
+    source_url: verified?.source_url ?? (tf ? TF_SOURCE.source_url : "https://www.taxadmin.org/state-tax-rates"),
+    last_verified: verified ? "2026-11-24" : tf ? TF_SOURCE.retrieved : "2026-10-02",
+    // No record may claim a reviewer who has not read it.
     verified_by: verified ? "data-owner" : null,
-    verification: verified ? "verified" : "estimate",
+    verification: tier,
     note: verified
       ? verified.note
-      : "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+      : noTax && tfNoTax
+        ? `SECONDARY TIER: no wage income tax on wages, per the ${TF_SOURCE.source}.`
+      : tf
+        ? `SECONDARY TIER: ${TF_MODEL_NOTE}${TF_CAVEAT[code] ? ` ${TF_CAVEAT[code]}` : ""}`
+        : "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
   };
   if (verified?.sources) base.sources = verified.sources;
+  if (tf || (noTax && tfNoTax)) base.sources = [TF_SOURCE.source_url];
 
   if (noTax) {
     return {
@@ -207,14 +280,14 @@ function buildRecord(code, name, noTax, low, top, stdDed, year) {
     no_income_tax: false,
     income_tax: {
       method: "annualized_brackets",
-      standard_deduction: verified?.standard_deduction ?? {
+      standard_deduction: verified?.standard_deduction ?? tf?.standard_deduction ?? {
         single: stdDed,
         mfj: stdDed * 2,
         mfs: stdDed,
         hoh: Math.round(stdDed * 1.5),
       },
       exemptions: null,
-      brackets: verified?.brackets ?? brackets,
+      brackets: verified?.brackets ?? tf?.brackets ?? brackets,
     },
     sdi: null,
     paid_leave: null,

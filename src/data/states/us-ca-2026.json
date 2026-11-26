@@ -4,11 +4,14 @@
   "version": "2026.1",
   "effective_from": "2026-01-01",
   "effective_to": null,
-  "source_url": "https://www.taxadmin.org/state-tax-rates",
-  "last_verified": "2026-10-02",
+  "source_url": "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/",
+  "last_verified": "2026-11-26",
   "verified_by": null,
-  "verification": "estimate",
-  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "verification": "secondary",
+  "note": "SECONDARY TIER: Rate schedule and deduction transcribed from the Tax Foundation's 2026 table, which cites state statutes, forms and instructions; not yet checked against the state DOR. Excludes local and city income taxes and state credits, and applies personal exemptions at full value.",
+  "sources": [
+    "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/"
+  ],
   "no_income_tax": false,
   "income_tax": {
     "method": "annualized_brackets",
@@ -16,23 +19,58 @@
       "single": 5540,
       "mfj": 11080,
       "mfs": 5540,
-      "hoh": 8310
+      "hoh": 5540
     },
     "exemptions": null,
     "brackets": {
       "single": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 11079,
           "rate": 0.01
         },
         {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.0715
+          "min": 11079,
+          "max": 26264,
+          "rate": 0.02
         },
         {
-          "min": 100000,
+          "min": 26264,
+          "max": 41452,
+          "rate": 0.04
+        },
+        {
+          "min": 41452,
+          "max": 57542,
+          "rate": 0.06
+        },
+        {
+          "min": 57542,
+          "max": 72724,
+          "rate": 0.08
+        },
+        {
+          "min": 72724,
+          "max": 371479,
+          "rate": 0.093
+        },
+        {
+          "min": 371479,
+          "max": 445771,
+          "rate": 0.103
+        },
+        {
+          "min": 445771,
+          "max": 742953,
+          "rate": 0.113
+        },
+        {
+          "min": 742953,
+          "max": 1000000,
+          "rate": 0.123
+        },
+        {
+          "min": 1000000,
           "max": null,
           "rate": 0.133
         }
@@ -40,16 +78,51 @@
       "mfj": [
         {
           "min": 0,
-          "max": 30000,
+          "max": 22158,
           "rate": 0.01
         },
         {
-          "min": 30000,
-          "max": 200000,
-          "rate": 0.0715
+          "min": 22158,
+          "max": 52528,
+          "rate": 0.02
         },
         {
-          "min": 200000,
+          "min": 52528,
+          "max": 82904,
+          "rate": 0.04
+        },
+        {
+          "min": 82904,
+          "max": 115084,
+          "rate": 0.06
+        },
+        {
+          "min": 115084,
+          "max": 145448,
+          "rate": 0.08
+        },
+        {
+          "min": 145448,
+          "max": 742958,
+          "rate": 0.093
+        },
+        {
+          "min": 742958,
+          "max": 891542,
+          "rate": 0.103
+        },
+        {
+          "min": 891542,
+          "max": 1000000,
+          "rate": 0.113
+        },
+        {
+          "min": 1000000,
+          "max": 1485906,
+          "rate": 0.123
+        },
+        {
+          "min": 1485906,
           "max": null,
           "rate": 0.133
         }
@@ -57,16 +130,51 @@
       "mfs": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 11079,
           "rate": 0.01
         },
         {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.0715
+          "min": 11079,
+          "max": 26264,
+          "rate": 0.02
         },
         {
-          "min": 100000,
+          "min": 26264,
+          "max": 41452,
+          "rate": 0.04
+        },
+        {
+          "min": 41452,
+          "max": 57542,
+          "rate": 0.06
+        },
+        {
+          "min": 57542,
+          "max": 72724,
+          "rate": 0.08
+        },
+        {
+          "min": 72724,
+          "max": 371479,
+          "rate": 0.093
+        },
+        {
+          "min": 371479,
+          "max": 445771,
+          "rate": 0.103
+        },
+        {
+          "min": 445771,
+          "max": 500000,
+          "rate": 0.113
+        },
+        {
+          "min": 500000,
+          "max": 742953,
+          "rate": 0.123
+        },
+        {
+          "min": 742953,
           "max": null,
           "rate": 0.133
         }
@@ -74,16 +182,51 @@
       "hoh": [
         {
           "min": 0,
-          "max": 22500,
+          "max": 11079,
           "rate": 0.01
         },
         {
-          "min": 22500,
-          "max": 150000,
-          "rate": 0.0715
+          "min": 11079,
+          "max": 26264,
+          "rate": 0.02
         },
         {
-          "min": 150000,
+          "min": 26264,
+          "max": 41452,
+          "rate": 0.04
+        },
+        {
+          "min": 41452,
+          "max": 57542,
+          "rate": 0.06
+        },
+        {
+          "min": 57542,
+          "max": 72724,
+          "rate": 0.08
+        },
+        {
+          "min": 72724,
+          "max": 371479,
+          "rate": 0.093
+        },
+        {
+          "min": 371479,
+          "max": 445771,
+          "rate": 0.103
+        },
+        {
+          "min": 445771,
+          "max": 742953,
+          "rate": 0.113
+        },
+        {
+          "min": 742953,
+          "max": 1000000,
+          "rate": 0.123
+        },
+        {
+          "min": 1000000,
           "max": null,
           "rate": 0.133
         }
