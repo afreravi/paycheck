@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Vermont have a state income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. 32 V.S.A. § 5822 taxes individual income at four rates: 3.35%, 6.6%, 7.6%, and 8.75%. For 2025 a single filer pays 3.35% on the first $49,400 of Vermont taxable income, 6.6% to $119,700, 7.6% to $249,700, and 8.75% above that. The dollar thresholds are adjusted for inflation every year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is taken out of a $64,000 salary in Vermont?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 2026, a single filer paid biweekly takes home about $1,943.47 per paycheck from a $64,000 salary: $2,461.54 gross, $211.54 federal income tax, $152.62 Social Security, $35.69 Medicare, and $118.22 Vermont income tax. That is $50,530.25 a year, an effective rate of about 21.1%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Vermont's top income tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "8.75%. On the 2025 Schedule X it applies to Vermont taxable income above $249,700 for a single filer, $304,000 for a married couple filing jointly, and $276,850 for a head of household. The bands are indexed for inflation each year under 32 V.S.A. § 5822(b)(2)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can Vermont tax exceed the bracket table?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because of the alternative in 32 V.S.A. § 5822(a)(6). When federal adjusted gross income is over $150,000, Vermont tax is the greater of the rate-schedule result or 3% of federal AGI less interest from US obligations. A filer with income outside the wage line can therefore owe more than the brackets alone imply. This calculator does not apply that floor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Vermont withhold state disability insurance or paid family leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Vermont has no state disability insurance payroll tax and no paid family leave premium; its family and parental leave law, expanded by Act 32 of 2025, requires unpaid leave. The one extra payroll line is the Child Care Contribution: an employer pays 0.44% of wages and may withhold up to 0.11% from the employee. This calculator subtracts no SDI or leave premium anywhere, so the net figure here needs no adjustment except for that possible 0.11% child care withholding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Vermont cities or towns charge a local income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Vermont municipalities do not levy a wage or income tax. They raise revenue mainly through the property tax, including the homestead education tax, which is assessed on property rather than withheld from a paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What standard deduction does Vermont allow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 2025 Vermont return allows $7,650 for a single filer or a married person filing separately, $15,300 for a married couple filing jointly, and $11,450 for a head of household. The calculator on this page uses a flat $6,500 deduction in its simplified model, so its Vermont line runs slightly high against the statutory return."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What form does a Vermont employee file for state withholding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vermont Form W-4VT, Employee's Withholding Allowance Certificate. Employers use the allowances on it, together with the Department of Taxes' withholding tables, to work out Vermont income tax withholding. It is filed with the employer, not with the state, and is separate from the federal Form W-4."
+      }
+    }
+  ]
+}

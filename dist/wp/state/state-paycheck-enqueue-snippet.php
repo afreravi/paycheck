@@ -263,6 +263,11 @@ function state_paycheck_pages() {
             'url'         => 'https://afreetools.com/finance/paycheck-calculator/north-dakota',
             'description' => 'Free North Dakota paycheck calculator. Estimate take-home pay after North Dakota\'s 0%-2.5% income tax, federal income tax, Social Security, and Medicare for 2026.',
         ),
+        'vermont' => array(
+            'name'        => 'Vermont Paycheck Calculator',
+            'url'         => 'https://afreetools.com/finance/paycheck-calculator/vermont',
+            'description' => 'Free Vermont paycheck calculator. Estimate take-home pay after Vermont\'s 3.35%-8.75% income tax, federal income tax, Social Security, and Medicare for 2026.',
+        ),
     );
 }
 
@@ -272,7 +277,7 @@ function state_paycheck_pages() {
  * national calculator page and unrelated pages.
  */
 function state_paycheck_current_page() {
-    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'hawaii', 'idaho', 'west-virginia', 'new-hampshire', 'maine', 'south-dakota', 'alaska', 'wyoming', 'montana', 'rhode-island', 'delaware', 'north-dakota' ) ) ) {
+    if ( ! is_page( array( 'texas', 'california', 'new-york', 'florida', 'pennsylvania', 'ohio', 'illinois', 'georgia', 'north-carolina', 'new-jersey', 'michigan', 'virginia', 'washington', 'massachusetts', 'arizona', 'tennessee', 'indiana', 'maryland', 'missouri', 'wisconsin', 'colorado', 'minnesota', 'kentucky', 'louisiana', 'alabama', 'south-carolina', 'oregon', 'oklahoma', 'connecticut', 'utah', 'iowa', 'nevada', 'arkansas', 'mississippi', 'kansas', 'nebraska', 'new-mexico', 'hawaii', 'idaho', 'west-virginia', 'new-hampshire', 'maine', 'south-dakota', 'alaska', 'wyoming', 'montana', 'rhode-island', 'delaware', 'north-dakota', 'vermont' ) ) ) {
         return '';
     }
     return (string) get_post_field( 'post_name', get_queried_object_id() );
