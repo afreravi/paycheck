@@ -5532,6 +5532,114 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-VT",
+    abbr: "vt",
+    slug: "vermont",
+    name: "Vermont",
+    example: { salary: 64000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Checked against 32 V.S.A. § 5822 (four rates
+    // 3.35% / 6.6% / 7.6% / 8.75%, the annual inflation adjustment in subd.
+    // (b)(2), and the 3%-of-federal-AGI floor above $150,000 in subd. (a)(6)),
+    // the Department of Taxes' 2025 Schedule X, and the Child Care Contribution
+    // created by Act 76 of 2023. Vermont has no SDI and its family leave is unpaid.
+    hasIncomeTax: true,
+    title: "Vermont Paycheck Calculator - Take-Home Pay After VT Tax",
+    description:
+      "Free Vermont paycheck calculator. Estimate take-home pay after Vermont's 3.35%-8.75% income tax, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "See what a Vermont paycheck leaves after tax. Vermont graduates four rates up to " +
+      "8.75% and switches to a 3% floor once federal adjusted gross income passes " +
+      "$150,000, so the state deduction on a Burlington or Rutland stub is often the " +
+      "largest non-federal line. Enter your salary and pay frequency to get net pay for " +
+      "one period, with Vermont, federal, and FICA kept apart.",
+    keyHeading: "Does Vermont have a state income tax?",
+    keyParagraphs: [
+      "Yes. Section 5822 of Title 32 of the Vermont Statutes Annotated sets four rates for " +
+        "individuals: 3.35%, 6.6%, 7.6%, and 8.75%. On the Department of Taxes' 2025 " +
+        "Schedule X a single filer pays 3.35% on the first $49,400 of Vermont taxable " +
+        "income, 6.6% from there to $119,700, 7.6% to $249,700, and 8.75% above that. A " +
+        "married couple filing jointly does not reach the top rate until $304,000, and a " +
+        "head of household until $276,850. Subsection (b)(2) requires the Commissioner of " +
+        "Taxes to restate the thresholds for inflation each year, so the percentages stay " +
+        "fixed while the bands move up.",
+      "Subdivision (a)(6) adds a floor that the bracket table does not show. Once federal " +
+        "adjusted gross income passes $150,000, Vermont tax is the greater of the schedule " +
+        "result or 3% of federal AGI with interest from US obligations removed. A household " +
+        "with large capital gains or other income outside the wage line can therefore owe " +
+        "Vermont more than its Vermont taxable income alone would suggest.",
+      "The calculator on this page uses a shorter version of the schedule: three bands of " +
+        "3.35%, 6.05%, and 8.75% on wages after a $6,500 standard deduction. The 2025 " +
+        "Vermont return allows a $7,650 standard deduction for a single filer, and the " +
+        "model applies neither the 3% floor nor Vermont's credits. Read the state line as " +
+        "an estimate, and use Form W-4VT and the Department's withholding tables when the " +
+        "exact deduction matters.",
+    ],
+    calcSteps: [
+      "<strong>Start with gross wages.</strong> Annual salary divided by the paydays in the frequency you picked, or an hourly rate times hours, with time and a half added for overtime.",
+      "<strong>Remove pre-tax benefits.</strong> Traditional 401(k) and 403(b) contributions, HSA deposits, and Section 125 health premiums leave the wage base before Vermont or federal income tax is worked out.",
+      "<strong>Charge Vermont income tax.</strong> A $6,500 deduction comes off wages, then 3.35% applies to the first band, 6.05% to the middle, and 8.75% to the top. The statutory schedule has four bands and a larger deduction, so this line is an approximation.",
+      "<strong>Charge federal income tax.</strong> The federal standard deduction for the filing status, followed by the marginal brackets, each taking only the income that falls inside it.",
+      "<strong>Add FICA.</strong> 6.2% for Social Security up to the annual wage base, 1.45% for Medicare on every dollar, and the 0.9% additional Medicare tax above the high-earner threshold.",
+      "<strong>Leave the Child Care Contribution and leave premiums out.</strong> Vermont has no disability insurance payroll tax and no paid family leave premium. Its Child Care Contribution is a 0.44% employer payroll tax, of which an employer may withhold at most 0.11% from the employee. This calculator subtracts none of it, so net pay here is at most 0.11% high.",
+    ],
+    compareParagraphs: [
+      "Vermont's top rate is the steepest in northern New England. New Hampshire taxes no " +
+        "wages at all, Massachusetts charges a flat 5% (plus a 4% surtax above $1 million), " +
+        "and Maine's graduated schedule tops out at 7.15%. Vermont reaches 8.75% at " +
+        "$249,700 of taxable income for a single filer, so a salary that nets the same in " +
+        "Manchester, New Hampshire and in Burlington does not net the same after state tax.",
+      "What Vermont does not take from a paycheck is also part of the picture. There is no " +
+        "state disability fund, no paid family leave premium, and no city or town wage tax; " +
+        "local government in Vermont lives on the property tax, including the homestead " +
+        "education tax, which is billed separately rather than withheld. The Child Care " +
+        "Contribution is the one payroll line besides income tax, and most of it falls on " +
+        "the employer.",
+    ],
+    faqs: [
+      {
+        q: "Does Vermont have a state income tax?",
+        a: "Yes. 32 V.S.A. § 5822 taxes individual income at four rates: 3.35%, 6.6%, 7.6%, and 8.75%. For 2025 a single filer pays 3.35% on the first $49,400 of Vermont taxable income, 6.6% to $119,700, 7.6% to $249,700, and 8.75% above that. The dollar thresholds are adjusted for inflation every year.",
+      },
+      {
+        q: "How much is taken out of a $64,000 salary in Vermont?",
+        a: "For 2026, a single filer paid biweekly takes home about $1,943.47 per paycheck from a $64,000 salary: $2,461.54 gross, $211.54 federal income tax, $152.62 Social Security, $35.69 Medicare, and $118.22 Vermont income tax. That is $50,530.25 a year, an effective rate of about 21.1%.",
+      },
+      {
+        q: "What is Vermont's top income tax rate?",
+        a: "8.75%. On the 2025 Schedule X it applies to Vermont taxable income above $249,700 for a single filer, $304,000 for a married couple filing jointly, and $276,850 for a head of household. The bands are indexed for inflation each year under 32 V.S.A. § 5822(b)(2).",
+      },
+      {
+        q: "Why can Vermont tax exceed the bracket table?",
+        a: "Because of the alternative in 32 V.S.A. § 5822(a)(6). When federal adjusted gross income is over $150,000, Vermont tax is the greater of the rate-schedule result or 3% of federal AGI less interest from US obligations. A filer with income outside the wage line can therefore owe more than the brackets alone imply. This calculator does not apply that floor.",
+      },
+      {
+        q: "Does Vermont withhold state disability insurance or paid family leave?",
+        a: "No. Vermont has no state disability insurance payroll tax and no paid family leave premium; its family and parental leave law, expanded by Act 32 of 2025, requires unpaid leave. The one extra payroll line is the Child Care Contribution: an employer pays 0.44% of wages and may withhold up to 0.11% from the employee. This calculator subtracts no SDI or leave premium anywhere, so the net figure here needs no adjustment except for that possible 0.11% child care withholding.",
+      },
+      {
+        q: "Do Vermont cities or towns charge a local income tax?",
+        a: "No. Vermont municipalities do not levy a wage or income tax. They raise revenue mainly through the property tax, including the homestead education tax, which is assessed on property rather than withheld from a paycheck.",
+      },
+      {
+        q: "What standard deduction does Vermont allow?",
+        a: "The 2025 Vermont return allows $7,650 for a single filer or a married person filing separately, $15,300 for a married couple filing jointly, and $11,450 for a head of household. The calculator on this page uses a flat $6,500 deduction in its simplified model, so its Vermont line runs slightly high against the statutory return.",
+      },
+      {
+        q: "What form does a Vermont employee file for state withholding?",
+        a: "Vermont Form W-4VT, Employee's Withholding Allowance Certificate. Employers use the allowances on it, together with the Department of Taxes' withholding tables, to work out Vermont income tax withholding. It is filed with the employer, not with the state, and is separate from the federal Form W-4.",
+      },
+    ],
+    sources: [
+      { label: "Vermont Department of Taxes — Personal Income Tax", url: "https://tax.vermont.gov/individuals/personal-income-tax" },
+      { label: "Vermont Department of Taxes — 2025 Tax Rate Schedules and Tables (Schedule X, single filer)", url: "https://tax.vermont.gov/individuals/personal-income-tax/rates" },
+      { label: "32 V.S.A. § 5822 — Tax on income of individuals, trusts, and estates", url: "https://legislature.vermont.gov/statutes/section/32/151/05822" },
+      { label: "Vermont Department of Taxes — Income Tax Withholding (Form W-4VT)", url: "https://tax.vermont.gov/individuals/personal-income-tax/withholding" },
+      { label: "Vermont Department of Taxes — Child Care Contribution (Act 76 of 2023, 0.44% employer payroll tax)", url: "https://tax.vermont.gov/business/child-care-contribution" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
