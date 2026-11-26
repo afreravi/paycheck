@@ -10,7 +10,7 @@
   "verification": "verified",
   "note": "Verified: Florida levies no personal income tax. Article VII, section 5(a) of the Florida Constitution prohibits a tax on the income of natural persons.",
   "sources": [
-    "https://www.flsenate.gov/Laws/Constitution"
+    "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/"
   ],
   "no_income_tax": true,
   "income_tax": null,

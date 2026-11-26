@@ -4,11 +4,14 @@
   "version": "2026.1",
   "effective_from": "2026-01-01",
   "effective_to": null,
-  "source_url": "https://www.taxadmin.org/state-tax-rates",
-  "last_verified": "2026-10-02",
+  "source_url": "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/",
+  "last_verified": "2026-11-26",
   "verified_by": null,
-  "verification": "estimate",
-  "note": "ESTIMATE TIER: simplified progressive bands approximating state marginal rates. Verify against state DOR tables before production payroll use.",
+  "verification": "secondary",
+  "note": "SECONDARY TIER: Rate schedule and deduction transcribed from the Tax Foundation's 2026 table, which cites state statutes, forms and instructions; not yet checked against the state DOR. Excludes local and city income taxes and state credits, and applies personal exemptions at full value.",
+  "sources": [
+    "https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/"
+  ],
   "no_income_tax": false,
   "income_tax": {
     "method": "annualized_brackets",
@@ -16,23 +19,43 @@
       "single": 1000,
       "mfj": 2000,
       "mfs": 1000,
-      "hoh": 1500
+      "hoh": 1000
     },
     "exemptions": null,
     "brackets": {
       "single": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 20000,
           "rate": 0.014
         },
         {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.06075
+          "min": 20000,
+          "max": 35000,
+          "rate": 0.0175
         },
         {
-          "min": 100000,
+          "min": 35000,
+          "max": 40000,
+          "rate": 0.035
+        },
+        {
+          "min": 40000,
+          "max": 75000,
+          "rate": 0.0553
+        },
+        {
+          "min": 75000,
+          "max": 500000,
+          "rate": 0.0637
+        },
+        {
+          "min": 500000,
+          "max": 1000000,
+          "rate": 0.0897
+        },
+        {
+          "min": 1000000,
           "max": null,
           "rate": 0.1075
         }
@@ -40,16 +63,41 @@
       "mfj": [
         {
           "min": 0,
-          "max": 30000,
+          "max": 20000,
           "rate": 0.014
         },
         {
-          "min": 30000,
-          "max": 200000,
-          "rate": 0.06075
+          "min": 20000,
+          "max": 50000,
+          "rate": 0.0175
         },
         {
-          "min": 200000,
+          "min": 50000,
+          "max": 70000,
+          "rate": 0.0245
+        },
+        {
+          "min": 70000,
+          "max": 80000,
+          "rate": 0.035
+        },
+        {
+          "min": 80000,
+          "max": 150000,
+          "rate": 0.0553
+        },
+        {
+          "min": 150000,
+          "max": 500000,
+          "rate": 0.0637
+        },
+        {
+          "min": 500000,
+          "max": 1000000,
+          "rate": 0.0897
+        },
+        {
+          "min": 1000000,
           "max": null,
           "rate": 0.1075
         }
@@ -57,16 +105,41 @@
       "mfs": [
         {
           "min": 0,
-          "max": 15000,
+          "max": 10000,
           "rate": 0.014
         },
         {
-          "min": 15000,
-          "max": 100000,
-          "rate": 0.06075
+          "min": 10000,
+          "max": 25000,
+          "rate": 0.0175
         },
         {
-          "min": 100000,
+          "min": 25000,
+          "max": 35000,
+          "rate": 0.0245
+        },
+        {
+          "min": 35000,
+          "max": 40000,
+          "rate": 0.035
+        },
+        {
+          "min": 40000,
+          "max": 75000,
+          "rate": 0.0553
+        },
+        {
+          "min": 75000,
+          "max": 250000,
+          "rate": 0.0637
+        },
+        {
+          "min": 250000,
+          "max": 500000,
+          "rate": 0.0897
+        },
+        {
+          "min": 500000,
           "max": null,
           "rate": 0.1075
         }
@@ -74,16 +147,36 @@
       "hoh": [
         {
           "min": 0,
-          "max": 22500,
+          "max": 20000,
           "rate": 0.014
         },
         {
-          "min": 22500,
-          "max": 150000,
-          "rate": 0.06075
+          "min": 20000,
+          "max": 35000,
+          "rate": 0.0175
         },
         {
-          "min": 150000,
+          "min": 35000,
+          "max": 40000,
+          "rate": 0.035
+        },
+        {
+          "min": 40000,
+          "max": 75000,
+          "rate": 0.0553
+        },
+        {
+          "min": 75000,
+          "max": 500000,
+          "rate": 0.0637
+        },
+        {
+          "min": 500000,
+          "max": 1000000,
+          "rate": 0.0897
+        },
+        {
+          "min": 1000000,
           "max": null,
           "rate": 0.1075
         }

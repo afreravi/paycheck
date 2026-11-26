@@ -18,11 +18,15 @@
         "social_security": 178.85,
         "medicare": 41.83,
         "additional_medicare": 0.0,
-        "state_income_tax": 155.53,
-        "net_per_period": 2213.41,
-        "effective_rate": 0.2327
+        "state_income_tax": 113.11,
+        "net_per_period": 2255.83,
+        "effective_rate": 0.218
       },
-      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference over the same tax-data JSON" }
+      "verified": {
+        "by": "independent recalculation",
+        "date": "2026-11-26",
+        "method": "separate Python reference over the Tax Foundation-sourced 2026 CA schedule, run when the state data moved from approximation to transcribed brackets"
+      }
     },
     {
       "id": "fed-single-75000-tx-2026",
@@ -45,7 +49,11 @@
         "net_per_period": 2368.94,
         "effective_rate": 0.1788
       },
-      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+      "verified": {
+        "by": "independent reference implementation",
+        "date": "2026-10-02",
+        "method": "separate Python reference"
+      }
     },
     {
       "id": "fed-single-40000-ca-monthly-2026",
@@ -64,11 +72,15 @@
         "social_security": 206.67,
         "medicare": 48.33,
         "additional_medicare": 0.0,
-        "state_income_tax": 128.45,
-        "net_per_period": 2731.55,
-        "effective_rate": 0.1805
+        "state_income_tax": 61.86,
+        "net_per_period": 2798.14,
+        "effective_rate": 0.1606
       },
-      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+      "verified": {
+        "by": "independent recalculation",
+        "date": "2026-11-26",
+        "method": "separate Python reference over the Tax Foundation-sourced 2026 CA schedule, run when the state data moved from approximation to transcribed brackets"
+      }
     },
     {
       "id": "fed-mfj-150000-ca-biweekly-2026",
@@ -87,15 +99,19 @@
         "social_security": 357.69,
         "medicare": 83.65,
         "additional_medicare": 0.0,
-        "state_income_tax": 311.07,
-        "net_per_period": 4426.82,
-        "effective_rate": 0.2327
+        "state_income_tax": 226.22,
+        "net_per_period": 4511.67,
+        "effective_rate": 0.218
       },
-      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+      "verified": {
+        "by": "independent recalculation",
+        "date": "2026-11-26",
+        "method": "separate Python reference over the Tax Foundation-sourced 2026 CA schedule, run when the state data moved from approximation to transcribed brackets"
+      }
     },
     {
       "id": "fed-single-200000-tx-biweekly-2026",
-      "description": "Single, $200k, biweekly, Texas — Additional Medicare threshold boundary",
+      "description": "Single, $200k, biweekly, Texas \u2014 Additional Medicare threshold boundary",
       "tax_year": 2026,
       "inputs": {
         "pay_type": "salary",
@@ -114,7 +130,11 @@
         "net_per_period": 5727.96,
         "effective_rate": 0.2554
       },
-      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+      "verified": {
+        "by": "independent reference implementation",
+        "date": "2026-10-02",
+        "method": "separate Python reference"
+      }
     },
     {
       "id": "fed-single-30000-ca-weekly-2026",
@@ -133,11 +153,15 @@
         "social_security": 35.77,
         "medicare": 8.37,
         "additional_medicare": 0.0,
-        "state_income_tax": 15.89,
-        "net_per_period": 489.59,
-        "effective_rate": 0.1514
+        "state_income_tax": 7.28,
+        "net_per_period": 498.19,
+        "effective_rate": 0.1365
       },
-      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+      "verified": {
+        "by": "independent recalculation",
+        "date": "2026-11-26",
+        "method": "separate Python reference over the Tax Foundation-sourced 2026 CA schedule, run when the state data moved from approximation to transcribed brackets"
+      }
     },
     {
       "id": "fed-single-75000-ca-biweekly-2025",
@@ -160,7 +184,11 @@
         "net_per_period": 2196.33,
         "effective_rate": 0.2386
       },
-      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+      "verified": {
+        "by": "independent reference implementation",
+        "date": "2026-10-02",
+        "method": "separate Python reference"
+      }
     },
     {
       "id": "deduction-401k-75000-ca-biweekly-2026",
@@ -188,16 +216,20 @@
         "social_security": 147.85,
         "medicare": 34.58,
         "additional_medicare": 0.0,
-        "state_income_tax": 119.78,
+        "state_income_tax": 73.94,
         "pre_tax_deductions": 500.0,
-        "net_per_period": 1880.1,
-        "effective_rate": 0.1749
+        "net_per_period": 1925.94,
+        "effective_rate": 0.159
       },
-      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "separate Python reference" }
+      "verified": {
+        "by": "independent recalculation",
+        "date": "2026-11-26",
+        "method": "separate Python reference over the Tax Foundation-sourced 2026 CA schedule, run when the state data moved from approximation to transcribed brackets"
+      }
     },
     {
       "id": "hourly-25-45h-tx-biweekly-2026",
-      "description": "Hourly $25, 45 hrs/week, biweekly, Texas — 40 regular + 5 overtime @1.5x",
+      "description": "Hourly $25, 45 hrs/week, biweekly, Texas \u2014 40 regular + 5 overtime @1.5x",
       "tax_year": 2026,
       "inputs": {
         "pay_type": "hourly",
@@ -214,11 +246,15 @@
         "additional_medicare": 0.0,
         "state_income_tax": 0.0
       },
-      "verified": { "by": "independent reference implementation", "date": "2026-10-02", "method": "gross = (40*25 + 5*25*1.5) = 1187.50; tax lines covered by other fixtures" }
+      "verified": {
+        "by": "independent reference implementation",
+        "date": "2026-10-02",
+        "method": "gross = (40*25 + 5*25*1.5) = 1187.50; tax lines covered by other fixtures"
+      }
     },
     {
       "id": "edge-zero-salary-tx-2026",
-      "description": "Zero salary — must not throw or produce negative/NaN",
+      "description": "Zero salary \u2014 must not throw or produce negative/NaN",
       "tax_year": 2026,
       "inputs": {
         "pay_type": "salary",
@@ -237,7 +273,11 @@
         "net_per_period": 0.0,
         "effective_rate": 0.0
       },
-      "verified": { "by": "edge-case reasoning", "date": "2026-10-02", "method": "trivial identity" }
+      "verified": {
+        "by": "edge-case reasoning",
+        "date": "2026-10-02",
+        "method": "trivial identity"
+      }
     }
   ]
 }
