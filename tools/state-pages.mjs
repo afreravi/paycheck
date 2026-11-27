@@ -5640,6 +5640,118 @@ export const STATE_PAGES = [
       { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
     ],
   },
+  {
+    code: "US-DC",
+    abbr: "dc",
+    slug: "district-of-columbia",
+    name: "District of Columbia",
+    example: { salary: 95000, pay_frequency: "biweekly", filing_status: "single", tax_year: 2026 },
+
+    // Unique per-state copy. Checked against D.C. Code § 47-1806.03(a)(11)
+    // (seven bands, 4% to 10.75%), the Office of Tax and Revenue's published
+    // rate table, § 47-1801.04 (basic standard deduction of $15,000 for a single
+    // filer in 2025, indexed after), and § 32-541.03 (Universal Paid Leave
+    // financed by a 0.75% employer contribution, not employee withholding).
+    hasIncomeTax: true,
+    title: "District of Columbia Paycheck Calculator - After DC Income Tax",
+    description:
+      "Free DC paycheck calculator. Estimate take-home pay after District of Columbia income tax of 4% to 10.75%, federal income tax, Social Security, and Medicare for 2026.",
+    intro:
+      "Figure out what a District of Columbia paycheck keeps after tax. The District runs " +
+      "its own seven-band income tax from 4% up to 10.75%, and because the DC government " +
+      "is the only local layer there is no county or municipal rate stacked on top. Put in " +
+      "an annual salary and a pay frequency to see one period&rsquo;s net pay, with the DC, " +
+      "federal, and FICA lines shown separately.",
+    keyHeading: "Does the District of Columbia have an income tax?",
+    keyParagraphs: [
+      "Yes, and the District collects it itself rather than through a state. Subsection " +
+        "47-1806.03(a)(11) of the D.C. Code sets seven bands for tax years beginning after " +
+        "2021: 4% on taxable income up to $10,000, then 6% to $40,000, 6.5% to $60,000, 8.5% " +
+        "to $250,000, 9.25% to $500,000, 9.75% to $1 million, and 10.75% above $1 million. " +
+        "The Office of Tax and Revenue prints the same table and treats you as taxable in " +
+        "the District if you were domiciled there at any point in the year or kept an abode " +
+        "there for 183 days or more.",
+      "Two things make the District unlike a state of the same size. There is no county or " +
+        "city government underneath it, so the rate above is the entire local income tax and " +
+        "nothing else is withheld where you live. And the table is written once, for " +
+        "individuals, without a doubled version for couples: a joint return pushes the " +
+        "couple&rsquo;s combined taxable income through the same dollar steps, so a married " +
+        "pair reaches the 8.5% band at the same $60,000 a single filer does. Spouses who file " +
+        "separate returns are each taxed as a single person under subsection (e).",
+      "This page applies the seven published bands and subtracts a standard deduction, then " +
+        "stops: no DC credits, no itemised deductions, no additional Medicare surtax beyond " +
+        "the federal one. The 2026 data file behind the page carries a $16,100 deduction for " +
+        "a single filer, while § 47-1801.04 sets the basic standard deduction at $15,000 for " +
+        "2025 and indexes it afterwards, so the model&rsquo;s figure is in the same range but " +
+        "not the same number. Read the DC line as an estimate and use the D-40 instructions " +
+        "for the figure that goes on a return.",
+    ],
+    calcSteps: [
+      "<strong>Annualise the pay.</strong> Salary divided by the number of paydays in the frequency you chose, or an hourly rate times hours, with overtime paid at time and a half and folded into the same gross figure.",
+      "<strong>Take out pre-tax benefits.</strong> Traditional 401(k) or 403(b) deferrals, HSA deposits, and Section 125 health premiums leave the wage base before either the District or the IRS charges income tax on it.",
+      "<strong>Apply the District&rsquo;s bands.</strong> The standard deduction comes off first, then 4% takes the first $10,000 of what remains, 6% the next $30,000, 6.5% the next $20,000, and 8.5% everything from $60,000 to $250,000. The 9.25%, 9.75%, and 10.75% bands only matter above those incomes.",
+      "<strong>Apply the federal bands.</strong> The federal standard deduction for the filing status, then the marginal brackets, each charging only the slice of income that lands inside it.",
+      "<strong>Add FICA.</strong> 6.2% for Social Security up to the annual wage base, 1.45% for Medicare on all wages, and the extra 0.9% Medicare rate once earnings pass the high-earner threshold.",
+      "<strong>Subtract nothing for disability or leave.</strong> The District has no disability insurance payroll tax, and Universal Paid Leave is funded by an employer contribution of 0.75% of wages under § 32-541.03 rather than by withholding from the employee. Neither appears on a DC stub, and neither is subtracted here.",
+    ],
+    compareParagraphs: [
+      "The District charges more than either neighbour at the top. Maryland&rsquo;s state rate " +
+        "tops out at 5.75% and Virginia&rsquo;s at 5.75%, and each adds a local layer &mdash; " +
+        "Maryland&rsquo;s counties up to 3.2%, Virginia&rsquo;s cities and counties up to 1%. " +
+        "Even the highest Maryland combination, 8.95%, is only about where DC already sits at " +
+        "$60,000 of taxable income, and the District&rsquo;s 9.25% and 10.75% bands have no " +
+        "counterpart in either state. A DC salary and a suburban salary of the same size " +
+        "therefore do not net the same amount.",
+      "Relief exists in one direction. A District resident who pays income tax to another " +
+        "jurisdiction on income taxed by both can claim a credit against the DC tax under " +
+        "§ 47-1806.04(a), capped at the DC tax attributable to that income, and Virginia and " +
+        "Maryland extend credit or reciprocity in the other direction. What none of the three " +
+        "withholds is a disability premium, so the only local deduction on a DC stub is the " +
+        "income tax line itself.",
+    ],
+    faqs: [
+      {
+        q: "Does the District of Columbia have an income tax?",
+        a: "Yes. D.C. Code § 47-1806.03(a)(11) taxes individual income in seven bands: 4% up to $10,000 of taxable income, 6% to $40,000, 6.5% to $60,000, 8.5% to $250,000, 9.25% to $500,000, 9.75% to $1 million, and 10.75% above $1 million. The Office of Tax and Revenue publishes the same schedule.",
+      },
+      {
+        q: "How much is taken out of a $95,000 salary in the District of Columbia?",
+        a: "For 2026, a single filer paid biweekly takes home about $2,713.69 per paycheck from a $95,000 salary: $3,653.85 gross, $464.23 federal income tax, $226.54 Social Security, $52.98 Medicare, and $196.40 DC income tax. That is $70,556.00 a year, an effective rate of about 25.7%.",
+      },
+      {
+        q: "What is the top DC income tax rate?",
+        a: "10.75%, charged on taxable income above $1 million. Below that the top bands are 9.75% from $500,000 to $1 million and 9.25% from $250,000 to $500,000. The 8.5% rate that most middle and upper-middle earners meet starts at $60,000 of taxable income for every filing status.",
+      },
+      {
+        q: "Does DC withhold disability insurance or paid family leave from a paycheck?",
+        a: "No. The District has no disability insurance payroll tax, and its Universal Paid Leave program is financed by a 0.75% contribution from covered employers under D.C. Code § 32-541.03, not by withholding from employees. This calculator subtracts no SDI and no paid leave premium, because a DC employee owes neither.",
+      },
+      {
+        q: "Do DC's tax brackets double for a married couple?",
+        a: "No. The District applies one rate table to a joint return's combined taxable income, so the $60,000 step into the 8.5% band falls at the same dollar amount for a couple as for a single filer. Two spouses living together who file separate returns are each treated as a single person under § 47-1806.03(e).",
+      },
+      {
+        q: "What standard deduction does the District allow?",
+        a: "Under § 47-1801.04 the basic standard deduction for 2025 is $15,000 for a single filer or a married person filing separately, $22,500 for a head of household, and $30,000 for a married couple filing jointly, with a cost-of-living adjustment for tax years beginning after 2025. The 2026 data used here applies $16,100 for a single filer, so this page's DC line runs slightly below a return claiming the statutory deduction.",
+      },
+      {
+        q: "What form does a DC employee file for withholding?",
+        a: "Form D-4, the Employee's District of Columbia Withholding Allowance Certificate, which the employee gives to the employer rather than to the Office of Tax and Revenue. A nonresident claiming exemption from DC withholding on wages files Form D-4A instead. Both are separate from the federal Form W-4.",
+      },
+      {
+        q: "Is there a county or city income tax on top of the DC rate?",
+        a: "No. The District government is the only local jurisdiction between the federal government and a DC address, so there is no county, city, or school-district income tax to add. Neighbouring Maryland and Virginia residents do face a local layer, which is one reason a DC stub and a suburban stub differ even at the same state rate.",
+      },
+    ],
+    sources: [
+      { label: "DC Office of Tax and Revenue — DC Individual and Fiduciary Income Tax Rates", url: "https://otr.cfo.dc.gov/page/dc-individual-and-fiduciary-income-tax-rates" },
+      { label: "D.C. Code § 47-1806.03 — Tax on residents and nonresidents: imposition and rates", url: "https://code.dccouncil.gov/us/dc/council/code/sections/47-1806.03" },
+      { label: "D.C. Code § 47-1801.04 — Definitions (basic standard deduction)", url: "https://code.dccouncil.gov/us/dc/council/code/sections/47-1801.04" },
+      { label: "D.C. Code § 32-541.03 — Contributions to the Universal Paid Leave Fund", url: "https://code.dccouncil.gov/us/dc/council/code/sections/32-541.03" },
+      { label: "DC Office of Tax and Revenue — Withholding Tax (Forms D-4 and D-4A)", url: "https://otr.cfo.dc.gov/page/withholding-tax-forms" },
+      { label: "IRS Publication 15 (Circular E)", url: "https://www.irs.gov/publications/p15" },
+    ],
+  },
 ];
 
 const money = (n) =>
