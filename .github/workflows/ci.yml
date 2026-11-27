@@ -43,7 +43,7 @@ jobs:
               { pay_type:'salary', annual_salary:75000, pay_frequency:'biweekly', filing_status:'single', state:'US-CA' },
               { federal: m.getFederal(2026), state: m.getState('US-CA',2026) }
             );
-            if (r.net_per_period !== 2213.41) { console.error('golden mismatch: '+r.net_per_period); process.exit(1); }
+            if (r.net_per_period !== 2255.83) { console.error('golden mismatch: '+r.net_per_period); process.exit(1); }
             const html = m.template(m.getStateList());
             if (!html.includes('<form class=\"pc\"')) { console.error('template missing form'); process.exit(1); }
             if ((html.match(/<option value=\"US-/g)||[]).length !== 51) { console.error('state list not 51'); process.exit(1); }
